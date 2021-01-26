@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_auto_create_lot_product_supplier_date_eco
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-05 09:17+0000\n"
+"PO-Revision-Date: 2021-02-05 10:52+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model,name:stock_picking_auto_create_lot_product_supplier_date_eco.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: code:addons/stock_picking_auto_create_lot_product_supplier_date_eco/models/stock_picking.py:0
+#, python-format
+msgid "Error when trying to autolot: Cannot find the internal reference of partner."
+msgstr "Error al intentar generar lote automáticamente: No se puede encontrar la referencia interna del proveedor."
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: code:addons/stock_picking_auto_create_lot_product_supplier_date_eco/models/stock_picking.py:0
+#, python-format
+msgid "Error when trying to autolot: Cannot find the internal reference of product %s"
+msgstr "Error al intentar generar lote automáticamente: No se puede encontrar la referencia interna del producto %s"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: code:addons/stock_picking_auto_create_lot_product_supplier_date_eco/models/stock_picking.py:0
+#, python-format
+msgid "Error when trying to autolot: Cannot find the partner."
+msgstr "Error al intentar generar lote automáticamente: No se puede encontrar el proveedor."
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_product_product__exception_eco_partner_ids
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_product_template__exception_eco_partner_ids
+msgid "Exception ECO Productors"
+msgstr "Proveedores sin certificado ECO"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_res_partner__exception_eco_product_ids
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_res_users__exception_eco_product_ids
+msgid "Exception ECO Products"
+msgstr "Productos sin certificado ECO"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_product_product__exception_eco_partner_count
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_product_template__exception_eco_partner_count
+msgid "Exception Eco Partner Count"
+msgstr "Número de Proveedores sin certificado ECO"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_res_partner__exception_eco_product_readonly
+#: model:ir.model.fields,field_description:stock_picking_auto_create_lot_product_supplier_date_eco.field_res_users__exception_eco_product_readonly
+msgid "Exception Eco Product Readonly"
+msgstr "Proveedores sin certificado ECO solo lectura"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model,name:stock_picking_auto_create_lot_product_supplier_date_eco.model_product_template
+msgid "Product Template"
+msgstr "Producto"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model:ir.model,name:stock_picking_auto_create_lot_product_supplier_date_eco.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model_terms:ir.ui.view,arch_db:stock_picking_auto_create_lot_product_supplier_date_eco.view_product_template_search_view
+msgid "With ECO Productors Exception"
+msgstr "Con Proveedores sin certif. ECO"
+
+#. module: stock_picking_auto_create_lot_product_supplier_date_eco
+#: model_terms:ir.ui.view,arch_db:stock_picking_auto_create_lot_product_supplier_date_eco.view_product_template_search_view
+msgid "Without ECO Productors Exception"
+msgstr "Sin Proveedores sin certif. ECO"
