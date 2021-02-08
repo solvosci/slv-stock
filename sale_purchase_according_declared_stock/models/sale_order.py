@@ -6,6 +6,7 @@ from dateutil.relativedelta import relativedelta
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.tools import float_compare
+from datetime import datetime
 
 
 class SaleOrder(models.Model):
@@ -21,76 +22,34 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    @api.model_create_multi
-    def create(self, values):
-        lines = super(SaleOrderLine, self).create(values)
-        # Do not generate purchase when expense SO line since the product is already delivered
-        lines.filtered(
-            lambda line: line.state == 'sale' and not line.is_expense
-        )._purchase_distribution_generation()
-        return lines
-
-    def write(self, values):
-        increased_lines = None
-        decreased_lines = None
-        increased_values = {}
-        decreased_values = {}
-        if 'product_uom_qty' in values:
-            precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
-            increased_lines = self.sudo().filtered(lambda r: r.purchase_line_count and float_compare(r.product_uom_qty, values['product_uom_qty'], precision_digits=precision) == -1)
-            decreased_lines = self.sudo().filtered(lambda r: r.purchase_line_count and float_compare(r.product_uom_qty, values['product_uom_qty'], precision_digits=precision) == 1)
-            increased_values = {line.id: line.product_uom_qty for line in increased_lines}
-            decreased_values = {line.id: line.product_uom_qty for line in decreased_lines}
-
-        result = super(SaleOrderLine, self).write(values)
-
-        if increased_lines:
-            increased_lines._purchase_increase_ordered_qty(values['product_uom_qty'], increased_values)
-        if decreased_lines:
-            decreased_lines._purchase_decrease_ordered_qty(values['product_uom_qty'], decreased_values)
-        return result
-
-    def _purchase_increase_ordered_qty(self, new_qty, origin_values):
-        """ Increase the quantity on the related purchase lines
-            :param new_qty: new quantity (higher than the current one on SO line), expressed
-                in UoM of SO line.
-            :param origin_values: map from sale line id to old value for the ordered quantity (dict)
-        """
-        for line in self:
-            last_purchase_line = self.env['purchase.order.line'].search([('sale_line_id', '=', line.id)], order='create_date DESC', limit=1)
-            if last_purchase_line.state in ['draft', 'sent', 'to approve']:  # update qty for draft PO lines
-                quantity = line.product_uom._compute_quantity(new_qty, last_purchase_line.product_uom)
-                last_purchase_line.write({'product_qty': quantity})
-            elif last_purchase_line.state in ['purchase', 'done', 'cancel']:  # create new PO, by forcing the quantity as the difference from SO line
-                quantity = line.product_uom._compute_quantity(new_qty - origin_values.get(line.id, 0.0), last_purchase_line.product_uom)
-                line._purchase_distribution_generation(quantity=quantity)
-
-    def _purchase_distribution_prepare_order_values(self, supplierinfo):
+    def _purchase_distribution_prepare_order_values(self, supplier):
         """ Returns the values to create the purchase order from the current SO line.
             :param supplierinfo: record of product.supplierinfo
             :rtype: dict
         """
         self.ensure_one()
-        partner_supplier = supplierinfo.name
-        fiscal_position_id = self.env['account.fiscal.position'].sudo().get_fiscal_position(partner_supplier.id)
-        date_order = self._purchase_get_date_order(supplierinfo)
+        fiscal_position = self.env['account.fiscal.position']
+        fpos = fiscal_position.sudo().get_fiscal_position(supplier.id)
+        payment_term_id = supplier.property_supplier_payment_term_id.id
+        currency_id = supplier.property_purchase_currency_id.id \
+                      or self.env.company.currency_id.id
         return {
-            'partner_id': partner_supplier.id,
-            'partner_ref': partner_supplier.ref,
+            'partner_id': supplier.id,
+            'partner_ref': supplier.ref,
             'company_id': self.company_id.id,
-            'currency_id': partner_supplier.property_purchase_currency_id.id or self.env.company.currency_id.id,
-            'dest_address_id': False, # False since only supported in stock
+            'currency_id': currency_id,
             'origin': self.order_id.name,
-            'payment_term_id': partner_supplier.property_supplier_payment_term_id.id,
-            'date_order': date_order,
-            'fiscal_position_id': fiscal_position_id,
+            'payment_term_id': payment_term_id,
+            'date_order': datetime.today(),
+            'fiscal_position_id': fpos,
         }
 
-    def _purchase_distribution_prepare_line_values(self, purchase_order, supplierinfo=False, quantity=False):
-        """ Returns the values to create the purchase order line from the current SO line.
-            :param purchase_order: record of purchase.order
+    def _purchase_distribution_prepare_line_values(
+            self, po, supplierinfo=False, quantity=False):
+        """ Returns the values to create the PO line from the current SO line.
+            :param po: record of purchase.order
             :rtype: dict
-            :param quantity: the quantity to force on the PO line, expressed in SO line UoM
+            :param quantity: the quantity to force on the PO line
         """
         self.ensure_one()
         # compute quantity from SO line UoM
@@ -98,119 +57,172 @@ class SaleOrderLine(models.Model):
         if quantity:
             product_quantity = quantity
 
-        purchase_qty_uom = self.product_uom._compute_quantity(product_quantity, self.product_id.uom_po_id)
+        purchase_qty_uom = self.product_uom._compute_quantity(
+            product_quantity, self.product_id.uom_po_id)
 
-        fpos = purchase_order.fiscal_position_id
-        taxes = fpos.map_tax(self.product_id.supplier_taxes_id) if fpos else self.product_id.supplier_taxes_id
-        if taxes:
-            taxes = taxes.filtered(lambda t: t.company_id.id == self.company_id.id)
+        fpos = po.fiscal_position_id
+        tax = fpos.map_tax(self.product_id.supplier_taxes_id) \
+            if fpos else self.product_id.supplier_taxes_id
+        if tax:
+            tax = tax.filtered(lambda t: t.company_id.id == self.company_id.id)
 
-        # compute unit price
-        price_unit = 0.0
-        if supplierinfo:
-            price_unit = self.env['account.tax'].sudo()._fix_tax_included_price_company(supplierinfo.price, self.product_id.supplier_taxes_id, taxes, self.company_id)
-            if purchase_order.currency_id and supplierinfo.currency_id != purchase_order.currency_id:
-                price_unit = supplierinfo.currency_id.compute(price_unit, purchase_order.currency_id)
-
-        # purchase line description in supplier lang
-        product_in_supplier_lang = self.product_id.with_context(
-            lang=supplierinfo.name.lang,
-            partner_id=supplierinfo.name.id,
+        price = 0.0
+        seller = self.product_id._select_seller(
+            partner_id=po.partner_id,
+            quantity=purchase_qty_uom,
+            date=po.date_order and po.date_order.date(),
+            uom_id=self.product_id.uom_po_id
         )
-        name = '[%s] %s' % (self.product_id.default_code, product_in_supplier_lang.display_name)
-        if product_in_supplier_lang.description_purchase:
-            name += '\n' + product_in_supplier_lang.description_purchase
+        if seller:
+            account_tax = self.env['account.tax']
+            price = account_tax.sudo()._fix_tax_included_price_company(
+                seller.price,
+                self.product_id.supplier_taxes_id,
+                tax,
+                self.company_id)
+            if po.currency_id and seller.currency_id != po.currency_id:
+                price = seller.currency_id.compute(price,po.currency_id)
 
         return {
-            'name': '[%s] %s' % (self.product_id.default_code, self.name) if self.product_id.default_code else self.name,
+            'name': '[%s] %s' %
+                    (self.product_id.default_code, self.product_id.name)
+                    if self.product_id.default_code else self.name,
             'product_qty': purchase_qty_uom,
             'product_id': self.product_id.id,
             'product_uom': self.product_id.uom_po_id.id,
-            'price_unit': price_unit,
-            'date_planned': fields.Date.from_string(purchase_order.date_order) + relativedelta(days=int(supplierinfo.delay)),
-            'taxes_id': [(6, 0, taxes.ids)],
-            'order_id': purchase_order.id,
+            'price_unit': price,
+            'date_planned': fields.Date.from_string(po.date_order)
+                            + relativedelta(days=int(seller.delay)),
+            'taxes_id': [(6, 0, tax.ids)],
+            'order_id': po.id,
             'sale_line_id': self.id,
         }
 
-    def _select_distribution_seller(self, quantity=0.0, uom_id=False, params=False):
+    def _select_distribution_seller(self):
         self.ensure_one()
-        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
 
-        res = self.env['res.partner']
-        sellers = self.env['res.partner'].search([('property_stock_supplier.id', '!=', False)])
-        if self.env.context.get('force_company'):
-            sellers = sellers.filtered(lambda s: not s.company_id or s.company_id.id == self.env.context['force_company'])
+        res = []
+        sellers = self.env['res.partner'].search([
+            ('property_stock_supplier.usage', '=', 'internal')
+        ])
         for seller in sellers:
-
-            available_qty = self.env['stock.quant']._get_available_quantity(self.product_id.id,
-                                                            seller.property_stock_supplier)
+            stock_qty = self.env['stock.quant']._get_available_quantity(
+                self.product_id, seller.property_stock_supplier
+            )
+            obj_purchase = self.env['purchase.order.line'].search([
+                ('order_id.partner_id', '=', seller.id),
+                ('order_id.state', '=', 'draft'),
+                ('product_id', '=', self.product_id.id),
+            ])
+            purchase_qty = sum(item.product_qty for item in obj_purchase)
+            available_qty = stock_qty - purchase_qty
             if not available_qty or available_qty <= 0:
                 continue
-            if not res or res.name == seller.name:
-                res |= seller
-
-        return res[:1]
+            res.append({
+                'seller': seller,
+                'available_qty': available_qty
+            })
+        return res
 
     def _purchase_distribution_create(self, quantity=False):
-        """ On Sales Order confirmation, all lines can create a purchase order line and maybe a purchase order.
-            If a line should create a RFQ, it will check for existing PO. If no one is find, the SO line will create one, then adds
-            a new PO line. The created purchase order line will be linked to the SO line.
-            :param quantity: the quantity to force on the PO line, expressed in SO line UoM
+        """ On Sales Order confirmation,
+            all lines can create purchase order lines and a purchase order.
+            If a line should create a RFQ, it will check for existing PO.
+            If no one is find, SO line will create one, then adds a new PO line.
+            The created purchase order line will be linked to the SO line.
+            :param quantity: the quantity to force on the PO line
         """
         PurchaseOrder = self.env['purchase.order']
+        PurchaseOrderLine = self.env['purchase.order.line']
         supplier_po_map = {}
         sale_line_purchase_map = {}
         for line in self:
             line = line.with_context(force_company=line.company_id.id)
-            # determine vendor of the order (take the first matching company and product)
-            suppliers = line._select_distribution_seller(
-                quantity=line.product_uom_qty, uom_id=line.product_uom)
-            if not suppliers:
-                raise UserError(_("There is no vendor whith stock for this product.") % (line.product_id.display_name,))
-            supplierinfo = suppliers[0]
-            partner_supplier = supplierinfo.name  # yes, this field is not explicit .... it is a res.partner !
+            so_line_qty = line.product_uom_qty
+            stock_move = self.env['stock.move'].search([
+                ('sale_line_id', '=', self.id),
+                ('state', '!=', 'cancel'),
+            ])
+            reserved_qty = sum(item.reserved_availability for item in stock_move)
+            if reserved_qty >= so_line_qty:
+                continue
+            so_line_qty -= reserved_qty
+            # determine vendor of the order
+            suppliers = line._select_distribution_seller()
+            if len(suppliers) == 0:
+                raise UserError(
+                    _("There is no vendor whith stock for product %s")
+                    % (line.product_id.display_name,))
+            total_available_qty = 0
+            for supplier in suppliers:
+                total_available_qty += supplier["available_qty"]
+            if total_available_qty==0 or total_available_qty < so_line_qty:
+                raise UserError(
+                    _("There is not enough stock for product "
+                      "%s (necessary %d, available %d)")
+                    % (line.product_id.display_name, so_line_qty,
+                       total_available_qty))
 
-            # determine (or create) PO
-            purchase_order = supplier_po_map.get(partner_supplier.id)
-            if not purchase_order:
-                purchase_order = PurchaseOrder.search([
-                    ('partner_id', '=', partner_supplier.id),
-                    ('state', '=', 'draft'),
-                    ('company_id', '=', line.company_id.id),
+            for supplier in suppliers:
+                partner_supplier = supplier["seller"]
+
+                # determine (or create) PO
+                purchase_order = supplier_po_map.get(partner_supplier.id)
+                if not purchase_order:
+                    purchase_order = PurchaseOrder.search([
+                        ('partner_id', '=', partner_supplier.id),
+                        ('state', '=', 'draft'),
+                    ], limit=1)
+                if not purchase_order:
+                    values = line._purchase_distribution_prepare_order_values(
+                        partner_supplier
+                    )
+                    purchase_order = PurchaseOrder.create(values)
+                else:  # update origin of existing PO
+                    so_name = line.order_id.name
+                    origins = []
+                    if purchase_order.origin:
+                        origins = purchase_order.origin.split(', ') + origins
+                    if so_name not in origins:
+                        origins += [so_name]
+                        purchase_order.write({
+                            'origin': ', '.join(origins)
+                        })
+                supplier_po_map[partner_supplier.id] = purchase_order
+
+                # determine (or create) PO
+                purchase_line = PurchaseOrderLine.search([
+                    ('order_id', '=', purchase_order.id),
+                    ('product_id', '=', self.product_id.id),
                 ], limit=1)
-            if not purchase_order:
-                values = line._purchase_distribution_prepare_order_values(supplierinfo)
-                purchase_order = PurchaseOrder.create(values)
-            else:  # update origin of existing PO
-                so_name = line.order_id.name
-                origins = []
-                if purchase_order.origin:
-                    origins = purchase_order.origin.split(', ') + origins
-                if so_name not in origins:
-                    origins += [so_name]
-                    purchase_order.write({
-                        'origin': ', '.join(origins)
+                coef = supplier["available_qty"]/total_available_qty
+                po_line_qty = so_line_qty * coef
+                # add a PO line to the PO
+                if not purchase_line:
+                    values = line._purchase_distribution_prepare_line_values(
+                        purchase_order, partner_supplier, quantity=po_line_qty
+                    )
+                    purchase_line = PurchaseOrderLine.create(values)
+                else:
+                    po_line_qty += purchase_line.product_qty
+                    purchase_line.write({
+                        'product_qty': po_line_qty,
+                        'sale_line_id': self.id,
                     })
-            supplier_po_map[partner_supplier.id] = purchase_order
-
-            # add a PO line to the PO
-            values = line._purchase_distribution_prepare_line_values(purchase_order, partner_supplier, quantity=quantity)
-            purchase_line = line.env['purchase.order.line'].create(values)
-
-            # link the generated purchase to the SO line
-            sale_line_purchase_map.setdefault(line, line.env['purchase.order.line'])
-            sale_line_purchase_map[line] |= purchase_line
-
+                # link the generated purchase to the SO line
+                sale_line_purchase_map.setdefault(
+                    line, line.env['purchase.order.line']
+                )
+                sale_line_purchase_map[line] |= purchase_line
         return sale_line_purchase_map
 
     def _purchase_distribution_generation(self):
-        """ Create a Purchase for the first time from the sale line. If the SO line already created a PO, it
-            will not create a second one.
+        """ Create a Purchase for the first time from the sale line.
+            If SO line already created a PO, it will not create a second one.
         """
         sale_line_purchase_map = {}
         for line in self:
-            # Do not regenerate PO line if the SO line has already created one in the past (SO cancel/reconfirmation case)
+            # Do not regenerate PO line if the SO line has already created
             if not line.purchase_line_count:
                 result = line._purchase_distribution_create()
                 sale_line_purchase_map.update(result)
