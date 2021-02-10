@@ -84,9 +84,9 @@ class SaleOrderLine(models.Model):
                 price = seller.currency_id.compute(price,po.currency_id)
 
         return {
-            'name': '[%s] %s' %
-                    (self.product_id.default_code, self.product_id.name)
-                    if self.product_id.default_code else self.name,
+            'name': '[%s] %s - pedido %s - %s' %
+                    (self.product_id.default_code, self.product_id.name,
+                     self.order_id.name, self.order_id.partner_id.name),
             'product_qty': purchase_qty_uom,
             'product_id': self.product_id.id,
             'product_uom': self.product_id.uom_po_id.id,
@@ -120,7 +120,8 @@ class SaleOrderLine(models.Model):
                 continue
             res.append({
                 'seller': seller,
-                'available_qty': available_qty
+                'available_qty': available_qty,
+                'po_line_qty': 0
             })
         return res
 
@@ -138,15 +139,21 @@ class SaleOrderLine(models.Model):
         sale_line_purchase_map = {}
         for line in self:
             line = line.with_context(force_company=line.company_id.id)
-            so_line_qty = line.product_uom_qty
+            so_line_qty = round(line.product_uom_qty, 1)
+            if float_compare(so_line_qty, line.product_uom_qty,
+                             precision_digits=1) != 0:
+                raise UserError(
+                    _("Quantity ordered in product %s "
+                      "has too many decimal places")
+                    % (line.product_id.display_name,))
             stock_move = self.env['stock.move'].search([
                 ('sale_line_id', '=', self.id),
                 ('state', '!=', 'cancel'),
             ])
-            reserved_qty = sum(item.reserved_availability for item in stock_move)
-            if reserved_qty >= so_line_qty:
+            reserv_qty = sum(item.reserved_availability for item in stock_move)
+            if float_compare(reserv_qty, so_line_qty, precision_digits=1) >= 0:
                 continue
-            so_line_qty -= reserved_qty
+            so_line_qty = round(so_line_qty - reserv_qty, 1)
             # determine vendor of the order
             suppliers = line._select_distribution_seller()
             if len(suppliers) == 0:
@@ -156,12 +163,42 @@ class SaleOrderLine(models.Model):
             total_available_qty = 0
             for supplier in suppliers:
                 total_available_qty += supplier["available_qty"]
-            if total_available_qty==0 or total_available_qty < so_line_qty:
+            if float_compare(so_line_qty,
+                             total_available_qty,
+                             precision_digits=1) > 0:
                 raise UserError(
                     _("There is not enough stock for product "
-                      "%s (necessary %d, available %d)")
+                      "%s (necessary %.1f, available %.1f)")
                     % (line.product_id.display_name, so_line_qty,
                        total_available_qty))
+            #calculate the amount allocated to each supplier
+            total_po_line_qty = 0
+            for supplier in suppliers:
+                coefficient = supplier["available_qty"] / total_available_qty
+                po_line_qty = round(so_line_qty * coefficient, 1)
+                while float_compare(po_line_qty,
+                                    supplier["available_qty"],
+                                    precision_digits=1) > 0:
+                    po_line_qty -= 0.1
+                supplier["po_line_qty"] = po_line_qty
+                total_po_line_qty += po_line_qty
+            diff = float_compare(total_po_line_qty,
+                                 so_line_qty,
+                                 precision_digits=1)
+            if diff != 0:
+                for supplier in suppliers:
+                    diff = float_compare(total_po_line_qty,
+                                         so_line_qty,
+                                         precision_digits=1)
+                    if diff > 0:
+                        supplier["po_line_qty"] -= 0.1
+                        total_po_line_qty -= 0.1
+                    if diff < 0:
+                        if float_compare(supplier["available_qty"],
+                                         supplier["po_line_qty"],
+                                         precision_digits=1) > 0:
+                            supplier["po_line_qty"] += 0.1
+                            total_po_line_qty += 0.1
 
             for supplier in suppliers:
                 partner_supplier = supplier["seller"]
@@ -190,25 +227,13 @@ class SaleOrderLine(models.Model):
                         })
                 supplier_po_map[partner_supplier.id] = purchase_order
 
-                # determine (or create) PO
-                purchase_line = PurchaseOrderLine.search([
-                    ('order_id', '=', purchase_order.id),
-                    ('product_id', '=', self.product_id.id),
-                ], limit=1)
-                coef = supplier["available_qty"]/total_available_qty
-                po_line_qty = so_line_qty * coef
                 # add a PO line to the PO
-                if not purchase_line:
-                    values = line._purchase_distribution_prepare_line_values(
-                        purchase_order, partner_supplier, quantity=po_line_qty
-                    )
-                    purchase_line = PurchaseOrderLine.create(values)
-                else:
-                    po_line_qty += purchase_line.product_qty
-                    purchase_line.write({
-                        'product_qty': po_line_qty,
-                        'sale_line_id': self.id,
-                    })
+                values = line._purchase_distribution_prepare_line_values(
+                    purchase_order, partner_supplier,
+                    quantity=supplier["po_line_qty"]
+                )
+                purchase_line = PurchaseOrderLine.create(values)
+
                 # link the generated purchase to the SO line
                 sale_line_purchase_map.setdefault(
                     line, line.env['purchase.order.line']

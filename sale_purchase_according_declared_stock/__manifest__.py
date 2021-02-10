@@ -3,7 +3,8 @@
 {
     "name": "Sale Purchase according declared stock",
     "summary": """
-        Sale based on declared stock in suppliers warehouses
+        Create purchase orders when confirming sales orders 
+        based on declared stock in suppliers warehouses
     """,
     "author": "Solvos",
     "license": "LGPL-3",
