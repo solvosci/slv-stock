@@ -13,9 +13,10 @@
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
         "stock",
-        "sale_purchase"
+        "sale_purchase",
     ],
     "data": [
+        "views/sale_order_views.xml",
     ],
     'installable': True,
 }

@@ -12,8 +12,22 @@ from datetime import datetime
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    picking_status = fields.Text(string='Picking Status'
+                                 , compute='_compute_picking_status'
+                                 , store=True)
+
+    @api.depends('picking_ids')
+    def _compute_picking_status(self):
+        # maybe you want to buy:  https://apps.odoo.com/apps/modules/13.0/cit_sale_delivery_status/
+        for order in self:
+            status_text = []
+            for item in order.picking_ids:
+                if item.state not in status_text:
+                    status_text += [item.state]
+            order.picking_status = ', '.join(status_text)
+
     def _action_confirm(self):
-        result = super(SaleOrder, self)._action_confirm()
+        result = super()._action_confirm()
         for order in self:
             order.order_line.sudo()._purchase_distribution_generation()
         return result
@@ -23,7 +37,7 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     def _purchase_distribution_prepare_order_values(self, supplier):
-        """ Returns the values to create the purchase order from the current SO line.
+        """ Returns values to create purchase order from the current SO line.
             :param supplierinfo: record of product.supplierinfo
             :rtype: dict
         """
@@ -53,9 +67,7 @@ class SaleOrderLine(models.Model):
         """
         self.ensure_one()
         # compute quantity from SO line UoM
-        product_quantity = self.product_uom_qty
-        if quantity:
-            product_quantity = quantity
+        product_quantity = quantity or self.product_uom_qty
 
         purchase_qty_uom = self.product_uom._compute_quantity(
             product_quantity, self.product_id.uom_po_id)
@@ -83,19 +95,28 @@ class SaleOrderLine(models.Model):
             if po.currency_id and seller.currency_id != po.currency_id:
                 price = seller.currency_id.compute(price,po.currency_id)
 
+        for move in self.move_ids:
+            move.write({
+                'procure_method': 'make_to_order',
+                'state': 'waiting',
+                'delay_alert': False,
+            })
+
         return {
-            'name': '[%s] %s - pedido %s - %s' %
+            'name': '[%s] %s - %s %s - %s' %
                     (self.product_id.default_code, self.product_id.name,
+                     _("order"),
                      self.order_id.name, self.order_id.partner_id.name),
             'product_qty': purchase_qty_uom,
             'product_id': self.product_id.id,
             'product_uom': self.product_id.uom_po_id.id,
             'price_unit': price,
-            'date_planned': fields.Date.from_string(po.date_order)
+            'date_planned': po.date_order
                             + relativedelta(days=int(seller.delay)),
             'taxes_id': [(6, 0, tax.ids)],
             'order_id': po.id,
             'sale_line_id': self.id,
+            'move_dest_ids': [(4, x.id) for x in self.move_ids],
         }
 
     def _select_distribution_seller(self):
@@ -114,7 +135,7 @@ class SaleOrderLine(models.Model):
                 ('order_id.state', '=', 'draft'),
                 ('product_id', '=', self.product_id.id),
             ])
-            purchase_qty = sum(item.product_qty for item in obj_purchase)
+            purchase_qty = sum(obj_purchase.mapped("product_qty"))
             available_qty = stock_qty - purchase_qty
             if not available_qty or available_qty <= 0:
                 continue
