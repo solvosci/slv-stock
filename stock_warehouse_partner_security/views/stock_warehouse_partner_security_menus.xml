@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_picking_tree_contact" model="ir.actions.act_window">
+            <field name="name">My Contact Transfers</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain">[('partner_user_id','=',uid)]</field>
+            <field name="context">{
+                    'contact_display': 'partner_address', 
+                    'default_company_id': allowed_company_ids[0],
+                    'create': False,
+                    'hide_partner_tree': True,
+                }</field>
+            <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+        </record>
+
+        <menuitem id="menu_myoperations" name="My Operations"
+              parent="stock.menu_stock_root" sequence="1"
+              groups="group_stock_picking_partner"/>
+
+        <menuitem id="all_picking" name="My Contact Transfers"
+              parent="menu_myoperations" sequence="10"
+              action="action_picking_tree_contact"
+              groups="group_stock_picking_partner"/>
+
+        <menuitem id="menu_valuation" name="My Inventory Report"
+              parent="menu_myoperations" sequence="20"
+              action="stock.action_view_quants"
+              groups="group_stock_picking_partner"/>
+
+    </data>
+</odoo>
