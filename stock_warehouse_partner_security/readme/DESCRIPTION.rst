@@ -1,0 +1,1 @@
+Add a group with reduced permissions for partners in Stock.
