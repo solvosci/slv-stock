@@ -12,13 +12,15 @@ from datetime import datetime
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    picking_status = fields.Text(string='Picking Status'
-                                 , compute='_compute_picking_status'
-                                 , store=True)
+    picking_status = fields.Text(string='Picking Status',
+                                 compute='_compute_picking_status',
+                                 store=True)
 
-    @api.depends('picking_ids')
+    # TODO: check if we have to do something different than what is done in sale_purchase when the sale is canceled or modified
+    @api.depends('picking_ids.state')
     def _compute_picking_status(self):
-        # maybe you want to buy:  https://apps.odoo.com/apps/modules/13.0/cit_sale_delivery_status/
+        # maybe we want to buy:  https://apps.odoo.com/apps/modules/13.0/cit_sale_delivery_status/
+        # TODO: improve status text (with description) instead of with code. would it be enough to see only the status of the last picking_id?
         for order in self:
             status_text = []
             for item in order.picking_ids:
@@ -36,6 +38,8 @@ class SaleOrder(models.Model):
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
+    # TODO: check if we need to do something different than what is done in sale_purchase when modifying a sale line
+    # TODO: we really have to check: _onchange_service_product_uom_qty, _purchase_increase_ordered_qty...¿create? ¿write?
     def _purchase_distribution_prepare_order_values(self, supplier):
         """ Returns values to create purchase order from the current SO line.
             :param supplierinfo: record of product.supplierinfo
@@ -179,7 +183,7 @@ class SaleOrderLine(models.Model):
             suppliers = line._select_distribution_seller()
             if len(suppliers) == 0:
                 raise UserError(
-                    _("There is no vendor whith stock for product %s")
+                    _("There is no vendor with stock for product %s")
                     % (line.product_id.display_name,))
             total_available_qty = 0
             for supplier in suppliers:
