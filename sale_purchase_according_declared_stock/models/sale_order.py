@@ -175,6 +175,7 @@ class SaleOrderLine(models.Model):
                 ('sale_line_id', '=', self.id),
                 ('state', '!=', 'cancel'),
             ])
+            # TODO: See if we are reserving stock that came in for another order!!
             reserv_qty = sum(item.reserved_availability for item in stock_move)
             if float_compare(reserv_qty, so_line_qty, precision_digits=1) >= 0:
                 continue
