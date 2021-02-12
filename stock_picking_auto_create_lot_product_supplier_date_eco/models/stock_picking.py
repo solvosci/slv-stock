@@ -41,10 +41,10 @@ class StockPicking(models.Model):
                 else:
                     raise UserError(_("Error when trying to autolot: "
                                       "Cannot find the partner."))
-                    
+
                 # Current date format YYYYMMDD
                 str_date = datetime.today().strftime('%Y%m%d')
-                
+
                 # Search value of ExceptionEcoProduct
                 eco_partner_ids = line.product_id.exception_eco_partner_ids.ids
                 str_eco = "0" if self.partner_id.id in eco_partner_ids else "1"
@@ -56,9 +56,12 @@ class StockPicking(models.Model):
                 production_lot = self.env["stock.production.lot"].search([
                     ("name", "=", lot_name)
                 ])
-                if production_lot:
-                    line.lot_id=production_lot.id
-                
-                line.lot_name=lot_name
-                
+                if not production_lot:
+                    production_lot = self.env["stock.production.lot"].create({
+                        'name': lot_name,
+                        'product_id': line.product_id.id,
+                        'company_id': line.company_id.id,
+                    })
+                line.lot_id = production_lot.id
+
         return super().button_validate()
