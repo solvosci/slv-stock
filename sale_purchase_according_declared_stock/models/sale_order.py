@@ -70,6 +70,8 @@ class SaleOrderLine(models.Model):
             :param quantity: the quantity to force on the PO line
         """
         self.ensure_one()
+        pd = self.env['decimal.precision'].precision_get(
+            'Product Unit of Measure')
         # compute quantity from SO line UoM
         product_quantity = quantity or self.product_uom_qty
 
@@ -89,14 +91,18 @@ class SaleOrderLine(models.Model):
             date=po.date_order and po.date_order.date(),
             uom_id=self.product_id.uom_po_id
         )
-        if seller:
+        price = seller.price
+        if float_compare(price, 0, precision_digits=pd) == 0:
+            price = self.product_id.standard_price
+        if float_compare(price, 0, precision_digits=pd) != 0:
             account_tax = self.env['account.tax']
             price = account_tax.sudo()._fix_tax_included_price_company(
-                seller.price,
+                price,
                 self.product_id.supplier_taxes_id,
                 tax,
                 self.company_id)
-            if po.currency_id and seller.currency_id != po.currency_id:
+            if seller and po.currency_id \
+                    and seller.currency_id != po.currency_id:
                 price = seller.currency_id.compute(price,po.currency_id)
 
         for move in self.move_ids:
@@ -130,24 +136,58 @@ class SaleOrderLine(models.Model):
         sellers = self.env['res.partner'].search([
             ('property_stock_supplier.usage', '=', 'internal')
         ])
+        # 1.- calculations by warehouse
+        warehouse_data = []
         for seller in sellers:
-            stock_qty = self.env['stock.quant']._get_available_quantity(
-                self.product_id, seller.property_stock_supplier
-            )
             obj_purchase = self.env['purchase.order.line'].search([
                 ('order_id.partner_id', '=', seller.id),
                 ('order_id.state', '=', 'draft'),
                 ('product_id', '=', self.product_id.id),
             ])
             purchase_qty = sum(obj_purchase.mapped("product_qty"))
-            available_qty = stock_qty - purchase_qty
-            if not available_qty or available_qty <= 0:
+            reg_found = False
+            for reg in warehouse_data:
+                if reg['warehouse'] == seller.property_stock_supplier.id:
+                    reg['sharers'] += 1
+                    reg['purchase_qty'] += purchase_qty
+                    reg_found = True
+            if not reg_found:
+                stock_qty = self.env['stock.quant']._get_available_quantity(
+                    self.product_id, seller.property_stock_supplier
+                )
+                warehouse_data.append({
+                    'warehouse': seller.property_stock_supplier.id,
+                    'sharers': 1,
+                    'stock_qty': stock_qty,
+                    'purchase_qty': purchase_qty,
+                    'distributed_qty': 0,
+                })
+        # 2.- calculation by seller: the way to not lose the remains
+        for reg in warehouse_data:
+            available_qty = reg['stock_qty'] - reg['purchase_qty']
+            sharers = reg['sharers']
+            if float_compare(available_qty, 0, precision_digits=1) <= 0:
                 continue
-            res.append({
-                'seller': seller,
-                'available_qty': available_qty,
-                'po_line_qty': 0
-            })
+            shared_number = 0
+            for seller in sellers.filtered(
+                    lambda x: x.property_stock_supplier.id == reg['warehouse']):
+                shared_number += 1
+                seller_qty = available_qty / sharers
+                if shared_number == sharers:
+                    # last shared: keeps with the remains
+                    seller_qty = available_qty - reg['distributed_qty']
+                if float_compare(seller_qty, round(seller_qty, 1),
+                                 precision_digits=1) <= 0:
+                    seller_qty = round(seller_qty, 1)
+                else:
+                    seller_qty = round(seller_qty, 1) - 0.1
+                reg['distributed_qty'] += seller_qty
+                if float_compare(seller_qty, 0, precision_digits=1) > 0:
+                    res.append({
+                        'seller': seller,
+                        'available_qty': seller_qty,
+                        'po_line_qty': 0
+                    })
         return res
 
     def _purchase_distribution_create(self, quantity=False):
@@ -199,14 +239,18 @@ class SaleOrderLine(models.Model):
                        total_available_qty))
             #calculate the amount allocated to each supplier
             total_po_line_qty = 0
-            for supplier in suppliers:
-                coefficient = supplier["available_qty"] / total_available_qty
-                po_line_qty = round(so_line_qty * coefficient, 1)
-                while float_compare(po_line_qty,
-                                    supplier["available_qty"],
-                                    precision_digits=1) > 0:
-                    po_line_qty -= 0.1
+            suppliers_in_distrib = len(suppliers)
+            qty_in_distrib = so_line_qty
+            sort_suppliers = sorted(suppliers, key=lambda x: x['available_qty'])
+            for supplier in sort_suppliers:
+                po_line_qty = round(qty_in_distrib/suppliers_in_distrib, 1)
+                if float_compare(po_line_qty,
+                                 supplier["available_qty"],
+                                 precision_digits=1) > 0:
+                    po_line_qty = round(supplier["available_qty"], 1)
                 supplier["po_line_qty"] = po_line_qty
+                qty_in_distrib -= po_line_qty
+                suppliers_in_distrib -= 1
                 total_po_line_qty += po_line_qty
             diff = float_compare(total_po_line_qty,
                                  so_line_qty,
