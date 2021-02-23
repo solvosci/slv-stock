@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-from odoo.tools import float_compare
+from odoo.tools import float_compare, float_is_zero
 from datetime import datetime
 
 
@@ -271,6 +271,9 @@ class SaleOrderLine(models.Model):
                             total_po_line_qty += 0.1
 
             for supplier in suppliers:
+                if float_is_zero(supplier["po_line_qty"], precision_digits=1):
+                    continue
+
                 partner_supplier = supplier["seller"]
 
                 # determine (or create) PO
