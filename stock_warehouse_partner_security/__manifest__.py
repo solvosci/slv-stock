@@ -1,7 +1,7 @@
 # © 2021 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 {
-    "name": "Stock Picking Security",
+    "name": "Stock Warehouse Partner Security",
     "summary": """
         Add a group with reduced permissions for partners in Stock.
     """,
@@ -14,7 +14,8 @@
         "stock"
     ],
     "data": [
-        "security/stock_security.xml"
+        "security/stock_security.xml",
+        "views/stock_quants.xml",
     ],
     'installable': True,
 }
