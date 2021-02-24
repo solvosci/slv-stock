@@ -1,0 +1,1 @@
+Adds generic structures related to stock picking models.
