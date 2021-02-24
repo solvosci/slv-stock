@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_sale_order_quotation_tree_status_inherit">
+        <field name="name">sale.order.tree.status.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="picking_status" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sale_order_tree_status_inherit">
+        <field name="name">sale.order.tree.status.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="picking_status" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sale_order_tree_groupby_inherit">
+        <field name="name">sale.order.tree.groupby (Picking Status)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//group/filter[@name='order_month']" position="after">
+                <filter string="Picking Status" name="picking_status" 
+                        domain="[]" context="{'group_by': 'picking_status'}"/>
+            </xpath>
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field string="Picking Status" name="picking_status"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

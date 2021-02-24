@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_purchase_order_quotation_tree_status_inherit">
+        <field name="name">purchase.order.tree.status.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="picking_status" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_tree_status_inherit">
+        <field name="name">purchase.order.tree.status.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="picking_status" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_tree_groupby_inherit">
+        <field 
+            name="name">purchase.order.tree.groupby (Picking Status)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/filter[@name='order_date']" position="after">
+                <filter string="Picking Status" name="picking_status" 
+                        domain="[]" context="{'group_by': 'picking_status'}"/>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field string="Picking Status" name="picking_status"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_quotation_tree_groupby_inherit">
+        <field 
+            name="name">purchase.order.tree.groupby (Picking Status)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/filter[@name='order_date']" position="after">
+                <filter string="Picking Status" name="picking_status" 
+                        domain="[]" context="{'group_by': 'picking_status'}"/>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field string="Picking Status" name="picking_status"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
