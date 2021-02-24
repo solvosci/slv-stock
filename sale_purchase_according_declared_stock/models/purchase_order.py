@@ -30,3 +30,11 @@ class PurchaseOrder(models.Model):
                     'company_id': move_line.company_id.id,
                 }])
             p.write({'move_line_nosuggest_ids': move_lines})
+
+
+class PurchaseOrderLine(models.Model):
+    _inherit = 'purchase.order.line'
+
+    move_dest_ids = fields.Many2many('stock.move',
+                                     String='Downstream  Moves',
+                                     copy=False)

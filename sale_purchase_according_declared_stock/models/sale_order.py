@@ -105,7 +105,9 @@ class SaleOrderLine(models.Model):
                     and seller.currency_id != po.currency_id:
                 price = seller.currency_id.compute(price,po.currency_id)
 
-        for move in self.move_ids:
+        moves_rel = self.move_ids.filtered(
+            lambda z: z.state not in ('done', 'cancel'))
+        for move in moves_rel:
             move.write({
                 'procure_method': 'make_to_order',
                 'state': 'waiting',
@@ -126,7 +128,7 @@ class SaleOrderLine(models.Model):
             'taxes_id': [(6, 0, tax.ids)],
             'order_id': po.id,
             'sale_line_id': self.id,
-            'move_dest_ids': [(4, x.id) for x in self.move_ids],
+            'move_dest_ids': [(4, x.id) for x in moves_rel],
         }
 
     def _select_distribution_seller(self):
@@ -175,6 +177,8 @@ class SaleOrderLine(models.Model):
                 seller_qty = available_qty / sharers
                 if shared_number == sharers:
                     # last shared: keeps with the remains
+                    # TODO: See if we can find a way to assign the difference, (in order to equalize ..)
+                    #   to the partner who has the least amount in purchases for that product in the month
                     seller_qty = available_qty - reg['distributed_qty']
                 if float_compare(seller_qty, round(seller_qty, 1),
                                  precision_digits=1) <= 0:
@@ -256,6 +260,9 @@ class SaleOrderLine(models.Model):
                                  so_line_qty,
                                  precision_digits=1)
             if diff != 0:
+                # TODO: See if we can find a way to assign the difference, (in order to equalize ..)
+                #   if it is positive to the partner who has the least amount in purchases for that product in the month
+                #   and if it is negative to the one who has more purchases
                 for supplier in suppliers:
                     diff = float_compare(total_po_line_qty,
                                          so_line_qty,
