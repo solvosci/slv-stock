@@ -12,11 +12,18 @@ class StockPicking(models.Model):
     def _review_intermediate_transfers(self):
         pd = self.env['decimal.precision'].precision_get(
             'Product Unit of Measure')
+        # if there is no reserved moves: nothing to do
+        if len(self.move_line_ids.filtered(
+                lambda x: x.product_id.tracking != "none"
+                and x.product_id.auto_create_lot
+                and x.state not in ('done', 'cancel')
+                and float_is_zero(x.qty_done, precision_digits=pd))) == 0:
+            return []
         # how many is reserved and done by product and lot
         picking_moves = self.move_line_ids.filtered(
             lambda x: x.product_id.tracking != "none"
-                      and x.product_id.auto_create_lot
-                      and x.state not in ('done', 'cancel')).sorted(
+            and x.product_id.auto_create_lot
+            and x.state not in ('done', 'cancel')).sorted(
             key='product_id')
         grouped_by_lot = []
         for move in picking_moves:
@@ -50,6 +57,9 @@ class StockPicking(models.Model):
                    float_is_zero(x['qty_done'], precision_digits=pd),
                    grouped_by_lot)
         )
+        # if there is no reserved moves: nothing to do
+        if len(reserved_lot) == 0:
+            return []
         # 1.- review the lots that have nothing reserved
         for lot in nosuggest_lots:
             qty_done = lot['qty_done']
