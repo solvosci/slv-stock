@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="label_transfer_template_eco_view_pdf">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-set="decimal_precision" t-value="request.env['decimal.precision'].precision_get('Product Unit of Measure')"/>
+                <t t-foreach="docs" t-as="picking">
+                    <t t-foreach="picking.move_lines" t-as="move">
+                        <t t-foreach="move.move_line_ids" t-as="move_line">
+                          <div style="display: inline-table; height: 160px; width: 367px; border: 1px solid black;">
+                            <div class="d-flex">
+                                <div style="display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-align: center; justify-content: center; align-items: center; margin-left: 3px; width: 35%">
+                                    <img t-attf-src="data:image/jpg;base64,{{ move.company_id.logo }}" style="width: 130px"/>
+                                </div>
+                                <div style="width: 65%; padding-left: 6px;" t-if="picking.move_lines">
+                                    <div style="padding-top: 5px;">
+                                        <p class="mb-0" style="font-size: 10px">Product: <t t-esc="move_line.product_id.name"/></p>
+                                        <p class="mb-0" style="font-size: 10px">Var / Cat: <t t-esc="move_line.product_id.categ_id.name[3:]"/></p>
+                                        <p class="mb-0" style="font-size: 10px">Net weight: <t t-esc="move_line.qty_done" t-options='{"widget": "float", "precision": decimal_precision}'/> <span t-field="move_line.product_id.uom_id.name"/></p>
+                                        <p class="mb-0" style="font-size: 10px">Lot: <t t-esc="move_line.lot_id.name"/></p>
+                                        <p class="mb-0" style="font-size: 10px">From: <t t-esc="move_line.company_id.country_id.name"/></p>
+                                    </div>
+                                    <div style="padding-top: 4px; height: 77px;">
+                                        <p class="mb-0" style="font-size: 10px">Address: <t t-esc="move_line.company_id.street"/></p>
+                                        <p class="mb-0" style="font-size: 10px"><t t-esc="move_line.company_id.zip"/> <t t-esc="move_line.company_id.city"/> (<t t-esc="move_line.company_id.state_id.name"/>)</p>
+                                        <p class="mb-0" style="font-size: 10px">Phone: <t t-esc="move_line.company_id.phone"/></p>
+                                        <p class="mb-0" style="font-size: 10px">Email: <t t-esc="move_line.company_id.email"/></p>
+                                        <img t-attf-src="/stock_picking_eco_tag/static/src/img/logo_eco.jpg" style="position: relative; right: -159px; top: -29px; width: 70px"/>
+                                    </div>
+                                </div>    
+                            </div>
+                          </div>
+                        </t>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+    
+    <template id="report_stock_picking_eco_tag">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="stock_picking_eco_tag.label_transfer_template_eco_view_pdf" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

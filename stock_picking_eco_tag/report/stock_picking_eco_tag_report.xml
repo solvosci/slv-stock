@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="action_report_purchase_order"
+            model="stock.picking"
+            string="Print ECO Tags (PDF)"
+            name="stock_picking_eco_tag.report_stock_picking_eco_tag"
+            file="stock_picking_eco_tag.report_stock_picking_eco_tag"
+            report_type="qweb-pdf"
+        />
+    </data>
+</odoo>
