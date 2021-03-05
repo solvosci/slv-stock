@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_stock_report_invoice_snln_document" 
+              inherit_id="sale_stock.sale_stock_report_invoice_document">
+
+        <xpath expr="//table[@name='invoice_snln_table']" position="attributes">
+            <attribute name="style">width: 100%;</attribute>
+        </xpath>
+
+        <xpath expr="//t[@t-set='lot_values']" position="after">
+            <t t-set="decimal_precision" 
+               t-value="request.env['decimal.precision'].precision_get('Product Unit of Measure')"/>
+        </xpath>
+
+        <xpath expr="//t[contains(@t-esc,'quantity')]" position="attributes">
+            <attribute name="t-options">
+                {"widget": "float", "precision": decimal_precision}</attribute>
+        </xpath>
+
+        <xpath expr="//table[@name='invoice_snln_table']/thead/tr/th[last()]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+
+        <xpath expr="//table[@name='invoice_snln_table']/tbody/t/tr/td[last()]" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+
+    </template>
+</odoo>

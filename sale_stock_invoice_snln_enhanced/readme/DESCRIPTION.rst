@@ -1,0 +1,1 @@
+Enhances lot/serial number section of sale invoice report.
