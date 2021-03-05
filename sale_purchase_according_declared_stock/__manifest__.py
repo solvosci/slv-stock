@@ -15,8 +15,5 @@
         "stock",
         "sale_purchase",
     ],
-    "data": [
-        "views/sale_order_views.xml",
-    ],
     'installable': True,
 }

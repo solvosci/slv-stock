@@ -12,22 +12,6 @@ from datetime import datetime
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    picking_status = fields.Text(string='Picking Status',
-                                 compute='_compute_picking_status',
-                                 store=True)
-
-    # TODO: check if we have to do something different than what is done in sale_purchase when the sale is canceled or modified
-    @api.depends('picking_ids.state')
-    def _compute_picking_status(self):
-        # maybe we want to buy:  https://apps.odoo.com/apps/modules/13.0/cit_sale_delivery_status/
-        # TODO: improve status text (with description) instead of with code. would it be enough to see only the status of the last picking_id?
-        for order in self:
-            status_text = []
-            for item in order.picking_ids:
-                if item.state not in status_text:
-                    status_text += [item.state]
-            order.picking_status = ', '.join(status_text)
-
     def _action_confirm(self):
         result = super()._action_confirm()
         for order in self:
