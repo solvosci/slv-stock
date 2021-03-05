@@ -115,9 +115,8 @@ class SaleOrderLine(models.Model):
             })
 
         return {
-            'name': '[%s] %s - %s %s - %s' %
+            'name': '[%s] %s - %s - %s' %
                     (self.product_id.default_code, self.product_id.name,
-                     _("order"),
                      self.order_id.name, self.order_id.partner_id.name),
             'product_qty': purchase_qty_uom,
             'product_id': self.product_id.id,
