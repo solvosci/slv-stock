@@ -50,7 +50,7 @@ class StockMoveLine(models.Model):
             production_lot = self.env["stock.production.lot"].create({
                 'name': lot_name,
                 'product_id': self.product_id.id,
-                'company_id': self.company_id.id,
+                'company_id': self.company_id.id or self.env.company.id,
             })
         return production_lot
 

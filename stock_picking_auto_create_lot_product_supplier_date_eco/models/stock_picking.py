@@ -10,8 +10,7 @@ class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     def _review_intermediate_transfers(self):
-        pd = self.env['decimal.precision'].precision_get(
-            'Product Unit of Measure')
+        pd = 1
         # if there is no reserved moves: nothing to do
         if len(self.move_line_ids.filtered(
                 lambda x: x.product_id.tracking != "none"
@@ -19,14 +18,17 @@ class StockPicking(models.Model):
                 and x.state not in ('done', 'cancel')
                 and float_is_zero(x.qty_done, precision_digits=pd))) == 0:
             return []
-        # how many is reserved and done by product and lot
+        # how many is reserved and done by product and lot in this picking
         picking_moves = self.move_line_ids.filtered(
             lambda x: x.product_id.tracking != "none"
             and x.product_id.auto_create_lot
             and x.state not in ('done', 'cancel')).sorted(
             key='product_id')
         grouped_by_lot = []
+        picking_product_ids = []
         for move in picking_moves:
+            if move.product_id.id not in picking_product_ids:
+                picking_product_ids += [move.product_id.id]
             reg_found = False
             for reg in grouped_by_lot:
                 if reg['product_id'] == move.product_id.id \
@@ -44,6 +46,32 @@ class StockPicking(models.Model):
                     'transfer_qty': [],
                     'lot_dest_id': [],
                 })
+        # add too available stock in location_id
+        # to be able to transfer more than the reserved amount if necessary
+        for prod in picking_product_ids:
+            quants = self.env['stock.quant'].search([
+                ('product_id', '=', prod),
+                ('location_id', '=', self.location_id.id)
+            ])
+            for quant in quants:
+                qty_available = quant['quantity'] - quant['reserved_quantity']
+                if float_compare(qty_available, 0, precision_digits=pd) > 0:
+                    reg_found = False
+                    for reg in grouped_by_lot:
+                        if reg['product_id'] == quant.product_id.id \
+                                and reg['lot_id'] == quant.lot_id.id:
+                            reg['product_qty'] += qty_available
+                            reg_found = True
+                    if not reg_found:
+                        grouped_by_lot.append({
+                            'product_id': quant.product_id.id,
+                            'product_uom_id': quant.product_uom_id.id,
+                            'lot_id': quant.lot_id.id,
+                            'product_qty': qty_available,
+                            'qty_done': 0,
+                            'transfer_qty': [],
+                            'lot_dest_id': [],
+                        })
         # how many is detailed by product and lot
         # and we need to create stock for this lot
         nosuggest_lots = list(
@@ -63,7 +91,7 @@ class StockPicking(models.Model):
         # 1.- review the lots that have nothing reserved
         for lot in nosuggest_lots:
             qty_done = lot['qty_done']
-            qty_avaiable = 0
+            qty_available = 0
             for reg in reserved_lot:
                 if reg['product_id'] == lot['product_id'] \
                         and float_compare(qty_done, 0,
@@ -71,7 +99,7 @@ class StockPicking(models.Model):
                         and float_compare(reg['product_qty'],
                                           sum(reg['transfer_qty']),
                                           precision_digits=pd) > 0:
-                    qty_avaiable += reg['product_qty']
+                    qty_available += reg['product_qty']
                     diff = reg['product_qty'] - sum(reg['transfer_qty'])
                     if float_compare(diff,
                                      qty_done,
@@ -88,7 +116,7 @@ class StockPicking(models.Model):
                 prod = self.env["product.product"].browse(lot['product_id'])
                 raise UserError(_("Not enough stock for product %s"
                                   " (necessary %.1f, available %.1f)")
-                                % (prod.name, lot['qty_done'], qty_avaiable))
+                                % (prod.name, lot['qty_done'], qty_available))
         # return transfer to do
         transfer_lot = list(
             filter(lambda x:
