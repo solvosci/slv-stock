@@ -11,13 +11,6 @@ class StockPicking(models.Model):
 
     def _review_intermediate_transfers(self):
         pd = 1
-        # if there is no reserved moves: nothing to do
-        if len(self.move_line_ids.filtered(
-                lambda x: x.product_id.tracking != "none"
-                and x.product_id.auto_create_lot
-                and x.state not in ('done', 'cancel')
-                and float_is_zero(x.qty_done, precision_digits=pd))) == 0:
-            return []
         # how many is reserved and done by product and lot in this picking
         picking_moves = self.move_line_ids.filtered(
             lambda x: x.product_id.tracking != "none"
