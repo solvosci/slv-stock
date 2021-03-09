@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="stock_picking_report_deliveryslip_subtotals_document" inherit_id="stock.report_delivery_document">
+
+        <xpath expr="//tr[@t-as='move_line']" position="before">
+            <t t-set="decimal_precision" t-value="request.env['decimal.precision'].precision_get('Product Unit of Measure')"/>
+            <t t-set="cont" t-value="0"/>
+            <t t-set="lines_summary" t-value="o.lines_summary_by_product()" />
+        </xpath>
+
+        <xpath expr="//tr[@t-as='move_line']" position="attributes">
+            <attribute name="t-foreach">o.move_line_ids.sorted(key=lambda x: x.product_id.id)</attribute>
+        </xpath>
+        
+        <xpath expr="//tr[@t-as='move_line']" position="inside">
+            <t t-set="cont" t-value="cont+1"/>
+            <t t-if="(lines_summary[move_line.product_id.id]['count'] == cont)">
+                <tr style="background-color: whitesmoke">
+                    <t t-if="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                        <td/>
+                    </t>
+                    <td class="text-right">
+                    <strong style="color: #859b29;">Subtotal</strong>
+                    </td>
+                    <td class="text-center">
+                    <span t-esc="lines_summary[move_line.product_id.id]['sum']" t-options="{'widget': 'float', 'precision': decimal_precision}" />
+                    <span t-field="move_line.product_uom_id"/>
+                    </td>
+                </tr>
+                <t t-set="cont" t-value="0"/>
+            </t>
+        </xpath>
+
+    </template>
+</odoo>
