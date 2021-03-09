@@ -17,6 +17,25 @@
             <field name="search_view_id" ref="stock.view_picking_internal_search"/>
         </record>
 
+        <!-- 
+            Quants action for group_stock_picking_partner new menu, forces
+             inventory mode
+            Imported from stock.action_view_quants + inventory mode enabled 
+        -->
+        <record model="ir.actions.server" id="action_view_quants">
+            <field name="name">Inventory (in stock_warehouse_partner_security)</field>
+            <field name="model_id" ref="model_stock_quant"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.with_context(
+                    search_default_internal_loc=1,
+                    search_default_productgroup=1,
+                    search_default_locationgroup=1,
+                    inventory_mode=True,
+                ).action_view_quants()
+            </field>
+        </record>
+
         <menuitem id="menu_myoperations" name="My Operations"
               parent="stock.menu_stock_root" sequence="1"
               groups="group_stock_picking_partner"/>
@@ -28,7 +47,7 @@
 
         <menuitem id="menu_valuation" name="My Inventory Report"
               parent="menu_myoperations" sequence="20"
-              action="stock.action_view_quants"
+              action="action_view_quants"
               groups="group_stock_picking_partner"/>
 
     </data>

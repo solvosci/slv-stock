@@ -44,6 +44,9 @@ class StockQuant(models.Model):
             
     @api.model
     def _is_inventory_mode(self):
-        return super()._is_inventory_mode() or self.user_has_groups(
-            'stock_warehouse_partner_security.group_stock_picking_partner'
+        return super()._is_inventory_mode() or (
+            self.env.context.get('inventory_mode') is True 
+            and self.user_has_groups(
+                'stock_warehouse_partner_security.group_stock_picking_partner'
+            )
         )
