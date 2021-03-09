@@ -106,6 +106,7 @@ class SaleOrderLine(models.Model):
             'product_id': self.product_id.id,
             'product_uom': self.product_id.uom_po_id.id,
             'price_unit': price,
+            'propagate_cancel': False,
             'date_planned': po.date_order
                             + relativedelta(days=int(seller.delay)),
             'taxes_id': [(6, 0, tax.ids)],
