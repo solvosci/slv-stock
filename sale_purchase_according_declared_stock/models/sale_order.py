@@ -93,7 +93,7 @@ class SaleOrderLine(models.Model):
             lambda z: z.state not in ('done', 'cancel'))
         for move in moves_rel:
             move.write({
-                'procure_method': 'make_to_order',
+               # 'procure_method': 'make_to_stock',
                 'state': 'waiting',
                 'delay_alert': False,
             })
@@ -199,12 +199,12 @@ class SaleOrderLine(models.Model):
                     _("Quantity ordered in product %s "
                       "has too many decimal places")
                     % (line.product_id.display_name,))
-            stock_move = self.env['stock.move'].search([
+            reserved_moves = self.env['stock.move'].search([
                 ('sale_line_id', '=', self.id),
                 ('state', '!=', 'cancel'),
             ])
-            # TODO: See if we are reserving stock that came in for another order!!
-            reserv_qty = sum(item.reserved_availability for item in stock_move)
+            # check if there is something reserved
+            reserv_qty = sum(item.reserved_availability for item in reserved_moves)
             if float_compare(reserv_qty, so_line_qty, precision_digits=1) >= 0:
                 continue
             so_line_qty = round(so_line_qty - reserv_qty, 1)
