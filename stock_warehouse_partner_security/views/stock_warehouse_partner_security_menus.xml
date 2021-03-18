@@ -32,6 +32,7 @@
                     search_default_productgroup=1,
                     search_default_locationgroup=1,
                     inventory_mode=True,
+                    show_my_inventory=True,
                 ).action_view_quants()
             </field>
         </record>
