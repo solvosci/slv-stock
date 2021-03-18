@@ -7,8 +7,6 @@ from odoo import api, fields, models
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    # TODO: Do we also want to add the picking status to the purchase order tree view?
-    # TODO check if you have to do something different than what is done in sale_purchase when the purchase is canceled
     def button_confirm(self):
         result = super().button_confirm()
         self._create_detailed_operations()
@@ -39,3 +37,38 @@ class PurchaseOrderLine(models.Model):
     move_dest_ids = fields.Many2many('stock.move',
                                      String='Downstream  Moves',
                                      copy=False)
+
+    def review_relative_line_purchase(self, so_order_name, so_order_id):
+        """ If some SO are cancelled or line deleted
+            if purchase line state is draft, we can delete it
+            else we need to put an activity in PO
+        """
+        po_to_notify_map = {}  # map PO -> recordset of SOL
+        po_to_review_origin = []
+
+        for po_line in self:
+            if po_line.state not in ('purchase', 'done'):
+                if po_line.order_id.origin \
+                        and po_line.order_id not in po_to_review_origin:
+                    po_to_review_origin += [po_line.order_id]
+                po_line.unlink()
+            else:
+                if po_line.state != 'cancel':
+                    po_to_notify_map.setdefault(
+                        po_line.order_id,
+                        self.env['sale.order.line']
+                    )
+                    po_to_notify_map[po_line.order_id] |= po_line.sale_line_id
+        # remove this SO in origin of PO
+        for po in po_to_review_origin:
+            origins = po.origin.split(', ')
+            if so_order_name in origins:
+                po_lines = po.order_line.filtered(
+                    lambda x: x.sale_line_id.order_id.id == so_order_id
+                )
+                if not po_lines:
+                    origins.remove(so_order_name)
+                    po.write({
+                        'origin': ', '.join(origins)
+                    })
+        return po_to_notify_map

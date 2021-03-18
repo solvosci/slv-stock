@@ -15,5 +15,8 @@
         "stock",
         "sale_purchase",
     ],
+    'data': [
+        'data/mail_data.xml',
+    ],
     'installable': True,
 }

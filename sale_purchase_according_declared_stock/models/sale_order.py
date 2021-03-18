@@ -18,12 +18,119 @@ class SaleOrder(models.Model):
             order.order_line.sudo()._purchase_distribution_generation()
         return result
 
+    def _activity_cancel_on_purchase(self):
+        """ If some SO are cancelled,
+            if purchase line state is draft, we can delete it
+            else we need to put an activity in PO
+            If sale lines of different sale orders impact different purchase,
+            we only want one activity to be attached.
+        """
+        po_lines = self.env['purchase.order.line'].search([
+            ('sale_line_id', 'in', self.mapped('order_line').ids)
+        ])
+        po_to_notify_map=po_lines.review_relative_line_purchase(self.name, self.id)
+        # put an activity in PO
+        for purchase_order, sale_order_lines in po_to_notify_map.items():
+            purchase_order.activity_schedule_with_view(
+                'mail.mail_activity_data_warning',
+                user_id=purchase_order.user_id.id or self.env.uid,
+                views_or_xmlid='sale_purchase.exception_purchase_on_sale_cancellation',
+                render_context={
+                    'sale_orders': sale_order_lines.mapped('order_id'),
+                    'sale_order_lines': sale_order_lines,
+                })
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    # TODO: check if we need to do something different than what is done in sale_purchase when modifying a sale line
-    # TODO: we really have to check: _onchange_service_product_uom_qty, _purchase_increase_ordered_qty...¿create? ¿write?
+    def _purchase_modif_ordered_qty(self, new_qty, origin_values):
+        """ Modify the quantity from SO line will
+            redo the purchase order lines (deleting existing if possible)
+            or add a next acitivities on the related purchase order
+            :param new_qty: new quantity
+            :param origin_values: map from sale line id to old value
+        """
+        po_to_notify_map = {}  # map PO -> recordset of SOL
+        # First delete PO if all po lines are in draft
+        for so_line in self:
+            po_lines = self.env['purchase.order.line'].search([
+                ('sale_line_id', '=', so_line.id),
+            ])
+            po_lines_confirmed = po_lines.filtered(
+                lambda r: r.state in ('purchase', 'done')
+            )
+            if po_lines_confirmed:
+                for po_line in po_lines.filtered(
+                        lambda r: r.state != 'cancel'):
+                    po_to_notify_map.setdefault(
+                        po_line.order_id,
+                        self.env['sale.order.line']
+                    )
+                    po_to_notify_map[po_line.order_id] |= po_line.sale_line_id
+            else:
+                po_lines.review_relative_line_purchase(
+                    so_line.order_id.name, so_line.order_id.id)
+        # put an activity in PO
+        for purchase_order, sale_order_lines in po_to_notify_map.items():
+            render_context = {
+                'sale_lines': sale_order_lines,
+                'sale_orders': sale_order_lines.mapped('order_id'),
+                'origin_values': origin_values,
+            }
+            purchase_order.activity_schedule_with_view(
+                'mail.mail_activity_data_warning',
+                user_id=purchase_order.user_id.id or self.env.uid,
+                views_or_xmlid='sale_purchase_according_declared_stock'
+                               '.exception_purchase_on_sale_quantity_changed',
+                render_context=render_context)
+
+    @api.model_create_multi
+    def create(self, values):
+        lines = super(SaleOrderLine, self).create(values)
+        # Generate purchase when SO line don't have purchase line
+        lines.filtered(
+            lambda line: line.state == 'sale' and not line.purchase_line_count
+        )._purchase_distribution_generation()
+        return lines
+
+    """
+    It is not possible to delete an order line in a state already confirmed.
+    def unlink(self):
+        po_lines = self.env['purchase.order.line'].search([
+            ('sale_line_id', '=', self.id),
+            ('state', '!=', 'cancel')
+        ])
+        po_to_notify_map=po_lines.review_relative_line_purchase()
+        return super(SaleOrderLine, self).unlink()
+    """
+
+    def write(self, values):
+        modif_lines = None
+        modif_vals = {}
+        if 'product_uom_qty' in values:
+            precision = self.env['decimal.precision'].\
+                precision_get('Product Unit of Measure')
+            modif_lines = self.sudo().filtered(
+                lambda r: r.purchase_line_count
+                and float_compare(r.product_uom_qty,
+                                  values['product_uom_qty'],
+                                  precision_digits=precision) != 0
+            )
+            modif_vals = {line.id: line.product_uom_qty for line in modif_lines}
+
+            result = super(SaleOrderLine, self).write(values)
+
+            if modif_lines:
+                modif_lines._purchase_modif_ordered_qty(
+                    values['product_uom_qty'], modif_vals)
+                # Generate purchase when SO line don't have purchase line
+                self.sudo().filtered(
+                    lambda
+                        line: line.state == 'sale' and not line.purchase_line_count
+                )._purchase_distribution_generation()
+
+            return result
+
     def _purchase_distribution_prepare_order_values(self, supplier):
         """ Returns values to create purchase order from the current SO line.
             :param supplierinfo: record of product.supplierinfo
