@@ -1,10 +1,11 @@
 # © 2021 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 {
-    "name": "Sale Purchase according declared stock",
+    "name": "Stock move action assign recode",
     "summary": """
-        Create purchase orders when confirming sales orders 
-        based on declared stock in suppliers warehouses
+        We modify this function in this addon in order to allow 
+        associating all the generated stock of the origin 
+        movements to the destination, even if it exceeds
     """,
     "author": "Solvos",
     "license": "LGPL-3",
@@ -12,11 +13,7 @@
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
-        "stock_move_action_assign_recode",
-        "sale_purchase",
-    ],
-    'data': [
-        'data/mail_data.xml',
+        "stock",
     ],
     'installable': True,
 }
