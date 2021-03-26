@@ -1,0 +1,95 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_purchase_according_declared_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-25 07:57+0000\n"
+"PO-Revision-Date: 2021-03-25 07:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_purchase_according_declared_stock
+#: model_terms:ir.ui.view,arch_db:sale_purchase_according_declared_stock.exception_purchase_on_sale_quantity_changed
+msgid "Exception(s) occurred on the sale order(s):"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model_terms:ir.ui.view,arch_db:sale_purchase_according_declared_stock.exception_purchase_on_sale_quantity_changed
+msgid "Exception(s):"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model_terms:ir.ui.view,arch_db:sale_purchase_according_declared_stock.exception_purchase_on_sale_quantity_changed
+msgid "Manual actions may be needed."
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model.fields,field_description:sale_purchase_according_declared_stock.field_purchase_order_line__move_dest_ids
+msgid "Move Dest"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: code:addons/sale_purchase_according_declared_stock/models/sale_order.py:0
+#, python-format
+msgid "Quantity ordered in product %s has too many decimal places"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: code:addons/sale_purchase_according_declared_stock/models/sale_order.py:0
+#, python-format
+msgid "There is no vendor with stock for product %s"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: code:addons/sale_purchase_according_declared_stock/models/sale_order.py:0
+#, python-format
+msgid ""
+"There is not enough stock for product %s (necessary %.1f, available %.1f)"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model:ir.model,name:sale_purchase_according_declared_stock.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model_terms:ir.ui.view,arch_db:sale_purchase_according_declared_stock.exception_purchase_on_sale_quantity_changed
+msgid "of"
+msgstr ""
+
+#. module: sale_purchase_according_declared_stock
+#: model_terms:ir.ui.view,arch_db:sale_purchase_according_declared_stock.exception_purchase_on_sale_quantity_changed
+msgid "ordered instead of"
+msgstr ""
