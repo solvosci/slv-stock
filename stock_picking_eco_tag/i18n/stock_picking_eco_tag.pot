@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-05 07:24+0000\n"
-"PO-Revision-Date: 2021-03-05 07:24+0000\n"
+"POT-Creation-Date: 2021-04-07 07:21+0000\n"
+"PO-Revision-Date: 2021-04-07 07:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,16 @@ msgstr ""
 #. module: stock_picking_eco_tag
 #: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
 msgid "Address:"
+msgstr ""
+
+#. module: stock_picking_eco_tag
+#: model:product.attribute,name:stock_picking_eco_tag.product_attribute_category
+msgid "CATEGORÍA"
+msgstr ""
+
+#. module: stock_picking_eco_tag
+#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
+msgid "Cat:"
 msgstr ""
 
 #. module: stock_picking_eco_tag
@@ -46,16 +56,11 @@ msgid "Phone:"
 msgstr ""
 
 #. module: stock_picking_eco_tag
-#: model:ir.actions.report,name:stock_picking_eco_tag.action_report_purchase_order
+#: model:ir.actions.report,name:stock_picking_eco_tag.action_report_eco_tag
 msgid "Print ECO Tags (PDF)"
 msgstr ""
 
 #. module: stock_picking_eco_tag
-#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
-msgid "Product:"
-msgstr ""
-
-#. module: stock_picking_eco_tag
-#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
-msgid "Var / Cat:"
+#: model:ir.model,name:stock_picking_eco_tag.model_stock_picking
+msgid "Transfer"
 msgstr ""
