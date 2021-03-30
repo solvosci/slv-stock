@@ -7,13 +7,14 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.0.0",
+    "version": "13.0.2.0.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
         "stock",
     ],
     "data": [
+        "data/stock_picking_eco_tag_data.xml",
         "report/stock_picking_eco_tag_template.xml",
         "report/stock_picking_eco_tag_report.xml",
     ],

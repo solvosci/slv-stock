@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-05 07:24+0000\n"
-"PO-Revision-Date: 2021-03-05 08:38+0100\n"
+"POT-Creation-Date: 2021-04-07 07:21+0000\n"
+"PO-Revision-Date: 2021-04-07 09:28+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +21,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
 msgid "Address:"
 msgstr "Dirección:"
+
+#. module: stock_picking_eco_tag
+#: model:product.attribute,name:stock_picking_eco_tag.product_attribute_category
+msgid "CATEGORÍA"
+msgstr "CATEGORÍA"
+
+#. module: stock_picking_eco_tag
+#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
+msgid "Cat:"
+msgstr "Cat:"
 
 #. module: stock_picking_eco_tag
 #: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
@@ -48,16 +58,11 @@ msgid "Phone:"
 msgstr "Telf:"
 
 #. module: stock_picking_eco_tag
-#: model:ir.actions.report,name:stock_picking_eco_tag.action_report_purchase_order
+#: model:ir.actions.report,name:stock_picking_eco_tag.action_report_eco_tag
 msgid "Print ECO Tags (PDF)"
 msgstr "Imprimir etiquetas ecológicas (PDF)"
 
 #. module: stock_picking_eco_tag
-#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
-msgid "Product:"
-msgstr "Producto:"
-
-#. module: stock_picking_eco_tag
-#: model_terms:ir.ui.view,arch_db:stock_picking_eco_tag.label_transfer_template_eco_view_pdf
-msgid "Var / Cat:"
-msgstr "Var / Cat:"
+#: model:ir.model,name:stock_picking_eco_tag.model_stock_picking
+msgid "Transfer"
+msgstr "Transferencia"

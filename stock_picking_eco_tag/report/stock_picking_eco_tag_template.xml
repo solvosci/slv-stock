@@ -5,31 +5,42 @@
             <div class="page">
                 <t t-set="decimal_precision" t-value="request.env['decimal.precision'].precision_get('Product Unit of Measure')"/>
                 <t t-foreach="docs" t-as="picking">
+                    <t t-set="lines_category" t-value="picking.lines_category_product()"/>
                     <t t-foreach="picking.move_lines" t-as="move">
                         <t t-foreach="move.move_line_ids" t-as="move_line">
-                          <div style="display: inline-table; height: 160px; width: 367px; border: 1px solid black;">
-                            <div class="d-flex">
-                                <div style="display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-align: center; justify-content: center; align-items: center; margin-left: 3px; width: 35%">
-                                    <img t-attf-src="data:image/jpg;base64,{{ move.company_id.logo }}" style="width: 130px"/>
+                            <div style="page-break-before: always;">
+                                <div style="display: inline-table; height: 315px; width: 347px;">
+                                    <div style="height: 315px; padding: 10px; padding-top: 0px; border: 1px solid black; border-radius: 5px;">
+                                        <div style="display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-pack: center; justify-content: center; align-items: center; -webkit-box-align: center; height: 55%; ">
+                                            <div style="width: 40%;">
+                                                <img t-attf-src="data:image/jpg;base64,{{ move.company_id.logo }}" style="width: 140px"/>  
+                                            </div>
+                                            <div class="d-flex" style="width: 60%; padding-left: 16px;" t-if="picking.move_lines">
+                                                <div style="font-size: 14px; font-weight: normal;">
+                                                    <p class="mb-0" style="font-size: 15px; font-weight: bold; padding-bottom: 5px;"><t t-esc="move_line.product_id.name"/></p>
+                                                    <p class="mb-0">Cat: <t t-esc="lines_category[move_line.product_id.id]"/></p>
+                                                    <p class="mb-0">Net weight: <t t-esc="move_line.qty_done" t-options="{'widget': 'float', 'precision': decimal_precision}"/> <span t-field="move_line.product_id.uom_id.name"/></p>
+                                                    <p class="mb-0">Lot: <t t-esc="move_line.lot_id.name"/></p>
+                                                    <p class="mb-0">From: <t t-esc="move_line.company_id.country_id.name"/></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="d-flex" style="height: 30%; border-top: 1px solid; padding-top: 6px;" t-if="picking.move_lines">
+                                            <div style="font-size: 14px; font-weight: normal;">
+                                                <p class="mb-0">Address: <t t-esc="move_line.company_id.street"/></p>
+                                                <p class="mb-0"><t t-esc="move_line.company_id.zip"/> <t t-esc="move_line.company_id.city"/> (<t t-esc="move_line.company_id.state_id.name"/>)</p>
+                                                <p class="mb-0">Phone: <t t-esc="move_line.company_id.phone"/></p>
+                                                <p class="mb-0">Email: <t t-esc="move_line.company_id.email"/></p>
+                                            </div>
+                                        </div>
+                                        <div style="height: 15%;">
+                                            <img t-attf-src="/stock_picking_eco_tag/static/src/img/logo_eco.jpg" style="position: relative; top: -17px; width: 70px;"/>
+                                            <img t-attf-src="/stock_picking_eco_tag/static/src/img/logo_craega.png" style="position: relative; left: 197px; top: -36px; width: 55px;"/>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div style="width: 65%; padding-left: 6px;" t-if="picking.move_lines">
-                                    <div style="padding-top: 5px;">
-                                        <p class="mb-0" style="font-size: 10px">Product: <t t-esc="move_line.product_id.name"/></p>
-                                        <p class="mb-0" style="font-size: 10px">Var / Cat: <t t-esc="move_line.product_id.categ_id.name[3:]"/></p>
-                                        <p class="mb-0" style="font-size: 10px">Net weight: <t t-esc="move_line.qty_done" t-options='{"widget": "float", "precision": decimal_precision}'/> <span t-field="move_line.product_id.uom_id.name"/></p>
-                                        <p class="mb-0" style="font-size: 10px">Lot: <t t-esc="move_line.lot_id.name"/></p>
-                                        <p class="mb-0" style="font-size: 10px">From: <t t-esc="move_line.company_id.country_id.name"/></p>
-                                    </div>
-                                    <div style="padding-top: 4px; height: 77px;">
-                                        <p class="mb-0" style="font-size: 10px">Address: <t t-esc="move_line.company_id.street"/></p>
-                                        <p class="mb-0" style="font-size: 10px"><t t-esc="move_line.company_id.zip"/> <t t-esc="move_line.company_id.city"/> (<t t-esc="move_line.company_id.state_id.name"/>)</p>
-                                        <p class="mb-0" style="font-size: 10px">Phone: <t t-esc="move_line.company_id.phone"/></p>
-                                        <p class="mb-0" style="font-size: 10px">Email: <t t-esc="move_line.company_id.email"/></p>
-                                        <img t-attf-src="/stock_picking_eco_tag/static/src/img/logo_eco.jpg" style="position: relative; right: -159px; top: -29px; width: 70px"/>
-                                    </div>
-                                </div>    
                             </div>
-                          </div>
                         </t>
                     </t>
                 </t>
