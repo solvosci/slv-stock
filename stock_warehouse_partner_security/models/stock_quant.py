@@ -29,23 +29,29 @@ class StockQuant(models.Model):
     @api.model
     def create(self, vals):
         """
-        Creation record rules are bypassed by default, and we need disabling 
-        quant creation from certain locations for group_stock_picking_partner 
-        group
+        Creation record rules are bypassed by default, and we need disabling
+        quant creation from certain locations for group_stock_picking_partner
+        group, and also for managers, with a custom message for each case
         """
-        if self._is_inventory_mode() and 'inventory_quantity' in vals \
-            and self.user_has_groups(
-                'stock_warehouse_partner_security.group_stock_picking_partner'
-            ) and not self.user_has_groups('stock.group_stock_manager'):
-            if not vals['location_id'] in self._get_custom_locations():
-                raise ValidationError(
-                    _("Location not allowed: %s") %
-                        self.env["stock.location"].browse(
-                            vals['location_id']
-                        ).complete_name
-                )
+        partner_group = \
+            "stock_warehouse_partner_security.group_stock_picking_partner"
+        if self.env.context.get("show_my_inventory", False) \
+            and self._is_inventory_mode() and 'inventory_quantity' in vals \
+            and self.user_has_groups(partner_group) \
+                and not vals['location_id'] in self._get_custom_locations():
+            errmsg = _(
+                "Trying to change inventory value for a location not "
+                "allowed for your partner (%s). Please change it from "
+                "general Inventory menu") \
+                if self.user_has_groups('stock.group_stock_manager') \
+                else _("Location not allowed: %s")
+            raise ValidationError(
+                errmsg % self.env["stock.location"].browse(
+                    vals['location_id']
+                ).complete_name
+            )
         return super().create(vals)
-            
+
     @api.model
     def _is_inventory_mode(self):
         return super()._is_inventory_mode() or (

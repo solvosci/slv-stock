@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 16:32+0000\n"
-"PO-Revision-Date: 2021-02-25 16:32+0000\n"
+"POT-Creation-Date: 2021-05-28 07:30+0000\n"
+"PO-Revision-Date: 2021-05-28 07:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,11 @@ msgid "Inventoried Quantity"
 msgstr ""
 
 #. module: stock_warehouse_partner_security
-#: code:addons/slv-stock-chr/stock_warehouse_partner_security/models/stock_quant.py:0
+#: model:ir.actions.server,name:stock_warehouse_partner_security.action_view_quants
+msgid "Inventory (in stock_warehouse_partner_security)"
+msgstr ""
+
+#. module: stock_warehouse_partner_security
 #: code:addons/stock_warehouse_partner_security/models/stock_quant.py:0
 #, python-format
 msgid "Location not allowed: %s"
@@ -61,4 +65,12 @@ msgstr ""
 #. module: stock_warehouse_partner_security
 #: model:ir.model,name:stock_warehouse_partner_security.model_stock_picking
 msgid "Transfer"
+msgstr ""
+
+#. module: stock_warehouse_partner_security
+#: code:addons/stock_warehouse_partner_security/models/stock_quant.py:0
+#, python-format
+msgid ""
+"Trying to change inventory value for a location not allowed for your partner"
+" (%s). Please change it from general Inventory menu"
 msgstr ""

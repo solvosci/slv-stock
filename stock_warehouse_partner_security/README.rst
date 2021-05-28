@@ -29,10 +29,10 @@ Add a group with reduced permissions for partners in Stock.
 Known issues / Roadmap
 ======================
 
-* In `My Inventory Report` it's possible to add entries for every location 
-  if the user has the Manager role, it should be confusing, because a view
-  refresh will hide these entries. If only allowed locations were available
-  to be selected this problem should be gone.
+* In `My Inventory Report` it's possible to select entries for every location.
+  A custom error is shown to the user depending if his role, even if is 
+  manager. A better approach should be preventing it by filtering the 
+  available locations and only showing the partner owned ones.
 
 Bug Tracker
 ===========
