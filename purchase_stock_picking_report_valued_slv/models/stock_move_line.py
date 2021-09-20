@@ -60,3 +60,7 @@ class StockMoveLine(models.Model):
                     "purchase_price_subtotal": taxes["total_excluded"],
                 }
             )
+
+    def get_purchase_name(self):
+        self.ensure_one()
+        return '%s %s' % (self.origin, self.display_name)
