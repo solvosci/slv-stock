@@ -13,3 +13,4 @@ class StockMove(models.Model):
         if moves and custom_date:
             moves.move_line_ids.write({"date": custom_date})
             moves.write({"date": custom_date})
+        return moves
