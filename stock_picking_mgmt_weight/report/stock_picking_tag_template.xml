@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="label_transfer_template_view_pdf">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+            <t t-set="address">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+            </t>
+            <div class="page">
+                <div class="oe_structure"/>
+                <t t-foreach="doc" t-as="move">
+                    <div class="w-100" style="page-break-before: always;">
+                    <h1 class="invisible" style="margin-bottom: 130px; margin-top: 130px;"><span t-field="doc.name"/></h1>
+                        <div style="margin-left: 100px; margin-right: 100px; font-size: 14px">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="w-25">Ticket Number:</div>
+                                    <div class="w-25"><t t-esc="move.picking_id.name"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="w-25">Purchase Order:</div>
+                                    <div class="w-25"><t t-esc="move.classification_purchase_order_id.name"/></div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="w-25">Date:</div>
+                                    <div class="w-75"><span t-esc="move.picking_id.get_datetime_now()" t-options="{'widget': 'datetime'}"/></div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="w-25">License Plate:</div>
+                                    <div class="w-25"><t t-esc="move.picking_id.vehicle_id.license_plate"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="w-25">Product:</div>
+                                    <div class="w-75"><t t-esc="move.product_id.name"/></div>
+                                </div>
+                                <div class="row">
+                                    <div class="w-25">LoW Code:</div>
+                                    <div class="w-75"><t t-esc="move.product_id.product_tmpl_id.low_code"/></div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="w-25">Contact:</div>
+                                    <div class="w-75"><t t-esc="move.picking_id.partner_id.name"/></div>
+                                </div>
+                                <div class="row" style="margin-left: 25px; margin-right: 25px;">
+                                    <table class="table table-sm" name="stock_move_table">
+                                        <thead>
+                                            <tr>
+                                                <th/>
+                                                <th name="th_sm_datetime"><strong>Date</strong></th>
+                                                <th name="th_sm_weight"><strong>Kg Weight</strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Gross:</td>
+                                                <td><span t-field="move.date_gross_weight"/></td>
+                                                <td><t t-esc="'%.0f'% move.get_convert_weight_kg(move.gross_weight)"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tare:</td>
+                                                <td><span t-field="move.date_tare"/></td>
+                                                <td><t t-esc="'%.0f'% move.get_convert_weight_kg(move.tare)"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Net:</td>
+                                                <td/>
+                                                <td><t t-esc="'%.0f'% move.get_convert_weight_kg(move.net_weight)"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="w-25">Note:</div>
+                                </div>
+                                <div class="row">
+                                    <div class="w-100"><t t-esc="move.picking_id.note"/></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+    
+    <template id="report_stock_move_tag">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="stock_picking_mgmt_weight.label_transfer_template_view_pdf" t-lang="doc.picking_partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+    <template id="report_stock_picking_tag">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="picking">
+                <t t-foreach="picking.move_lines" t-as="doc">
+                    <t t-call="stock_picking_mgmt_weight.label_transfer_template_view_pdf" t-lang="doc.picking_partner_id.lang"/>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

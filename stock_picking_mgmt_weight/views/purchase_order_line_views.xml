@@ -1,0 +1,98 @@
+<odoo>
+
+    <record id="purchase_order_line_menu.action_purchase_orders_lines" model="ir.actions.act_window">
+        <field name="context">{"search_default_is_origin_order": True}</field>
+        <field name="domain">[("display_type","=",False)]</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_line_search">
+        <field name="name">purchase.order.line.search</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_id']" position="attributes">
+                <attribute name="filter_domain">['|',('order_id','ilike',self),('related_real_order_id','ilike',self)]</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="date_planned_search" />
+            </xpath>
+            <xpath expr="//filter[@name='hide_cancelled']" position="after">
+                <separator/>
+                <filter
+                    name="is_origin_order"
+                    string="Origin Order"
+                    domain="[('order_id.classification', '=', False)]"
+                />
+                <filter
+                    name="is_classif_order"
+                    string="Classification Order"
+                    domain="[('order_id.classification', '=', True)]"
+                />
+                <separator />
+                <filter
+                    name="date_planned"
+                    string="Date planned"
+                    date="date_planned"
+                />
+            </xpath>
+            <xpath expr="//search/group" position="inside">
+                <filter string="Date Planned" name="gr_date_planned" domain="[]" context="{'group_by': 'date_planned'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_purchase_order_line_tree">
+        <field name="name">purchase.order.line.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">date_planned</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_id']" position="attributes">
+                <attribute name="widget">many2onebutton</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_id']" position="after">
+                <field
+                    name="related_real_order_id"
+                    widget="many2onebutton"
+                    string="Orig."
+                />
+            </xpath>            
+            <xpath expr="//field[@name='product_qty']" position="after">
+                <field name="order_user_id" string="Repr."/>
+                <field name="qty_received" string="Received" optional="show"/>
+                <field name="qty_received_ext" string="Received*"/>
+                <field name="pending_qty" string="Pending"/>
+                <field name="qty_classified"/>
+                <field
+                    name="qty_invoiced"
+                    string="Billed"
+                    optional="show"
+                />
+                <field
+                    name="qty_invoiced_ext"
+                    string="Billed*"
+                />
+                <field
+                    name="qty_invoiced_pend"
+                    string="Billed pend."
+                    optional="hide"
+                />
+                <field name="order_incoterm_id"/>
+            </xpath>
+            <xpath expr="//field[@name='price_subtotal']" position="attributes">
+                <attribute name="sum">Total amount</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_planned']" position="after">
+                <field
+                    name="invoice_lines_invoice_first_date"
+                    string="Inv. first date"
+                    widget="date"
+                    optional="show"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

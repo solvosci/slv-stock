@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="stock_picking_mgmt_weight.FieldIotASM">
+        <div class="o_field_widget o_field_iot_asm d-flex align-items-center">
+            <span class="asm_color mr-1"/>
+            <span class="asm_status font-weight-bold"/>
+        </div>
+    </t>
+</templates>

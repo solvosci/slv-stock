@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_type_tree" model="ir.ui.view">
+        <field name="name">purchase.order.type.tree (in purchase_order_type_dashboard) (weight)</field>
+        <field name="model">purchase.order.type</field>
+        <field name="inherit_id" ref="purchase_order_type_dashboard.view_purchase_order_type_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status_ti_po_count" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="invoice_status_ti_po_count" position="after">
+                <field name="isext_no_po_count" />
+                <field name="isext_ti_po_count" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_purchase_order_type_kanban" model="ir.ui.view">
+        <field name="name">purchase.order.type.kanban (in purchase_order_type_dashboard) (weight)</field>
+        <field name="model">purchase.order.type</field>
+        <field name="inherit_id" ref="purchase_order_type_dashboard.view_purchase_order_type_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status_ti_po_count']" position="after">
+                <field name="isext_no_po_count" />
+                <field name="isext_ti_po_count" />
+                <field name="isext_tic_po_count" />
+            </xpath>
+            <xpath expr="//div[@name='po_data']" position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+            <xpath expr="//div[@name='po_data']" position="after">
+                <div class="row" name="po_data_2">
+                    <div class="col-9">
+                        <a name="%(purchase_order_type_dashboard.action_purchase_order_from_dashboard)d" type="action" context="{'search_default_isext_no': 1}">
+                            Nothing to Bill (recv. pend.)
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <t t-esc="record.isext_no_po_count.value"/>
+                    </div>
+                    <div class="col-9">
+                        <a name="%(purchase_order_type_dashboard.action_purchase_order_from_dashboard)d" type="action" context="{'search_default_isext_not_invoiced': 1}">
+                            Waiting Bills
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <t t-esc="record.isext_ti_po_count.value"/>
+                    </div>
+                    <div class="col-9">
+                        <a name="%(purchase_order_type_dashboard.action_purchase_order_from_dashboard)d" type="action" context="{'search_default_isext_not_invoiced_classif': 1}">
+                            Waiting Bills (classif.)
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <t t-esc="record.isext_tic_po_count.value"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

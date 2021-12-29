@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form (in stock_picking_mgmt_weight)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_shipping']" position="inside">
+                <field
+                    name="shipping_resource_id"
+                    options="{'no_create_edit': True, 'no_create': True}"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//form//div[@name='invoice_lines']"
+                position="before"
+            >
+                <group>
+                    <group>
+                        <field
+                            name="supply_condition_id"
+                            options="{'no_create_edit': True, 'no_create': True}"
+                        />
+                    </group>
+                    <group>
+                        <field
+                            name="vehicle_type_id"
+                            options="{'no_create_edit': True, 'no_create': True}"
+                        />
+                    </group>
+                </group>
+            </xpath>
+            <xpath
+                expr="//field[@name='order_line']//tree//field[@name='name']"
+                position="after"
+            >
+                <field
+                    name="supply_condition_id"
+                    optional="show"
+                    string="Supp. Cond."
+                    options="{'no_create_edit': True, 'no_create': True}"
+                />
+                <field
+                    name="vehicle_type_id"
+                    optional="show"
+                    string="Veh. Type"
+                    options="{'no_create_edit': True, 'no_create': True}"
+                />
+            </xpath>        
+        </field>
+    </record>
+</odoo>

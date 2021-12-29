@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <record id="purchase_pricelist_default" model="product.pricelist">
+            <field name="name">Default Purchase Pricelist</field>
+            <field name="pricelist_type">purchase</field>
+        </record>
+    </data>
+
+</odoo>

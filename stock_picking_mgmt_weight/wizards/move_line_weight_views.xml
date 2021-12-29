@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_move_line_weight_wizard_tree_weight" model="ir.ui.view">
+        <field name="name">stock.move.line.weight.wizard.tree</field>
+        <field name="model">stock.move.line.weight.wizard</field>
+        <field name="arch" type="xml"> 
+            <tree string="Stock Move Lines" editable="bottom">
+                <field name="company_id" invisible="1"/>
+                <field name="move_weight_id" invisible="1"/>
+                <field name="partner_id" invisible="1"/>
+                <!-- <field name="check_move" invisible="1"/> -->
+                <!-- TODO pending_qty filter not working (it should be stored) -->
+                <field name="order_line_id" 
+                    context="{'stock_move_line_weight': True, 'product_id': parent.product_id}"
+                    domain="[
+                        ('partner_id','=',partner_id),
+                        ('product_id','!=',False),
+                        ('product_id.type','=','product'),
+                        ('order_id.classification','=',False),
+                        ('state','=','purchase'),
+                        ('pending_qty','&gt;',0),]" 
+                    options="{'no_create': True}"/>
+                <field name="product_id" options="{'no_create': True}"/>
+                <field name="product_uom_qty"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_stock_move_line_weight_wizard_inherit_tree_weight" model="ir.ui.view">
+        <field name="name">stock.move.line.weight.wizard.tree</field>
+        <field name="inherit_id" ref="view_stock_move_line_weight_wizard_tree_weight"/>
+        <field name="model">stock.move.line.weight.wizard</field>
+        <field eval="101" name="priority"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="delete">false</attribute>
+                <attribute name="create">false</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_stock_move_line_weight_wizard_inherit_readonly_tree_weight" model="ir.ui.view">
+        <field name="name">stock.move.line.weight.wizard.tree</field>
+        <field name="inherit_id" ref="view_stock_move_line_weight_wizard_tree_weight"/>
+        <field name="model">stock.move.line.weight.wizard</field>
+        <field eval="101" name="priority"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="delete">false</attribute>
+                <attribute name="create">false</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_uom_qty']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

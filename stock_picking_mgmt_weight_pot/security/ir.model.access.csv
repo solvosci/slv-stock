@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_order_type_sc_user,purchase.order.type sc user,purchase_order_type.model_purchase_order_type,stock_picking_mgmt_weight.group_sc_user,1,0,0,0

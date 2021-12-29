@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_weight_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form (weight)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='button_draft']" position="before">
+                <field name="cancelled_classif_count" invisible="1"/>
+                <field name="has_pending_qty" invisible="1"/>                
+                <button 
+                    type="object"
+                    name="action_update_related_order_id"
+                    attrs="{'invisible': [('classification', '=', False)]}"
+                    string="Modify Related Orders"/>
+                <button name="action_view_classification"
+                    type="object"
+                    string="View classification"
+                    attrs="{'invisible': [('classification', '=', False)]}"
+                />
+                <button name="action_cancel_pending"
+                    type="object"
+                    string="Cancel pending"
+                    attrs="{'invisible': [
+                        '|',
+                        '|',
+                        '|',
+                        ('classification','=',True),
+                        ('state','not in',['purchase','done']),
+                        ('classification_count','=',0),
+                        ('has_pending_qty','=',False)
+                    ]}"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']">
+                <field name="related_order_count" invisible="1"/>
+                <!-- TODO better position for this button -->
+                <button 
+                    type="object"
+                    name="action_related_orders"
+                    class="oe_stat_button"
+                    icon="fa-shopping-cart"
+                    attrs="{'invisible': [('related_order_count', '=', 0)]}">
+                    View rel. orders
+                </button>
+                <button 
+                    type="object"
+                    name="action_classification_invoice"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o"
+                    attrs="{'invisible': [('classification_invoice_count', '=', 0)]}">
+                    <field name="classification_invoice_count" widget="statinfo" string="Invoice *"/>
+                </button>
+                <button 
+                    type="object"
+                    name="action_classification_orders"
+                    class="oe_stat_button"
+                    icon="fa-shopping-cart"
+                    attrs="{'invisible': [('classification_count', '=', 0)]}">
+                    <field name="classification_count" widget="statinfo" string="Classification Orders"/>
+                </button>
+                <button 
+                    type="object"
+                    name="action_scale_stock_moves"
+                    class="oe_stat_button"
+                    icon="fa-file-text"
+                    attrs="{'invisible': [('scale_stock_move_count', '=', 0)]}">
+                    <field name="scale_stock_move_count" widget="statinfo" string="Tickets"/>
+                </button>
+            </xpath>
+            <xpath expr="//group/field[@name='company_id']" position="after">
+                <field name="classification" invisible="1"/>
+                <field
+                    name="related_order_ids"
+                    widget="many2many_tags"
+                    attrs="{'invisible': [('classification', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//form/group/group/field[@name='product_id']" position="after">
+                <field
+                    name="identification_document_number"
+                    string="IDN"
+                />
+            </xpath>
+            <xpath expr="//tree/field[@name='name']" position="after">
+                <field
+                    name="identification_document_number"
+                    optional="hide"
+                    attrs="{'invisible': [('state', 'not in', ('purchase', 'done'))]}"
+                    string="IDN"
+                />
+            </xpath>
+            <xpath expr="//tree/field[@name='qty_received']" position="attributes">
+                <attribute name="attrs">{"optional": "hide"}</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='qty_received']" position="after">
+                <field name="qty_received_ext" string="Received*"/>
+                <field name="pending_qty" string="Pending"/>
+                <field
+                    name="qty_classified"
+                    string="Qty Classified"
+                    attrs="{'column_invisible': [('parent.classification', '=', False)]}"
+                />
+                <field
+                    name="qty_cancelled"
+                    string="Cancelled"
+                    attrs="{'column_invisible': [('parent.cancelled_classif_count', '=', 0)]}"
+                />                
+                <field name="classified" invisible="1"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='qty_invoiced']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='qty_invoiced']" position="after">
+                <field
+                    name="qty_invoiced_ext"
+                    string="Billed*"
+                    attrs="{'column_invisible': [('parent.state', 'not in', ('purchase', 'done'))]}"
+                />
+                <field
+                    name="qty_invoiced_pend"
+                    string="Billed pend."
+                    attrs="{'column_invisible': [('parent.state', 'not in', ('purchase', 'done'))]}"
+                    optional="hide"
+                />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="decoration-success">classified == True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_status']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name="invoice_status_ext" attrs="{'invisible': [('state', 'in', ('draft', 'sent', 'to approve', 'cancel'))]}"/>
+            </xpath>
+            <xpath expr="//group[@name='planning']" position="inside">
+                <label for="shipping_resource_id"/>
+                <div>
+                    <field
+                        name="shipping_resource_id"
+                        options="{'no_create_edit': True, 'no_create': True}"
+                    />
+                </div>            
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_tree" model="ir.ui.view">
+        <field name="name">purchase.order.view.tree (weight)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="amount_untaxed" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="amount_total" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="amount_total" position="after">
+                <field
+                    name="invoice_pend"
+                    sum="Total billing pend."
+                    widget="monetary"
+                    optional="show"
+                />
+                <field
+                    name="receive_pend"
+                    sum="Total received pend."
+                    widget="monetary"
+                    optional="show"
+                />
+            </field>
+            <field name="invoice_status" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="invoice_status" position="after">
+                <field
+                    name="invoice_status_ext"
+                    optional="show"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="purchase_order_view_search" model="ir.ui.view">
+        <field name="name">purchase.order.select (weight)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_search"/>
+        <field name="arch" type="xml">
+            <filter name="not_invoiced" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </filter>
+            <filter name="invoiced" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </filter>
+            <filter name="invoiced" position="after">
+                <filter
+                    name="isext_no"
+                    string="Nothing to Bill (recv. pend.)"
+                    domain="[('invoice_status_ext', '=', 'no')]"
+                    help="Purchase orders that have nothing to invoice, but also have lines with pending quantities"
+                />
+                <filter
+                    name="isext_not_invoiced"
+                    string="Waiting Bills"
+                    domain="[('invoice_status_ext', '=', 'to invoice')]"
+                    help="Purchase orders that include lines not invoiced."
+                />
+                <filter
+                    name="isext_not_invoiced_classif"
+                    string="Waiting Bills (classif.)"
+                    domain="[('invoice_status_ext', '=', 'to invoice classif')]"
+                    help="Purchase orders that include classification lines not invoiced."
+                />
+                <filter
+                    name="isext_invoiced"
+                    string="Bills Received"
+                    domain="[('invoice_status_ext', '=', 'invoiced')]"
+                    help="Purchase orders that have been invoiced."
+                />
+            </filter>
+        </field>
+    </record>
+
+    <record id="action_purchase_order_cancel_pending" model="ir.actions.server">
+        <field name="name">Cancel Pending</field>
+        <field name="model_id" ref="model_purchase_order"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_cancel_pending_multi()
+        </field> 
+    </record>
+</odoo>

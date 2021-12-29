@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- *********************** BACKEND VIEWS ******************************** -->
+    <record id="view_stock_move_weight_form_inherit" model="ir.ui.view">
+        <field name="name">stock.move.form (weight backend)</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group[@name='origin_grp']" position="after">
+                <group name="weight_move" string="Weight" groups="base.group_no_one">
+                    <field name="theoretical_qty"/>
+                    <field name="tare"/>
+                    <field name="date_tare"/>
+                    <field name="gross_weight"/>
+                    <field name="date_gross_weight"/>
+                    <field name="net_weight"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_move_line_form_weight" model="ir.ui.view">
+        <field name="name">stock.move (weight backend)</field>
+        <field name="model">stock.move</field>
+        <field name="arch" type="xml"> 
+            <form string="New Timesheet">
+                <sheet>
+                    <field name="name" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <group>
+                        <group>
+                            <field name="bool_theoretical_qty" nolabel="1"/>
+                            <field name="theoretical_qty"/>
+                        </group>
+                        <group>
+                            <field name="bool_net_weight" nolabel="1"/>
+                            <field name="net_weight"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="weight_selected"/>
+                        <field name="move_line_ids" mode="tree,kanban" context="{'form_view_ref':'stock.view_move_line_form'}">
+                            <tree string="Stock Move Lines" editable="bottom">
+                                <field name="company_id" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="product_qty"/>
+                            </tree>
+                            <form string="Stock Move Lines">
+                                <group>
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="product_id"/>
+                                    <field name="move_id" invisible="1"/>
+                                    <field name="product_qty" string="Weight"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="create_move_line" 
+                            id="create_move_line" 
+                            string="Save" 
+                            type="object"
+                            class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_move_line_weight" model="ir.actions.server">
+        <field name="name">Move Line</field>
+        <field name="model_id" ref="model_stock_picking"/>
+        <field name="state">code</field>
+        <field name="code">
+            action=model.move_weight()
+        </field> 
+    </record>
+
+    <!-- ********************* FRONTEND VIEWS ***************************** -->
+
+    <record id="view_move_search_weight" model="ir.ui.view">
+        <field name="inherit_id" ref="stock.view_move_search"/>
+        <field name="model">stock.move</field>
+        <!-- TODO only enabled for custom group -->
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="picking_vehicle_id"/>
+            </field>                        
+            <filter name="today" position="after">
+                <separator/>
+                <filter
+                    string="Incomplete weight"
+                    name="weight_incomplete"
+                    domain="[('net_weight','=',0.0)]"
+                />
+                <filter
+                    string="Complete weight"
+                    name="weight_complete"
+                    domain="[('net_weight','>',0.0)]"
+                />
+                <separator/>
+                <filter
+                    string="Input"
+                    name="input"
+                    domain="[('picking_code','=','incoming')]"
+                />
+                <filter
+                    string="Output"
+                    name="output"
+                    domain="[('picking_code','=','outgoing')]"
+                />
+            </filter>
+            <!-- TODO Group by complete/incomplete -->
+        </field>
+    </record>
+
+    <record id="view_move_search_classif" model="ir.ui.view">
+        <field name="inherit_id" ref="stock.view_move_search"/>
+        <field name="model">stock.move</field>
+        <!-- TODO only enabled for custom group -->
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="picking_vehicle_id"/>
+            </field>                        
+            <filter name="today" position="after">
+                <separator/>
+                <filter
+                    string="Not classified"
+                    name="weight_notclassified"
+                    domain="[('classification_purchase_order_id','=',False)]"
+                />
+                <filter
+                    string="Classified"
+                    name="weight_classified"
+                    domain="[('classification_purchase_order_id','!=',False)]"
+                />
+            </filter>
+        </field>
+    </record>
+
+    <record id="stock_move_mgmt_weight_frontend_weight_tree_view" model="ir.ui.view">
+        <field name="name">stock.move.tree (weight frontend)</field>
+        <field name="model">stock.move</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <tree decoration-success="date_gross_weight != False" default_order="date desc">
+                <field name="reference" string="Ticket"/>
+                <!-- TODO what is the proper date? -->
+                <field name="date"/>
+                <field name="picking_partner_id" string="Contact"/>
+                <field name="product_id" />
+                <!-- TODO picking_type_id instead of picking_code? -->
+                <field name="picking_code" string="Type"/>
+                <field name="theoretical_qty" string="Announced"/>
+                <field name="tare" />
+                <field name="date_tare" optional="hide"/>
+                <field name="exclude_tare" string="W/O tare"/>
+                <field name="gross_weight" />
+                <field name="date_gross_weight" optional="hide"/>
+                <field name="net_weight"/>
+                <field name="picking_vehicle_id"/>
+                <field name="state" invisible="1"/>
+                <!-- TODO classification button --> 
+            </tree>
+        </field>
+    </record>
+    <record
+        id="stock_move_mgmt_weight_frontend_weight_tree_view_readonly"
+        model="ir.ui.view"
+    >
+        <field name="name">stock.move.tree readonly (weight frontend)</field>
+        <field name="inherit_id" ref="stock_move_mgmt_weight_frontend_weight_tree_view"/>
+        <field name="model">stock.move</field>
+        <field eval="101" name="priority"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="create">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_move_mgmt_weight_frontend_classif_tree_view" model="ir.ui.view">
+        <field name="name">stock.move.tree (classification frontend)</field>
+        <field name="model">stock.move</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false" decoration-success="classification_purchase_order_id != False" default_order="date desc">
+                <field name="reference" string="Ticket"/>
+                <!-- TODO what is the proper date? -->
+                <field name="date"/>
+                <field name="picking_partner_id" string="Contact"/>
+                <field name="product_id" />
+                <field name="net_weight" string="Dest. weight"/>
+                <field name="theoretical_qty" string="Announced"/>
+                <field name="picking_vehicle_id" />
+                <field name="state" invisible="1" />
+                <field 
+                    name="classification_purchase_order_id"
+                    invisible="not context.get('show_classification_order', False)"
+                    widget="many2onebutton"
+                    groups="purchase.group_purchase_user"
+                />
+                <field
+                    name="classification_po_internal_note"
+                    invisible="not context.get('show_classification_order', False)"
+                    optional="show"                    
+                />
+                <field
+                    name="origin_purchase_order_id"
+                    invisible="1"
+                /> <!-- TODO remove -->
+                <!-- <field 
+                    name="origin_purchase_order_id"
+                    invisible="not context.get('show_classification_order', False)"
+                    widget="many2onebutton"
+                /> -->
+                <field 
+                    name="origin_purchase_order_ids"
+                    invisible="not context.get('show_classification_order', False)"
+                    widget="many2many_tags"
+                    groups="purchase.group_purchase_user"
+                />                
+                <!-- <field
+                    name="weight_image_mini"
+                    invisible="not context.get('show_classification_order', False)"
+                    optional="show"
+                /> -->
+                <button name="move_weight"
+                    type="object"
+                    string="Open classification"
+                    invisible="not context.get('show_classification_button', False)"
+                    attrs="{'invisible': [('classification_purchase_order_id', '!=', False)]}"
+                />
+                <button name="action_view_classification"
+                    type="object"
+                    string="View classification"
+                    invisible="context.get('show_classification_button', False)"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock_move_mgmt_weight_frontend_weight_form_view" model="ir.ui.view">
+        <field name="name">stock.move.form (weight frontend)</field>
+        <field name="model">stock.move</field>
+        <field eval="100" name="priority"/>
+        <field name="arch" type="xml">
+            <form string="Weight">
+                <header>
+                    <field name="type_code" invisible="1"/>
+                    <field name="type_mandatory_towing" invisible="1" />
+                    <field name="picking_state" invisible="1"/>
+                    <field name="capture_gross_enabled" invisible="1"/>
+                    <field name="capture_tare_enabled" invisible="1"/>
+                    <button string="Capture Gross"
+                        name="capture_gross"
+                        class="btn-primary"
+                        type="object"
+                        attrs="{'invisible': [('capture_gross_enabled','=',False)]}"/>
+                    <button string="Capture Tare"
+                        name="capture_tare"
+                        class="btn-primary"
+                        type="object"
+                        attrs="{'invisible': [('capture_tare_enabled','=',False)]}"/>
+                    <button name="%(action_report_move_tag)d" 
+                        string="Print Ticket (PDF)"
+                        type="action"
+                        groups="base.group_user"
+                        attrs="{'invisible': [('net_weight','=',0.0)]}"
+                        />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <group>
+                        <group class="mb0">
+                            <field name="state" invisible="1"/>
+                            <field name="name" invisible="1"/>
+                            <field name="product_uom" invisible="1"/>
+                            <field name="product_uom_category_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="picking_id" string="Ticket" attrs="{'readonly': 1}"/>
+                            <field name="picking_type_id" domain="[('scale','=',True)]" attrs="{'required': 1}" options="{'no_create': True}"/>
+                            <field name="picking_partner_id" string="Contact" attrs="{'required': 1}" options="{'no_create': True}"/>
+                            <field name="product_id" options="{'no_create': True}"/>
+                            <field name="picking_vehicle_id" attrs="{'required': 1}"/>
+                            <field name="picking_towing_license_plate" attrs="{'required': ['&amp;',('type_code', '=', 'outgoing'), ('type_mandatory_towing', '=', True)]}"/>
+                            <!-- TODO this field should be filled in output operations with net value -->
+                            <field name="product_uom_qty" attrs="{'invisible': 1}"/>
+                            <field name="picking_note" string="Notes" placeholder="Add an internal note that will be printed on the weighing ticket"/>
+                            
+                        </group>
+                        <group class="mb0">
+                            <group>
+                                <field name="current_weight" widget="iot_weight"/>
+                                <field name="exclude_tare" attrs="{'invisible': [('type_code', '!=', 'incoming')]}"/>
+                                <field name="tare"/>
+                                <field name="date_tare"/>
+                                <field name="gross_weight"/>
+                                <field name="date_gross_weight"/>
+                            </group>
+                            <group>
+                                <!-- <field name="asm" widget="iot_asm_field" nolabel="1" colspan="2"/> -->
+                                <field name="camera" widget="iot_camera_field" nolabel="1"/>
+                            </group>
+                        </group>
+                        <group class="mt0" colspan="2">
+                          <group>
+                            <field name="theoretical_qty" attrs="{'invisible': [('type_code', '!=', 'incoming')]}" string="Announced"/>
+                          </group>
+                          <group>
+                            <field name="net_weight"/>
+                          </group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
