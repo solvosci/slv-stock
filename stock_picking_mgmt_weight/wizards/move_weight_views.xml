@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_move_weight_wizard_form_weight" model="ir.ui.view">
+        <field name="name">stock.move.weight.wizard.form</field>
+        <field name="model">stock.move.weight.wizard</field>
+        <field name="arch" type="xml"> 
+            <form string="Classification wizard">
+                <header>
+                    <field name="name" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="move_id" invisible="1"/>
+                    <field name="picking_id" invisible="1"/>
+                    <field name="check_move_line_ids" invisible="1"/>
+                    <button 
+                        name="move_weight_autofill"
+                        class="btn-primary"
+                        type="object" 
+                        string="Autofill"
+                        attrs="{'invisible': [('check_move_line_ids', '=', False)]}"/>
+                    <button  
+                        name="move_weight_autofill_difference" 
+                        type="object" 
+                        string="Add rest"
+                        attrs="{'invisible': ['|', ('weight_classified', '=', 0), ('check_move_line_ids', '!=', False)]}"/>
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group class="m-0">
+                            <field name="partner_id" readonly="1"/>
+                            <field name="product_id" readonly="1"/>
+                        </group>
+                        <group class="m-0" col="6">
+                            <group class="m-0" colspan="5">
+                                <field name="weight_selection" 
+                                    widget="radio"
+                                    attrs="{'readonly': [('theoretical_qty', '=', 0)]}"/>
+                            </group>
+                            <group class="m-0" colspan="1">
+                                <field name="theoretical_qty" attrs="{'invisible': [('theoretical_qty', '=', 0)]}" readonly="1" colspan="2" nolabel="1"/>
+                                <field name="net_weight" readonly="1" colspan="2" nolabel="1"/>
+                            </group>
+                        </group>
+                        <group class="m-0" colspan="2">
+                            <group style="border-right: none;">
+                                <label for="move_line_weight_ids"/>
+                            </group>
+                            <group>
+                                <field name="weight_classified"/>
+                            </group>
+                        </group>
+                        <group class="m-0" colspan="2">
+                            <field name="move_line_weight_ids" mode="tree" nolabel="1"/>
+                        </group>
+                        <group class="m-0" colspan="2">
+                            <notebook>
+                                <page string="Notes" autofocus="autofocus">
+                                    <field name="note" readonly="1" nolabel="1"/>
+                                </page>
+                                <page string="Internal Notes">
+                                    <field name="internal_note" nolabel="1"/>
+                                </page>
+                            </notebook>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="write_operations"
+                            id="write_operations"
+                            string="Save"
+                            type="object"
+                            class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_stock_move_weight_wizard_inherit_form_weight" model="ir.ui.view">
+        <field name="name">stock.move.weight.wizard.form</field>
+        <field name="inherit_id" ref="view_stock_move_weight_wizard_form_weight"/>
+        <field name="model">stock.move.weight.wizard</field>
+        <field eval="101" name="priority"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_line_weight_ids']" position="attributes">
+                <attribute name="context">{'tree_view_ref':'stock_picking_mgmt_weight.view_stock_move_line_weight_wizard_inherit_tree_weight'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='internal_note']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='theoretical_qty']/parent::group" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='weight_selection']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='write_operations']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='write_operations']" position="after">
+                <button name="update_operations"
+                    id="update_operations"
+                    string="Update"
+                    type="object"
+                    class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_stock_move_weight_wizard_inherit_readonly_form_weight" model="ir.ui.view">
+        <field name="name">stock.move.weight.wizard.form</field>
+        <field name="inherit_id" ref="view_stock_move_weight_wizard_form_weight"/>
+        <field name="model">stock.move.weight.wizard</field>
+        <field eval="101" name="priority"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='move_weight_autofill']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='move_weight_autofill_difference']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_line_weight_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_line_weight_ids']" position="after">
+                <field name="picking_classification_ids" nolabel="1" colspan="2"/>
+            </xpath>
+            <xpath expr="//field[@name='internal_note']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='theoretical_qty']/parent::group" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='weight_selection']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='weight_classified']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='write_operations']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@special='cancel']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

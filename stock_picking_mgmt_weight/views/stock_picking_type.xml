@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_type_weight_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.type.form (weight)</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='warehouse_id']" position="after">
+                <field name="scale"/>
+                <field name="mandatory_towing" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
