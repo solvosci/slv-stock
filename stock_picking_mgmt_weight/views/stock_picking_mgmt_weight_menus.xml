@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_move_weights_in_progress" model="ir.actions.act_window">
+        <field name="name">Weights</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree,form</field>
+        <!-- TODO make a better custom view assignment -->
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('stock_move_mgmt_weight_frontend_weight_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('stock_move_mgmt_weight_frontend_weight_form_view')})]"/>
+        <field name="domain">[("picking_type_id.scale","=",True)]</field>
+        <field name="context">{
+            "search_default_today": 1,
+            "search_default_weight_incomplete": 1,
+            "weight_mgmt": True,
+        }</field>
+    </record>
+    <record id="stock_move_weights_historical" model="ir.actions.act_window">
+        <field name="name">Weights</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree,form</field>
+        <!-- TODO make a better custom view assignment -->
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('stock_move_mgmt_weight_frontend_weight_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('stock_move_mgmt_weight_frontend_weight_form_view')})]"/>
+        <field name="domain">[("picking_type_id.scale","=",True)]</field>
+        <field name="context">{
+            "search_default_today": 1,
+            "search_default_weight_complete": 1,
+            "weight_mgmt": True,
+        }</field>
+    </record>
+    <record id="stock_move_closed_classifs" model="ir.actions.act_window">
+        <field name="name">Closed Classifications</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="stock_move_mgmt_weight_frontend_classif_tree_view"/>
+        <field name="domain">[
+            ("picking_type_id.scale","=",True),
+            ("picking_code","=","incoming"),
+            ("net_weight",">",0.0),
+        ]</field>
+        <field name="context">{
+            "search_default_today": 1,
+            "search_default_weight_classified": 1,
+            "show_classification_order": True,
+        }</field>
+    </record>
+    <record id="stock_move_pending_classifs" model="ir.actions.act_window">
+        <field name="name">Pending Classifications</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="stock_move_mgmt_weight_frontend_classif_tree_view"/>
+        <field name="domain">[
+            ("picking_type_id.scale","=",True),
+            ("picking_code","=","incoming"),
+            ("net_weight",">",0.0)
+        ]</field>
+        <field name="context">{
+            "search_default_today": 1,
+            "search_default_weight_notclassified": 1,
+            "show_classification_button": True,
+        }</field>
+    </record>
+    
+    <menuitem
+        id="menu_root"
+        name="Scale / Classification"
+        web_icon="stock_picking_mgmt_weight,static/description/icon.png"
+        groups="stock_picking_mgmt_weight.group_sc_user"
+    />
+		
+    <menuitem
+        id="menu_mgmt_weight"
+        parent="menu_root"
+        name="Operations"
+        sequence="10"/>
+	
+    <menuitem
+        id="menu_mgmt_weight_weights"
+        parent="menu_mgmt_weight"
+        name="Weights"
+        sequence="11"/>
+    <menuitem
+        id="menu_mgmt_weight_weights_in_progress"
+        parent="menu_mgmt_weight_weights"
+        name="In Progress"
+        action="stock_move_weights_in_progress"
+        sequence="12"/>
+    <menuitem
+        id="menu_mgmt_weight_weights_historical"
+        parent="menu_mgmt_weight_weights"
+        action="stock_move_weights_historical"
+        name="Historical"
+        sequence="13"/>
+    
+    <menuitem
+        id="menu_mgmt_weight_classifs"
+        parent="menu_root"
+        name="Clasification"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_mgmt_weight_pending_classif"
+        parent="menu_mgmt_weight_classifs"
+        name="Pending"
+        action="stock_move_pending_classifs"
+        sequence="21"/>
+
+    <menuitem
+        id="menu_mgmt_weight_closed_classif"
+        parent="menu_mgmt_weight_classifs"
+        name="Closed"
+        action="stock_move_closed_classifs"
+        sequence="22"/>
+    
+    <menuitem
+        id="menu_mgmt_weight_report"
+        parent="menu_root"
+        name="Reports"
+        sequence="30"/>
+
+    <menuitem
+        id="menu_mgmt_weight_configuration"
+        parent="menu_root"
+        name="Configuration"
+        sequence="40"
+        groups="stock_picking_mgmt_weight.group_sc_manager"  
+    />
+    <menuitem
+        id="menu_mgmt_weight_scale"
+        parent="menu_mgmt_weight_configuration"
+        name="Scales"
+        action="scale.scale_action"
+        sequence="41"/>
+    <menuitem
+        id="menu_mgmt_weight_vehicles"
+        parent="menu_mgmt_weight_configuration"
+        name="Vehicles"
+        action="vehicle.vehicle_action"
+        sequence="42"/>
+    <menuitem
+        id="menu_mgmt_weight_cameras"
+        parent="menu_mgmt_weight_configuration"
+        name="Cameras"
+        action="camera.camera_action"
+        sequence="43"/>
+
+</odoo>

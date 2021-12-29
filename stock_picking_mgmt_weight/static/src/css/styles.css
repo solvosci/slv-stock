@@ -1,0 +1,37 @@
+.o_cp_buttons{
+    width: 70%;
+}
+
+.oe_list_buttons_iot_weight {
+    display: flex !important;
+    position: relative;
+}
+
+.oe_viewer_iot_weight{
+    border-radius: 5px;
+    font-size: 42px;
+    position: absolute;
+    top: -60%;
+    right: 0px;
+}
+
+.oe_viewer_iot_weight > span{
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.o_field_iot_weight > span{
+    font-size: 42px;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.asm_color{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}

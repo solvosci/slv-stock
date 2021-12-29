@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="stock_picking_classification_view_tree" model="ir.ui.view">
+        <field name="name">stock.picking.classification.form</field>
+        <field name="model">stock.picking.classification</field>
+        <field name="arch" type="xml">
+            <tree string="Stock Picking Classification" editable="bottom">
+                <field name="order_line_id" />
+                <field name="product_id" />
+                <field name="product_qty" />
+                <field name="clasification_date" />
+            </tree>
+        </field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets_backend"
+        name="Web Widget Iot Weight Assets"
+        inherit_id="web.assets_backend"
+    >
+        <xpath expr=".">
+            <!-- <script
+                type="application/javascript"
+                src="/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js"
+            /> -->
+            <script
+                type="application/javascript"
+                src="/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js"
+            />
+            <script
+                type="application/javascript"
+                src="/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js"
+            />
+            <script
+                type="application/javascript"
+                src="/stock_picking_mgmt_weight/static/src/js/iot_weight_viewer.js"
+            />
+            <link rel="stylesheet" href="/stock_picking_mgmt_weight/static/src/css/styles.css"/>
+        </xpath>
+    </template>
+</odoo>

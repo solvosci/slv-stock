@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_weight_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.form (weight)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='backorder_id']" position="after">
+                <field name="type_scale" invisible="1"/>
+                <field name="type_code" invisible="1"/>
+                <field name="vehicle_id" attrs="{'invisible': [('type_scale', '=', False)]}"/>
+                <field name="towing_license_plate" attrs="{'invisible': [('type_scale', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='origin']" position="after">
+                <field
+                    name="classification_picking_id"
+                    attrs="{'invisible': [('classification_picking_id', '=', False)]}"
+                />
+                <field
+                    name="related_picking_id"
+                    attrs="{'invisible': [('related_picking_id', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//tree/field[@name='product_uom']" position="after">
+                <field name="theoretical_qty" attrs="{'column_invisible': ['|',('parent.type_scale','=', False), ('parent.type_code', '!=', 'incoming')]}"/>
+                <field name="exclude_tare" attrs="{'column_invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
+                <field name="tare" force_save="1" attrs="{'readonly': [('exclude_tare', '=', True)], 'column_invisible':[('parent.type_scale','=', False)]}"/>
+                <field name="date_tare" invisible="1"/>
+                <field name="gross_weight" attrs="{'column_invisible': [('parent.type_scale', '=', False)]}"/>
+                <field name="date_gross_weight" invisible="1"/>
+                <field name="net_weight" readonly="0" attrs="{'column_invisible': [('parent.type_scale', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//form/group/field[@name='description_picking']" position="after">
+                <field name="theoretical_qty" attrs="{'invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
+                <field name="exclude_tare" attrs="{'invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
+                <field name="tare" force_save="1" attrs="{'readonly': [('exclude_tare', '=', True)], 'invisible': [('parent.type_scale','=', False)]}"/>
+                <field name="date_tare" invisible="1"/>
+                <field name="gross_weight" attrs="{'invisible': [('parent.type_scale', '=', False)]}"/>
+                <field name="date_gross_weight" invisible="1"/>
+                <field name="net_weight" readonly="0" attrs="{'invisible': [('parent.type_scale', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//page[@name='extra']" position="before">
+                <page
+                    string="Outgoing Info"
+                    name="outgoing_info"
+                    attrs="{'invisible': [('type_code','!=','outgoing')]}"
+                >
+                    <group name="outgoing_info_gr_main">
+                        <group name="outgoing_info_gr_1" string="Container">
+                            <field name="container_number" string="Number"/>
+                            <field name="container_tare" string="Tare"/>
+                            <field name="container_gross_weight" string="Gross Weight"/>
+                            <field name="container_vgm_weight" string="VGM"/> 
+                            <field name="container_safety" string="Safety"/>
+                        </group>
+                        <group name="outgoing_info_gr_2" string="Transport">
+                            <field name="vehicle_id"/>
+                            <field name="towing_license_plate"/>
+                            <field name="carrier_vehicle_id"/>
+                            <field name="operator_id"/>
+                            <field name="driver_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="view_stock_picking_weight_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.tree (weight)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='activity_exception_decoration']" position="after">
+                <field
+                    name="vehicle_id"
+                    optional="show"
+                    invisible="context.get('hide_vehicle_id', False)"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_weight_search_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.search (weight)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='picking_type_id']" position="after">
+                <field name="vehicle_id"/>
+                <field name="towing_license_plate"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_weight_form_inherit2" model="ir.ui.view">
+        <field name="name">stock.picking.form (move line)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_cancel']" position="before">
+                <button string="Open classification"
+                    name="move_weight"
+                    class="btn-primary"
+                    type="object"
+                    attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('type_scale', '=', False)]}"/>
+                <button name="%(action_report_picking_tag)d" 
+                    string="Print Ticket (PDF)" 
+                    type="action" 
+                    groups="base.group_user" 
+                    attrs="{'invisible': [('type_scale', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

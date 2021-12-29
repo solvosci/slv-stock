@@ -1,0 +1,1577 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_mgmt_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-20 15:33+0000\n"
+"PO-Revision-Date: 2021-12-20 15:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__picking_state
+msgid ""
+" * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
+" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting: The transfer is waiting for the availability of some products.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+" * Ready: The transfer is ready to be processed.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+" * Done: The transfer has been processed.\n"
+" * Cancelled: The transfer has been cancelled."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
+#, python-format
+msgid "%s-%s (%.2f pend.)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "/weight_images/%s"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_product_product_weight_form_inherit
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_product_template_weight_form_inherit
+msgid "<span class=\"o_stat_text\">Expected Qty</span>"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "<strong>Date</strong>"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "<strong>Kg Weight</strong>"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_picking__container_number
+msgid "A text representing container no. for an outgoing operation"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_picking__container_safety
+msgid "A text representing container safety data for an outgoing operation"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__active
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__active
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__active
+msgid "Active"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+msgid "Add an internal note that will be printed on the weighing ticket"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Add rest"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+msgid "Announced"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__theoretical_qty
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__stock_move_weight_wizard__weight_selection__theoretical_qty
+#, python-format
+msgid "Announced Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Autofill"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Billed"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Billed pend."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Billed*"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__invoice_status_ext
+msgid "Billing Status (Extended)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Bills Received"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__bool_net_weight
+msgid "Bool Net Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__bool_theoretical_qty
+msgid "Bool Theoretical Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__camera
+msgid "Camera"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_cameras
+msgid "Cameras"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_company__picking_operations_camera_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_config_settings__picking_operations_camera_id
+msgid "Cameras for Scale"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Cancel"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.server,name:stock_picking_mgmt_weight.action_purchase_order_cancel_pending
+msgid "Cancel Pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Cancel pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_cancelled
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Cancelled"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__cancelled_classif_count
+msgid "Cancelled Classif Count"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#, python-format
+msgid "Cannot cancel pending quantities for %s: it's a classification order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#, python-format
+msgid ""
+"Cannot cancel pending quantities for %s: it's not an order made of "
+"classification orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#, python-format
+msgid "Cannot cancel pending quantities for %s: it's not an order yet"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#, python-format
+msgid "Cannot cancel pending quantities for %s: nothing is pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+msgid "Capture Gross"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__capture_gross_enabled
+msgid "Capture Gross Enabled"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+msgid "Capture Tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__capture_tare_enabled
+msgid "Capture Tare Enabled"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_vehicle__carrier_id
+msgid "Carrier"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__carrier_vehicle_id
+msgid "Carrier Vehicle"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__check_move_line_ids
+msgid "Check Move Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_classifs
+msgid "Clasification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__clasification_date
+msgid "Clasification Date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__classification_order_line_ids
+msgid "Clasification order lines"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification
+msgid "Classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_count
+msgid "Classification Count"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_date
+msgid "Classification Date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_invoice_ids
+msgid "Classification Invoice"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_invoice_count
+msgid "Classification Invoice Count"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__classification_po_internal_note
+msgid "Classification Note"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__classification_purchase_order_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__classification_purchase_order_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_search
+msgid "Classification Order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__classification_order_line_id
+msgid "Classification Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Classification Orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_stock_picking_ids
+msgid "Classification Stock Picking"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__classification_picking_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__classification_picking_id
+msgid "Classification picking"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Classification wizard"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__classified
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_classif
+msgid "Classified"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_closed_classif
+msgid "Closed"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.stock_move_closed_classifs
+msgid "Closed Classifications"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__code
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__code
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__code
+msgid "Code"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__company_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__company_id
+msgid "Company"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__complete_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__complete_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__complete_name
+msgid "Complete Name"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_weight
+msgid "Complete weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_res_partner
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__partner_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__partner_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+msgid "Contact"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Contact:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Container"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__container_gross_weight
+msgid "Container Gross Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__container_number
+msgid "Container Number"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__container_safety
+msgid "Container Safety"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__container_tare
+msgid "Container Tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__container_vgm_weight
+msgid "Container Vgm Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__create_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__create_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__create_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__create_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__create_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__create_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__create_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__create_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#, python-format
+msgid "Created when cancelling pending quantities of %s"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__current_weight
+msgid "Current Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__date
+msgid "Date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_search
+msgid "Date Planned"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__date_planned_search
+msgid "Date Planned Search"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_search
+msgid "Date planned"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Date:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__product_uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__name
+msgid "Description"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+msgid "Dest. weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__display_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__display_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__display_name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__driver_id
+msgid "Driver"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__exclude_tare
+msgid "Exclude Tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_product_product__expected_qty
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_product_template__expected_qty
+msgid "Expected Quantity"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_picking__related_picking_id
+msgid ""
+"For a certain picking, this field points to original scale picking, if "
+"exists"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__classification_picking_id
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_picking__classification_picking_id
+msgid ""
+"For a scale picking, this field points to the picking generated by "
+"classification process"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_picking__container_tare
+msgid "For an outgoing operation, the related container tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__related_real_order_line_id
+msgid ""
+"For extra lines created in classification process, this field indicates the "
+"original linked line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__purchase_order__invoice_status_ext__invoiced
+msgid "Fully Billed"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__gross_weight
+msgid "Gross"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Gross Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__date_gross_weight
+msgid "Gross weight date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Gross:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__has_pending_qty
+msgid "Has Pending Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_weights_historical
+msgid "Historical"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "IDN"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_company__picking_operations_scale_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_config_settings__picking_operations_scale_id
+msgid "IN / OUT Picking Operations for Scale"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__identification_document_number
+msgid "Identification Document Number"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_weights_in_progress
+msgid "In Progress"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_warehouse__in_scale_type_id
+msgid "In Type Scale"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_weight
+msgid "Incomplete weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__order_incoterm_id
+msgid "Incoterm"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_weight
+msgid "Input"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__has_pending_qty
+msgid ""
+"Instrumental field indicating if there's any pending quantity for this order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__internal_note
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Internal Notes"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__order_incoterm_id
+msgid ""
+"International Commercial Terms are a series of predefined commercial terms "
+"used in international transactions."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Inv. first date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Invoice *"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__invoice_lines_invoice_first_date
+msgid "Invoice first date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_invoiced_ext
+msgid "Invoiced (extended)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_invoiced_pend
+msgid "Invoiced pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#. openerp-web
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
+#, python-format
+msgid "Iot ASM"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#. openerp-web
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
+#, python-format
+msgid "Iot Camera"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#. openerp-web
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
+#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
+#, python-format
+msgid "Iot Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__is_default
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__is_default
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__is_default
+msgid "Is Default"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "It is necessary to assign a scale to perform this operation."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "It is necessary to assign a vehicle to perform this operation."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource____last_update
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification____last_update
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition____last_update
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_vehicle__license_plate_last_towing
+msgid "Last Towing"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__write_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__write_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__write_uid
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__write_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__write_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__write_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__write_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__write_date
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "License Plate:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "LoW Code:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:res.groups,name:stock_picking_mgmt_weight.group_sc_manager
+msgid "Manager"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__type_mandatory_towing
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_type__mandatory_towing
+msgid "Mandatory Towing"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Modify Related Orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__move_id
+msgid "Move"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.server,name:stock_picking_mgmt_weight.action_move_line_weight
+msgid "Move Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__move_line_weight_ids
+msgid "Move Line Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
+#, python-format
+msgid "Move Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__name
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__name
+msgid "Name"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__net_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__net_weight
+msgid "Net"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Net:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
+msgid "New Timesheet"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#. openerp-web
+#: code:addons/stock_picking_mgmt_weight/static/src/xml/iot_camera_field.xml:0
+#, python-format
+msgid "No Image"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_classif
+msgid "Not classified"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Note:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_note
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__note
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Notes"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__purchase_order__invoice_status_ext__no
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Nothing to Bill (recv. pend.)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Number"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__old_order_line_id
+msgid "Old Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit2
+msgid "Open classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight
+msgid "Operations"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__operator_id
+msgid "Operator"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__order_line_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__order_line_id
+msgid "Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__related_real_order_id
+msgid "Order Reference"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Orig."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__origin_purchase_order_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__origin_purchase_order_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_search
+msgid "Origin Order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__origin_purchase_order_ids
+msgid "Origin Orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_warehouse__out_scale_type_id
+msgid "Out Type Scale"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Outgoing Info"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_move_search_weight
+msgid "Output"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__invoice_pend
+msgid "Pend. invoicing"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__invoice_orig_pend
+msgid "Pend. invoicing (original)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__receive_pend
+msgid "Pend. receiving"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_pending_classif
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.stock_move_pending_classifs
+msgid "Pending Classifications"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__pending_qty
+msgid "Pending Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__picking_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__picking_id
+msgid "Picking"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__picking_classification_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__picking_classification_ids
+msgid "Picking Classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking_type
+msgid "Picking Type"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.report,name:stock_picking_mgmt_weight.action_report_move_tag
+#: model:ir.actions.report,name:stock_picking_mgmt_weight.action_report_picking_tag
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit2
+msgid "Print Ticket (PDF)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_product_product
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__product_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__product_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__product_id
+msgid "Product"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__product_qty
+msgid "Product Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__product_qty_readonly
+msgid "Product Qty Readonly"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Product:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_order_id
+msgid "Purchase Order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Purchase Order:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__order_user_id
+msgid "Purchase Representative"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Purchase orders that have been invoiced."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid ""
+"Purchase orders that have nothing to invoice, but also have lines with "
+"pending quantities"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Purchase orders that include classification lines not invoiced."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Purchase orders that include lines not invoiced."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__product_uom_qty
+msgid "Qty"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_classified
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Qty Classified"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Received"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_received_ext
+msgid "Received (extended)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Received*"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__related_order_id
+msgid "Related Order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__related_order_count
+msgid "Related Order Count"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__related_real_order_line_id
+msgid "Related Real Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__classification_order_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__related_order_ids
+msgid "Related orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_report
+msgid "Reports"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Repr."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Safety"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
+msgid "Save"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.res_config_settings_scale_view_form
+msgid "Scale"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.module.category,name:stock_picking_mgmt_weight.module_sc_category
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_root
+msgid "Scale / Classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
+#, python-format
+msgid "Scale Delivery Orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
+#, python-format
+msgid "Scale Receipts"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__scale_stock_move_ids
+msgid "Scale Stock Move"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__scale_stock_move_count
+msgid "Scale Stock Move Count"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__stock_move_weight_wizard__weight_selection__net_weight
+#, python-format
+msgid "Scale Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__related_picking_id
+msgid "Scale related picking"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__type_scale
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_type__scale
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_scale
+msgid "Scales"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
+#, python-format
+msgid "Sequence Scale in"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
+#, python-format
+msgid "Sequence Scale out"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_shipping_resource
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__shipping_resource_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order__shipping_resource_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_shipping_resource_form
+msgid "Shipping Resource"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.act_shipping_resource
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.purchase_menu_shipping_resource
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.sale_menu_shipping_resource
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_shipping_resource_search
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_shipping_resource_tree
+msgid "Shipping Resources"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__classification
+msgid "Shows if the order comes from a classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_state
+msgid "Status"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_move
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__move_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__move_weight_id
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_weight_wizard_tree_weight
+msgid "Stock Move Lines"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_picking_classification_view_tree
+msgid "Stock Picking Classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+msgid "Supp. Cond."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_supply_condition
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__supply_condition_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_supply_condition_form
+msgid "Supply Condition"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.act_supply_condition
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.sale_menu_supply_condition
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_supply_condition_search
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_supply_condition_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_vehicle_type_tree
+msgid "Supply Conditions"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__tare
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__date_tare
+msgid "Tare date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Tare:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__price_unit_wd
+msgid "Technical field for pending invoicing amount data"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__theoretical_qty
+msgid "Theoretical quantity demanded"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__identification_document_number
+msgid ""
+"This code should be unique for an order and product LER code and should come"
+" from GAIA integration"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_invoiced_ext
+msgid ""
+"This field also takes in account invoiced quantities in classification order"
+" lines"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_received_ext
+msgid ""
+"This field also takes in account received quantities in classification order"
+" lines"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_cancelled
+msgid ""
+"This field only takes in account quantities in cancelled classification "
+"orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+msgid "Ticket"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Ticket Number:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Tickets"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+msgid "Total amount"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__invoice_pend
+msgid "Total amount currently pending of invoice"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__invoice_orig_pend
+msgid "Total amount currently pending of invoice (original)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__receive_pend
+msgid "Total amount currently pending of receive"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_tree
+msgid "Total billing pend."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_tree
+msgid "Total received pend."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_towing_license_plate
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__towing_license_plate
+msgid "Towing License Plate"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_vehicle__transfer_count
+msgid "Transfers"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "Transport"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+msgid "Type"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__type_code
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__type_code
+msgid "Type of Operation"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/controllers/scale.py:0
+#, python-format
+msgid "Undefined scale for current company"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__price_unit_wd
+msgid "Unit Price W/discount"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__product_uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_inherit_form_weight
+msgid "Update"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:res.groups,name:stock_picking_mgmt_weight.group_sc_user
+msgid "User"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
+msgid "VGM"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__weight_image_mini
+msgid "Variant Image Mini"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+msgid "Veh. Type"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_vehicle_vehicle
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_partner__vehicle_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_users__vehicle_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_vehicle_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__vehicle_id
+msgid "Vehicle"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_vehicle_type
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__vehicle_type_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_vehicle_type_form
+msgid "Vehicle Type"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.act_vehicle_type
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.sale_menu_vehicle_type
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_vehicle_type_search
+msgid "Vehicle Types"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_vehicles
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_res_partner_vehicle_form_inherit
+msgid "Vehicles"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "View classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "View rel. orders"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+msgid "W/O tare"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__purchase_order__invoice_status_ext__to_invoice
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Waiting Bills"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__purchase_order__invoice_status_ext__to_invoice_classif
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_search
+msgid "Waiting Bills (classif.)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_warehouse
+msgid "Warehouse"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_form_inherit
+msgid "Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__weight_classified
+msgid "Weight Classified"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__weight_image
+msgid "Weight Image"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__weight_classified
+msgid "Weight Pending Classification "
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__weight_selected
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__weight_selected
+msgid "Weight Selected"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__weight_selection
+msgid "Weight Selection"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
+#, python-format
+msgid "Weight pending classification must be zero"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.stock_move_weights_historical
+#: model:ir.actions.act_window,name:stock_picking_mgmt_weight.stock_move_weights_in_progress
+#: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_weights
+msgid "Weights"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_res_partner_vehicle_search_inherit
+msgid "With associated vehicles"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_res_partner_vehicle_search_inherit
+msgid "Without associated vehicles"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_move_line_weight_wizard
+msgid "stock.move.line.weight.wizard"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_move_weight_wizard
+msgid "stock.move.weight.wizard"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking_classification
+msgid "stock.picking.classification"
+msgstr ""

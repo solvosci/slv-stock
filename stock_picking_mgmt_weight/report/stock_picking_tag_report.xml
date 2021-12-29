@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_picking_tag" model="report.paperformat">
+            <field name="name">Picking Tag</field>
+            <field name="default" eval="True" />
+            <field name="format">A5</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">5</field>
+            <!-- TODO Margin bottom 14 but 7 to hide paginator -->
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="action_report_move_tag"
+            model="stock.move"
+            string="Print Ticket (PDF)"
+            name="stock_picking_mgmt_weight.report_stock_move_tag"
+            file="stock_picking_mgmt_weight.report_stock_move_tag"
+            report_type="qweb-pdf"
+            paperformat="stock_picking_mgmt_weight.paperformat_picking_tag"
+        />
+
+        <report id="action_report_picking_tag"
+            model="stock.picking"
+            string="Print Ticket (PDF)"
+            name="stock_picking_mgmt_weight.report_stock_picking_tag"
+            file="stock_picking_mgmt_weight.report_stock_picking_tag"
+            report_type="qweb-pdf"
+            paperformat="stock_picking_mgmt_weight.paperformat_picking_tag"
+        />
+
+    </data>
+</odoo>

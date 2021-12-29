@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_type_tree" model="ir.ui.view">
+        <field name="name">stock.picking.type.tree (stock_picking_mgmt_weight_pot)</field>
+        <field name="model">stock.picking.type</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_picking_type_tree"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="classification_pot_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_type_weight_form_inherit" model="ir.ui.view">
+        <field name="name">stock.picking.type.form (weight, purchase_order_type)</field>
+        <field name="model">stock.picking.type</field>
+        <field
+            name="inherit_id"
+            ref="stock_picking_mgmt_weight.view_picking_type_weight_form_inherit"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scale']" position="after">
+                <field
+                    name="classification_pot_id"
+                    attrs="{'invisible': [('scale','=',False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

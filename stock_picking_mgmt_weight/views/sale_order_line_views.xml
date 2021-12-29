@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_line_tree" model="ir.ui.view">
+        <field name="name">sale.order.line.tree (in stock_picking_mgmt_weight)</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="order_id" position="attributes">
+                <attribute name="widget">many2onebutton</attribute>
+            </field>
+            <field name="name" position="after">
+                <field
+                    name="supply_condition_id"
+                    optional="show"
+                    string="Supp. Cond."
+                />
+                <field
+                    name="vehicle_type_id"
+                    optional="show"
+                    string="Veh. Type"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
