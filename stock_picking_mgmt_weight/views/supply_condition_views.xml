@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_supply_condition_tree" model="ir.ui.view">
+        <field name="name">supply.condition.tree</field>
+        <field name="model">supply.condition</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="string">Supply Conditions</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_supply_condition_form" model="ir.ui.view">
+        <field name="name">supply.condition.form</field>
+        <field name="model">supply.condition</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="string">Supply Condition</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_supply_condition_search" model="ir.ui.view">
+        <field name="name">supply.condition.search</field>
+        <field name="model">supply.condition</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_search" 
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="attributes">
+                <attribute name="string">Supply Conditions</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="act_supply_condition" model="ir.actions.act_window">
+        <field name="name">Supply Conditions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">supply.condition</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_supply_condition_search"/>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_supply_condition_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_supply_condition_form')})]"
+        />
+    </record>
+
+    <menuitem
+        id="sale_menu_supply_condition"
+        parent="sale.menu_sale_config"
+        name="Supply Conditions"
+        action="act_supply_condition"
+        sequence="20"
+    />
+</odoo>

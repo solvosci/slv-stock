@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="ListView.buttons">
+      <t t-jquery="button.o_list_export_xlsx" t-operation="after">
+        <!-- button
+            t-if="widget.modelName == 'stock.move'" 
+            class="btn btn-secondary oe_viewer_iot_weight"
+            type="button"
+        >
+            WEIGHT
+            widget.model.localData.context.weight_mgmt
+        </button -->
+        <div
+            t-if="widget.modelName == 'stock.move' and widget._controlPanel.model.actionContext.weight_mgmt"
+            class="oe_viewer_iot_weight"
+        >
+            <span/>
+        </div>
+      </t>
+    </t>
+</templates>

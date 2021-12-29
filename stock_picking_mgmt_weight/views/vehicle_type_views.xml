@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vehicle_type_tree" model="ir.ui.view">
+        <field name="name">vehicle.type.tree</field>
+        <field name="model">vehicle.type</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="string">Supply Conditions</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_vehicle_type_form" model="ir.ui.view">
+        <field name="name">vehicle.type.form</field>
+        <field name="model">vehicle.type</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_form"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="string">Vehicle Type</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_vehicle_type_search" model="ir.ui.view">
+        <field name="name">vehicle.type.search</field>
+        <field name="model">vehicle.type</field>
+        <field
+            name="inherit_id"
+            ref="base_model_code_mixin.view_model_code_mixin_search" 
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="attributes">
+                <attribute name="string">Vehicle Types</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="act_vehicle_type" model="ir.actions.act_window">
+        <field name="name">Vehicle Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vehicle.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_vehicle_type_search"/>
+        <field
+            name="view_ids"
+            eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_vehicle_type_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_vehicle_type_form')})]"
+        />
+    </record>
+
+    <menuitem
+        id="sale_menu_vehicle_type"
+        parent="sale.menu_sale_config"
+        name="Vehicle Types"
+        action="act_vehicle_type"
+        sequence="21"
+    />
+</odoo>
