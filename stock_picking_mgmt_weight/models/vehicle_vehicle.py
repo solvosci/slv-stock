@@ -13,6 +13,7 @@ class Vehicle(models.Model):
         'res.partner',
         string='Carrier',
         domain="[('is_company', '=', True)]",
+        ondelete="restrict",
     )
     license_plate_last_towing = fields.Char(
         string="Last Towing",
