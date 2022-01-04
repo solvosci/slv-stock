@@ -101,7 +101,7 @@
                 <button name="update_operations"
                     id="update_operations"
                     string="Update"
-                    type="object"
+                    type="object"                    
                     class="oe_highlight"/>
             </xpath>
         </field>
