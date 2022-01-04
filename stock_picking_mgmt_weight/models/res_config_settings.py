@@ -14,6 +14,10 @@ class ResConfigSettings(models.TransientModel):
         readonly=False,
         required=True
     )
+    picking_operations_weight_max = fields.Float(
+        related='company_id.picking_operations_weight_max',
+        readonly=False,
+    )
     picking_operations_camera_id = fields.Many2one(
         comodel_name='camera.camera',
         related='company_id.picking_operations_camera_id',
@@ -36,6 +40,9 @@ class ResCompany(models.Model):
     picking_operations_scale_id = fields.Many2one(
         comodel_name='scale.scale',
         string='IN / OUT Picking Operations for Scale'
+    )
+    picking_operations_weight_max = fields.Float(
+        string="Max. weight for scale operations",
     )
     picking_operations_camera_id = fields.Many2one(
         comodel_name='camera.camera',

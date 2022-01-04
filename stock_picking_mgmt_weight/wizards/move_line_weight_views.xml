@@ -44,6 +44,7 @@
             </xpath>
         </field>
     </record>
+    <!-- TODO seems to be unused => remove -->
     <record id="view_stock_move_line_weight_wizard_inherit_readonly_tree_weight" model="ir.ui.view">
         <field name="name">stock.move.line.weight.wizard.tree</field>
         <field name="inherit_id" ref="view_stock_move_line_weight_wizard_tree_weight"/>

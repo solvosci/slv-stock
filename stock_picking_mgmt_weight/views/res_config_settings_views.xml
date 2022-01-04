@@ -25,6 +25,20 @@
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_left_pane"/>
                         <div class="o_setting_right_pane">
+                            <label for="picking_operations_weight_max"/>
+                            <div class="text-muted"/>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="picking_operations_weight_max"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
                             <label for="picking_operations_camera_id"/>
                             <div class="text-muted"/>
                             <div class="content-group">
