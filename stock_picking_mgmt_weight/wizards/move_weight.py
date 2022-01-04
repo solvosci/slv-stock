@@ -231,6 +231,7 @@ class MoveWeight(models.TransientModel):
                 "product_id": move_line.product_id.id,
                 "product_qty": move_line.product_uom_qty,
                 "clasification_date": fields.datetime.now(),
+                "user_id": self.env.user.id,
             })]
 
         pol_new = purchase_order.order_line - pol_initial
@@ -281,6 +282,12 @@ class MoveWeight(models.TransientModel):
         """
         When lines are updated only one line should have a linked purchase line
         """
+        if not self.env.user.has_group("stock_picking_mgmt_weight.group_sc_manager"):
+            user_ids = self.picking_id.picking_classification_ids.user_id.ids
+            if self.env.user.id not in user_ids:
+                raise ValidationError(_(
+                    "Classification modification not allowed for you"
+                ))
         for pol in self.move_line_weight_ids.filtered(
             lambda x: x.old_order_line_id != x.order_line_id
         ):

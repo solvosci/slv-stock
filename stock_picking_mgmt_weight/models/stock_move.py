@@ -3,6 +3,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 from datetime import date, datetime
 import os
@@ -213,6 +214,23 @@ class StockMovFrontend(models.Model):
                     rec.type_code == "outgoing"
                 )
             )
+
+    @api.constrains("tare", "gross_weight")
+    def _check_weight_max(self):
+        weight_max = self.env.company.picking_operations_weight_max
+        for record in self:
+            if not float_is_zero(
+                weight_max,
+                precision_rounding=record.product_id.uom_id.rounding
+            ):
+                if record.tare > weight_max:
+                    raise ValidationError(
+                        _("Tare too high (max. value=%.2f)") % weight_max
+                    )
+                if record.gross_weight > weight_max:
+                    raise ValidationError(
+                        _("Gross weight too high (max. value=%.2f)") % weight_max
+                    )
 
     def capture_image_weight(self):
         # TODO

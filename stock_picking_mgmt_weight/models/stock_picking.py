@@ -11,7 +11,11 @@ class StockPicking(models.Model):
     type_code = fields.Selection(related="picking_type_id.code")
     type_scale = fields.Boolean(related="picking_type_id.scale")
 
-    vehicle_id = fields.Many2one('vehicle.vehicle', string='Vehicle')
+    vehicle_id = fields.Many2one(
+        'vehicle.vehicle',
+        string='Vehicle',
+        ondelete="restrict",
+    )
     # TODO related, computed, a regular field?
     # carrier_vehicle_id = fields.Many2one(related="vehicle_id.carrier_id")
     carrier_vehicle_id = fields.Many2one(
@@ -20,6 +24,7 @@ class StockPicking(models.Model):
         store=True,
         readonly=False,
         domain="[('is_company', '=', True)]",
+        ondelete="restrict",
     )
     towing_license_plate = fields.Char()
     container_number = fields.Char(
@@ -45,11 +50,13 @@ class StockPicking(models.Model):
         string="Operator",
         comodel_name="res.partner",
         domain="[('is_company', '=', True)]",
+        ondelete="restrict",
     )
     driver_id = fields.Many2one(
         string="Driver",
         comodel_name="res.partner",
         domain="[('is_company', '=', False)]",
+        ondelete="restrict",
     )
 
     picking_classification_ids = fields.One2many(

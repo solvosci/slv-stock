@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 15:33+0000\n"
-"PO-Revision-Date: 2021-12-20 15:33+0000\n"
+"POT-Creation-Date: 2022-01-07 09:46+0000\n"
+"PO-Revision-Date: 2022-01-07 09:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,7 @@ msgid "%s-%s (%.2f pend.)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "/weight_images/%s"
@@ -314,6 +315,12 @@ msgid "Classification Stock Picking"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
+#, python-format
+msgid "Classification modification not allowed for you"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__classification_picking_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__classification_picking_id
 msgid "Classification picking"
@@ -570,6 +577,12 @@ msgid "Gross weight date"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "Gross weight too high (max. value=%.2f)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
 msgid "Gross:"
 msgstr ""
@@ -712,11 +725,13 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a scale to perform this operation."
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a vehicle to perform this operation."
@@ -779,6 +794,12 @@ msgid "Mandatory Towing"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_company__picking_operations_weight_max
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_config_settings__picking_operations_weight_max
+msgid "Max. weight for scale operations"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Modify Related Orders"
 msgstr ""
@@ -802,6 +823,9 @@ msgstr ""
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #, python-format
 msgid "Move Weight"
@@ -1280,6 +1304,12 @@ msgid "Tare date"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "Tare too high (max. value=%.2f)"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
 msgid "Tare:"
 msgstr ""
@@ -1423,6 +1453,7 @@ msgid "Update"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__user_id
 #: model:res.groups,name:stock_picking_mgmt_weight.group_sc_user
 msgid "User"
 msgstr ""
