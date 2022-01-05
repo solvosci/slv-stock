@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inspired on Invoice Document partner VAT implementation -->
+    <template id="partner_vat">
+        <div t-if="o.partner_id.vat" class="mt16">
+            <t
+                t-if="o.company_id.country_id.vat_label"
+                t-esc="o.company_id.country_id.vat_label"
+                id="inv_tax_id_label"
+            />
+            <t t-else="">Tax ID</t>: <span t-field="o.partner_id.vat"/>
+        </div>    
+    </template>
+
+    <template
+        id="report_delivery_document"
+        inherit_id="stock.report_delivery_document"
+    >
+        <xpath expr="//t[@t-set='address']" position="inside">
+            <t t-call="stock_picking_report_deliv_vat.partner_vat" />
+        </xpath>
+    </template>
+</odoo>
