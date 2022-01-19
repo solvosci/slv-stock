@@ -118,6 +118,11 @@ class PurchaseOrder(models.Model):
         compute="_compute_classification_invoice_ids"
     )
 
+    propagate_custom_date = fields.Boolean(
+        default=False,
+        help="Technical field for order date propagation to stock moves",
+    )
+
     def _compute_classification_invoice_ids(self):
         for record in self:
             lines = record.classification_order_ids.invoice_ids.invoice_line_ids.filtered(
