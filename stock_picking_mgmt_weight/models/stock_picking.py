@@ -145,7 +145,11 @@ class StockPicking(models.Model):
         #      action_done() maybe is better, but is multi
         self.ensure_one()
         stock_move_custom_date = False
-        if self.purchase_id and self.purchase_id.classification:
+        if self.purchase_id and (
+            self.purchase_id.classification
+            or
+            self.purchase_id.propagate_custom_date
+        ):
             stock_move_custom_date = self.scheduled_date
         picking = self.with_context(
             stock_move_custom_date=stock_move_custom_date

@@ -75,6 +75,10 @@
                     widget="many2many_tags"
                     attrs="{'invisible': [('classification', '=', False)]}"
                 />
+                <field
+                    name="propagate_custom_date"
+                    groups="base.group_no_one"
+                />
             </xpath>
             <xpath expr="//form/group/group/field[@name='product_id']" position="after">
                 <field
