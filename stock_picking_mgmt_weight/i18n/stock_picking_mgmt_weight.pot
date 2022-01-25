@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 09:46+0000\n"
-"PO-Revision-Date: 2022-01-07 09:46+0000\n"
+"POT-Creation-Date: 2022-01-25 07:37+0000\n"
+"PO-Revision-Date: 2022-01-25 07:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,6 @@ msgid "%s-%s (%.2f pend.)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "/weight_images/%s"
@@ -725,13 +724,11 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a scale to perform this operation."
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a vehicle to perform this operation."
@@ -823,9 +820,6 @@ msgstr ""
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #, python-format
 msgid "Move Weight"
@@ -1040,6 +1034,11 @@ msgid "Product:"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__propagate_custom_date
+msgid "Propagate Custom Date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_order_id
 msgid "Purchase Order"
@@ -1228,6 +1227,7 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_shipping_resource
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__shipping_resource_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__order_shipping_resource_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order__shipping_resource_id
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_shipping_resource_form
 msgid "Shipping Resource"
@@ -1312,6 +1312,11 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
 msgid "Tare:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__propagate_custom_date
+msgid "Technical field for order date propagation to stock moves"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -1406,6 +1411,11 @@ msgid "Towing License Plate"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Towing License Plate:"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking
 msgid "Transfer"
 msgstr ""
@@ -1479,6 +1489,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_partner__vehicle_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_users__vehicle_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_vehicle_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__vehicle_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__vehicle_id
 msgid "Vehicle"
 msgstr ""

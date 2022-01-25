@@ -319,7 +319,8 @@ class StockMovFrontend(models.Model):
             'weight_selection': weight_selection,
             'theoretical_qty': self.theoretical_qty,
             'net_weight': self.net_weight,
-            'company_id': self.company_id.id
+            'company_id': self.company_id.id,
+            'vehicle_id': self.picking_vehicle_id.id
         })
 
         return {

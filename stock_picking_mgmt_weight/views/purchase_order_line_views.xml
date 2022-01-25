@@ -61,14 +61,14 @@
             </xpath>            
             <xpath expr="//field[@name='product_qty']" position="after">
                 <field name="order_user_id" string="Repr."/>
-                <field name="qty_received" string="Received" optional="show"/>
+                <field name="qty_received" string="Received" optional="hide"/>
                 <field name="qty_received_ext" string="Received*"/>
                 <field name="pending_qty" string="Pending"/>
-                <field name="qty_classified"/>
+                <field name="qty_classified" optional="hide"/>
                 <field
                     name="qty_invoiced"
                     string="Billed"
-                    optional="show"
+                    optional="hide"
                 />
                 <field
                     name="qty_invoiced_ext"
@@ -80,6 +80,7 @@
                     optional="hide"
                 />
                 <field name="order_incoterm_id"/>
+                <field name="order_shipping_resource_id" />
             </xpath>
             <xpath expr="//field[@name='price_subtotal']" position="attributes">
                 <attribute name="sum">Total amount</attribute>
