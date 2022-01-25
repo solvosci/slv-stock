@@ -59,6 +59,7 @@ class MoveWeight(models.TransientModel):
 
     check_move_line_ids = fields.Boolean()
     purchase_order_id = fields.Many2one("purchase.order")
+    vehicle_id = fields.Many2one("vehicle.vehicle")
 
     @api.onchange('weight_selection')
     @api.depends('weight_selected')

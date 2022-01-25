@@ -29,6 +29,10 @@
                                 <div class="row mb-3">
                                     <div class="w-25">License Plate:</div>
                                     <div class="w-25"><t t-esc="move.picking_id.vehicle_id.license_plate"/></div>
+                                    <div class="w-50 row" t-if="move.picking_towing_license_plate">
+                                        <div class="w-50">Towing License Plate:</div>
+                                        <div class="w-50"><t t-esc="move.picking_towing_license_plate"/></div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="w-25">Product:</div>
