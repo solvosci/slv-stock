@@ -161,6 +161,7 @@
                 <field name="date_gross_weight" optional="hide"/>
                 <field name="net_weight"/>
                 <field name="picking_vehicle_id"/>
+                <field name="picking_towing_license_plate"/>
                 <field name="state" invisible="1"/>
                 <!-- TODO classification button --> 
             </tree>
@@ -196,6 +197,10 @@
                 <field name="net_weight" string="Dest. weight"/>
                 <field name="theoretical_qty" string="Announced"/>
                 <field name="picking_vehicle_id" />
+                <field
+                    name="picking_towing_license_plate"
+                    optional="hide"
+                />
                 <field name="state" invisible="1" />
                 <field 
                     name="classification_purchase_order_id"

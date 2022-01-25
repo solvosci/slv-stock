@@ -6,37 +6,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-07 09:47+0000\n"
-"PO-Revision-Date: 2022-01-07 09:47+0000\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2022-01-25 07:37+0000\n"
+"PO-Revision-Date: 2022-01-25 08:47+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__picking_state
 msgid ""
 " * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
-" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting another operation: This transfer is waiting for another "
+"operation before being ready.\n"
 " * Waiting: The transfer is waiting for the availability of some products.\n"
-"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
-"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be "
+"reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the "
+"products could be reserved.\n"
 " * Ready: The transfer is ready to be processed.\n"
-"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
-"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product "
+"has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product "
+"have been reserved.\n"
 " * Done: The transfer has been processed.\n"
 " * Cancelled: The transfer has been cancelled."
 msgstr ""
-" * Borrador: La transferencia no ha sido confirmada. Las Reservaciones no aplican.\n"
-" * Esperando otra operación: La transferencia espera otra operación antes de estar preparada.\n"
-" * Esperando: La transferencia está esperando disponibilidad de algunos productos.\n"
-"(a) La política de envío es \"Tan pronto como sea posible\" ningún producto pudo ser reservado.\n"
-"(b) La política de envío es \"Cuando todos los productos estén listos\": no todos los productos pueden reservarse.\n"
+" * Borrador: La transferencia no ha sido confirmada. Las Reservaciones no "
+"aplican.\n"
+" * Esperando otra operación: La transferencia espera otra operación antes "
+"de estar preparada.\n"
+" * Esperando: La transferencia está esperando disponibilidad de algunos "
+"productos.\n"
+"(a) La política de envío es \"Tan pronto como sea posible\" ningún producto "
+"pudo ser reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": no "
+"todos los productos pueden reservarse.\n"
 " * Preparado: La transferencia está lista para ser procesada.\n"
-"(a) La política de envío es \"Tan pronto como sea posible\": por lo menos un producto se ha reservado.\n"
-"(b) La política de envío es \"Cuando todos los productos estén listos\": todos los productos han sido reservados.\n"
+"(a) La política de envío es \"Tan pronto como sea posible\": por lo menos "
+"un producto se ha reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": "
+"todos los productos han sido reservados.\n"
 " * Hecho: la transferencia ha sido procesada.\n"
 " * Cancelado: la transferencia ha sido cancelada."
 
@@ -47,7 +61,6 @@ msgid "%s-%s (%.2f pend.)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "/weight_images/%s"
@@ -723,7 +736,6 @@ msgstr "Pdte. facturar"
 #. module: stock_picking_mgmt_weight
 #. openerp-web
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
 #, python-format
 msgid "Iot ASM"
 msgstr ""
@@ -731,14 +743,12 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #. openerp-web
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
 #, python-format
 msgid "Iot Camera"
 msgstr "Cámara IoT"
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #, python-format
 msgid "Iot Weight"
@@ -753,13 +763,11 @@ msgstr "Por defecto"
 
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a scale to perform this operation."
 msgstr "Es necesario asignar una báscula para realizar esta operación."
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a vehicle to perform this operation."
@@ -850,10 +858,6 @@ msgstr "Líneas de clasificación"
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #, python-format
 msgid "Move Weight"
@@ -1029,7 +1033,7 @@ msgstr "Clasificación de albarán"
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking_type
 msgid "Picking Type"
-msgstr "Tipo de Albarán"
+msgstr "Tipo de albarán"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.actions.report,name:stock_picking_mgmt_weight.action_report_move_tag
@@ -1066,6 +1070,11 @@ msgstr "Plantilla de producto"
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
 msgid "Product:"
 msgstr "Producto:"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__propagate_custom_date
+msgid "Propagate Custom Date"
+msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order
@@ -1345,6 +1354,11 @@ msgid "Tare:"
 msgstr "Tara:"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__propagate_custom_date
+msgid "Technical field for order date propagation to stock moves"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__price_unit_wd
 msgid "Technical field for pending invoicing amount data"
 msgstr "Campo técnico para cálculo de importes pendientes de facturar"
@@ -1357,8 +1371,8 @@ msgstr "Cantidad teórica demandada"
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__identification_document_number
 msgid ""
-"This code should be unique for an order and product LER code and should come"
-" from GAIA integration"
+"This code should be unique for an order and product LER code and should "
+"come from GAIA integration"
 msgstr ""
 "Este código debería ser único para un pedido y código LER de producto y "
 "debería venir de la integración con GAIA"
@@ -1366,8 +1380,8 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_invoiced_ext
 msgid ""
-"This field also takes in account invoiced quantities in classification order"
-" lines"
+"This field also takes in account invoiced quantities in classification "
+"order lines"
 msgstr ""
 "Este campo también tiene en cuenta cantidades facturadas en pedidos de "
 "clasificación"
@@ -1375,8 +1389,8 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_received_ext
 msgid ""
-"This field also takes in account received quantities in classification order"
-" lines"
+"This field also takes in account received quantities in classification "
+"order lines"
 msgstr ""
 "Este campo tiene también en cuenta las cantidades recibidas en pedidos de "
 "clasificación"
@@ -1441,6 +1455,11 @@ msgstr "Importe total pendiente de recibir"
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__towing_license_plate
 msgid "Towing License Plate"
 msgstr "Matricula remolque"
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
+msgid "Towing License Plate:"
+msgstr "Matricula remolque:"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking
@@ -1516,6 +1535,7 @@ msgstr "Tip. Veh."
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_partner__vehicle_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_res_users__vehicle_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__picking_vehicle_id
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__vehicle_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__vehicle_id
 msgid "Vehicle"
 msgstr "Vehículo"
