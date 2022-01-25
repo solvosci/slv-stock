@@ -233,6 +233,7 @@ class MoveWeight(models.TransientModel):
                 "product_qty": move_line.product_uom_qty,
                 "clasification_date": fields.datetime.now(),
                 "user_id": self.env.user.id,
+                "weight_selection": self.weight_selection,
             })]
 
         pol_new = purchase_order.order_line - pol_initial

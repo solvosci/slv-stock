@@ -13,3 +13,5 @@ class StockPickingClassification(models.Model):
     product_qty = fields.Float(digits='Product Unit of Measure')
     clasification_date = fields.Datetime()
     user_id = fields.Many2one(comodel_name="res.users")
+    # TODO emulate wizard selection
+    weight_selection = fields.Char()
