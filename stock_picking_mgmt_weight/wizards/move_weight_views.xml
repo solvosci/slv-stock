@@ -113,6 +113,12 @@
         <field eval="101" name="priority"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="picking_id" readonly="1" string="Ticket"/>
+            </xpath>
+            <xpath expr="//field[@name='weight_selection']" position="before">
+                <field name="vehicle_id" readonly="1"/>
+            </xpath>        
             <xpath expr="//button[@name='move_weight_autofill']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>

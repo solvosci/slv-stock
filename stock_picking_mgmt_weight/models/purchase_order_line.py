@@ -99,6 +99,8 @@ class PurchaseOrderLine(models.Model):
 
     order_user_id = fields.Many2one(related="order_id.user_id")
     order_incoterm_id = fields.Many2one(related="order_id.incoterm_id")
+    
+    order_shipping_resource_id = fields.Many2one(related="order_id.shipping_resource_id")
 
     def name_get(self):
         context = self.env.context
