@@ -307,10 +307,11 @@ class StockMovFrontend(models.Model):
         self.ensure_one()
         Wizard = self.env['stock.move.weight.wizard']
 
-        if self.net_weight == sum(self.picking_id.classification_purchase_order_id.order_line.mapped('product_uom_qty')):
-            weight_selection = 'net_weight'
-        else:
-            weight_selection = 'theoretical_qty'
+        weight_selection = (
+            self.picking_id.picking_classification_ids.mapped("weight_selection")[0]
+            or
+            False
+        )
 
         new = Wizard.create({
             'move_id': self.id,
