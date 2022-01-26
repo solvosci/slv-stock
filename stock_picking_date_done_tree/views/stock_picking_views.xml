@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.picking (date_done)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="date_done" string="Date Done" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_search_inherit" model="ir.ui.view">
+        <field name="name">stock.picking (date_done)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"></field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='late']" position="after">
+                <filter string="Date Done" name="date_done" date="date_done" />
+                <separator/>
+            </xpath>
+            <xpath expr="//filter[@name='picking_type']" position="after">
+                <filter string="Date Done" name="groupby_date_done" domain="[]" context="{'group_by': 'date_done'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
