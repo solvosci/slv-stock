@@ -172,7 +172,7 @@ class StockMovFrontend(models.Model):
                 "location_id": picking.location_id.id,
                 "location_dest_id": picking.location_dest_id.id,
             })
-            picking.vehicle_id.write({
+            picking.vehicle_id.sudo().write({
                 "license_plate_last_towing": values["picking_towing_license_plate"]
             })
             # TODO custom name
