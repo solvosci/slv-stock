@@ -20,6 +20,9 @@
                     string="Veh. Type"
                 />
             </field>
+            <xpath expr="//field[@name='price_subtotal']" position="before">
+                <field name="price_unit" />
+            </xpath>
         </field>
     </record>
 </odoo>
