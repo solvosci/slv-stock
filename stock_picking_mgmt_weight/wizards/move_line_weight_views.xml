@@ -17,7 +17,7 @@
                         ('product_id','!=',False),
                         ('product_id.type','=','product'),
                         ('order_id.classification','=',False),
-                        ('state','=','purchase'),
+                        ('order_id.state','=','purchase'),
                         ('pending_qty','&gt;',0),]" 
                     options="{'no_create': True}"/>
                 <field name="product_id" options="{'no_create': True}"/>
