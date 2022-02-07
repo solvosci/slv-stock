@@ -8,7 +8,8 @@
             <xpath expr="//div/button[@name='action_product_forecast_report']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//div/button[@name='action_product_forecast_report']" position="after">
+            <!-- TODO temporary disabled until speed issue with expected_qty is solved -->
+            <!-- xpath expr="//div/button[@name='action_product_forecast_report']" position="after">
                 <button icon="fa-cubes">
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_value">
@@ -18,7 +19,7 @@
                         <span class="o_stat_text">Expected Qty</span>
                     </div>
                 </button>
-            </xpath>
+            </xpath -->
         </field>
     </record>
     <record id="view_product_product_weight_tree_inherit" model="ir.ui.view">
@@ -29,9 +30,10 @@
             <xpath expr="//field[@name='virtual_available']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//field[@name='virtual_available']" position="after">
+            <!-- TODO temporary disabled until speed issue with expected_qty is solved -->
+            <!-- xpath expr="//field[@name='virtual_available']" position="after">
                 <field name="expected_qty" attrs="{'invisible':[('type', '!=', 'product')]}" optional="show"/>
-            </xpath>
+            </xpath -->
         </field>
     </record>
 
