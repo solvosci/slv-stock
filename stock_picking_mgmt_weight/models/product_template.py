@@ -13,28 +13,29 @@ class ProductTemplate(models.Model):
 
     def _compute_quantities(self):
         super()._compute_quantities()
-        res = self._compute_quantities_dict()
+        # res = self._compute_quantities_dict()
         for template in self:
-            template.expected_qty = res[template.id]['expected_qty']
+            # template.expected_qty = res[template.id]['expected_qty']
+            template.expected_qty = 0
 
-    def _compute_quantities_dict(self):
-        res = super()._compute_quantities_dict()
+    # def _compute_quantities_dict(self):
+    #     res = super()._compute_quantities_dict()
 
-        for template in self:
-            domain_move = [
-                ("purchase_line_id.product_id.product_tmpl_id", "=", template.id),
-                ("purchase_line_id.related_real_order_id", "!=", False),
-            ]
-            domain_pol = [
-                ("product_id.product_tmpl_id", "=", template.id),
-                ("related_real_order_id", "!=", False),
-                ("order_id.state", "=", "cancel")
-            ]
+    #     for template in self:
+    #         domain_move = [
+    #             ("purchase_line_id.product_id.product_tmpl_id", "=", template.id),
+    #             ("purchase_line_id.related_real_order_id", "!=", False),
+    #         ]
+    #         domain_pol = [
+    #             ("product_id.product_tmpl_id", "=", template.id),
+    #             ("related_real_order_id", "!=", False),
+    #             ("order_id.state", "=", "cancel")
+    #         ]
 
-            classified_qty = sum(self.env["stock.move"].search(domain_move).mapped('product_uom_qty'))
-            cancelled_qty = sum(self.env["purchase.order.line"].search(domain_pol).mapped('product_uom_qty'))
-            expected_qty = res[template.id]['virtual_available'] - classified_qty - cancelled_qty
+    #         classified_qty = sum(self.env["stock.move"].search(domain_move).mapped('product_uom_qty'))
+    #         cancelled_qty = sum(self.env["purchase.order.line"].search(domain_pol).mapped('product_uom_qty'))
+    #         expected_qty = res[template.id]['virtual_available'] - classified_qty - cancelled_qty
 
-            res[template.id]["expected_qty"] = expected_qty
+    #         res[template.id]["expected_qty"] = expected_qty
 
-        return res
+    #     return res
