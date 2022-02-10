@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-25 07:37+0000\n"
-"PO-Revision-Date: 2022-01-25 07:37+0000\n"
+"POT-Creation-Date: 2022-02-10 10:27+0000\n"
+"PO-Revision-Date: 2022-02-10 10:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,6 @@ msgstr ""
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "/weight_images/%s"
-msgstr ""
-
-#. module: stock_picking_mgmt_weight
-#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_product_product_weight_form_inherit
-#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_product_template_weight_form_inherit
-msgid "<span class=\"o_stat_text\">Expected Qty</span>"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -493,6 +487,11 @@ msgid "Default unit of measure used for all stock operations."
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Delivered"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__name
 msgid "Description"
 msgstr ""
@@ -679,6 +678,11 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__invoice_lines_invoice_first_date
 msgid "Invoice first date"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Invoiced"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -965,6 +969,7 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_pending_classif
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Pending"
@@ -977,6 +982,7 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__pending_qty
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__pending_qty
 msgid "Pending Qty"
 msgstr ""
 
@@ -1361,6 +1367,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_classif_tree_view
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_tree_view
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_inherit_readonly_form_weight
 msgid "Ticket"
 msgstr ""
 
@@ -1372,6 +1379,31 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Tickets"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "To Invoice"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Total Delivered Quantity"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Total Invoiced Quantity"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Total Pending Invoice Quantity"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree_inherit
+msgid "Total Quantity"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -1397,6 +1429,11 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_tree
 msgid "Total billing pend."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+msgid "Total pending quantity"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -1577,6 +1614,7 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__weight_selection
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking_classification__weight_selection
 msgid "Weight Selection"
 msgstr ""
 
