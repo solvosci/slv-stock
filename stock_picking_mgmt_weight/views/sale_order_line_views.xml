@@ -4,10 +4,7 @@
         <field name="name">sale.order.line.tree (in stock_picking_mgmt_weight)</field>
         <field name="model">sale.order.line</field>
         <field name="inherit_id" ref="sale.view_order_line_tree"/>
-        <field name="arch" type="xml">
-            <field name="order_id" position="attributes">
-                <attribute name="widget">many2onebutton</attribute>
-            </field>
+        <field name="arch" type="xml">            
             <field name="name" position="after">
                 <field
                     name="supply_condition_id"
@@ -19,6 +16,41 @@
                     optional="show"
                     string="Veh. Type"
                 />
+            </field>
+
+            <field name="qty_delivered" position="after">
+                <field
+                    string="Pending"
+                    name="pending_qty"
+                    sum="Total pending quantity"
+                />
+            </field>
+        </field>
+    </record>
+
+    <!-- TODO move to OCA sale_order_line_menu addon -->
+    <record id="view_order_line_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.line.tree inherit (in stock_picking_mgmt_weight)</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.view_order_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="order_id" position="attributes">
+                <attribute name="widget">many2onebutton</attribute>
+            </field>
+            <field name="product_uom_qty" position="attributes">
+                <attribute name="sum">Total Quantity</attribute>
+            </field>
+            <field name="qty_delivered" position="attributes">
+                <attribute name="string">Delivered</attribute>
+                <attribute name="sum">Total Delivered Quantity</attribute>
+            </field>
+            <field name="qty_invoiced" position="attributes">
+                <attribute name="string">Invoiced</attribute>
+                <attribute name="sum">Total Invoiced Quantity</attribute>
+            </field>
+            <field name="qty_to_invoice" position="attributes">
+                <attribute name="string">To Invoice</attribute>
+                <attribute name="sum">Total Pending Invoice Quantity</attribute>
             </field>
             <xpath expr="//field[@name='price_subtotal']" position="before">
                 <field name="price_unit" />
