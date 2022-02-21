@@ -54,7 +54,11 @@ class PurchaseOrder(models.Model):
     )
 
     classification_date = fields.Datetime(
-        compute="_compute_classification_date",
+        compute="_compute_classification_data",
+    )
+    classification_user_id = fields.Many2one(
+        comodel_name="res.users",
+        compute="_compute_classification_data",
     )
 
     has_pending_qty = fields.Boolean(
@@ -174,7 +178,10 @@ class PurchaseOrder(models.Model):
                 )
             )
 
-    def _compute_classification_date(self):
+    def _compute_classification_data(self):
+        """
+        Calculates extra classification data
+        """
         StockPickingClassification = self.env["stock.picking.classification"]
         for record in self:
             if record.classification:
@@ -186,8 +193,14 @@ class PurchaseOrder(models.Model):
                     and classification_ids[0].clasification_date
                     or False
                 )
+                record.classification_user_id = (
+                    classification_ids
+                    and classification_ids[0].user_id
+                    or False
+                )
             else:
                 record.classification_date = False
+                record.classification_user_id = False
 
     def _compute_has_pending_qty(self):
         for record in self:
