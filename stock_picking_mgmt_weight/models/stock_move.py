@@ -43,6 +43,8 @@ class StockMoveBackend(models.Model):
     weight_classified = fields.Float(
         digits='Product Unit of Measure')
 
+    carrier_id = fields.Many2one('res.partner', ondelete="restrict")
+
     @api.depends("tare", "exclude_tare", "gross_weight")
     def _compute_net_weight(self):
         for record in self:
@@ -298,7 +300,8 @@ class StockMovFrontend(models.Model):
             'net_weight': self.net_weight,
             'theoretical_qty': self.theoretical_qty,
             'picking_id': self.picking_id.id,
-            'company_id': self.picking_id.company_id.id
+            'company_id': self.picking_id.company_id.id,
+            'carrier_id': self.carrier_id.id
         })
 
         return self._move_weight_open_wizard(new.id)

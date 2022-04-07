@@ -149,6 +149,17 @@
         </field>
     </record>
 
+    <record id="view_purchase_order_weight_form_inherit2" model="ir.ui.view">
+        <field name="name">purchase.order.form (weight)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_location_dest_id_usage']" position="after">
+                <field name="carrier_id" />
+            </xpath>
+        </field>
+    </record>
+
     <record id="purchase_order_view_tree" model="ir.ui.view">
         <field name="name">purchase.order.view.tree (weight)</field>
         <field name="model">purchase.order</field>
