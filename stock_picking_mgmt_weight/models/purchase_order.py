@@ -127,6 +127,8 @@ class PurchaseOrder(models.Model):
         help="Technical field for order date propagation to stock moves",
     )
 
+    carrier_id = fields.Many2one('res.partner', ondelete="restrict")
+
     def _compute_classification_invoice_ids(self):
         for record in self:
             lines = record.classification_order_ids.invoice_ids.invoice_line_ids.filtered(

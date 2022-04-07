@@ -60,6 +60,7 @@ class MoveWeight(models.TransientModel):
     check_move_line_ids = fields.Boolean()
     purchase_order_id = fields.Many2one("purchase.order")
     vehicle_id = fields.Many2one("vehicle.vehicle")
+    carrier_id = fields.Many2one("res.partner")
 
     @api.onchange('weight_selection')
     @api.depends('weight_selected')
@@ -103,7 +104,8 @@ class MoveWeight(models.TransientModel):
         """
         purchase_order = self.env['purchase.order']
         order_new = purchase_order.new({
-            'partner_id': self.partner_id.id
+            'partner_id': self.partner_id.id,
+            'carrier_id': self.carrier_id.id
         })
         order_new.onchange_partner_id()
         order_new.onchange_partner_user_id()
