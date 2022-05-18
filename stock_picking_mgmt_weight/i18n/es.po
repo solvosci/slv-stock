@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 08:22+0000\n"
-"PO-Revision-Date: 2022-04-07 08:22+0000\n"
+"POT-Creation-Date: 2022-05-19 07:19+0000\n"
+"PO-Revision-Date: 2022-05-19 07:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -172,24 +172,32 @@ msgstr "Cancelar"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.actions.server,name:stock_picking_mgmt_weight.action_purchase_order_cancel_pending
+#: model:ir.actions.server,name:stock_picking_mgmt_weight.action_sale_order_cancel_pending_multi
 msgid "Cancel Pending"
 msgstr "Cancelar pendiente"
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Cancel pending"
 msgstr "Cancelar pendiente"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_cancelled
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Cancelled"
-msgstr "Cancelada"
+msgstr "Cancelado"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__cancelled_classif_count
 msgid "Cancelled Classif Count"
 msgstr "Nº Clasificaciones canceladas"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__qty_cancelled
+msgid "Cancelled Quantity"
+msgstr "Cantidad cancelada"
 
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
@@ -621,6 +629,8 @@ msgstr "Bruto:"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__has_pending_qty
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order__has_pending_qty
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__has_pending_qty
 msgid "Has Pending Qty"
 msgstr "Tiene cantidades pendientes"
 
@@ -682,6 +692,7 @@ msgstr "Entrada"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order__has_pending_qty
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_sale_order__has_pending_qty
 msgid ""
 "Instrumental field indicating if there's any pending quantity for this order"
 msgstr ""
@@ -1005,6 +1016,7 @@ msgstr "Pend. rec."
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.ui.menu,name:stock_picking_mgmt_weight.menu_mgmt_weight_pending_classif
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
@@ -1018,8 +1030,12 @@ msgstr "Clasificaciones Pendientes"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__pending_qty
-#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__pending_qty
 msgid "Pending Qty"
+msgstr "Cantidad Pendiente"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__pending_qty
+msgid "Pending Quantity"
 msgstr "Cantidad Pendiente"
 
 #. module: stock_picking_mgmt_weight
@@ -1037,7 +1053,7 @@ msgstr "Clasificación de albarán"
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_stock_picking_type
 msgid "Picking Type"
-msgstr "Tipo de albarán"
+msgstr "Tipo de Albarán"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.actions.report,name:stock_picking_mgmt_weight.action_report_move_tag
@@ -1135,6 +1151,11 @@ msgstr "Cantidad"
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Qty Classified"
 msgstr "Clasificada"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_sale_order_line__qty_cancelled
+msgid "Quantities affected by 'Cancel Pending' process"
+msgstr "Cantidades afectadas por el proceso de 'Cancelar pendiente'"
 
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
@@ -1367,6 +1388,11 @@ msgstr ""
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__price_unit_wd
 msgid "Technical field for pending invoicing amount data"
 msgstr "Campo técnico para cálculo de importes pendientes de facturar"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_sale_order_line__has_pending_qty
+msgid "Technical field for sale order has pending quantity computation"
+msgstr "Campo técnico para el cálculo de si tiene cantidad pendiente el pedido de venta"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__theoretical_qty
