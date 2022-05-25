@@ -3,6 +3,7 @@
 
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 
 class MoveWeight(models.TransientModel):
@@ -149,8 +150,7 @@ class MoveWeight(models.TransientModel):
         Then, validation() continues process
         """
         self.ensure_one()
-        # TODO ¿float_is_zero?        
-        if self.weight_classified > 0:
+        if not float_is_zero(self.weight_classified, precision_rounding=self.product_id.uom_id.rounding):
             raise ValidationError(_("Weight pending classification must be zero"))
 
         purchase_order = self.env['purchase.order']
