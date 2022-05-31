@@ -33,11 +33,13 @@ class SaleOrderLine(models.Model):
     @api.depends("product_uom_qty", "qty_delivered", "qty_cancelled")
     def _compute_pending_qty(self):
         for line in self:
-            line.pending_qty = (
-                line.product_uom_qty - line.qty_delivered - line.qty_cancelled
+            line.pending_qty = max(
+                line.product_uom_qty - line.qty_delivered - line.qty_cancelled,
+                0.0
             )
             # We only take in account positive pending quantities
-            #  (it's possible to be negative)
+            #  (legacy code, it used to be negative, so we don't use
+            #   float_is_zero)
             line.has_pending_qty = (
                 float_compare(
                     line.pending_qty,

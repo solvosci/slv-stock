@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.10.0",
+    "version": "13.0.1.11.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
