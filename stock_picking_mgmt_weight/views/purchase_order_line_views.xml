@@ -65,6 +65,7 @@
                 <field name="qty_received_ext" string="Received*"/>
                 <field name="pending_qty" string="Pending"/>
                 <field name="qty_classified" optional="hide"/>
+                <field name="qty_cancelled" string="Cancelled"/>
                 <field
                     name="qty_invoiced"
                     string="Billed"
@@ -81,6 +82,9 @@
                 />
                 <field name="order_incoterm_id"/>
                 <field name="order_shipping_resource_id" />
+            </xpath>
+            <xpath expr="//field[@name='product_uom']" position="attributes">
+                <attribute name="optional">hide</attribute>
             </xpath>
             <xpath expr="//field[@name='price_subtotal']" position="attributes">
                 <attribute name="sum">Total amount</attribute>

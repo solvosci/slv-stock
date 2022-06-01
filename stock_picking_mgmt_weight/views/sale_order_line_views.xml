@@ -24,6 +24,11 @@
                     name="pending_qty"
                     sum="Total pending quantity"
                 />
+                <field
+                    string="Cancelled"
+                    name="qty_cancelled"
+                    sum="Total cancelled quantity"
+                />
             </field>
         </field>
     </record>
@@ -51,6 +56,9 @@
             <field name="qty_to_invoice" position="attributes">
                 <attribute name="string">To Invoice</attribute>
                 <attribute name="sum">Total Pending Invoice Quantity</attribute>
+            </field>
+            <field name="product_uom" position="attributes">
+                <attribute name="optional">hide</attribute>
             </field>
             <xpath expr="//field[@name='price_subtotal']" position="before">
                 <field name="price_unit" />
