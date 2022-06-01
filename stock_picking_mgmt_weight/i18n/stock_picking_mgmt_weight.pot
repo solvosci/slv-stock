@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-19 07:17+0000\n"
-"PO-Revision-Date: 2022-05-19 07:17+0000\n"
+"POT-Creation-Date: 2022-06-01 17:15+0000\n"
+"PO-Revision-Date: 2022-06-01 17:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -173,6 +173,8 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_cancelled
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Cancelled"
 msgstr ""
@@ -1463,6 +1465,11 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.purchase_order_view_tree
 msgid "Total billing pend."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+msgid "Total cancelled quantity"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
