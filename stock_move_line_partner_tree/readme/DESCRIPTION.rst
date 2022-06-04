@@ -1,1 +1,1 @@
-Adds new column 'Partner'
+Adds new column 'Partner' to stock move lines.
