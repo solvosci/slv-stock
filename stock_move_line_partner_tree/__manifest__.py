@@ -3,16 +3,14 @@
 {
     "name": "Stock Move Line Partner Tree",
     "summary": """
-        Adds new column 'Partner'
+        Adds new column 'Partner' to stock move lines
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.0.0",
-    "category": "stock",
+    "version": "14.0.1.0.0",
+    "category": "Inventory",
     "website": "https://github.com/solvosci/slv-stock",
-    "depends": [
-        "stock",
-    ],
+    "depends": ["stock"],
     "data": [
         "views/stock_move_line_views.xml",
     ],
