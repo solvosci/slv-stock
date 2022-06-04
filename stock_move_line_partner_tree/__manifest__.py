@@ -14,5 +14,6 @@
     "data": [
         "views/stock_move_line_views.xml",
     ],
+    "pre_init_hook": "pre_init_hook",
     'installable': True,
 }
