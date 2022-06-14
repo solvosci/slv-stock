@@ -160,6 +160,23 @@
         </field>
     </record>
 
+    <record id="purchase_order_tree" model="ir.ui.view">
+        <field name="name">purchase.order.tree (weight)</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="invoice_status" position="after">
+                <field
+                    name="invoice_status_ext"
+                    optional="show"
+                />
+            </field>
+        </field>
+    </record>
+
     <record id="purchase_order_view_tree" model="ir.ui.view">
         <field name="name">purchase.order.view.tree (weight)</field>
         <field name="model">purchase.order</field>
