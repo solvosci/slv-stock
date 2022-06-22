@@ -134,24 +134,3 @@ class StockPicking(models.Model):
 
     def get_datetime_now(self):
         return fields.Datetime.now()
-
-    def button_validate(self):
-        """
-        When a picking comes from a classification order,
-        inherited date from purchase order is the real stock
-        reception date
-        """
-        # TODO this method shouldn't be the best solution,
-        #      action_done() maybe is better, but is multi
-        self.ensure_one()
-        stock_move_custom_date = False
-        if self.purchase_id and (
-            self.purchase_id.classification
-            or
-            self.purchase_id.propagate_custom_date
-        ):
-            stock_move_custom_date = self.scheduled_date
-        picking = self.with_context(
-            stock_move_custom_date=stock_move_custom_date
-        )
-        return super(StockPicking, picking).button_validate()
