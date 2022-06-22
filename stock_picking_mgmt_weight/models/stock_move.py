@@ -340,3 +340,53 @@ class StockMovFrontend(models.Model):
             'type': 'ir.actions.act_window',
             'context': {'stock_move_line_weight': True}
         }
+
+    def _action_done(self, cancel_backorder=False):
+        """
+        On stock moves completion, takes in account a possible custom date
+        This custom date is applied using stock_move_action_done_custdate
+        module.
+        For this addon criteria, when stock move comes from a classification
+        purchase order, order date is used as stock move new date
+        """
+        return_moves = self.browse()
+        processed_moves = self.browse()
+        # Every picking could have a different custom date, so we have to
+        #  process them separately
+        for pick in self.mapped("picking_id"):
+            pick_moves = self.filtered(lambda x: x.picking_id.id == pick.id)
+            processed_moves |= pick_moves
+            cust_date = (
+                pick.purchase_id.date_order
+                if self._action_done_is_pick_custdate(pick)
+                else False
+            )
+            pick_moves = pick_moves.with_context(
+                stock_move_custom_date=cust_date
+            )
+            return_moves |= super(StockMovFrontend, pick_moves)._action_done(
+                cancel_backorder=cancel_backorder
+            )
+
+        # Add moves not processed because don't belong to a picking, without
+        #  changes in the normal process
+        return_moves |= super(
+            StockMovFrontend, self - processed_moves
+        )._action_done(
+            cancel_backorder=cancel_backorder
+        )
+
+        return return_moves
+
+    @api.model
+    def _action_done_is_pick_custdate(self, pick):
+        """
+        Only classification purchase orders and other specifically marked
+        should be pickings with should propagate their custom dates to their
+        stock moves
+        """
+        return pick.purchase_id and (
+            pick.purchase_id.classification
+            or
+            pick.purchase_id.propagate_custom_date
+        )
