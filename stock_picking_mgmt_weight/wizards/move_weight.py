@@ -142,6 +142,12 @@ class MoveWeight(models.TransientModel):
             or False
         )
 
+    def _check_classification_done(self):
+        return (
+            True if self.picking_id.classification_purchase_order_id
+            else False
+        )
+
     def write_operations(self):
         """
         Starts classification operations.
@@ -150,6 +156,15 @@ class MoveWeight(models.TransientModel):
         Then, validation() continues process
         """
         self.ensure_one()
+
+        # It's possible classification overlapping
+        if self._check_classification_done():
+            classif_user = self.picking_id.picking_classification_ids.user_id[0]
+            raise ValidationError(_(
+                "Classification already completed by %s. "
+                "Please close this wizard and check it"
+            ) % classif_user.name)
+
         if not float_is_zero(self.weight_classified, precision_rounding=self.product_id.uom_id.rounding):
             raise ValidationError(_("Weight pending classification must be zero"))
 
