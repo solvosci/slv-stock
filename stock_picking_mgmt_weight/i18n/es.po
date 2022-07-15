@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-01 17:16+0000\n"
-"PO-Revision-Date: 2022-06-01 17:16+0000\n"
+"POT-Creation-Date: 2022-07-15 11:29+0000\n"
+"PO-Revision-Date: 2022-07-15 11:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -344,6 +344,17 @@ msgid "Classification User"
 msgstr "Usuario de clasificación"
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
+#, python-format
+msgid ""
+"Classification already completed by %s. Please close this wizard and check "
+"it"
+msgstr ""
+"Esta clasificación ya fue completada por %s. Por favor, cierre este "
+"asistente y verifíquelo"
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Classification modification not allowed for you"
@@ -1699,6 +1710,7 @@ msgid "Weight Selection"
 msgstr "Selección de peso"
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Weight pending classification must be zero"
