@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.14.1",
+    "version": "13.0.1.15.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -23,7 +23,7 @@
         "purchase_order_line_menu",
         # "asm",
         "purchase_pricelist_slv",
-        "stock_move_action_done_custdate",
+        "stock_valuation",
         "account_payment_term_base_date",
         "sale_stock",
         "sale_order_line_menu",
