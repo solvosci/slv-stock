@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_valuation_layer_tree_inherit" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.tree.inherit (stock valuation)</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='create_date']" position="after">
+                <field name="warehouse_id" />
+                <field name="document_origin" />
+                <field name="move_reference" />                
+            </xpath>
+            <xpath expr="//field[@name='uom_id']" position="after">
+                <field name="unit_cost" />
+            </xpath>
+            <xpath expr="//field[@name='value']" position="after">
+                <field name="average_price" groups="base.group_no_one" />
+                <field
+                    name="history_average_price_id"
+                    groups="base.group_no_one"
+                />
+            </xpath>
+        </field>
+    </record>
+    <!-- Decimal precision workaround -->
+    <record id="view_stock_valuation_layer_tree_dp" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.tree.dp (stock valuation)</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
+        <field name="arch" type="xml">
+            <field name="quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_valuation_layer_search_inherit" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.search.inherit (stock valuation)</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock_account.view_inventory_valuation_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tmpl_id']" position="after">
+                <field name="document_origin" />
+                <field name="move_reference" />
+            </xpath>
+            <xpath expr="//filter[@name='group_by_product_id']" position="after">
+                <filter string="Warehouse" name="group_by_warehouse_id" context="{'group_by': 'warehouse_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_valuation_layer_form_inherit" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.form.inherit (stock valuation)</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock_account.stock_valuation_layer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stock_move_id']" position="after">
+                <field name="create_date_valuation" />
+                <field name="warehouse_valuation" invisible="1" />
+            </xpath>
+            <xpath expr="//notebook/page[1]" position="after">
+                <page
+                    name="valuation_extra"
+                    string="Valuation - extra"
+                    attrs="{'invisible': [('warehouse_valuation','=',False)]}"
+                >
+                    <group>
+                        <field name="warehouse_id" />
+                        <field name="document_origin" />
+                        <field name="move_reference" />
+                        <field
+                            name="average_price"
+                            groups="base.group_no_one"
+                        />
+                        <field name="accumulated"/>
+                        <field name="is_return"/>
+                        <field
+                            name="history_average_price_id"
+                            groups="base.group_no_one"
+                        />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- Decimal precision workaround -->
+    <record id="stock_valuation_layer_form_dp" model="ir.ui.view">
+        <field name="name">stock.valuation.layer.form.dp (stock valuation)</field>
+        <field name="model">stock.valuation.layer</field>
+        <field name="inherit_id" ref="stock_account.stock_valuation_layer_form"/>
+        <field name="arch" type="xml">
+            <field name="quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>

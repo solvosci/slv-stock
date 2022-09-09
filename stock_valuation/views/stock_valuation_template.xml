@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template
+        id="stock_assets_backend"
+        name="Stock Valuation assets"
+        inherit_id="stock.stock_assets_backend"
+        priority="100"
+    >
+        <xpath expr="//script[@src='/stock/static/src/js/inventory_report_list_controller.js']" position="after">
+            <script type="text/javascript" src="/stock_valuation/static/src/js/inventory_report_list_controller.js"></script>
+        </xpath>
+   </template>
+</odoo>

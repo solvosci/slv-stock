@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_average_price_search" model="ir.ui.view">
+        <field name="name">product.average.price search</field>
+        <field name="model">product.average.price</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id" />
+                <field name="warehouse_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Product"
+                        name="groupby_product"
+                        domain="[]"
+                        context="{'group_by': 'product_id'}"
+                    />
+                    <filter
+                        string="Warehouse"
+                        name="groupby_warehouse"
+                        domain="[]"
+                        context="{'group_by': 'warehouse_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_product_average_price_tree" model="ir.ui.view">
+        <field name="name">product.average.price tree</field>
+        <field name="model">product.average.price</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="currency_id" invisible="1" />
+                <field name="product_id" />
+                <field name="warehouse_id" />
+                <field name="average_price" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_average_price_form" model="ir.ui.view">
+        <field name="name">product.average.price form</field>
+        <field name="model">product.average.price</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="%(stock_valuation.action_product_history_average_price_graph)d"
+                            type="action"
+                            icon="fa-signal"
+                            class="oe_stat_button"
+
+                        >
+                            <span class="o_stat_text">View graph</span>
+                        </button>                        
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_id" />
+                            <field name="warehouse_id" />
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1" />
+                            <field name="average_price" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="History">
+                            <field name="history_average_price_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_product_average_price" model="ir.actions.act_window">
+        <field name="name">Product Average Price</field>
+        <field name="res_model">product.average.price</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="context">{
+            'search_default_groupby_product': 1,
+            'phap_warehouse_invisible': 1,
+        }</field>
+    </record>
+
+    <menuitem 
+        id="menu_product_average_price" 
+        name="Product Average Price"
+        parent="stock.menu_warehouse_report"
+        sequence="115"
+        action="action_product_average_price"/>
+</odoo>

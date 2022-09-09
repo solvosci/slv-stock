@@ -1,0 +1,389 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_valuation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-23 15:51+0000\n"
+"PO-Revision-Date: 2022-08-23 15:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/models/product_average_price.py:0
+#, python-format
+msgid "%s in %s"
+msgstr ""
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/models/product_history_average_price.py:0
+#, python-format
+msgid "%s in %s at %s"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_form
+msgid "<span class=\"o_stat_text\">View graph</span>"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__accumulated
+msgid "Accumulated"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__average_price
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__average_price
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price
+msgid "Average Price"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_date_wizard_form
+msgid "Average price at date Wizard"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price
+msgid "Average price for this product and warehouse at this date"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__average_price
+msgid "Average price on creation"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__company_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__company_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__company_id
+msgid "Company"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__create_date_valuation
+msgid "Create Date Valuation"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__currency_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__currency_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__date
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+msgid "Date"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.actions.act_window,name:stock_valuation.action_product_history_average_price_graph
+msgid "Date evolution"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__display_name
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__display_name
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__display_name
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__document_origin
+msgid "Document Origin"
+msgstr ""
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/models/stock_move_line.py:0
+#, python-format
+msgid ""
+"For those products with standard warehouse valuation, only purchase, sale & "
+"internal transfers quantities are allowed to be changed when a move is done"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
+msgid "Group By"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_form
+msgid "History"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__history_average_price_ids
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__history_average_price_id
+msgid "History Average Price"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_graph
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_pivot
+msgid "History Average Prices"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__is_return
+msgid "Is Return"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price____last_update
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date____last_update
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard____last_update
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_date
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
+msgid "Leave empty if every warehouse is required"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_product
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__product_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__product_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__product_id
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
+msgid "Product"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.actions.act_window,name:stock_valuation.action_product_average_price
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__product_average_price_id
+#: model:ir.ui.menu,name:stock_valuation.menu_product_average_price
+msgid "Product Average Price"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.actions.act_window,name:stock_valuation.action_product_average_price_date_wizard
+#: model:ir.model,name:stock_valuation.model_product_average_price_date_wizard
+msgid "Product Average Price Date Wizard"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_average_price_date
+#: model:ir.ui.menu,name:stock_valuation.menu_product_history_average_price_wizard
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
+msgid "Product Average Price at Date"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_average_price
+msgid "Product Average Price by Warehouse"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_history_average_price
+msgid "Product Average Price by Warehouse and Date"
+msgstr ""
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/report/product_average_price_date_wizard.py:0
+#, python-format
+msgid "Product Average Prices at %s"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.actions.act_window,name:stock_valuation.action_product_history_average_price
+#: model:ir.ui.menu,name:stock_valuation.menu_product_history_average_price
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+msgid "Product History Average Price"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__move_reference
+msgid "Reference"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_date_wizard_form
+msgid "Search"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
+msgid "Selected warehouses"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__total_quantity_day
+msgid ""
+"Shows the total quantity of this day and warehouse in inputs that modify "
+"average price computation (e.g. purchases, internal incoming transfers)"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_product__standard_price_warehouse_ids
+#: model:ir.model.fields,field_description:stock_valuation.field_product_template__standard_price_warehouse_ids
+msgid "Standard Price Warehouse"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__stock_quantity
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__stock_quantity
+msgid "Stock Quantity"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__stock_valuation
+msgid "Stock Valuation"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_stock_valuation_layer
+msgid "Stock Valuation Layer"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__stock_quantity
+msgid "Stock for this product and warehouse at this date"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__stock_valuation
+msgid "Stock valuation for this product and warehouse at this date"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__summary_entry
+msgid "Summary Entry"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__svl_ids
+msgid "Svl"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__summary_entry
+msgid "Techical field for Total Inputs valuation"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__total_quantity
+msgid "Total accum. inputs"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__total_quantity_day
+msgid "Total inputs"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_form_inherit
+msgid "Valuation - extra"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_category__warehouse_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_product__warehouse_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_template__warehouse_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__warehouse_valuation
+msgid "Valuation by warehouse and with daily historical average"
+msgstr ""
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
+msgid "Valuations"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__warehouse_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__warehouse_id
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__warehouse_id
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__warehouse_id
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
+msgid "Warehouse"
+msgstr ""

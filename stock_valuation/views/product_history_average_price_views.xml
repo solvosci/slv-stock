@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_product_history_average_price" model="ir.actions.act_window">
+        <field name="name">Product History Average Price</field>
+        <field name="res_model">product.history.average.price</field>
+        <field name="view_mode">tree,pivot,form</field>
+        <field name="target">current</field>
+        <!-- <field name="search_view_id" ref="view_inventory_valuation_search"/> -->
+        <field name="context">{
+            'search_default_filter_date': 1,
+            'search_default_groupby_product': 1,
+            'search_default_groupby_warehouse': 1,
+        }</field>
+    </record>
+
+    <record id="action_product_history_average_price_graph" model="ir.actions.act_window">
+        <field name="name">Date evolution</field>
+        <field name="res_model">product.history.average.price</field>
+        <field name="view_mode">graph</field>
+        <field name="target">current</field>
+        <field name="context">{
+            'search_default_filter_date': 1,
+        }</field>
+        <field name="domain">[('product_average_price_id','=',active_id)]</field>
+    </record>
+
+    <record id="view_product_history_average_price_search" model="ir.ui.view">
+        <field name="name">product.history.average.price search</field>
+        <field name="model">product.history.average.price</field>
+        <field name="arch" type="xml">
+            <search string="Product History Average Price">
+                <field name="product_id" />
+                <field name="warehouse_id" />
+                <filter
+                    name="filter_date"
+                    string="Date"
+                    date="date"
+                    default_period="this_month"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Product"
+                        name="groupby_product"
+                        domain="[]"
+                        context="{'group_by': 'product_id'}"
+                    />
+                    <filter
+                        string="Warehouse"
+                        name="groupby_warehouse"
+                        domain="[]"
+                        context="{'group_by': 'warehouse_id'}"
+                    />
+                    <filter
+                        string="Date"
+                        name="date"
+                        date="groupby_date"
+                        domain="[]"
+                        context="{'group_by': 'date'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_product_history_average_price_form" model="ir.ui.view">
+        <field name="name">product.history.average.price form</field>
+        <field name="model">product.history.average.price</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date" />
+                            <field name="product_id" />
+                            <field name="warehouse_id" />
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1" />
+                            <field name="average_price" />
+                            <field
+                                name="total_quantity_day"
+                                groups="base.group_no_one"
+                            />
+                            <field
+                                name="total_quantity"
+                                groups="base.group_no_one"
+                            />
+                            <field name="stock_quantity" />
+                            <field name="stock_valuation" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Valuations">
+                            <field name="svl_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Decimal precision workaround
+         TODO set digits to 'Product Unit Of Measure' in field definition?
+              Stock Valuation Layer doesn't use it
+    -->
+    <record id="view_product_history_average_price_form_dp" model="ir.ui.view">
+        <field name="name">product.history.average.price form dp</field>
+        <field name="model">product.history.average.price</field>
+        <field
+            name="inherit_id"
+            ref="stock_valuation.view_product_history_average_price_form"
+        />
+        <field name="arch" type="xml">
+            <field name="total_quantity_day" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+            <field name="total_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+            <field name="stock_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_product_history_average_price_tree" model="ir.ui.view">
+        <field name="name">product.history.average.price tree</field>
+        <field name="model">product.history.average.price</field>
+        <field name="arch" type="xml">
+            <tree default_order="date desc">
+                <field name="currency_id" invisible="1" />
+                <field name="date" />
+                <field name="product_id" />
+                <field
+                    name="warehouse_id"
+                    invisible="context.get('phap_warehouse_invisible', False)"
+                />
+                <field name="average_price" />
+                <field name="total_quantity_day" groups="base.group_no_one" />
+                <field name="total_quantity" groups="base.group_no_one" />
+                <field name="stock_quantity" />
+                <field name="stock_valuation" />
+            </tree>
+        </field>
+    </record>
+    <!-- Decimal precision workaround
+         TODO set digits to 'Product Unit Of Measure' in field definition?
+              Stock Valuation Layer doesn't use it
+    -->
+    <record id="view_product_history_average_price_tree_dp" model="ir.ui.view">
+        <field name="name">product.history.average.price tree dp</field>
+        <field name="model">product.history.average.price</field>
+        <field
+            name="inherit_id"
+            ref="stock_valuation.view_product_history_average_price_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="total_quantity_day" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+            <field name="total_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+            <field name="stock_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+    
+    <record id="view_product_history_average_price_pivot" model="ir.ui.view">
+        <field name="name">product.history.average.price pivot</field>
+        <field name="model">product.history.average.price</field>
+        <field name="arch" type="xml">
+            <pivot string="History Average Prices">
+                <field name="product_id" type="row"/>
+                <field name="warehouse_id" type="row"/>
+                <field name="date" interval="day" type="col"/>
+                <field name="average_price" type="measure" widget="monetary"/>
+                <field name="stock_quantity" type="measure"/>
+                <field name="stock_valuation" type="measure" widget="monetary"/>
+            </pivot>
+        </field>
+    </record>
+    <!-- Decimal precision workaround
+         TODO set digits to 'Product Unit Of Measure' in field definition?
+              Stock Valuation Layer doesn't use it
+    -->
+    <record id="view_product_history_average_price_pivot_dp" model="ir.ui.view">
+        <field name="name">product.history.average.price pivot dp</field>
+        <field name="model">product.history.average.price</field>
+        <field
+            name="inherit_id"
+            ref="stock_valuation.view_product_history_average_price_pivot"
+        />
+        <field name="arch" type="xml">
+            <field name="stock_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_product_history_average_price_graph" model="ir.ui.view">
+        <field name="name">product.history.average.price graph</field>
+        <field name="model">product.history.average.price</field>
+        <field name="arch" type="xml">
+            <!-- TODO "line" graph type shows missing dates as zeroed values -->
+            <graph string="History Average Prices" type="bar">
+                <field name="date" interval="day" type="col"/>
+                <field name="average_price" type="measure" widget="monetary"/>
+            </graph>
+        </field>
+    </record>
+
+    <menuitem 
+        id="menu_product_history_average_price" 
+        name="Product History Average Price"
+        parent="stock.menu_warehouse_report"
+        sequence="117"
+        action="action_product_history_average_price"/>
+
+</odoo>
