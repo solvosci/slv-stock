@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_product_history_price_date_search" model="ir.ui.view">
+        <field name="name">product.average.price.date search</field>
+        <field name="model">product.average.price.date</field>
+        <field name="arch" type="xml">
+            <search string="Product Average Price at Date">
+                <field name="product_id" />
+                <field name="warehouse_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Product"
+                        name="groupby_product"
+                        domain="[]"
+                        context="{'group_by': 'product_id'}"
+                    />
+                    <filter
+                        string="Warehouse"
+                        name="groupby_warehouse"
+                        domain="[]"
+                        context="{'group_by': 'warehouse_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_product_average_price_date_tree" model="ir.ui.view">
+        <field name="name">product.average.price.date tree</field>
+        <field name="model">product.average.price.date</field>
+        <field name="arch" type="xml"> 
+            <tree create="false">
+                <field name="currency_id" invisible="1" />
+                <field name="date" />
+                <field name="product_id" />
+                <field name="warehouse_id" />
+                <field name="average_price" />
+                <field name="stock_quantity" />
+                <field name="stock_valuation" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
