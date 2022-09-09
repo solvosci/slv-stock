@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_product_average_price_date_wizard" model="ir.actions.act_window">
+        <field name="name">Product Average Price Date Wizard</field>
+        <field name="res_model">product.average.price.date.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_product_average_price_date_wizard_form" model="ir.ui.view">
+        <field name="name">product.average.price.date.wizard form</field>
+        <field name="model">product.average.price.date.wizard</field>
+        <field name="arch" type="xml"> 
+            <form string="Average price at date Wizard">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date" />
+                        </group>
+                        <group>
+                            <field
+                                name="warehouse_ids"
+                                widget="many2many_tags" 
+                            />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        string="Search"
+                        name="get_average_prices"
+                        type="object"
+                        class="btn-primary"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem 
+        id="menu_product_history_average_price_wizard" 
+        name="Product Average Price at Date"
+        parent="stock.menu_warehouse_report"
+        sequence="101"
+        action="action_product_average_price_date_wizard"
+    />
+
+</odoo>
