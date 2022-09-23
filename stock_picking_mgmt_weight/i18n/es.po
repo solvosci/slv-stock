@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-15 11:29+0000\n"
-"PO-Revision-Date: 2022-07-15 11:29+0000\n"
+"POT-Creation-Date: 2022-09-26 08:03+0000\n"
+"PO-Revision-Date: 2022-09-26 08:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -183,6 +183,12 @@ msgid "Cancel pending"
 msgstr "Cancelar pendiente"
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Cancel pending quantities for this line"
+msgstr "Cancela cantidades pendientes para esta línea"
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__qty_cancelled
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
@@ -354,7 +360,6 @@ msgstr ""
 "asistente y verifíquelo"
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Classification modification not allowed for you"
@@ -778,6 +783,11 @@ msgstr "Cámara IoT"
 #, python-format
 msgid "Iot Weight"
 msgstr "Peso UdM"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__is_cancellable
+msgid "Is Cancellable"
+msgstr "Es cancelable"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__is_default
@@ -1710,7 +1720,6 @@ msgid "Weight Selection"
 msgstr "Selección de peso"
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Weight pending classification must be zero"
