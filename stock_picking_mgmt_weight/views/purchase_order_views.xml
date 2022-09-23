@@ -109,7 +109,15 @@
                     name="qty_cancelled"
                     string="Cancelled"
                     attrs="{'column_invisible': [('parent.cancelled_classif_count', '=', 0)]}"
-                />                
+                />
+                <field name="is_cancellable" invisible="1"/>
+                <button
+                    name="action_cancel_pending_line"
+                    icon="fa-ban"
+                    type="object"
+                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    title="Cancel pending quantities for this line"
+                />
                 <field name="classified" invisible="1"/>
             </xpath>
             <xpath expr="//tree/field[@name='qty_invoiced']" position="attributes">

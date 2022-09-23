@@ -359,11 +359,12 @@ class PurchaseOrder(models.Model):
         action['domain'] = [('classification_order_ids', 'in', self.id)]
         return action
 
-    def action_cancel_pending(self):
+    def action_cancel_pending(self, custom_line=False):
         """
         Finishes selected orders, cancelling pending quantities.
         For achieve it, an instrumental cancelled classification order is
-        created
+        created.
+        It's possible to cancel a single line as well
         """
         if self.classification:
             raise UserError(_(
@@ -390,9 +391,10 @@ class PurchaseOrder(models.Model):
         po_cancel = self.env['purchase.order'].create(
             order_new._convert_to_write(order_new._cache)
         )
-        for line in self.order_line.filtered(
+        to_cancel_lines = custom_line or self.order_line.filtered(
             lambda x: x.pending_qty > 0
-        ):
+        )
+        for line in to_cancel_lines:
             po_cancel.order_line = [(0, 0, {
                 'name': line.product_id.name,
                 'product_id': line.product_id.id,

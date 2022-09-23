@@ -48,6 +48,7 @@ class PurchaseOrderLine(models.Model):
         help="This field only takes in account quantities"
         " in cancelled classification orders",
     )
+    is_cancellable = fields.Boolean(compute="_compute_is_cancellable")
 
     price_unit_wd = fields.Float(
          string="Unit Price W/discount",
@@ -99,7 +100,7 @@ class PurchaseOrderLine(models.Model):
 
     order_user_id = fields.Many2one(related="order_id.user_id")
     order_incoterm_id = fields.Many2one(related="order_id.incoterm_id")
-    
+
     order_shipping_resource_id = fields.Many2one(related="order_id.shipping_resource_id")
 
     def name_get(self):
@@ -202,6 +203,16 @@ class PurchaseOrderLine(models.Model):
                 ).mapped("product_qty")
             )
 
+    def _compute_is_cancellable(self):
+        for line in self:
+            # TODO float_compare, "classification_count"
+            line.is_cancellable = (
+                not line.classified
+                and line.state in ["purchase", "done"]
+                and line.order_id.classification_count > 0
+                and line.pending_qty > 0.0
+            )
+
     @api.depends("price_subtotal", "product_qty")
     def _compute_price_unit_wd(self):
         for record in self:
@@ -260,3 +271,7 @@ class PurchaseOrderLine(models.Model):
             record.date_planned_search = (
                 record.date_planned and record.date_planned.date() or False
             )
+
+    def action_cancel_pending_line(self):
+        self.ensure_one()
+        self.order_id.action_cancel_pending(custom_line=self)
