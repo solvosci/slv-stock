@@ -64,6 +64,14 @@
                 <field name="qty_received" string="Received" optional="hide"/>
                 <field name="qty_received_ext" string="Received*"/>
                 <field name="pending_qty" string="Pending"/>
+                <field name="is_cancellable" invisible="1"/>
+                <button
+                    name="action_cancel_pending_line"
+                    icon="fa-ban"
+                    type="object"
+                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    title="Cancel pending quantities for this line"
+                />
                 <field name="qty_classified" optional="hide"/>
                 <field name="qty_cancelled" string="Cancelled"/>
                 <field

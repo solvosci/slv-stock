@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-15 11:28+0000\n"
-"PO-Revision-Date: 2022-07-15 11:28+0000\n"
+"POT-Creation-Date: 2022-09-26 07:59+0000\n"
+"PO-Revision-Date: 2022-09-26 07:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -168,6 +168,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Cancel pending"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
+msgid "Cancel pending quantities for this line"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -334,7 +340,6 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Classification modification not allowed for you"
@@ -747,6 +752,11 @@ msgstr ""
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #, python-format
 msgid "Iot Weight"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__is_cancellable
+msgid "Is Cancellable"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -1669,7 +1679,6 @@ msgid "Weight Selection"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Weight pending classification must be zero"
