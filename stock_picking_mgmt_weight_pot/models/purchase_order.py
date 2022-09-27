@@ -9,7 +9,11 @@ class PurchaseOrder(models.Model):
 
     def _action_cancel_pending_create(self):
         order_new = super()._action_cancel_pending_create()
-        # TODO make it safely (what happens if 0 or 2 types is returned?)
-        order_new.order_type = self.classification_order_ids.order_type
+        # TODO test "0" order types corner case
+        order_new.order_type = (
+            self.classification_order_ids
+            and self.classification_order_ids[0].order_type
+            or False
+        )
         order_new.onchange_order_type()
         return order_new
