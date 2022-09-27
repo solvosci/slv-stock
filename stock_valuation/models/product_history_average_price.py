@@ -103,10 +103,35 @@ class ProductHistoryAveragePrice(models.Model):
             record.summary_entry = sum(record.svl_ids.filtered(
                 lambda x: x.accumulated is True).mapped('value'))
 
-            if phap_prev and (record.total_quantity_day + phap_prev.total_quantity) > 0:
-                record.average_price = (record.summary_entry + phap_prev.total_quantity*phap_prev.average_price) / (record.total_quantity_day + phap_prev.total_quantity)
+            # AVERAGE PRICE UPDATE - old code based on "total_quantity_day"
+            # if phap_prev and (record.total_quantity_day + phap_prev.total_quantity) > 0:
+            #     record.average_price = (record.summary_entry + phap_prev.total_quantity*phap_prev.average_price) / (record.total_quantity_day + phap_prev.total_quantity)
+            # else:
+            #     record.average_price = record.total_quantity_day and (record.summary_entry / record.total_quantity_day) or 0.0
+            # AVERAGE PRICE UPDATE - based on stock_quantity
+            # Case #1: last date stock quantity was positive, no matter
+            #          current date stock quantity sign => standard formula
+            # Case #2: last date stock quantity was negative and current date
+            #          stock is also negative => average price remains the same
+            # Case #3: last date stock quantity was negative and current date
+            #          stock becomes positive => average price is the current
+            #          date one
+            if phap_prev and phap_prev.stock_quantity > 0.0:
+                record.average_price = (
+                    record.summary_entry
+                    +
+                    phap_prev.stock_quantity*phap_prev.average_price
+                ) / (record.total_quantity_day + phap_prev.stock_quantity)
+            elif (
+                phap_prev
+                and phap_prev.stock_quantity < 0.0
+                and (phap_prev.stock_quantity + record.total_quantity_day) < 0.0
+            ):
+                record.average_price = phap_prev.average_price
             else:
-                record.average_price = record.total_quantity_day and (record.summary_entry / record.total_quantity_day) or 0.0
+                record.average_price = record.total_quantity_day and (
+                    record.summary_entry / record.total_quantity_day
+                ) or 0.0
 
             # At last, we can update current stock valuation
             # TODO warehouse filter probably unnecessary
