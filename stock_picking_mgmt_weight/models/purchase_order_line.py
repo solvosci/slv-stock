@@ -208,7 +208,7 @@ class PurchaseOrderLine(models.Model):
             # TODO float_compare, "classification_count"
             line.is_cancellable = (
                 not line.classified
-                and line.state in ["purchase", "done"]
+                and line.order_id.state in ["purchase", "done"]
                 and line.order_id.classification_count > 0
                 and line.pending_qty > 0.0
             )
