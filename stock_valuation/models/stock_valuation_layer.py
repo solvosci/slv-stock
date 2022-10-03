@@ -109,9 +109,7 @@ class StockValuationLayer(models.Model):
                         #  but False is possible!!!
                         # vals["history_average_price_id"] = orig_move.get_phap_id()
                         vals["history_average_price_id"] = (
-                            move_id.sale_line_id.move_ids.filtered(
-                                lambda x: not x.origin_returned_move_id
-                            ).get_phap_id()
+                            move_id.origin_returned_move_id.stock_valuation_layer_ids.history_average_price_id.id
                         )
 
                 elif move_id.picking_type_id.code == 'outgoing':
