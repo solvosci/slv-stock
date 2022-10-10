@@ -154,7 +154,12 @@ class StockValuationLayer(models.Model):
                     vals["value"] = vals.get("unit_cost") * vals.get("quantity")
 
                 if vals.get("accumulated"):
-                    vals["average_price"] = (history_last_day.total_quantity * history_last_day.average_price + (history_today.summary_entry + vals.get("value"))) / (history_last_day.total_quantity + history_today.total_quantity_day + quantity)
+                    # TODO we protect this code, but this "average_price"
+                    #      should be removed, since is unused
+                    if (history_last_day.total_quantity + history_today.total_quantity_day + quantity) > 0.0:
+                        vals["average_price"] = (history_last_day.total_quantity * history_last_day.average_price + (history_today.summary_entry + vals.get("value"))) / (history_last_day.total_quantity + history_today.total_quantity_day + quantity)
+                    else:
+                        vals["average_price"] = 0.0
                 else:
                     if average_price_last > 0:
                         vals["average_price"] = average_price_last
