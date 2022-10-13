@@ -72,6 +72,14 @@
             >
                 <field name="qty_cancelled" optional="show" string="Cancelled" />
                 <field name="pending_qty" optional="hide" string="Pending" />
+                <field name="is_cancellable" invisible="1"/>
+                <button
+                    name="action_cancel_pending_line"
+                    icon="fa-ban"
+                    type="object"
+                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    title="Cancel pending quantities for this line"
+                />
             </xpath>
         </field>
     </record>
