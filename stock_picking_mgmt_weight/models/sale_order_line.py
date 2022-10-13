@@ -14,6 +14,7 @@ class SaleOrderLine(models.Model):
         readonly=True,
         help="Quantities affected by 'Cancel Pending' process",
     )
+    is_cancellable = fields.Boolean(compute="_compute_is_cancellable")
     pending_qty = fields.Float(
         compute="_compute_pending_qty",
         string="Pending Quantity",
@@ -47,3 +48,15 @@ class SaleOrderLine(models.Model):
                     precision_rounding=line.product_uom.rounding or 0.001
                 ) == 1
             )
+
+    def _compute_is_cancellable(self):
+        for line in self:
+            # TODO float_compare
+            line.is_cancellable = (
+                line.order_id.state in ["sale", "done"]
+                and line.pending_qty > 0.0
+            )
+
+    def action_cancel_pending_line(self):
+        self.ensure_one()
+        self.order_id.action_cancel_pending(custom_line=self)

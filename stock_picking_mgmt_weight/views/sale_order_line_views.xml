@@ -24,6 +24,14 @@
                     name="pending_qty"
                     sum="Total pending quantity"
                 />
+                <field name="is_cancellable" invisible="1"/>
+                <button
+                    name="action_cancel_pending_line"
+                    icon="fa-ban"
+                    type="object"
+                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    title="Cancel pending quantities for this line"
+                />
                 <field
                     string="Cancelled"
                     name="qty_cancelled"
