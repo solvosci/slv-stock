@@ -12,6 +12,7 @@ class SaleOrderLine(models.Model):
         digits="Product Unit of Measure",
         string="Cancelled Quantity",
         readonly=True,
+        copy=False,
         help="Quantities affected by 'Cancel Pending' process",
     )
     is_cancellable = fields.Boolean(compute="_compute_is_cancellable")
