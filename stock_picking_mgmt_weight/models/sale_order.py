@@ -27,7 +27,6 @@ class SaleOrder(models.Model):
         """
         Finishes selected order, cancelling pending quantities, or for a
         certain line.
-        Pending pickings are cancelled as result of this process, not vice versa
         """
         # An error is not raised due to batch action with several orders launch
         # In that case, if orders with no pending quantities are selected, this
@@ -39,9 +38,6 @@ class SaleOrder(models.Model):
             custom_line or
             self.order_line.filtered(lambda x: x.has_pending_qty)
         )
-        for line in pending_lines:
-            # TODO better get it from to-cancel pickings?
-            line.qty_cancelled += line.pending_qty
         pending_lines.move_ids.filtered(
             lambda x: x.state not in ["done", "cancel"]
         )._action_cancel()
