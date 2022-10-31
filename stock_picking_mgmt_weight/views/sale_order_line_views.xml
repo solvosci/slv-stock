@@ -25,12 +25,20 @@
                     sum="Total pending quantity"
                 />
                 <field name="is_cancellable" invisible="1"/>
+                <field name="is_decancellable" invisible="1"/>
                 <button
                     name="action_cancel_pending_line"
                     icon="fa-ban"
                     type="object"
                     attrs="{'invisible': [('is_cancellable', '=', False)]}"
                     title="Cancel pending quantities for this line"
+                />
+                <button
+                    name="action_decancel_pending_line"
+                    icon="fa-eraser"
+                    type="object"
+                    attrs="{'invisible': [('is_decancellable', '=', False)]}"
+                    title="Restore cancelled pending quantities for this line"
                 />
                 <field
                     string="Cancelled"

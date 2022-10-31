@@ -11,11 +11,14 @@ class SaleOrderLine(models.Model):
     qty_cancelled = fields.Float(
         digits="Product Unit of Measure",
         string="Cancelled Quantity",
+        compute="_compute_qty_cancelled",
         readonly=True,
+        store=True,
         copy=False,
         help="Quantities affected by 'Cancel Pending' process",
     )
     is_cancellable = fields.Boolean(compute="_compute_is_cancellable")
+    is_decancellable = fields.Boolean(compute="_compute_is_cancellable")
     pending_qty = fields.Float(
         compute="_compute_pending_qty",
         string="Pending Quantity",
@@ -31,6 +34,15 @@ class SaleOrderLine(models.Model):
 
     supply_condition_id = fields.Many2one(comodel_name="supply.condition")
     vehicle_type_id = fields.Many2one(comodel_name="vehicle.type")
+
+    @api.depends("move_ids.state", "move_ids.product_uom_qty")
+    def _compute_qty_cancelled(self):
+        for line in self:
+            line.qty_cancelled = sum(
+                line.move_ids.filtered(
+                    lambda x: x.state == "cancel"
+                ).mapped("product_uom_qty")
+            )
 
     @api.depends("product_uom_qty", "qty_delivered", "qty_cancelled")
     def _compute_pending_qty(self):
@@ -57,7 +69,23 @@ class SaleOrderLine(models.Model):
                 line.order_id.state in ["sale", "done"]
                 and line.pending_qty > 0.0
             )
+            line.is_decancellable = (
+                line.order_id.state == "sale"
+                and line.qty_cancelled > 0.0
+            )
 
     def action_cancel_pending_line(self):
         self.ensure_one()
         self.order_id.action_cancel_pending(custom_line=self)
+
+    def action_decancel_pending_line(self):
+        """
+        Takes back line status to "pending quantities" for this line
+        This is the reverse action to action_cancel_pending_line()
+        """
+        self.ensure_one()
+        if not self.is_decancellable:
+            return
+        sm_cancelled = self.move_ids.filtered(lambda x: x.state == "cancel")
+        sm_cancelled.sudo().unlink()
+        self._action_launch_stock_rule()

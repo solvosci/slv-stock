@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-13 11:14+0000\n"
-"PO-Revision-Date: 2022-10-13 11:14+0000\n"
+"POT-Creation-Date: 2022-10-31 09:55+0000\n"
+"PO-Revision-Date: 2022-10-31 09:55+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -763,6 +763,11 @@ msgid "Is Cancellable"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__is_decancellable
+msgid "Is Decancellable"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__is_default
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_supply_condition__is_default
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_vehicle_type__is_default
@@ -1196,6 +1201,12 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
 msgid "Repr."
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+msgid "Restore cancelled pending quantities for this line"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
