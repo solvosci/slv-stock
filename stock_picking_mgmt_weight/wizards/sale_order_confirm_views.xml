@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_confirm_wizard_form" model="ir.ui.view">
+        <field name="name">sale.order.confirm.wizard form</field>
+        <field name="model">sale.order.confirm.wizard</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <sheet>
+                    <group>
+                        <span name="warn_message">
+                            Cancelled quantities will be set to 0. Once
+                            confirmed, please review then if cancel pending
+                            quantities should to be set again
+                        </span>
+                    </group>
+                    <footer>
+                        <button
+                            name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

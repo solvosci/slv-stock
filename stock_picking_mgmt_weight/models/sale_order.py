@@ -1,7 +1,8 @@
 # © 2021 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (http://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import fields, models
+from odoo import _, fields, models
+from odoo.exceptions import Warning
 
 
 class SaleOrder(models.Model):
@@ -46,3 +47,34 @@ class SaleOrder(models.Model):
     def action_cancel_pending_multi(self):
         for record in self.browse(self.env.context["active_ids"]):
             record.action_cancel_pending()
+
+    def action_confirm(self):
+        """
+        Cancel & pending quantities are sensible to former cancelled stock
+        moves.
+        When a SO is confirmed a stock move cleanup is made in order
+        to prevent e.g. previous cancelled moves when SO was cancelled and
+        moved to draft before this confirm action.        
+        """
+        if not self.env.context.get("skip_confirm_cancel_moves", False):
+            cancelled_moves = self.order_line._unlink_cancelled_moves(
+                unlink=False
+            )
+            if cancelled_moves:
+                wiz = self.env["sale.order.confirm.wizard"].create({
+                    "order_id": self.id,
+                })
+                return {
+                    "type": "ir.actions.act_window",
+                    "name": _("Warning"),
+                    "res_model": "sale.order.confirm.wizard",
+                    "view_type": "form",
+                    "view_mode": "form",
+                    "res_id": wiz.id,
+                    "target": "new",
+                }
+            else:
+                return super().action_confirm()
+        else:
+            self.order_line._unlink_cancelled_moves()
+            return super().action_confirm()
