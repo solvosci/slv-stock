@@ -86,6 +86,16 @@ class SaleOrderLine(models.Model):
         self.ensure_one()
         if not self.is_decancellable:
             return
-        sm_cancelled = self.move_ids.filtered(lambda x: x.state == "cancel")
-        sm_cancelled.sudo().unlink()
+        self._unlink_cancelled_moves()
         self._action_launch_stock_rule()
+
+    def _unlink_cancelled_moves(self, unlink=True):
+        sm_cancelled = self.mapped("move_ids").filtered(
+            lambda x: x.state == "cancel"
+        )
+        if sm_cancelled:
+            if unlink:
+                sm_cancelled.sudo().unlink()
+            return True
+        else:
+            return False

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-31 09:55+0000\n"
-"PO-Revision-Date: 2022-10-31 09:55+0000\n"
+"POT-Creation-Date: 2022-12-13 12:33+0000\n"
+"PO-Revision-Date: 2022-12-13 12:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,22 @@ msgstr ""
 #, python-format
 msgid "/weight_images/%s"
 msgstr "/imagenes_pesadas/%s"
+
+#. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_sale_order_confirm_wizard_form
+msgid ""
+"<span name=\"warn_message\">\n"
+"                            Cancelled quantities will be set to 0. Once\n"
+"                            confirmed, please review then if cancel pending\n"
+"                            quantities should to be set again\n"
+"                        </span>"
+msgstr ""
+"<span name=\"warn_message\">\n"
+"                            Al confirmar el pedido se borrarán todas las cantidades\n"
+"                            canceladas existentes actualmente, revise si alguna de ellas\n"
+"                            era de restos y debe seguir cancelada una vez confirmado el pedido.\n"
+"                            Si es así, deben ser canceladas de nuevo después de confirmar el pedido\n"
+"                        </span>"
 
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.label_transfer_template_view_pdf
@@ -165,6 +181,7 @@ msgid "Cameras for Scale"
 msgstr "Cámaras para báscula"
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_sale_order_confirm_wizard_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_line_form_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_move_weight_wizard_form_weight
 msgid "Cancel"
@@ -435,6 +452,11 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: stock_picking_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_sale_order_confirm_wizard_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_res_partner
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__partner_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__partner_id
@@ -480,6 +502,7 @@ msgid "Container Vgm Weight"
 msgstr "Peso VGM del contenedor"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__create_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__create_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__create_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__create_uid
@@ -490,6 +513,7 @@ msgid "Created by"
 msgstr "Creado por"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__create_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__create_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__create_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__create_date
@@ -558,6 +582,7 @@ msgid "Dest. weight"
 msgstr "En báscula"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__display_name
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__display_name
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__display_name
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__display_name
@@ -660,6 +685,7 @@ msgid "Historical"
 msgstr "Histórico"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__id
@@ -817,6 +843,7 @@ msgid "It is necessary to assign a vehicle to perform this operation."
 msgstr "Es necesario asignar un vehículo para realizar esta operación."
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard____last_update
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource____last_update
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard____last_update
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard____last_update
@@ -832,6 +859,7 @@ msgid "Last Towing"
 msgstr "Último remolque"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__write_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__write_uid
@@ -842,6 +870,7 @@ msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__write_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_shipping_resource__write_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__write_date
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__write_date
@@ -986,6 +1015,11 @@ msgstr "Operaciones"
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_picking__operator_id
 msgid "Operator"
 msgstr "Operador"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_confirm_wizard__order_id
+msgid "Order"
+msgstr "Pedido"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_line_weight_wizard__order_line_id
@@ -1245,6 +1279,11 @@ msgstr "Restaura a pendientes las cantidades canceladas para esta línea"
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
 msgid "Safety"
 msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_sale_order_confirm_wizard
+msgid "Sale Order Confirm Wizard"
+msgstr "Asistente de confirmación de pedido de venta"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_sale_order
@@ -1698,6 +1737,12 @@ msgstr "Clasif. pdte. facturar"
 #: model:ir.model,name:stock_picking_mgmt_weight.model_stock_warehouse
 msgid "Warehouse"
 msgstr "Almacén"
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/sale_order.py:0
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
 
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
