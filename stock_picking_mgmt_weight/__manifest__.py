@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.19.0",
+    "version": "13.0.1.19.1",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -38,6 +38,7 @@
         "views/stock_move_views.xml",
         "wizards/move_line_weight_views.xml",
         "wizards/move_weight_views.xml",
+        "wizards/sale_order_confirm_views.xml",
         "views/stock_picking_type.xml",
         "views/stock_picking_views.xml",
         "views/res_partner_views.xml",
