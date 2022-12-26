@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_secondary_unit_stock_quant
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-19 18:11+0000\n"
+"PO-Revision-Date: 2022-12-19 18:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_production_lot__product_secondary_uom_id
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_quant__product_stock_secondary_uom_id
+msgid "2nd unit"
+msgstr "2ª unidad"
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_production_lot__display_name
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_quant__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_production_lot__id
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_quant__id
+msgid "ID"
+msgstr "Id."
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_production_lot____last_update
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_quant____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model,name:stock_secondary_unit_stock_quant.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lote/Número de serie"
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_quant__inventory_quantity_secondary_uom
+msgid "Quant in 2nd unit"
+msgstr "Cant. en 2ª ud."
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model.fields,field_description:stock_secondary_unit_stock_quant.field_stock_production_lot__product_qty_secondary_uom
+msgid "Quantity in 2nd unit"
+msgstr "Cant. en 2ª ud."
+
+#. module: stock_secondary_unit_stock_quant
+#: model:ir.model,name:stock_secondary_unit_stock_quant.model_stock_quant
+msgid "Quants"
+msgstr "Inventario"
