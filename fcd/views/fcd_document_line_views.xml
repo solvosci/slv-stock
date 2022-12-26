@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fcd_document_line_action" model="ir.actions.act_window">
+        <field name="name">FCD Document Line</field> 
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fcd.document.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fcd_document_line_view_form" model="ir.ui.view">
+        <field name="name">fcd.document.line.view.form</field>
+        <field name="model">fcd.document.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label  for="name" string="FCD Document Line"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>      
+                    </div>
+                    <group>
+                        <field name="fcd_document_id"/> 
+                        <field name="lot_id" />
+                        <field name="box_count" />
+                    </group>
+                    <group string="Notes">
+                        <field name="notes_cost" nolabel="1" placeholder="This note is added to cost." />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fcd_document_line_view_tree" model="ir.ui.view">
+        <field name="name">fcd.document.line.view.tree</field>
+        <field name="model">fcd.document.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="fcd_document_id"/> 
+                <field name="box_count" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fcd_document_line_view_tree_reduced" model="ir.ui.view">
+        <field name="name">fcd.document.line.view.tree</field>
+        <field name="model">fcd.document.line</field>
+        <field name="inherit_id" ref="fcd_document_line_view_tree"/>
+        <field name="mode">primary</field>
+        <field eval="101" name="priority"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fcd_document_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="fcd_document_line_view_search" model="ir.ui.view">
+        <field name="name">fcd.document.view.search</field>
+        <field name="model">fcd.document.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="fcd_document_id" /> 
+
+                <group string="Group by">
+                    <filter string="FCD Document" name="fcd_document_id" context="{'group_by': 'fcd_document_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

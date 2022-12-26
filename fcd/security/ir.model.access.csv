@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fcd_document_user,access.fcd_document_user,model_fcd_document,group_fcd_user,1,0,0,0
+access_fcd_document_manager,access.fcd_document_manager,model_fcd_document,group_fcd_manager,1,1,1,1
+access_fcd_document_line_user,access.fcd_document_line_user,model_fcd_document_line,group_fcd_user,1,0,0,0
+access_fcd_document_line_manager,access.fcd_document_line_manager,model_fcd_document_line,group_fcd_manager,1,1,1,1
+access_fcd_fao_zone_user,access.fcd_fao_zone_user,model_fcd_fao_zone,group_fcd_user,1,0,0,0
+access_fcd_fao_zone_manager,access.fcd_fao_zone_manager,model_fcd_fao_zone,group_fcd_manager,1,1,1,1
+access_fcd_fao_subzone_user,access.fcd_fao_subzone_user,model_fcd_fao_subzone,group_fcd_user,1,0,0,0
+access_fcd_fao_subzone_manager,access.fcd_fao_subzone_manager,model_fcd_fao_subzone,group_fcd_manager,1,1,1,1
+access_fcd_fishing_gear_user,access.fcd_fishing_gear_user,model_fcd_fishing_gear,group_fcd_user,1,0,0,0
+access_fcd_fishing_gear_manager,access.fcd_fishing_gear_manager,model_fcd_fishing_gear,group_fcd_manager,1,1,1,1
+access_fcd_ship_user,access.fcd_ship_user,model_fcd_ship,group_fcd_user,1,0,0,0
+access_fcd_ship_manager,access.fcd_ship_manager,model_fcd_ship,group_fcd_manager,1,1,1,1
+access_fcd_presentation_user,access.fcd_presentation_user,model_fcd_presentation,group_fcd_user,1,0,0,0
+access_fcd_presentation_manager,access.fcd_presentation_manager,model_fcd_presentation,group_fcd_manager,1,1,1,1
+access_fcd_production_method_user,access.fcd_production_method_user,model_fcd_production_method,group_fcd_user,1,0,0,0
+access_fcd_production_method_manager,access.fcd_production_method_manager,model_fcd_production_method,group_fcd_manager,1,1,1,1

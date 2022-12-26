@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="fcd_fao_zone_action" model="ir.actions.act_window">
+        <field name="name">FCD FAO Zone</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fcd.fao.zone</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fcd_fao_zone_fcd_fao_subzone" model="ir.actions.act_window">
+        <field name="name">FCD FAO Subzone </field>
+        <field name="res_model">fcd.fao.subzone</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="fcd.model_fcd_fao_subzone"/> 
+        <field name="domain">[('zone_id', '=', active_id)]</field>
+    </record>
+
+    <record id="fcd_fao_zone_view_tree" model="ir.ui.view">
+        <field name="name">fcd.fao.zone.view.tree</field>
+        <field name="model">fcd.fao.zone</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" />
+                <field name="description" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fcd_fao_zone_view_form" model="ir.ui.view">
+        <field name="name">fcd.fao.zone.view.form</field>
+        <field name="model">fcd.fao.zone</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box" modifiers="{}">
+                        <button class="oe_stat_button" name="%(fcd_fao_zone_fcd_fao_subzone)d" type="action" icon="fa-crosshairs"  help="Subzone" attrs="{'invisible': [('subzone_ids', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="subzone_ids" invisible="1"/>
+                                    <field name="subzone_ids_count" widget="statinfo" nolabel="1" class="mr4" /> 
+                                </span>
+                                <span class="o_stat_text">Subzone</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="FAO zone name"/>
+                        <h1>
+                            <field name="name" placeholder="FAO Zone name"/>
+                        </h1>      
+                    </div>
+                        <group>
+                            <field name="code" />
+                            <field name="description" />
+                            <field name="name" />
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fcd_fao_zone_view_search" model="ir.ui.view">
+        <field name="name">fcd.fao.zone.view.search</field>
+        <field name="model">fcd.fao.zone</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code" />
+                <field name="description" />
+                <field name="subzone_ids" />
+            </search>
+        </field>
+    </record>
+
+</odoo>

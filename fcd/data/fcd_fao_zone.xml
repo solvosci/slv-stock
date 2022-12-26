@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <data>
+        <record id="fao_fao_zone_area18" model="fcd.fao.zone">
+            <field name="code">18</field>
+            <field name="description">Mar Ártico</field>
+        </record>
+
+        <record id="fao_fao_zone_area21" model="fcd.fao.zone">
+            <field name="code">21</field>
+            <field name="description">Atlántico, noroeste</field>
+        </record>
+
+        <record id="fao_fao_zone_area27" model="fcd.fao.zone">
+            <field name="code">27</field>
+            <field name="description">Atlántico, nordeste</field>
+        </record>
+
+        <record id="fao_fao_zone_area31" model="fcd.fao.zone">
+            <field name="code">31</field>
+            <field name="description">Atlántico, centro-occidental</field>
+        </record>
+
+        <record id="fao_fao_zone_area34" model="fcd.fao.zone">
+            <field name="code">34</field>
+            <field name="description">Atlántico, centro-oriental</field>
+        </record>
+
+        <record id="fao_fao_zone_area37" model="fcd.fao.zone">
+            <field name="code">37</field>
+            <field name="description">Mediterráneo y Mar Negro</field>
+        </record>
+
+        <record id="fao_fao_zone_area41" model="fcd.fao.zone">
+            <field name="code">41</field>
+            <field name="description">Atlántico, sudoccidental</field>
+        </record>
+
+        <record id="fao_fao_zone_area47" model="fcd.fao.zone">
+            <field name="code">47</field>
+            <field name="description">Atlántico, sudoriental</field>
+        </record>
+
+        <record id="fao_fao_zone_area48" model="fcd.fao.zone">
+            <field name="code">48</field>
+            <field name="description">Atlántico, Antártico</field>
+        </record>
+
+        <record id="fao_fao_zone_area51" model="fcd.fao.zone">
+            <field name="code">51</field>
+            <field name="description">Océano Índico, occidental</field>
+        </record>
+
+        <record id="fao_fao_zone_area57" model="fcd.fao.zone">
+            <field name="code">57</field>
+            <field name="description">Océano Índico, oriental</field>
+        </record>
+
+        <record id="fao_fao_zone_area58" model="fcd.fao.zone">
+            <field name="code">58</field>
+            <field name="description">Océano Índico, Antártico</field>
+        </record>
+
+        <record id="fao_fao_zone_area61" model="fcd.fao.zone">
+            <field name="code">61</field>
+            <field name="description">Pacífico, noroeste</field>
+        </record>
+
+        <record id="fao_fao_zone_area67" model="fcd.fao.zone">
+            <field name="code">67</field>
+            <field name="description">Pacífico, nordeste</field>
+        </record>
+
+        <record id="fao_fao_zone_area71" model="fcd.fao.zone">
+            <field name="code">71</field>
+            <field name="description">Pacífico, centro-occidental</field>
+        </record>
+
+        <record id="fao_fao_zone_area77" model="fcd.fao.zone">
+            <field name="code">77</field>
+            <field name="description">Pacífico, centro-oriental</field>
+        </record>
+
+        <record id="fao_fao_zone_area81" model="fcd.fao.zone">
+            <field name="code">81</field>
+            <field name="description">Pacífico, sudoccidental</field>
+        </record>
+
+        <record id="fao_fao_zone_area87" model="fcd.fao.zone">
+            <field name="code">87</field>
+            <field name="description">Pacífico, sudoriental</field>
+        </record>
+
+        <record id="fao_fao_zone_area88" model="fcd.fao.zone">
+            <field name="code">88</field>
+            <field name="description">Pacífico, Antártico</field>
+        </record>
+
+    </data>
+
+</odoo>

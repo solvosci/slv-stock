@@ -1,0 +1,2099 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!--
+        #####################
+        ####   Zone 18    ###
+        #####################
+        -->
+
+        <!-- Subzone 18 -->
+        <record id="fao_fao_subzone_18" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area18"/>
+            <field name="zone_code">18</field>
+            <field name="zone_name">Mar Ártico</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+
+        <!-- 
+        #####################
+        ####   Zone 21   ###
+        #####################
+        -->
+        
+        <!-- Subzone 21 / 0 -->
+        <record id="fao_fao_subzone_21_0_A" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Island, East Bluff, Bylot Island, Devon Island, Ellesmere Island</field>
+            <field name="subzone_code">0A</field>
+            <field name="division_name">Davis Strait, Baffin Island</field>
+            <field name="subzone">0</field>
+            <field name="division">A</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_0_B" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Island, East Bluff, Bylot Island, Devon Island, Ellesmere Island</field>
+            <field name="subzone_code">0B</field>
+            <field name="division_name">Davis Strait</field>
+            <field name="subzone">0</field>
+            <field name="division">B</field>
+        </record>
+
+        <!-- Subzone 21 / 1 -->
+        <record id="fao_fao_subzone_21_1_A" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1A</field>
+            <field name="division_name">Baffin Bay, Melville Bay, Disko Island</field>
+            <field name="subzone">1</field>
+            <field name="division">A</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_1_B" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1B</field>
+            <field name="division_name">Davis Strait, Christianshaab, Store Hellefiske Banke</field>
+            <field name="subzone">1</field>
+            <field name="division">B</field>
+        </record>
+
+        
+        <record id="fao_fao_subzone_21_1_C" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1C</field>
+            <field name="division_name">Davis Strait, Umanarsugssuak, Little Hellefiske Banke</field>
+            <field name="subzone">1</field>
+            <field name="division">C</field>
+        </record>
+
+                
+        <record id="fao_fao_subzone_21_1_D" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1D</field>
+            <field name="division_name">Frederikshaab Glacier, Godthaab, Fyllas Banke, Fiskenaes Banke, Danas Banke</field>
+            <field name="subzone">1</field>
+            <field name="division">D</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_1_E" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1E</field>
+            <field name="division_name">Cape Desolation, Frederikshaab Glacier, Danas Banke</field>
+            <field name="subzone">1</field>
+            <field name="division">E</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_1_F" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Baffin Bay, Davis Strait</field>  <!--#-->
+            <field name="subzone_code">1F</field>
+            <field name="division_name">Cape Desolation, Cape Farewell</field>
+            <field name="subzone">1</field>
+            <field name="division">F</field>
+        </record>
+
+        <!-- Subzone 21 / 2 -->
+        <record id="fao_fao_subzone_21_2_G" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Labrador coast</field>  <!--#-->
+            <field name="subzone_code">2G</field>
+            <field name="division_name">Cape Mugford</field>
+            <field name="subzone">2</field>
+            <field name="division">G</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_2_H" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Labrador coast</field>  <!--#-->
+            <field name="subzone_code">2H</field>
+            <field name="division_name">Hopedale, Cape Mugford</field>
+            <field name="subzone">2</field>
+            <field name="division">H</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_2_J" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Labrador coast</field>  <!--#-->
+            <field name="subzone_code">2J</field>
+            <field name="division_name">Hopedale, Hamilton Bank</field>
+            <field name="subzone">2</field>
+            <field name="division">J</field>
+        </record>
+
+        <!-- Subzone 21 / 3 -->
+        <record id="fao_fao_subzone_21_3_K" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3K</field>
+            <field name="division_name">Cape Freels, Cape Bauld</field>
+            <field name="subzone">3</field>
+            <field name="division">K</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_3_L" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3L</field>
+            <field name="division_name">Cape Freels, Cape St. Mary's, Grand Bank, Avalon Peninsula, St. John's</field>
+            <field name="subzone">3</field>
+            <field name="division">L</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_3_M" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">31</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3M</field>
+            <field name="division_name">Flemish Cap</field>
+            <field name="subzone">3</field>
+            <field name="division">M</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_3_N" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3N</field>
+            <field name="division_name">Grand Bank</field>
+            <field name="subzone">3</field>
+            <field name="division">N</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_3_O" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3O</field>
+            <field name="division_name">Grand Bank</field>
+            <field name="subzone">3</field>
+            <field name="division">O</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_3_P" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Newfoundland</field>  <!--#-->
+            <field name="subzone_code">3P</field>
+            <field name="division_name">Cape St Mary's, St.Pierre and Miquelon Islands, Burin Peninsula</field>
+            <field name="subzone">3</field>
+            <field name="division">P</field>
+        </record>
+
+        
+        <!-- Subzone 21 / 4 -->
+        <record id="fao_fao_subzone_21_4_R" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4R</field>
+            <field name="division_name">Gulf of Saint Lawrence, Cape Bauld, Strait of Belle Isle, Cape Ray</field>
+            <field name="subzone">4</field>
+            <field name="division">R</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_4_S" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4S</field>
+            <field name="division_name">Gulf of Saint Lawrence, Labrador-Quebec boundary, P.te des Monts, Anticosti Island</field>
+            <field name="subzone">4</field>
+            <field name="division">S</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_4_T" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4T</field>
+            <field name="division_name">Gulf of Saint Lawrence, Magdalen Islands</field>
+            <field name="subzone">4</field>
+            <field name="division">T</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_4_V" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4V</field>
+            <field name="division_name">Cape North, Fourchu, Eastern Scotland Shelf</field>
+            <field name="subzone">4</field>
+            <field name="division">V</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_4_W" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4W</field>
+            <field name="division_name">Canso, Central Scotian Shelf, Sable Island, Halifax, Nova Scotia Eastern Shore</field>
+            <field name="subzone">4</field>
+            <field name="division">W</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_4_X" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Northwest Atlantic</field>  <!--#-->
+            <field name="subzone_code">4X</field>
+            <field name="division_name">Western Scotian Shelf, Bay of Fundy, St. Margaret's Bay, Yarmouth, Digby, Grand Manan</field>
+            <field name="subzone">4</field>
+            <field name="division">X</field>
+        </record>
+
+
+        <!-- Subzone 21 / 5 -->
+        <record id="fao_fao_subzone_21_5_Y" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Georges Bank, Gulf of Maine</field>  <!--#-->
+            <field name="subzone_code">5Y</field>
+            <field name="division_name">Gulf of Maine, Bar Harbor</field>
+            <field name="subzone">5</field>
+            <field name="division">Y</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_5_Z" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Georges Bank, Gulf of Maine</field>  <!--#-->
+            <field name="subzone_code">5Z</field>
+            <field name="division_name">Georges Bank</field>
+            <field name="subzone">5</field>
+            <field name="division">Z</field>
+        </record>
+
+        <!-- Subzone 21 / 6 -->
+
+        <record id="fao_fao_subzone_21_6_A" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6A</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">A</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_B" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6B</field>
+            <field name="division_name">Cape Henry</field>
+            <field name="subzone">6</field>
+            <field name="division">B</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_C" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6C</field>
+            <field name="division_name">Cape Hatteras</field>
+            <field name="subzone">6</field>
+            <field name="division">C</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_D" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6D</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">D</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_E" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6E</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">E</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_F" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6F</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">F</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_G" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6G</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">G</field>
+        </record>
+
+        <record id="fao_fao_subzone_21_6_H" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area21"/>
+            <field name="zone_code">21</field>
+            <field name="zone_name">Atlántico, noroeste</field>
+            <field name="name">Rhode Island</field>  <!--#-->
+            <field name="subzone_code">6H</field>
+            <field name="division_name">Rhode Island</field>
+            <field name="subzone">6</field>
+            <field name="division">H</field>
+        </record>
+
+        <!-- 
+        #####################
+        ####   Zone 27    ###
+        #####################
+        -->
+
+         <!-- Subzone 27/ 1 -->
+        <record id="fao_fao_subzone_27_1_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Barents</field>  <!--#-->
+            <field name="subzone_code">IA</field>
+            <field name="division_name">Barents Sea - NEAFC Regulatory Area</field>
+            <field name="subzone">1</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_1_b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Barents (Subzona I)</field>  <!--#-->
+            <field name="subzone_code">IB</field>
+            <field name="division_name">Barents Sea - non-NEAFC Regulatory Area</field>
+            <field name="subzone">1</field>
+            <field name="division">b</field>
+        </record>
+
+        <!-- Subzone 27/ 2 -->
+        <record id="fao_fao_subzone_27_2_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Noruega, Spitzberg e isla de los Osos</field>  <!--#-->
+            <field name="subzone_code">IIA</field>
+            <field name="division_name">Mar de Noruega (División II a)</field>
+            <field name="subzone">2</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_2_b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Noruega, Spitzberg e isla de los Osos</field>  <!--#-->
+            <field name="subzone_code">IIB</field>
+            <field name="division_name">Spitzberg e isla de los Osos (División II b)</field>
+            <field name="subzone">2</field>
+            <field name="division">b</field>
+        </record>
+
+
+        <!-- Subzone 27/ 3 -->
+        <record id="fao_fao_subzone_27_3_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Skagerrak, Kattegat, Sound, mar de Belt y mar Báltico; el Sound y el Belt juntos también son conocidos con el nombre de Zona de transición</field>  <!--#-->
+            <field name="subzone_code">IIIA</field>
+            <field name="division_name">Skagerrak y Kattegat</field>
+            <field name="subzone">3</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_3_b_c" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Skagerrak, Kattegat, Sound, mar de Belt y mar Báltico; el Sound y el Belt juntos también son conocidos con el nombre de Zona de transición</field>  <!--#-->
+            <field name="subzone_code">IIIBC</field>
+            <field name="division_name">Sund y mar de Belt o Zona de transición</field>
+            <field name="subzone">3</field>
+            <field name="division">bc</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_3_d" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Skagerrak, Kattegat, Sound, mar de Belt y mar Báltico; el Sound y el Belt juntos también son conocidos con el nombre de Zona de transición</field>  <!--#-->
+            <field name="subzone_code">IIID</field>
+            <field name="division_name">Mar Báltico</field>
+            <field name="subzone">3</field>
+            <field name="division">d</field>
+        </record>
+
+
+        <!-- Subzone 27/ 4 -->
+        <record id="fao_fao_subzone_27_4_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar del Norte (Subzona IV)</field>  <!--#-->
+            <field name="subzone_code">IVA</field>
+            <field name="division_name">Mar del Norte septentrional</field>
+            <field name="subzone">4</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_4_b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar del Norte</field>  <!--#-->
+            <field name="subzone_code">IAB</field>
+            <field name="division_name">Mar del Norte central</field>
+            <field name="subzone">4</field>
+            <field name="division">b</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_4_c" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar del Norte</field>  <!--#-->
+            <field name="subzone_code">IVC</field>
+            <field name="division_name">Mar del Norte meridional</field>
+            <field name="subzone">4</field>
+            <field name="division">c</field>
+        </record>
+
+
+        <!-- Subzone 27/ 5 -->
+
+        <record id="fao_fao_subzone_27_5_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Fondos de Islandia y de las Feroe</field>  <!--#-->
+            <field name="subzone_code">VA</field>
+            <field name="division_name">Fondos de Islandia</field>
+            <field name="subzone">5</field>
+            <field name="division">a</field>
+        </record>
+
+
+        <record id="fao_fao_subzone_27_5_b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Fondos de Islandia y de las Feroe</field>  <!--#-->
+            <field name="subzone_code">VB</field>
+            <field name="division_name">Fondos de las Feroe</field>
+            <field name="subzone">5</field>
+            <field name="division">b</field>
+        </record>
+
+
+        <!-- Subzone 27/ 6 -->
+        <record id="fao_fao_subzone_27_6_a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Rockall, costa noroeste de Escocia e Irlanda del Norte; la costa noroeste de Escocia e Irlanda del Norte se denominan también oeste de Escocia</field>  <!--#-->
+            <field name="subzone_code">VIA</field>
+            <field name="division_name">Costa noroeste de Escocia e Irlanda del Norte u oeste de Escocia</field>
+            <field name="subzone">6</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_6b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Rockall, costa noroeste de Escocia e Irlanda del Norte; la costa noroeste de Escocia e Irlanda del Norte se denominan también oeste de Escocia</field>  <!--#-->
+            <field name="subzone_code">VIB</field>
+            <field name="division_name">Rockall</field>
+            <field name="subzone">6</field>
+            <field name="division">b</field>
+        </record>
+
+
+        <!-- Subzone 27/ 7 -->
+        <record id="fao_fao_subzone_27_7a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIA</field>
+            <field name="division_name">Mar de Irlanda</field>
+            <field name="subzone">7</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIB</field>
+            <field name="division_name">Oeste de Irlanda</field>
+            <field name="subzone">7</field>
+            <field name="division">b</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7c" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIC</field>
+            <field name="division_name">Porcupine Bank</field>
+            <field name="subzone">7</field>
+            <field name="division">c</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7d" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIID</field>
+            <field name="division_name">Mancha oriental</field>
+            <field name="subzone">7</field>
+            <field name="division">d</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7e" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIE</field>
+            <field name="division_name">Mancha occidental</field>
+            <field name="subzone">7</field>
+            <field name="division">e</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7f" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIF</field>
+            <field name="division_name">Canal de Bristol</field>
+            <field name="subzone">7</field>
+            <field name="division">f</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7g" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIG</field>
+            <field name="division_name">Mar Céltico - norte</field>
+            <field name="subzone">7</field>
+            <field name="division">g</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7h" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIH</field>
+            <field name="division_name">Mar Céltico - sur</field>
+            <field name="subzone">7</field>
+            <field name="division">h</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7j" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIJ</field>
+            <field name="division_name">Suroeste de Irlanda - este</field>
+            <field name="subzone">7</field>
+            <field name="division">j</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_7k" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Mar de Irlanda, oeste de Irlanda, Porcupine Bank, Mancha oriental y occidental, canal de Bristol, Celtic Sea - norte y sur, y suroeste de Irlanda - este y oeste</field>  <!--#-->
+            <field name="subzone_code">VIIK</field>
+            <field name="division_name">Suroeste de Irlanda - oeste</field>
+            <field name="subzone">7</field>
+            <field name="division">k</field>
+        </record>
+
+
+        <!-- Subzone 27/ 8 -->
+        <record id="fao_fao_subzone_27_8a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Golfo de Vizcaya</field>  <!--#-->
+            <field name="subzone_code">VIIIA</field>
+            <field name="division_name">Golfo de Vizcaya norte</field>
+            <field name="subzone">8</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_8b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Golfo de Vizcaya</field>  <!--#-->
+            <field name="subzone_code">VIIIB</field>
+            <field name="division_name">Golfo de Vizcaya centro</field>
+            <field name="subzone">8</field>
+            <field name="division">b</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_8c" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Golfo de Vizcaya</field>  <!--#-->
+            <field name="subzone_code">VIIIC</field>
+            <field name="division_name">Golfo de Vizcaya sur</field>
+            <field name="subzone">8</field>
+            <field name="division">c</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_8d" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Golfo de Vizcaya</field>  <!--#-->
+            <field name="subzone_code">VIIID</field>
+            <field name="division_name">Golfo de Vizcaya - mar adentro</field>
+            <field name="subzone">8</field>
+            <field name="division">d</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_8e" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Golfo de Vizcaya</field>  <!--#-->
+            <field name="subzone_code">VIIIE</field>
+            <field name="division_name">Oeste del golfo de Vizcaya</field>
+            <field name="subzone">8</field>
+            <field name="division">e</field>
+        </record>
+
+        <!-- Subzone 27/ 9 -->
+
+        <record id="fao_fao_subzone_27_9a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Aguas portuguesas</field>  <!--#-->
+            <field name="subzone_code">IXA</field>
+            <field name="division_name">Aguas portuguesas - este</field>
+            <field name="subzone">9</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_9b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Aguas portuguesas</field>  <!--#-->
+            <field name="subzone_code">IXB</field>
+            <field name="division_name">Aguas portuguesas - oeste</field>
+            <field name="subzone">9</field>
+            <field name="division">b</field>
+        </record>
+
+
+        <!-- Subzone 27/ 10 -->
+        <record id="fao_fao_subzone_27_10a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Azores Grounds</field>  <!--#-->
+            <field name="subzone_code">XA</field>
+            <field name="division_name">Azores Grounds</field>
+            <field name="subzone">10</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_10b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Banco de las Azores</field>  <!--#-->
+            <field name="subzone_code">XB</field>
+            <field name="division_name">Northeast Atlantic South</field>
+            <field name="subzone">10</field>
+            <field name="division">b</field>
+        </record>
+
+
+        <!-- Subzone 27/ 12 -->
+        <record id="fao_fao_subzone_27_12a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Norte de las Azores</field>  <!--#-->
+            <field name="subzone_code">XIIA</field>
+            <field name="division_name">Southern mid-Atlantic Ridge (Southern Reykjanes Ridge south to Charlie-Gibbs Fracture Zone)</field>
+            <field name="subzone">12</field>
+            <field name="division">a</field>
+        </record>
+
+       <record id="fao_fao_subzone_27_12b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Norte de las Azores</field>  <!--#-->
+            <field name="subzone_code">XIIB</field>
+            <field name="division_name">Western Hatton Bank</field>
+            <field name="subzone">12</field>
+            <field name="division">b</field>
+        </record>
+
+       <record id="fao_fao_subzone_27_12c" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Norte de las Azores</field>  <!--#-->
+            <field name="subzone_code">XIIC</field>
+            <field name="division_name">Central Northeast Atlantic - South</field>
+            <field name="subzone">12</field>
+            <field name="division">c</field>
+        </record>
+
+
+        <!-- Subzone 27/ 14 -->
+        <record id="fao_fao_subzone_27_14a" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Este de Groenlandia</field>  <!--#-->
+            <field name="subzone_code">XIVA</field>
+            <field name="division_name">Nordeste de Groenlandia</field>
+            <field name="subzone">14</field>
+            <field name="division">a</field>
+        </record>
+
+        <record id="fao_fao_subzone_27_14b" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area27"/>
+            <field name="zone_code">27</field>
+            <field name="zone_name">Atlántico, nordeste</field>
+            <field name="name">Este de Groenlandia</field>  <!--#-->
+            <field name="subzone_code">XIVB</field>
+            <field name="division_name">Sureste de Groenlandia</field>
+            <field name="subzone">14</field>
+            <field name="division">b</field>
+        </record>
+
+        <!-- 
+        #####################
+        ####   Zone 31    ###
+        #####################
+        -->
+
+        <record id="fao_fao_subzone_31" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area31"/>
+            <field name="zone_code">31</field>
+            <field name="zone_name">Atlántico, centro-occidental</field>
+            <field name="name"></field>  <!--#-->
+            <field name="subzone_code"></field> <!--#-->
+            <field name="division_name"></field> <!--#-->
+            <field name="subzone"></field> <!--#-->
+            <field name="division"></field> <!--#-->
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 34    ###
+        #####################
+        -->
+
+        <!-- Subzone 34/ 1 -->
+        <record id="fao_fao_subzone_34_1_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costa septentrional</field>  <!--#-->
+            <field name="subzone_code">34.1.1</field>
+            <field name="division_name">Costa marroquí</field>
+            <field name="subzone">34</field>
+            <field name="division">1.1</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_1_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costa septentrional</field>  <!--#-->
+            <field name="subzone_code">34.1.2</field>
+            <field name="division_name">Islas Canarias y Madeira</field>
+            <field name="subzone">34</field>
+            <field name="division">1.2</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_1_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costa septentrional</field>  <!--#-->
+            <field name="subzone_code">34.1.3</field>
+            <field name="division_name">Costa sahariana</field>
+            <field name="subzone">34</field>
+            <field name="division">1.3</field>
+        </record>
+
+        <!-- Subzone 34/ 2 -->
+        <record id="fao_fao_subzone_34_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costa septentrional</field>  <!--#-->
+            <field name="subzone_code">34.2</field>
+            <field name="division_name"></field>
+            <field name="subzone">2</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 34/ 3 -->
+        <record id="fao_fao_subzone_34_3_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.1</field>
+            <field name="division_name">Costa de Cabo Verde</field>
+            <field name="subzone">3</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_3_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.2</field>
+            <field name="division_name">Islas de Cabo Verde</field>
+            <field name="subzone">3</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_3_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.3</field>
+            <field name="division_name">Sherbro</field>
+            <field name="subzone">3</field>
+            <field name="division">3</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_3_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.4</field>
+            <field name="division_name">Oeste del Golfo de Guinea</field>
+            <field name="subzone">3</field>
+            <field name="division">4</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_3_5" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.5</field>
+            <field name="division_name">Centro del Golfo de Guinea</field>
+            <field name="subzone">3</field>
+            <field name="division">5</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_3_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Costera meridional</field>  <!--#-->
+            <field name="subzone_code">34.3.6</field>
+            <field name="division_name">Sur del Golfo de Guinea</field>
+            <field name="subzone">3</field>
+            <field name="division">6</field>
+        </record>
+
+
+        <!-- Subzone 34/ 4 -->
+        <record id="fao_fao_subzone_34_4_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Oceánica meridiona</field>  <!--#-->
+            <field name="subzone_code">34.4.1</field>
+            <field name="division_name">Sudoeste del Golfo de Guinea</field>
+            <field name="subzone">4</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_34_4_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area34"/>
+            <field name="zone_code">34</field>
+            <field name="zone_name">Atlántico, centro-oriental</field>
+            <field name="name">Oceánica meridiona</field>  <!--#-->
+            <field name="subzone_code">34.4.2</field>
+            <field name="division_name">División oceánica sudoccidental</field>
+            <field name="subzone">4</field>
+            <field name="division">2</field>
+        </record>
+
+
+
+        <!-- 
+        #####################
+        ####   Zone 37   ###
+        #####################
+        -->
+
+        <!-- Subzone 37/ 1 -->
+        <record id="fao_fao_subzone_37_1_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo occidental o Mediterráneo oeste</field>  <!--#-->
+            <field name="subzone_code">37.1.1</field>
+            <field name="division_name">Baleares</field>
+            <field name="subzone">1</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_1_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo occidental o Mediterráneo oeste</field>  <!--#-->
+            <field name="subzone_code">37.1.2</field>
+            <field name="division_name">Golfo de León</field>
+            <field name="subzone">1</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_1_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo occidental o Mediterráneo oeste</field>  <!--#-->
+            <field name="subzone_code">37.1.3</field>
+            <field name="division_name">Cerdeña</field>
+            <field name="subzone">1</field>
+            <field name="division">3</field>
+        </record>
+
+        <!-- Subzone 37/ 2 -->
+        <record id="fao_fao_subzone_37_2_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo central</field>  <!--#-->
+            <field name="subzone_code">37.2.1</field>
+            <field name="division_name">Mar Adriático</field>
+            <field name="subzone">2</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_2_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo central</field>  <!--#-->
+            <field name="subzone_code">37.2.2</field>
+            <field name="division_name">Mar Jónico</field>
+            <field name="subzone">2</field>
+            <field name="division">2</field>
+        </record>
+
+        <!-- Subzone 37/ 3 -->
+        <record id="fao_fao_subzone_37_3_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo oriental o Mediterráneo este</field>  <!--#-->
+            <field name="subzone_code">37.3.1</field>
+            <field name="division_name">Mar Egeo</field>
+            <field name="subzone">3</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_3_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mediterráneo oriental o Mediterráneo este</field>  <!--#-->
+            <field name="subzone_code">37.3.2</field>
+            <field name="division_name">Levante</field>
+            <field name="subzone">3</field>
+            <field name="division">2</field>
+        </record>
+
+        <!-- Subzone 37/ 4 -->
+        <record id="fao_fao_subzone_37_4_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mar Negro</field>  <!--#-->
+            <field name="subzone_code">37.4.1</field>
+            <field name="division_name">Mar de Mármara</field>
+            <field name="subzone">4</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_4_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mar Negro</field>  <!--#-->
+            <field name="subzone_code">37.4.2</field>
+            <field name="division_name">Mar Negro</field>
+            <field name="subzone">4</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_37_4_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area37"/>
+            <field name="zone_code">37</field>
+            <field name="zone_name">Mediterráneo y Mar Negro</field>
+            <field name="name">Mar Negro</field>  <!--#-->
+            <field name="subzone_code">37.4.3</field>
+            <field name="division_name">Mar de Azov</field>
+            <field name="subzone">4</field>
+            <field name="division">3</field>
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 41    ###
+        #####################
+        -->
+        <!-- Subzone 41/ 1 -->
+        <record id="fao_fao_subzone_41_1_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Northern</field>  <!--#-->
+            <field name="subzone_code">41.1.1</field>
+            <field name="division_name">División amazónica</field>
+            <field name="subzone">1</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_1_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Northern</field>  <!--#-->
+            <field name="subzone_code">41.1.2</field>
+            <field name="division_name">Natal</field>
+            <field name="subzone">1</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_1_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Northern</field>  <!--#-->
+            <field name="subzone_code">41.1.3</field>
+            <field name="division_name">Salvador</field>
+            <field name="subzone">1</field>
+            <field name="division">3</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_1_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Northern</field>  <!--#-->
+            <field name="subzone_code">41.1.4</field>
+            <field name="division_name">División oceánica septentrional</field>
+            <field name="subzone">1</field>
+            <field name="division">4</field>
+        </record>
+
+
+        <!-- Subzone 41/ 2 -->
+        <record id="fao_fao_subzone_41_2_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Central</field>  <!--#-->
+            <field name="subzone_code">41.2.1</field>
+            <field name="division_name">Santos</field>
+            <field name="subzone">2</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_2_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Central</field>  <!--#-->
+            <field name="subzone_code">41.2.2</field>
+            <field name="division_name">Río Grande</field>
+            <field name="subzone">2</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_2_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Central</field>  <!--#-->
+            <field name="subzone_code">41.2.3</field>
+            <field name="division_name">División Platense</field>
+            <field name="subzone">2</field>
+            <field name="division">3</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_2_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Central</field>  <!--#-->
+            <field name="subzone_code">41.2.4</field>
+            <field name="division_name">División oceánica central</field>
+            <field name="subzone">2</field>
+            <field name="division">4</field>
+        </record>
+
+
+        <!-- Subzone 41/ 3 -->
+        <record id="fao_fao_subzone_41_3_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Southern</field>  <!--#-->
+            <field name="subzone_code">41.3.1</field>
+            <field name="division_name">Norte de Patagonia</field>
+            <field name="subzone">3</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_3_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Southern</field>  <!--#-->
+            <field name="subzone_code">41.3.2</field>
+            <field name="division_name">Sur de Patagonia</field>
+            <field name="subzone">3</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_41_3_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area41"/>
+            <field name="zone_code">41</field>
+            <field name="zone_name">Atlántico, sudoccidental</field>
+            <field name="name">Southern</field>  <!--#-->
+            <field name="subzone_code">41.3.3</field>
+            <field name="division_name">División oceánica meridional</field>
+            <field name="subzone">3</field>
+            <field name="division">3</field>
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 47    ###
+        #####################
+        -->
+        <!-- Subzone 47/ 1 -->
+        <record id="fao_fao_subzone_47_1_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.1</field>
+            <field name="division_name">Cabo Palmeirinhas</field>
+            <field name="subzone">1</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_1_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.2</field>
+            <field name="division_name">Cabo Salinas</field>
+            <field name="subzone">1</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_1_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.3</field>
+            <field name="division_name">Cunene</field>
+            <field name="subzone">1</field>
+            <field name="division">3</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_1_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.4</field>
+            <field name="division_name">Cabo de la Cruz</field>
+            <field name="subzone">1</field>
+            <field name="division">4</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_1_5" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.5</field>
+            <field name="division_name">Orange River</field>
+            <field name="subzone">1</field>
+            <field name="division">5</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_1_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera occidental</field>  <!--#-->
+            <field name="subzone_code">47.1.6</field>
+            <field name="division_name">Cabo de Buena Esperanza</field>
+            <field name="subzone">1</field>
+            <field name="division">6</field>
+        </record>
+
+
+        <!-- Subzone 47/ 2 -->
+        <record id="fao_fao_subzone_47_2_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera de Agujas</field>  <!--#-->
+            <field name="subzone_code">47.2.1</field>
+            <field name="division_name">Agujas central</field>
+            <field name="subzone">2</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_2_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">Costera de Agujas</field>  <!--#-->
+            <field name="subzone_code">47.2.2</field>
+            <field name="division_name">Agujas oriental</field>
+            <field name="subzone">2</field>
+            <field name="division">2</field>
+        </record>
+
+        <!-- Subzone 47/ A -->
+        <record id="fao_fao_subzone_47_A_0" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.A.0</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">A</field>
+            <field name="division">0</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_A_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.A.1</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">A</field>
+            <field name="division">1</field>
+        </record>
+
+        <!-- Subzone 47/ B -->
+        <record id="fao_fao_subzone_47_B_0" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.B.0</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">B</field>
+            <field name="division">0</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_B_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.B.1</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">B</field>
+            <field name="division">1</field>
+        </record>
+
+        <!-- Subzone 47/ C -->
+         <record id="fao_fao_subzone_47_C_0" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.B.0</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">C</field>
+            <field name="division">0</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_C_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.B.1</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">C</field>
+            <field name="division">1</field>
+        </record>
+
+        <!-- Subzone 47/ D -->
+        <record id="fao_fao_subzone_47_D_0" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.D.0</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">D</field>
+            <field name="division">0</field>
+        </record>
+
+        <record id="fao_fao_subzone_47_D_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area47"/>
+            <field name="zone_code">47</field>
+            <field name="zone_name">Atlántico, sudoriental</field>
+            <field name="name">SEAFO Division</field>  <!--#-->
+            <field name="subzone_code">47.D.1</field>
+            <field name="division_name">SEAFO Division</field>
+            <field name="subzone">D</field>
+            <field name="division">1</field>
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 48    ###
+        #####################
+        -->
+        <!-- Subzone 48/ 1 -->
+        <record id="fao_fao_subzone_48_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">Antarctic Peninsula</field>  <!--#-->
+            <field name="subzone_code">48.1</field>
+            <field name="division_name"></field>
+            <field name="subzone">1</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 48/ 2 -->
+                <record id="fao_fao_subzone_48_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">South Orkney</field>  <!--#-->
+            <field name="subzone_code">48.2</field>
+            <field name="division_name"></field>
+            <field name="subzone">2</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 48/ 3 -->
+        <record id="fao_fao_subzone_48_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">South Georgia</field>  <!--#-->
+            <field name="subzone_code">48.3</field>
+            <field name="division_name"></field>
+            <field name="subzone">3</field>
+            <field name="division"></field>
+        </record>
+        <!-- Subzone 48/ 4 -->
+        <record id="fao_fao_subzone_48_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">South Sandwich</field>  <!--#-->
+            <field name="subzone_code">48.4</field>
+            <field name="division_name"></field>
+            <field name="subzone">4</field>
+            <field name="division"></field>
+        </record>
+        <!-- Subzone 48/ 5 -->
+       <record id="fao_fao_subzone_48_5" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">Weddel Sea</field>  <!--#-->
+            <field name="subzone_code">48.5</field>
+            <field name="division_name"></field>
+            <field name="subzone">5</field>
+            <field name="division"></field>
+        </record>
+        <!-- Subzone 48/ 6 -->
+        <record id="fao_fao_subzone_48_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area48"/>
+            <field name="zone_code">48</field>
+            <field name="zone_name">Atlántico, Antártico</field>
+            <field name="name">Bouvet</field>  <!--#-->
+            <field name="subzone_code">48.6</field>
+            <field name="division_name"></field>
+            <field name="subzone">6</field>
+            <field name="division"></field>
+        </record>        
+
+        <!-- 
+        #####################
+        ####   Zone 51    ###
+        #####################
+        -->
+        <!-- Subzone 51/ 1 -->
+         <record id="fao_fao_subzone_51_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Mar Rojo</field>  <!--#-->
+            <field name="subzone_code">51.1</field>
+            <field name="division_name"></field>
+            <field name="subzone">1</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 2 -->
+         <record id="fao_fao_subzone_51_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Golfo Pérsico</field>  <!--#-->
+            <field name="subzone_code">51.2</field>
+            <field name="division_name"></field>
+            <field name="subzone">2</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 3 -->
+        <record id="fao_fao_subzone_51_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Mar Arábigo occidental</field>  <!--#-->
+            <field name="subzone_code">51.3</field>
+            <field name="division_name"></field>
+            <field name="subzone">3</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 4 -->
+        <record id="fao_fao_subzone_51_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Mar Arábigo oriental, Laquedivas y Sri Lanka</field>  <!--#-->
+            <field name="subzone_code">51.4</field>
+            <field name="division_name"></field>
+            <field name="subzone">4</field>
+            <field name="division"></field>
+        </record>
+       
+        <!-- Subzone 51/ 5 -->
+        <record id="fao_fao_subzone_51_5" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Somalia, Kenia y Tanzania</field>  <!--#-->
+            <field name="subzone_code">51.5</field>
+            <field name="division_name"></field>
+            <field name="subzone">5</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 6 -->
+        <record id="fao_fao_subzone_51_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Canal de Mozambique y Madagasca</field>  <!--#-->
+            <field name="subzone_code">51.6</field>
+            <field name="division_name"></field>
+            <field name="subzone">6</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 7 -->
+        <record id="fao_fao_subzone_51_7" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Subzona oceánica</field>  <!--#-->
+            <field name="subzone_code">51.7</field>
+            <field name="division_name"></field>
+            <field name="subzone">7</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 51/ 8 -->
+        <record id="fao_fao_subzone_51_8" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area51"/>
+            <field name="zone_code">51</field>
+            <field name="zone_name">Océano Índico, occidental</field>
+            <field name="name">Mozambique</field>  <!--#-->
+            <field name="subzone_code">51.8</field>
+            <field name="division_name"></field>
+            <field name="subzone">8</field>
+            <field name="division"></field>
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 57    ###
+        #####################
+        -->
+        <!-- Subzone 57/ 1 -->
+        <record id="fao_fao_subzone_57_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Bay of Bengal</field>  <!--#-->
+            <field name="subzone_code">57.1</field>
+            <field name="division_name"></field>
+            <field name="subzone">1</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 57/ 2 -->
+        <record id="fao_fao_subzone_57_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Northern</field>  <!--#-->
+            <field name="subzone_code">57.2</field>
+            <field name="division_name"></field>
+            <field name="subzone">2</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 57/ 3 -->
+        <record id="fao_fao_subzone_57_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Central</field>  <!--#-->
+            <field name="subzone_code">57.3</field>
+            <field name="division_name"></field>
+            <field name="subzone">3</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 57/ 4 -->
+        <record id="fao_fao_subzone_57_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Oceanic</field>  <!--#-->
+            <field name="subzone_code">57.4</field>
+            <field name="division_name"></field>
+            <field name="subzone">4</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 57/ 5 -->
+        <record id="fao_fao_subzone_57_5_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Western Australia</field>  <!--#-->
+            <field name="subzone_code">57.5.1</field>
+            <field name="division_name">Northwest Australia</field>
+            <field name="subzone">5</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_57_5_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Western Australia</field>  <!--#-->
+            <field name="subzone_code">57.5.2</field>
+            <field name="division_name">Southwest Australia</field>
+            <field name="subzone">5</field>
+            <field name="division">2</field>
+        </record>
+
+        <!-- Subzone 57/ 6 -->
+        <record id="fao_fao_subzone_57_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area57"/>
+            <field name="zone_code">57</field>
+            <field name="zone_name">Océano Índico, oriental</field>
+            <field name="name">Southern Australia</field>  <!--#-->
+            <field name="subzone_code">57.6</field>
+            <field name="division_name"></field>
+            <field name="subzone">6</field>
+            <field name="division"></field>
+        </record>
+
+        
+        <!-- 
+        #####################
+        ####   Zone 58    ###
+        #####################
+        -->
+        <!-- Subzone 58/ 4 -->
+        <record id="fao_fao_subzone_58_4_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Enderby - Wilkes</field>  <!--#-->
+            <field name="subzone_code">58.4.1</field>
+            <field name="division_name">Wilkes Land</field>
+            <field name="subzone">4</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_58_4_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Enderby - Wilkes</field>  <!--#-->
+            <field name="subzone_code">58.4.2</field>
+            <field name="division_name">Prydz Bay</field>
+            <field name="subzone">4</field>
+            <field name="division">2</field>
+        </record>
+
+        <record id="fao_fao_subzone_58_4_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Enderby - Wilkes</field>  <!--#-->
+            <field name="subzone_code">58.4.3</field>
+            <field name="division_name">Danzare Bank</field>
+            <field name="subzone">4</field>
+            <field name="division">3</field>
+        </record>
+
+        <record id="fao_fao_subzone_58_4_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Enderby - Wilkes</field>  <!--#-->
+            <field name="subzone_code">58.4.4</field>
+            <field name="division_name">Ob and Lena Banks</field>
+            <field name="subzone">4</field>
+            <field name="division">4</field>
+        </record>
+
+        <!-- Subzone 58/ 5 -->
+        <record id="fao_fao_subzone_58_5_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Kerguelen, McDonald</field>  <!--#-->
+            <field name="subzone_code">58.5.1</field>
+            <field name="division_name">Kerguelen</field>
+            <field name="subzone">5</field>
+            <field name="division">1</field>
+        </record>
+
+        <record id="fao_fao_subzone_58_5_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Kerguelen, McDonald</field>  <!--#-->
+            <field name="subzone_code">58.5.2</field>
+            <field name="division_name">McDonald and Heard</field>
+            <field name="subzone">5</field>
+            <field name="division">2</field>
+        </record>
+
+        <!-- Subzone 58/ 6 -->
+        <record id="fao_fao_subzone_58_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Crozet</field>  <!--#-->
+            <field name="subzone_code">58.6</field>
+            <field name="division_name"></field>
+            <field name="subzone">6</field>
+            <field name="division"></field>
+        </record>
+
+        <!-- Subzone 58/ 7 -->
+        <record id="fao_fao_subzone_58_7" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area58"/>
+            <field name="zone_code">58</field>
+            <field name="zone_name">Océano Índico, Antártico</field>
+            <field name="name">Marion - Edward</field>  <!--#-->
+            <field name="subzone_code">58.7</field>
+            <field name="division_name"></field>
+            <field name="subzone">7</field>
+            <field name="division"></field>
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 61    ###
+        #####################
+        -->
+        <record id="fao_fao_subzone_61" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area61"/>
+            <field name="zone_code">61</field>
+            <field name="zone_name">Pacífico, noroeste</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 67    ###
+        #####################
+        -->
+        <record id="fao_fao_subzone_67" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area67"/>
+            <field name="zone_code">67</field>
+            <field name="zone_name">Pacífico, nordeste</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+
+        <!-- 
+        #####################
+        ####   Zone 71    ###
+        #####################
+        -->
+        <record id="fao_fao_subzone_71" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area71"/>
+            <field name="zone_code">71</field>
+            <field name="zone_name">Pacífico, centro-occidental</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+        
+        <!-- 
+        #####################
+        ####   Zone 77    ###
+        #####################
+        -->
+        <record id="fao_fao_subzone_77" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area77"/>
+            <field name="zone_code">77</field>
+            <field name="zone_name">Pacífico, centro-oriental</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+        
+        <!-- 
+        #####################
+        ####   Zone 81    ###
+        #####################
+        -->
+         <record id="fao_fao_subzone_81" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area81"/>
+            <field name="zone_code">81</field>
+            <field name="zone_name">Pacífico, sudoccidental</field>
+            <field name="name"></field>
+            <field name="subzone_code"></field>
+            <field name="division_name"></field>
+            <field name="subzone"></field>
+            <field name="division"></field> 
+        </record>
+       
+        <!-- 
+        #####################
+        ####   Zone 87   ###
+        #####################
+        -->
+        <!-- Subzone 87/ 1 -->
+        <record id="fao_fao_subzone_87_1_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Northern</field>
+            <field name="subzone_code">87.1.1</field>
+            <field name="division_name">Northern Coastal</field>
+            <field name="subzone">1</field>
+            <field name="division">1</field>
+        </record>
+        
+        <record id="fao_fao_subzone_87_1_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Northern</field>
+            <field name="subzone_code">87.1.2</field>
+            <field name="division_name">Northern Intermediate</field>
+            <field name="subzone">1</field>
+            <field name="division">2</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_1_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Northern</field>
+            <field name="subzone_code">87.1.3</field>
+            <field name="division_name">Galapagos</field>
+            <field name="subzone">1</field>
+            <field name="division">3</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_1_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Northern</field>
+            <field name="subzone_code">87.1.4</field>
+            <field name="division_name">Northern Oceanic</field>
+            <field name="subzone">1</field>
+            <field name="division">4</field> 
+        </record>
+
+
+        <!-- Subzone 87/ 2 -->
+        <record id="fao_fao_subzone_87_2_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.1</field>
+            <field name="division_name">Central Coast</field>
+            <field name="subzone">2</field>
+            <field name="division">1</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_2_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.2</field>
+            <field name="division_name">Central Intermediate</field>
+            <field name="subzone">2</field>
+            <field name="division">2</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_2_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.3</field>
+            <field name="division_name">San Felix</field>
+            <field name="subzone">2</field>
+            <field name="division">3</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_2_4" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.4</field>
+            <field name="division_name">Juan Fernandez</field>
+            <field name="subzone">2</field>
+            <field name="division">4</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_2_5" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.5</field>
+            <field name="division_name">Pascua</field>
+            <field name="subzone">2</field>
+            <field name="division">5</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_2_6" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Central</field>
+            <field name="subzone_code">87.2.6</field>
+            <field name="division_name">Central Oceanic</field>
+            <field name="subzone">2</field>
+            <field name="division">6</field> 
+        </record>
+
+
+        <!-- Subzone 87/ 3 -->
+        <record id="fao_fao_subzone_87_3_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Southern</field>
+            <field name="subzone_code">87.3.1</field>
+            <field name="division_name">Southern Coastal</field>
+            <field name="subzone">3</field>
+            <field name="division">1</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_3_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Southern</field>
+            <field name="subzone_code">87.3.2</field>
+            <field name="division_name">Southern Intermediate</field>
+            <field name="subzone">3</field>
+            <field name="division">2</field> 
+        </record>
+
+        <record id="fao_fao_subzone_87_3_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area87"/>
+            <field name="zone_code">87</field>
+            <field name="zone_name">Pacífico, sudoriental</field>
+            <field name="name">Southern</field>
+            <field name="subzone_code">87.3.3</field>
+            <field name="division_name">Southern Oceanic</field>
+            <field name="subzone">3</field>
+            <field name="division">3</field> 
+        </record>
+
+
+        <!-- 
+        #####################
+        ####   Zone 88    ###
+        #####################
+        -->
+        <!-- Subzone 88/ 1 -->
+        <record id="fao_fao_subzone_88_1" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area88"/>
+            <field name="zone_code">88</field>
+            <field name="zone_name">Pacífico, Antártico</field>
+            <field name="name">Eastern Ross Sea</field>
+            <field name="subzone_code">88.1</field>
+            <field name="division_name">Eastern Ross Sea</field>
+            <field name="subzone">8</field>
+            <field name="division">1</field> 
+        </record>
+
+        <!-- Subzone 88/ 2 -->
+        <record id="fao_fao_subzone_88_2" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area88"/>
+            <field name="zone_code">88</field>
+            <field name="zone_name">Pacífico, Antártico</field>
+            <field name="name">Eastern Ross Sea</field>
+            <field name="subzone_code">88.2</field>
+            <field name="division_name">Eastern Ross Sea</field>
+            <field name="subzone">8</field>
+            <field name="division">2</field> 
+        </record>
+
+        <!-- Subzone 88/ 3 -->
+        <record id="fao_fao_subzone_88_3" model="fcd.fao.subzone">
+            <field name="zone_id" ref="fao_fao_zone_area88"/>
+            <field name="zone_code">88</field>
+            <field name="zone_name">Pacífico, Antártico</field>
+            <field name="name">Eastern Ross Sea</field>
+            <field name="subzone_code">88.3</field>
+            <field name="division_name">Amundsen Sea</field>
+            <field name="subzone">8</field>
+            <field name="division">3</field> 
+        </record>
+        
+    </data>
+
+</odoo>

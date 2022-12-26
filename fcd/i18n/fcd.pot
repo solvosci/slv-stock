@@ -1,0 +1,755 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fcd
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-27 08:33+0000\n"
+"PO-Revision-Date: 2022-12-27 08:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.product_product_view_inherit_form
+msgid "<span class=\"o_stat_text\">Fcd Document</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "<span class=\"o_stat_text\">Inspection Done</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "<span class=\"o_stat_text\">Inspection Failed</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "<span class=\"o_stat_text\">Inspection OK</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "<span class=\"o_stat_text\">Inspection Total</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fishing_gear_view_form
+msgid "<span class=\"o_stat_text\">Ship</span>"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
+msgid "<span class=\"o_stat_text\">Subzone</span>"
+msgstr ""
+
+#. module: fcd
+#: model:res.groups,name:fcd.group_fcd_manager
+msgid "Administrator"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__box_count
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_line_box_count
+msgid "Box Count"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__code
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__code
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__code
+msgid "Code"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__commercial_margin
+msgid "Commercial Margin"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_res_country
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__country_id
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
+msgid "Country"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__create_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__create_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__description
+msgid "Description"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__display_name
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__display_name
+#: model:ir.model.fields,field_description:fcd.field_product_product__display_name
+#: model:ir.model.fields,field_description:fcd.field_product_template__display_name
+#: model:ir.model.fields,field_description:fcd.field_qc_inspection__display_name
+#: model:ir.model.fields,field_description:fcd.field_res_country__display_name
+#: model:ir.model.fields,field_description:fcd.field_res_partner__display_name
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__division
+msgid "Division"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__division_name
+msgid "Division Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__done_inspections
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_done_inspections
+msgid "Done inspections"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__expiration_date
+msgid "Expiration Date"
+msgstr ""
+
+#. module: fcd
+#: model:ir.ui.menu,name:fcd.fcd_fao_subzone_menu_item
+msgid "FAO Subzone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.ui.menu,name:fcd.fcd_fao_zone_menu_item
+msgid "FAO Zone"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
+msgid "FAO Zone name"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
+msgid "FAO zone name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.module.category,name:fcd.fcd_category
+msgid "FCD"
+msgstr ""
+
+#. module: fcd
+#: model:ir.ui.menu,name:fcd.fcd_data_menu
+msgid "FCD Data"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_action
+#: model:ir.ui.menu,name:fcd.fcd_document_menu
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_line_view_search
+#: model_terms:ir.ui.view,arch_db:fcd.product_product_view_inherit_form
+msgid "FCD Document"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_line_action
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_line_id
+#: model:ir.ui.menu,name:fcd.fcd_document_line_menu
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_line_view_form
+msgid "FCD Document Line"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_product_product_action
+msgid "FCD Documents"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_fao_subzone_action
+msgid "FCD FAO Subzone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_fao_zone_fcd_fao_subzone
+msgid "FCD FAO Subzone "
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_fao_zone_action
+msgid "FCD FAO Zone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_fishing_gear_action
+msgid "FCD Fishing Gear"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_presentation_action
+msgid "FCD Presentation"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_production_method_action
+msgid "FCD Production Method"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_fishing_gear_fcd_ship_action
+msgid "FCD Ship"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__failed_inspections
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_failed_inspections
+msgid "Failed"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fao
+msgid "Fao"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fao_zone_id
+msgid "Fao Zone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__fcd_document_id
+#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_document_ids
+#: model:ir.model.fields,field_description:fcd.field_qc_inspection__fcd_document_id
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_id
+msgid "Fcd Document"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fcd_document_line_ids
+msgid "Fcd Document Line"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_ship_action
+msgid "Fcd Ship"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_res_country__fcd_usage
+msgid "Fcd Usage"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Fishing"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Fishing Capture Document - Vendor Lot"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__fishing_gear_ids
+#: model:ir.ui.menu,name:fcd.fcd_fishing_gear_menu_item
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
+msgid "Fishing Gear"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Fishing Notes"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "General Data"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_line_view_search
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_search
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
+msgid "Group by"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__id
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__id
+#: model:ir.model.fields,field_description:fcd.field_product_product__id
+#: model:ir.model.fields,field_description:fcd.field_product_template__id
+#: model:ir.model.fields,field_description:fcd.field_qc_inspection__id
+#: model:ir.model.fields,field_description:fcd.field_res_country__id
+#: model:ir.model.fields,field_description:fcd.field_res_partner__id
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__id
+msgid "ID"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__qc_inspection_ids
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__qc_inspection_ids
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "Inspection"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "Inspections"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__internal_lot_id
+msgid "Internal Lot"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Internal notes"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method____last_update
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship____last_update
+#: model:ir.model.fields,field_description:fcd.field_product_product____last_update
+#: model:ir.model.fields,field_description:fcd.field_product_template____last_update
+#: model:ir.model.fields,field_description:fcd.field_qc_inspection____last_update
+#: model:ir.model.fields,field_description:fcd.field_res_country____last_update
+#: model:ir.model.fields,field_description:fcd.field_res_partner____last_update
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__write_uid
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__write_date
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_license_plate
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__license_plate
+msgid "License Plate"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_view_inherit_form
+msgid "Lines"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_view_inherit_form
+msgid "Lines Notes"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__lot_id
+msgid "Lot"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_presentation__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_production_method__name
+#: model:ir.model.fields,field_description:fcd.field_fcd_ship__name
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_line_name
+msgid "Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__notes
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__notes
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_line_view_form
+msgid "Notes"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document_line__notes_cost
+msgid "Notes Cost"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__notes_fishing
+msgid "Notes Fishing"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__notes_line
+msgid "Notes Line"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__notes_quality
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__notes_quality
+msgid "Notes Quality"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__notes_subzone
+msgid "Notes Subzone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__passed_inspections
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_passed_inspections
+msgid "OK"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_product_product__official_commercial_name
+#: model:ir.model.fields,field_description:fcd.field_product_template__official_commercial_name
+msgid "Official Commercial Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__country_id
+msgid "Origin"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__packaging_date
+msgid "Packaging Date"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__packing
+msgid "Packing"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_search
+msgid "Partner"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_view_inherit_form
+msgid "Partner Lot"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation_id
+#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_presentation_id
+#: model:ir.ui.menu,name:fcd.fcd_presentation_menu_item
+msgid "Presentation"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_product_product
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__product_id
+msgid "Product"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method_id
+#: model:ir.ui.menu,name:fcd.fcd_production_method_menu_item
+msgid "Production Method"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "Quality"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_created_inspections
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_created_inspections
+msgid "Quality Control Inpection Created"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_done_inspections
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_done_inspections
+msgid "Quality Control Inpection Done"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_failed_inspections
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_failed_inspections
+msgid "Quality Control Inpection Failed"
+msgstr ""
+
+#. module: fcd
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_passed_inspections
+#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_passed_inspections
+msgid "Quality Control Inpection Passed"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "Quality Notes"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_qc_inspection
+msgid "Quality control inspection"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__sanity_reg
+msgid "Sanity Reg"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__scientific_name
+msgid "Scientific name"
+msgstr ""
+
+#. module: fcd
+#: model:res.country,name:fcd.fcd_res_country_scotland
+msgid "Scotland"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_res_partner__second_name_fcd
+#: model:ir.model.fields,field_description:fcd.field_res_users__second_name_fcd
+msgid "Second Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__ship_ids
+#: model:ir.ui.menu,name:fcd.fcd_ship_menu_item
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fishing_gear_view_form
+msgid "Ship"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__specific_lot
+msgid "Specific Lot"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__subzone
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__subzone_ids
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
+msgid "Subzone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__subzone_code
+msgid "Subzone Code"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_search
+msgid "Subzone FAO"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__partner_id
+msgid "Supplier"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_line_view_form
+msgid "This note is added to cost."
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_view_inherit_form
+msgid "This note is added to lines."
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "This note is added to purchase ordens."
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
+#: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
+msgid "This note is added to quality control."
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "This note is for internal fines only."
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__tide_end_date
+msgid "Tide End Date"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__tide_start_date
+msgid "Tide Start Date"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__created_inspections
+#: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_created_inspections
+msgid "Total"
+msgstr ""
+
+#. module: fcd
+#: model:res.groups,name:fcd.group_fcd_user
+msgid "User"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
+msgid "With Fishing gear"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
+msgid "Without Fishing gear"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__zone_id
+msgid "Zone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__zone_code
+msgid "Zone Code"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_search
+msgid "Zone FAO"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__zone_name
+msgid "Zone Name"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_document
+#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_document_count
+msgid "fcd.document"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_document_line
+msgid "fcd.document.line"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_fao_subzone
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__subzone_ids_count
+msgid "fcd.fao.subzone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_fao_zone
+#: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__zone_id_count
+msgid "fcd.fao.zone"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_fishing_gear
+msgid "fcd.fishing.gear"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_presentation
+msgid "fcd.presentation"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_production_method
+msgid "fcd.production.method"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model,name:fcd.model_fcd_ship
+#: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__ship_ids_count
+msgid "fcd.ship"
+msgstr ""

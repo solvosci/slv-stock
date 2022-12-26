@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+
+    <record id="fcd_ship_action" model="ir.actions.act_window">
+        <field name="name">Fcd Ship</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fcd.ship</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fcd_ship_view_tree" model="ir.ui.view">
+        <field name="name">fcd.ship.view.tree</field>
+        <field name="model">fcd.ship</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="license_plate"/>
+                <field name="name"/>
+                <field name="country_id"/>
+                <field name="fishing_gear_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fcd_ship_view_form" model="ir.ui.view">
+        <field name="name">fcd.ship.view.form</field>
+        <field name="model">fcd.ship</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="license_plate"/>
+                        <field name="country_id"/>
+                        <field name="fishing_gear_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <record id="fcd_ship_view_search" model="ir.ui.view">
+        <field name="name">fcd.ship.view.search</field>
+        <field name="model">fcd.ship</field>
+        <field name="arch" type="xml">
+            <search >
+                <field name="license_plate" />
+                <field name="name" />
+                <field name="country_id" />
+                <field name="fishing_gear_ids" />
+
+                <filter string="With Fishing gear" name="fishing_gear_ids"  domain="[('fishing_gear_ids', '!=', False)]" />
+                <filter string="Without Fishing gear" name="fishing_gear_ids" domain="[('fishing_gear_ids', '=', False)]" />
+                <separator />
+
+                <group expand="0" string="Group by">
+                    <filter string="Country" name="country_id" context="{'group_by': 'country_id'}" />
+                    <filter string="Fishing Gear" name="fishing_gear_ids" context="{'group_by': 'fishing_gear_ids'}" />
+                </group>
+  
+            </search>
+        </field>
+    </record>
+
+</odoo>

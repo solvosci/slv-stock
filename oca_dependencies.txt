@@ -1,0 +1,2 @@
+manufacture
+slv-product-priv https://github.com/solvosci/slv-product-priv

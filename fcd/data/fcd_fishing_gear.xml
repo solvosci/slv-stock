@@ -1,0 +1,136 @@
+<odoo>
+    <data>
+        <record id='fcd_fishing_gear_drb' model='fcd.fishing.gear'>
+            <field name='code'>DRB</field>
+            <field name='name'>Rastras para embarcación</field>
+        </record>
+        <record id='fcd_fishing_gear_drh' model='fcd.fishing.gear'>
+            <field name='code'>DRH</field>
+            <field name='name'>Rastras de mano utilizadas a bordo del buque</field>
+        </record>
+        <record id='fcd_fishing_gear_fpo' model='fcd.fishing.gear'>
+            <field name='code'>FPO</field>
+            <field name='name'>Nasas (trampas)</field>
+        </record>
+        <record id='fcd_fishing_gear_gnc' model='fcd.fishing.gear'>
+            <field name='code'>GNC</field>
+            <field name='name'>Redes de enmalle de cerco</field>
+        </record>
+        <record id='fcd_fishing_gear_gnd' model='fcd.fishing.gear'>
+            <field name='code'>GND</field>
+            <field name='name'>Redes de enmalle de deriva</field>
+        </record>
+        <record id='fcd_fishing_gear_gns' model='fcd.fishing.gear'>
+            <field name='code'>GNS</field>
+            <field name='name'>Redes de enmalle de fondo (ancladas)</field>
+        </record>
+        <record id='fcd_fishing_gear_gtn' model='fcd.fishing.gear'>
+            <field name='code'>GTN</field>
+            <field name='name'>Redes atrasmalladas y redes de enmalle combinadas</field>
+        </record>
+        <record id='fcd_fishing_gear_gtr' model='fcd.fishing.gear'>
+            <field name='code'>GTR</field>
+            <field name='name'>Trasmallos</field>
+        </record>
+        <record id='fcd_fishing_gear_hmd' model='fcd.fishing.gear'>
+            <field name='code'>HMD</field>
+            <field name='name'>Rastras mecanizadas incluidas las rastras de succión</field>
+        </record>
+        <record id='fcd_fishing_gear_la' model='fcd.fishing.gear'>
+            <field name='code'>LA</field>
+            <field name='name'>Lámparos</field>
+        </record>
+        <record id='fcd_fishing_gear_lhm' model='fcd.fishing.gear'>
+            <field name='code'>LHM</field>
+            <field name='name'>Líneas de mano y líneas de caña  (mecanizadas)</field>
+        </record>
+        <record id='fcd_fishing_gear_lhp' model='fcd.fishing.gear'>
+            <field name='code'>LHP</field>
+            <field name='name'>Líneas de mano y líneas de caña (manuales)</field>
+        </record>
+        <record id='fcd_fishing_gear_lld' model='fcd.fishing.gear'>
+            <field name='code'>LLD</field>
+            <field name='name'>Palangres de deriva</field>
+        </record>
+        <record id='fcd_fishing_gear_lls' model='fcd.fishing.gear'>
+            <field name='code'>LLS</field>
+            <field name='name'>Palangres de fondo</field>
+        </record>
+        <record id='fcd_fishing_gear_lnb' model='fcd.fishing.gear'>
+            <field name='code'>LNB</field>
+            <field name='name'>Redes izadas maniobradas desde embarcación</field>
+        </record>
+        <record id='fcd_fishing_gear_lns' model='fcd.fishing.gear'>
+            <field name='code'>LNS</field>
+            <field name='name'>Redes izadas maniobradas desde la costa</field>
+        </record>
+        <record id='fcd_fishing_gear_ltl' model='fcd.fishing.gear'>
+            <field name='code'>LTL</field>
+            <field name='name'>Curricanes</field>
+        </record>
+        <record id='fcd_fishing_gear_mis' model='fcd.fishing.gear'>
+            <field name='code'>MIS</field>
+            <field name='name'>Artes Diversos</field>
+        </record>
+        <record id='fcd_fishing_gear_n/a' model='fcd.fishing.gear'>
+            <field name='code'>N/A</field>
+            <field name='name'>No Aplicable</field>
+        </record>
+        <record id='fcd_fishing_gear_n/f' model='fcd.fishing.gear'>
+            <field name='code'>N/F</field>
+            <field name='name'>No Facilitado</field>
+        </record>
+        <record id='fcd_fishing_gear_nk' model='fcd.fishing.gear'>
+            <field name='code'>NK</field>
+            <field name='name'>Artes desconocidos o sin especificar</field>
+        </record>
+        <record id='fcd_fishing_gear_otb' model='fcd.fishing.gear'>
+            <field name='code'>OTB</field>
+            <field name='name'>Redes de arrastre de fondo de puertas</field>
+        </record>
+        <record id='fcd_fishing_gear_otm' model='fcd.fishing.gear'>
+            <field name='code'>OTM</field>
+            <field name='name'>Redes de arrastre pelágico de puertas</field>
+        </record>
+        <record id='fcd_fishing_gear_ott' model='fcd.fishing.gear'>
+            <field name='code'>OTT</field>
+            <field name='name'>Redes de arrastre gemelas con puertas</field>
+        </record>
+        <record id='fcd_fishing_gear_ps' model='fcd.fishing.gear'>
+            <field name='code'>PS</field>
+            <field name='name'>Redes de cerco con jareta</field>
+        </record>
+        <record id='fcd_fishing_gear_ptb' model='fcd.fishing.gear'>
+            <field name='code'>PTB</field>
+            <field name='name'>Redes de arrastre de fondo a la pareja</field>
+        </record>
+        <record id='fcd_fishing_gear_ptm' model='fcd.fishing.gear'>
+            <field name='code'>PTM</field>
+            <field name='name'>Redes de arrastre pelágico a la pareja</field>
+        </record>
+        <record id='fcd_fishing_gear_sb' model='fcd.fishing.gear'>
+            <field name='code'>SB</field>
+            <field name='name'>Chinchorros de playa</field>
+        </record>
+        <record id='fcd_fishing_gear_sdn' model='fcd.fishing.gear'>
+            <field name='code'>SDN</field>
+            <field name='name'>Redes de tiro  danesas</field>
+        </record>
+        <record id='fcd_fishing_gear_spr' model='fcd.fishing.gear'>
+            <field name='code'>SPR</field>
+            <field name='name'>Redes de tiro de pareja</field>
+        </record>
+        <record id='fcd_fishing_gear_ssc' model='fcd.fishing.gear'>
+            <field name='code'>SSC</field>
+            <field name='name'>Redes de tiro  escocesas</field>
+        </record>
+        <record id='fcd_fishing_gear_tbb' model='fcd.fishing.gear'>
+            <field name='code'>TBB</field>
+            <field name='name'>Redes de arrastre de vara</field>
+        </record>
+        <record id='fcd_fishing_gear_esp' model='fcd.fishing.gear'>
+            <field name='code'>ESP</field>
+            <field name='name'>ESP Preguntar</field>
+        </record>
+    </data>
+</odoo>
