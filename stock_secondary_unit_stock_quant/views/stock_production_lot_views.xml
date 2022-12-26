@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_production_lot_tree">
+        <field name="name">stock.production.lot.tree (in stock_secondary_unit_stock_quant)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"></field>
+        <field name="groups_id" eval="[(4, ref('uom.group_uom'))]"/>
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='create_date']"
+                position="before"
+            >
+                <field
+                    name="product_qty_secondary_uom"
+                    optional="show"
+                />
+                <field
+                    name="product_secondary_uom_id"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_production_lot_form">
+        <field name="name">stock.production.lot.form (in stock_secondary_unit_stock_quant)</field>
+        <field name="model">stock.production.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"></field>
+        <field name="groups_id" eval="[(4, ref('uom.group_uom'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="before">
+                <label
+                    for="product_qty_secondary_uom"
+                    attrs="{'invisible': [('display_complete', '=', False)]}"
+                />
+                <div
+                    name="div_2nd_unit"
+                    class="o_row"
+                    attrs="{'invisible': [('display_complete', '=', False)]}"
+                >
+                    <field name="product_qty_secondary_uom"/>
+                    <field name="product_secondary_uom_id"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
