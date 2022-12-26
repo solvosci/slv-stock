@@ -43,6 +43,8 @@ odoo.define("stock_picking_mgmt_weight.ViewerIotWeight", function(require) {
                 contentType: "application/json",
                 data: JSON.stringify({})
             }).done(data => {
+                data = (data || {});
+                data.result = (data.result || {"err": "Undefined error", "value": "---"});
                 console.log("Error: " + data.result.err);
                 console.log("Value: " + data.result.value);
                 // TODO error handling
@@ -58,7 +60,10 @@ odoo.define("stock_picking_mgmt_weight.ViewerIotWeight", function(require) {
                 }
             }).fail(() => {
                 console.log("FAILED");
-            }).always(() => {
+                self.iotViewer.find("span").text("---");
+                self.iotViewer.find("span").attr("title", "Server is not responding")
+                self.iotViewer.find("span").addClass("bg-danger");
+        }).always(() => {
                 console.log("FINISHED ListController");
             });
         },
