@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="fcd_fishing_gear_action" model="ir.actions.act_window">
+        <field name="name">FCD Fishing Gear</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fcd.fishing.gear</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fcd_fishing_gear_fcd_ship_action" model="ir.actions.act_window">
+       <field name="name">FCD Ship</field>
+        <field name="res_model">fcd.ship</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="fcd.model_fcd_ship"/> 
+        <field name="domain">[('fishing_gear_ids', '=', active_id)]</field> 
+    </record>
+
+    <record id="fcd_fishing_gear_view_tree" model="ir.ui.view">
+        <field name="name">fcd.fishing.gear.view.tree</field>
+        <field name="model">fcd.fishing.gear</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="fcd_fishing_gear_view_form" model="ir.ui.view">
+        <field name="name">fcd.fishing.gear.view.form</field>
+        <field name="model">fcd.fishing.gear</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="oe_button_box" name="button_box" modifiers="{}">
+                            <button class="oe_stat_button" name="%(fcd_fishing_gear_fcd_ship_action)d" type="action" icon="fa-ship"  help="Ship" attrs="{'invisible': [('ship_ids', '=', False)]}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="ship_ids" invisible="1" />
+                                        <field name="ship_ids_count" widget="statinfo" nolabel="1" class="mr4" /> 
+                                    </span>
+                                    <span class="o_stat_text">Ship</span>
+                                </div>
+                            </button>
+                        </div>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <record id="fcd_fishing_gear_view_search" model="ir.ui.view">
+        <field name="name">fcd.fishing.gear.view.search</field>
+        <field name="model">fcd.fishing.gear</field>
+        <field name="arch" type="xml">
+            <search >
+                <field name="name"/>
+                <field name="code"/>
+                <field name="ship_ids"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

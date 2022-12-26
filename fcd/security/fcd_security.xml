@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="fcd_category" model="ir.module.category">
+            <field name="name">FCD</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="group_fcd_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="fcd_category"/>
+        </record>
+
+        <record id="group_fcd_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="fcd_category"/>
+            <field name="implied_ids" eval="[
+                (4, ref('group_fcd_user'))
+            ]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+
+</odoo>

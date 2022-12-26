@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='base.es' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.us' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.nl' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.dk' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.fr' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.ma' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.mr' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.sn' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.no' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.ie' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.uk' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='fcd_res_country_scotland' model='res.country'>
+            <field name="name">Scotland</field>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.is' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.fo' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.ca' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+        <record id='base.pt' model='res.country'>
+            <field name="fcd_usage" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

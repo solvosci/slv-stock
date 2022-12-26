@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fcd_document_action" model="ir.actions.act_window">
+        <field name="name">FCD Document</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">fcd.document</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="fcd_document_view_form" model="ir.ui.view">
+        <field name="name">fcd.document.view.form</field>
+        <field name="model">fcd.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                      <label for="name" string="Fishing Capture Document - Vendor Lot"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="General Data">
+                                <group>
+                                    <field name="product_id" />
+                                    <field name="partner_id" />
+                                </group>
+                            <group name="name" string="Lines">
+                                <field name="fcd_document_line_ids" nolabel="1" />
+                            </group>
+                            <group string="Internal notes">
+                                <field name="notes" nolabel="1" placeholder="This note is for internal fines only." />
+                            </group>
+                        </page>
+                        <page string="Fishing">
+                            <group>
+                                <group>
+                                    <field name="product_id" />
+                                    <field name="ship_id" />
+                                    <field name="ship_license_plate" />
+                                    <field name="country_id" />
+                                </group>
+                                <group>
+                                    <field name="presentation_id" />
+                                    <field name="fao" />
+                                    <field name="fishing_gear_id" />
+                                    <field name="production_method_id" />
+                                    <field name="scientific_name" decoration-it="1"/>
+                                </group>
+                                <group>
+                                    <field name="packaging_date" />
+                                    <field name="expiration_date" />
+                                </group>
+                                <group>
+                                    <field name="fao_zone_id" />
+                                    <field name="subzone_id" domain="[('zone_id', '=', fao_zone_id)]" />
+                                </group>
+                            </group>
+                            <group string="Fishing Notes">
+                                <field name="notes_fishing" nolabel="1" placeholder="This note is added to purchase ordens." />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fcd_document_view_tree" model="ir.ui.view">
+        <field name="name">fcd.document.view.tree</field>
+        <field name="model">fcd.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="product_id" />
+                <field name="presentation_id"/>
+                <field name="partner_id" widget="many2one_avatar_partner" />
+                <field name="fcd_document_line_ids" widget='many2many_tags'/>
+                <field name="expiration_date" widget="date"/>
+                <field name="fao_zone_id" />
+                <field name="subzone_id" />
+                <field name="fishing_gear_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fcd_document_view_search" model="ir.ui.view">
+        <field name="name">fcd.document.view.search</field>
+        <field name="model">fcd.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="product_id" />
+                <field name="partner_id" />
+                <field name="scientific_name" />
+                <field name="internal_lot_id" />
+                <field name="expiration_date" />
+                <field name="subzone_id" />
+                <group string="Group by">
+                    <filter string="Partner" name="partner_id" context="{'group_by': 'partner_id'}" />
+                    <filter string="Zone FAO" name="fao_zone_id" context="{'group_by': 'fao_zone_id'}" />
+                    <filter string="Subzone FAO" name="subzone_id" context="{'group_by': 'subzone_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="fcd_document_qc_inspection_created_inspections" model="ir.actions.act_window">
+        <field name="name">Quality Control Inpection Created</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
+        <field name="domain">[('fcd_document_id', '=', active_id)]</field>
+    </record>
+
+    <record id="fcd_document_qc_inspection_done_inspections" model="ir.actions.act_window">
+        <field name="name">Quality Control Inpection Done</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
+        <field name="domain">[('fcd_document_id', '=', active_id),('state', 'not in', ['draft', 'waiting'])]</field> 
+    </record>
+
+    <record id="fcd_document_qc_inspection_passed_inspections" model="ir.actions.act_window">
+        <field name="name">Quality Control Inpection Passed</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
+        <field name="domain">[('fcd_document_id', '=', active_id),('state', '=', 'success')]</field>
+    </record>
+
+    <record id="fcd_document_qc_inspection_failed_inspections" model="ir.actions.act_window">
+        <field name="name">Quality Control Inpection Failed</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
+        <field name="domain">[('fcd_document_id', '=', active_id),('state', '=', 'failed')]</field>
+    </record>
+
+    <record id="fcd_document_qc_view_form" model="ir.ui.view">
+        <field name="name">fcd.document.view.form (QC) </field>
+        <field name="model">fcd.document</field>
+        <field name="inherit_id" ref="fcd.fcd_document_view_form"/>
+        <field name="groups_id" eval="[(4, ref('quality_control_oca.group_quality_control_user'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Quality" groups="quality_control_oca.group_quality_control_user">
+                    <group string="Inspections">
+                        <field name="qc_inspection_ids" nolabel="1">
+                            <tree>
+                                <field name="name" />
+                                <field name="user" />
+                                <field name="test" />
+                                <field name="success" />
+                                <field name="state" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Quality Notes">
+                        <field name="notes_quality" nolabel="1" placeholder="This note is added to quality control." />
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//form/sheet/div" position="before">
+                <div class="oe_button_box" name="button_box" modifiers="{}" groups="quality_control_oca.group_quality_control_user">
+                    <button class="oe_stat_button" name="%(fcd_document_qc_inspection_created_inspections)d" type="action" icon="fa-list"  help="Inspection" attrs="{'invisible': [('created_inspections', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="created_inspections" widget="statinfo" nolabel="1" class="mr4" /> 
+                            </span>
+                            <span class="o_stat_text">Inspection Total</span>
+                        </div>
+                    </button>
+                    <button class="oe_stat_button" name="%(fcd_document_qc_inspection_done_inspections)d" type="action" icon="fa-pencil"  help="Inspection" attrs="{'invisible': [('done_inspections', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="done_inspections" widget="statinfo" nolabel="1" class="mr4" /> 
+                            </span>
+                            <span class="o_stat_text">Inspection Done</span>
+                        </div>
+                    </button>
+                    <button class="oe_stat_button" name="%(fcd_document_qc_inspection_passed_inspections)d" type="action" icon="fa-thumbs-o-up"  help="Inspection" attrs="{'invisible': [('passed_inspections', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="passed_inspections" widget="statinfo" nolabel="1" class="mr4" /> 
+                            </span>
+                            <span class="o_stat_text">Inspection OK</span>
+                        </div>
+                    </button>
+                     <button class="oe_stat_button" name="%(fcd_document_qc_inspection_failed_inspections)d" type="action" icon="fa-thumbs-o-down"  help="Inspection" attrs="{'invisible': [('failed_inspections', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="failed_inspections" widget="statinfo" nolabel="1" class="mr4" /> 
+                            </span>
+                            <span class="o_stat_text">Inspection Failed</span>
+                        </div>
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="fcd_document_qc_view_tree" model="ir.ui.view">
+        <field name="name">fcd.document.view.tree (QC) </field>
+        <field name="model">fcd.document</field>
+        <field name="inherit_id" ref="fcd.fcd_document_view_tree"/>
+        <field name="groups_id" eval="[(4, ref('quality_control_oca.group_quality_control_user'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="field[@name='fishing_gear_id']" position="after">
+                <field name="qc_inspection_ids" widget='many2many_tags' groups="quality_control_oca.group_quality_control_user"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="qc_inspection_view_inherit_fcd_form" model="ir.ui.view">
+        <field name="name">qc.inspection.form (FCD)</field>
+        <field name="model">qc.inspection</field>
+        <field name="groups_id" eval="[(4, ref('fcd.group_fcd_user'))]"/>
+        <field name="inherit_id" ref="quality_control_stock_oca.qc_inspection_form_view_picking"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_id']" position="after">
+                <field name="fcd_document_id" />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

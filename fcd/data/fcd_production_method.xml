@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id='fcd_production_method_captured' model='fcd.production.method'>
+            <field name='name'>Capturado</field>
+        </record>
+        <record id='fcd_production_method_captured_2' model='fcd.production.method'>
+            <field name='name'>Captura en agua dulce</field>
+        </record>
+        <record id='fcd_production_method_breeding' model='fcd.production.method'>
+            <field name='name'>De cría</field>
+        </record>
+    </data>
+</odoo>

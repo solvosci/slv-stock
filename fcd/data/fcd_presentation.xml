@@ -1,0 +1,136 @@
+<odoo>
+    <data>
+        <record id='fcd_presentation_ali' model='fcd.presentation'>
+            <field name='code'>ALI</field>
+            <field name='name'>VIVO</field>
+        </record>
+        <record id='fcd_presentation_cbf' model='fcd.presentation'>
+            <field name='code'>CBF</field>
+            <field name='name'>Bacalao salado (escalado)</field>
+        </record>
+        <record id='fcd_presentation_cla' model='fcd.presentation'>
+            <field name='code'>CLA</field>
+            <field name='name'>Pinzas</field>
+        </record>
+        <record id='fcd_presentation_dwt' model='fcd.presentation'>
+            <field name='code'>DWT</field>
+            <field name='name'>Código CICAA</field>
+        </record>
+        <record id='fcd_presentation_fil' model='fcd.presentation'>
+            <field name='code'>FIL</field>
+            <field name='name'>Fileteado</field>
+        </record>
+        <record id='fcd_presentation_fis' model='fcd.presentation'>
+            <field name='code'>FIS</field>
+            <field name='name'>Fileteado sin piel</field>
+        </record>
+        <record id='fcd_presentation_fsb' model='fcd.presentation'>
+            <field name='code'>FSB</field>
+            <field name='name'>Fileteado con piel y espinas</field>
+        </record>
+        <record id='fcd_presentation_fsp' model='fcd.presentation'>
+            <field name='code'>FSP</field>
+            <field name='name'>Fileteado sin piel y con espinas dorsales</field>
+        </record>
+        <record id='fcd_presentation_ght' model='fcd.presentation'>
+            <field name='code'>GHT</field>
+            <field name='name'>Eviscerado, descabezado y sin cola</field>
+        </record>
+        <record id='fcd_presentation_gug' model='fcd.presentation'>
+            <field name='code'>GUG</field>
+            <field name='name'>Eviscerado y sin branquias</field>
+        </record>
+        <record id='fcd_presentation_guh' model='fcd.presentation'>
+            <field name='code'>GUH</field>
+            <field name='name'>Eviscerado y descabezado</field>
+        </record>
+        <record id='fcd_presentation_gul' model='fcd.presentation'>
+            <field name='code'>GUL</field>
+            <field name='name'>Eviscerado con hígado</field>
+        </record>
+        <record id='fcd_presentation_gus' model='fcd.presentation'>
+            <field name='code'>GUS</field>
+            <field name='name'>Eviscerado, descabezado y sin piel</field>
+        </record>
+        <record id='fcd_presentation_gut' model='fcd.presentation'>
+            <field name='code'>GUT</field>
+            <field name='name'>Eviscerado</field>
+        </record>
+        <record id='fcd_presentation_hea' model='fcd.presentation'>
+            <field name='code'>HEA</field>
+            <field name='name'>Descabezado</field>
+        </record>
+        <record id='fcd_presentation_jap' model='fcd.presentation'>
+            <field name='code'>JAP</field>
+            <field name='name'>Corte japonés</field>
+        </record>
+        <record id='fcd_presentation_jat' model='fcd.presentation'>
+            <field name='code'>JAT</field>
+            <field name='name'>Corte japonés y sin cola</field>
+        </record>
+        <record id='fcd_presentation_lap' model='fcd.presentation'>
+            <field name='code'>LAP</field>
+            <field name='name'>Lappen</field>
+        </record>
+        <record id='fcd_presentation_lvr' model='fcd.presentation'>
+            <field name='code'>LVR</field>
+            <field name='name'>Hígado</field>
+        </record>
+        <record id='fcd_presentation_oth' model='fcd.presentation'>
+            <field name='code'>OTH</field>
+            <field name='name'>Otras</field>
+        </record>
+        <record id='fcd_presentation_roe' model='fcd.presentation'>
+            <field name='code'>ROE</field>
+            <field name='name'>Huevas</field>
+        </record>
+        <record id='fcd_presentation_sad' model='fcd.presentation'>
+            <field name='code'>SAD</field>
+            <field name='name'>Salado seco</field>
+        </record>
+        <record id='fcd_presentation_sal' model='fcd.presentation'>
+            <field name='code'>SAL</field>
+            <field name='name'>Salado ligeramente húmedo</field>
+        </record>
+        <record id='fcd_presentation_sgh' model='fcd.presentation'>
+            <field name='code'>SGH</field>
+            <field name='name'>Salado, eviscerado y descabezado</field>
+        </record>
+        <record id='fcd_presentation_sgt' model='fcd.presentation'>
+            <field name='code'>SGT</field>
+            <field name='name'>Salado eviscerado</field>
+        </record>
+        <record id='fcd_presentation_ski' model='fcd.presentation'>
+            <field name='code'>SKI</field>
+            <field name='name'>Sin piel</field>
+        </record>
+        <record id='fcd_presentation_sur' model='fcd.presentation'>
+            <field name='code'>SUR</field>
+            <field name='name'>Surimi</field>
+        </record>
+        <record id='fcd_presentation_tal' model='fcd.presentation'>
+            <field name='code'>TAL</field>
+            <field name='name'>Cola</field>
+        </record>
+        <record id='fcd_presentation_tld' model='fcd.presentation'>
+            <field name='code'>TLD</field>
+            <field name='name'>Sin cola</field>
+        </record>
+        <record id='fcd_presentation_tng' model='fcd.presentation'>
+            <field name='code'>TNG</field>
+            <field name='name'>Lengua</field>
+        </record>
+        <record id='fcd_presentation_tub' model='fcd.presentation'>
+            <field name='code'>TUB</field>
+            <field name='name'>Tubo solo</field>
+        </record>
+        <record id='fcd_presentation_whl' model='fcd.presentation'>
+            <field name='code'>WHL</field>
+            <field name='name'>Entero</field>
+        </record>
+        <record id='fcd_presentation_wng' model='fcd.presentation'>
+            <field name='code'>WNG</field>
+            <field name='name'>Aletas</field>
+        </record>
+    </data>
+</odoo>
