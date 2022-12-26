@@ -56,6 +56,8 @@ odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
                 contentType: "application/json",
                 data: JSON.stringify({})
             }).done(data => {
+                data = (data || {});
+                data.result = (data.result || {"err": "Undefined error", "value": "---"});
                 console.log("Error: " + data.result.err);
                 console.log("Value: " + data.result.value);
                 self.$span.parent().removeClass("o_field_empty");
@@ -72,7 +74,10 @@ odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
                 }
             }).fail(() => {
                 console.log("FAILED");
-            }).always(() => {
+                self.$span.text("---");
+                self.$span.attr("title", "Server is not responding");
+                self.$span.addClass("bg-danger");
+        }).always(() => {
                 console.log("FINISHED AbstractField");
                 // TODO time between updates make optional
                 /*
