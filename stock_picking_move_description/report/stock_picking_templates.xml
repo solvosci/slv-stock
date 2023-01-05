@@ -44,7 +44,19 @@
         </xpath>
         <xpath expr="//td[1]" position="after">
             <td>
-                <span t-esc="aggregated_lines[line]['description']"/>
+                <!-- TODO find a better "\n" escape with t-out -->
+                <t
+                    t-set="desc_lines"
+                    t-value="(
+                        aggregated_lines[line]['description']
+                        or
+                        aggregated_lines[line]['name']
+                    ).split('\n')"
+                />
+                <t t-foreach="desc_lines" t-as="desc_line">
+                    <span t-out="desc_line"/>
+                    <br/>
+                </t>
             </td>
         </xpath>
     </template>
