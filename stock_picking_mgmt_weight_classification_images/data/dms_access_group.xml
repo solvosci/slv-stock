@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dms_access_group_classification_image_manager" model="dms.access.group">
+        <field name="name">Classification Images Manager</field>
+        <field name="perm_create">TRUE</field>
+        <field name="perm_write">TRUE</field>
+        <field name="perm_unlink">TRUE</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dms_file_weight_form_inherit" model="ir.ui.view">
+        <field name="name">dms.file.form (Weight Classification Images)</field>
+        <field name="model">dms.file</field>
+        <field name="inherit_id" ref="dms.view_dms_file_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='page_meta']/group" position="after">
+                <field name="image_1920" widget="image" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

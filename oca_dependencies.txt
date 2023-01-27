@@ -1,5 +1,6 @@
 purchase-workflow
 stock-logistics-workflow
+dms
 sale-workflow https://github.com/solvosci/sale-workflow/tree/13.0-mig-sale_order_line_menu
 slv-account https://github.com/solvosci/slv-account
 slv-general https://github.com/solvosci/slv-general
