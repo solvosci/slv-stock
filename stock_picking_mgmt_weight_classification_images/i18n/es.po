@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_mgmt_weight_classification_images
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-27 09:16+0000\n"
+"PO-Revision-Date: 2023-01-27 10:22+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_move_weight_wizard__classification_image
+msgid "Classification Image"
+msgstr "Imagen de clasificación"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_move_weight_wizard__dms_file_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_picking__dms_file_ids
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_picking_classification__dms_file_ids
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.res_config_settings_scale_view_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.view_stock_move_weight_wizard_form_weight
+msgid "Classification Images"
+msgstr "Imágenes de clasificación"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:dms.access.group,name:stock_picking_mgmt_weight_classification_images.dms_access_group_classification_image_manager
+msgid "Classification Images Manager"
+msgstr "Administrador de las imágenes de clasificación"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_dms_file__classification_picking_id
+msgid "Classification Picking"
+msgstr "Albarán de clasificación"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_dms_file
+msgid "File"
+msgstr "Documento"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_company__picking_operations_imagen_max_resolution
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_config_settings__picking_operations_imagen_max_resolution
+msgid "Max resolution (Px)"
+msgstr "Resolución máxima (Px)"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_company__picking_operations_imagen_quality
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_config_settings__picking_operations_imagen_quality
+msgid "Quatily (1 - 100)"
+msgstr "Calidad (1 - 100)"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: code:addons/stock_picking_mgmt_weight_classification_images/wizards/move_weight.py:0
+#, python-format
+msgid "The file is not an image"
+msgstr "El archivo no es una imagen"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: code:addons/stock_picking_mgmt_weight_classification_images/wizards/move_weight.py:0
+#, python-format
+msgid "The image must be in jpg or jpeg format."
+msgstr "La imagen debe estar en formato de JPG o JPEG."
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_picking
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_move_weight_wizard
+msgid "stock.move.weight.wizard"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_picking_classification
+msgid "stock.picking.classification"
+msgstr ""
