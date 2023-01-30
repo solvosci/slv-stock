@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_phap_price_edit_wizard_form" model="ir.ui.view">
+        <field name="name">phap.price.edit.wizard form</field>
+        <field name="model">phap.price.edit.wizard</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <sheet>
+                    <field name="currency_id" invisible="1" />
+                    <group>
+                        <span name="warn_message">
+                            Changing price will fire later prices recalculation.
+                            This process could take unexpected time execution.
+                        </span>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="average_price" />
+                        </group>
+                        <group>
+                            <field
+                                name="average_price_new" 
+                                required="1"
+                            />
+                        </group>
+                    </group>
+                    <footer>
+                        <button
+                            name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

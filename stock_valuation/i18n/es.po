@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-23 15:53+0000\n"
-"PO-Revision-Date: 2022-08-23 15:53+0000\n"
+"POT-Creation-Date: 2023-01-30 18:39+0000\n"
+"PO-Revision-Date: 2023-01-30 18:39+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,9 +33,32 @@ msgid "<span class=\"o_stat_text\">View graph</span>"
 msgstr "<span class=\"o_stat_text\">Ver gráfico</span>"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
+msgid ""
+"<span name=\"warn_message\">\n"
+"                            Changing price will fire later prices recalculation.\n"
+"                            This process could take unexpected time execution.\n"
+"                        </span>"
+msgstr ""
+"<span name=\"warn_message\">\n"
+"                            Cambiar el precio lanzará recálculos de precios posteriores.\n"
+"                            Este proceso podría llevar un tiempo indeterminado.\n"
+"                        </span>"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__accumulated
 msgid "Accumulated"
 msgstr "Acumulado"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nº de adjuntos"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__average_price
@@ -45,11 +68,39 @@ msgid "Average Price"
 msgstr "Precio medio"
 
 #. module: stock_valuation
+#: code:addons/stock_valuation/models/product_history_average_price.py:0
+#, python-format
+msgid "Average Price Edit Wizard"
+msgstr "Asistente de edición de precio medio"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price_manual
+msgid "Average Price Manual"
+msgstr "Precio medio manual"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price_manual_dt
+msgid "Average Price Manual Dt"
+msgstr "Fecha de precio medio manual"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price_manual_user
+msgid "Average Price Manual User"
+msgstr "Usuario de precio medio manual"
+
+#. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_date_wizard_form
 msgid "Average price at date Wizard"
 msgstr "Asistente del precio medio a un día"
 
 #. module: stock_valuation
+#: code:addons/stock_valuation/models/product_history_average_price.py:0
+#, python-format
+msgid "Average price cannot be negative!"
+msgstr "¡El precio medio no puede ser negativo!"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_phap_price_edit_wizard__average_price
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price
 msgid "Average price for this product and warehouse at this date"
 msgstr "Precio medio para este producto y almacén a esta fecha"
@@ -60,6 +111,21 @@ msgid "Average price on creation"
 msgstr "Precio medio durante la creación"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form_edit
+msgid "Change average price"
+msgstr "Cambiar precio medio"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
+msgid "Changed by"
+msgstr "Cambiado por"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__company_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__company_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__company_id
@@ -67,11 +133,17 @@ msgid "Company"
 msgstr "Empresa"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__create_date_valuation
 msgid "Create Date Valuation"
 msgstr "Fecha de creación de la valoración"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_uid
@@ -80,6 +152,7 @@ msgid "Created by"
 msgstr "Creado por"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_date
@@ -88,11 +161,17 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__currency_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__currency_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__currency_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__currency_id
 msgid "Currency"
 msgstr "Moneda"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__average_price
+msgid "Current average price"
+msgstr "Precio medio actual"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__date
@@ -108,6 +187,7 @@ msgid "Date evolution"
 msgstr "Evolución por fecha"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__display_name
@@ -119,6 +199,21 @@ msgstr "Nombre a mostrar"
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__document_origin
 msgid "Document Origin"
 msgstr "Doc. origen"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (canales)"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (contactos)"
 
 #. module: stock_valuation
 #: code:addons/stock_valuation/models/stock_move_line.py:0
@@ -156,6 +251,7 @@ msgid "History Average Prices"
 msgstr "Precios medios históricos"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__id
@@ -164,11 +260,34 @@ msgid "ID"
 msgstr "Id."
 
 #. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_needaction
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Cuando está marcado, mensajes nuevos requieren su atención"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_has_error
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Cuando está marcado, algunos mensajes tienen error de envío"
+
+#. module: stock_valuation
+#: model:res.groups,name:stock_valuation.group_stock_history_average_price_edit
+msgid "Inventory: can edit history average price"
+msgstr "Inventario: puede editar el precio medio histórico"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__is_return
 msgid "Is Return"
 msgstr "Es una devolución"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard____last_update
@@ -177,6 +296,7 @@ msgid "Last Modified on"
 msgstr "Últ. modificado en"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_uid
@@ -185,6 +305,7 @@ msgid "Last Updated by"
 msgstr "Últ. actualización por"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_date
@@ -193,9 +314,80 @@ msgid "Last Updated on"
 msgstr "Últ. actualización en"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
+msgid "Last manually changed on"
+msgstr "Cambiado manualmente por últ. vez en"
+
+#. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
 msgid "Leave empty if every warehouse is required"
 msgstr "Dejar vacío si se solicitan todos los almacenes"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
+msgid "Manual info"
+msgstr "Información manual"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
+msgid "Manually set"
+msgstr "Establecido manualmente"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de envío de mensaje"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__average_price_new
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price_edit
+msgid "New average price"
+msgstr "Nuevo precio medio"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes sin leer"
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_phap_price_edit_wizard
+msgid "PHAP Price Edit Wizard"
+msgstr "Asistente de edición de precio de PHAP"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__phap_id
+msgid "Phap"
+msgstr "PHAP"
 
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_product_product
@@ -282,6 +474,11 @@ msgid "Reference"
 msgstr "Referencia"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de envío de SMS"
+
+#. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_date_wizard_form
 msgid "Search"
 msgstr "Buscar"
@@ -290,6 +487,11 @@ msgstr "Buscar"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
 msgid "Selected warehouses"
 msgstr "Almacenes seleccionados"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual
+msgid "Shows if last average price was manually set"
+msgstr "Muestra si el último precio medio fue establecido manualmente"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__total_quantity_day
@@ -309,7 +511,7 @@ msgstr "Precios medios por almacén"
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_stock_move
 msgid "Stock Move"
-msgstr "Movimiento de existencias"
+msgstr "Movimiento de Inventario"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__stock_quantity
@@ -355,6 +557,11 @@ msgid "Techical field for Total Inputs valuation"
 msgstr "Campo técnico para disponer del valor total acumulado en entradas"
 
 #. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_edit
+msgid "Technical field that allow us to edit averagre price"
+msgstr "Campo técnico que nos permite editar el precio medio"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__total_quantity
 msgid "Total accum. inputs"
 msgstr "Total acum. en entradas"
@@ -363,6 +570,16 @@ msgstr "Total acum. en entradas"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__total_quantity_day
 msgid "Total inputs"
 msgstr "Total entradas"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_form_inherit
@@ -393,3 +610,26 @@ msgstr "Valoraciones"
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
 msgid "Warehouse"
 msgstr "Almacén"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del website"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual_dt
+msgid "When price was manually set, shows the change date"
+msgstr ""
+"Cuando el precio fue establecido manualmente, muestra la fecha de cambio"
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual_user
+msgid "When price was manually set, shows the user that made this change"
+msgstr ""
+"Cuando el precio fue establecido manualmente, muestra el usuario que realizó"
+" el cambio"

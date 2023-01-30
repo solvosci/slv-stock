@@ -152,7 +152,7 @@ class StockMove(models.Model):
 
         return done_moves
 
-    def _compute_phaps_and_update_slvs(self, phaps=False):
+    def _compute_phaps_and_update_slvs(self, phaps=False, phap_omit=False):
         phaps_processed = self.env["product.history.average.price"]
         """
         For a set of moves, makes a complete cycle
@@ -187,7 +187,12 @@ class StockMove(models.Model):
                 ('warehouse_id', 'in', warehouses),
                 ('date', '>=', oldest_phap.date),
             ])
-            later_phaps._compute_average_price()
+            compute_phaps = later_phaps
+            # Omit PHAP that fired this computation in case of manual price,
+            #  that we cannot recompute
+            if phap_omit:
+                compute_phaps -= phap_omit
+            compute_phaps._compute_average_price()
             # Average prices have changed for some dates, dependent
             #  valuations must change too (e.g. sale moves, internal moves)
             # In the case of internal moves, new PHAP changes should be

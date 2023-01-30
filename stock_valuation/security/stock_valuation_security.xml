@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="group_stock_history_average_price_edit" model="res.groups">
+        <field name="name">Inventory: can edit history average price</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('stock.group_stock_manager'))]"
+        />
+    </record>
+    
     <record model="ir.rule" id="product_average_price_comp_rule">
         <field name="name">Product Average Price multi-company</field>
         <field name="model_id" ref="model_product_average_price" />
