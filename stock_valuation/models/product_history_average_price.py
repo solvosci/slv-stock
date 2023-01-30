@@ -4,12 +4,14 @@
 import logging
 
 from odoo import _, fields, models, api
+from odoo.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)
 
 
 class ProductHistoryAveragePrice(models.Model):
     _name = "product.history.average.price"
+    _inherit = ["mail.thread"]
     _description = "Product Average Price by Warehouse and Date"
 
     svl_ids = fields.One2many('stock.valuation.layer', 'history_average_price_id')
@@ -21,10 +23,32 @@ class ProductHistoryAveragePrice(models.Model):
 
     company_id = fields.Many2one('res.company', default=lambda self: self.env.company)
     currency_id = fields.Many2one('res.currency', 'Currency', related='company_id.currency_id', readonly=True, required=True)
+
+    average_price_edit = fields.Monetary(
+        compute="_compute_average_price_edit",
+        inverse="_inverse_average_price_edit",
+        string="New average price",
+        help="Technical field that allow us to edit averagre price",
+    )
     average_price = fields.Monetary(
         compute="_compute_average_price",
         store=True,
+        tracking=True,
         help="Average price for this product and warehouse at this date",
+    )
+    average_price_manual = fields.Boolean(
+        readonly=True,
+        tracking=True,
+        help="Shows if last average price was manually set",
+    )
+    average_price_manual_dt = fields.Datetime(
+        readonly=True,
+        help="When price was manually set, shows the change date",
+    )
+    average_price_manual_user = fields.Many2one(
+        comodel_name="res.users",
+        readonly=True,
+        help="When price was manually set, shows the user that made this change",
     )
 
     total_quantity_day = fields.Float(
@@ -69,6 +93,29 @@ class ProductHistoryAveragePrice(models.Model):
             )
             for phap in self
         ]
+
+    def _compute_average_price_edit(self):
+        for phap in self:
+            phap.average_price_edit = phap.average_price
+
+    def _inverse_average_price_edit(self):
+        # This method should actually be called as sudo()
+        self.ensure_one()
+        # TODO float_compare
+        if self.average_price_edit < 0.0:
+            raise ValidationError(_("Average price cannot be negative!"))
+        self.write({
+            "average_price": self.average_price_edit,
+            "stock_valuation": self.stock_quantity * self.average_price_edit,
+            "average_price_manual": True,
+            "average_price_manual_dt": fields.Datetime.now(),
+            "average_price_manual_user": self.env.user.id,
+        })
+        # Now we need to update subsequent PHAPs but this one. Otherwise
+        #  its average price should be re-calculated and lost
+        self.svl_ids.stock_move_id._compute_phaps_and_update_slvs(
+            phap_omit=self
+        )
 
     @api.depends("svl_ids")
     def _compute_average_price(self):
@@ -145,6 +192,13 @@ class ProductHistoryAveragePrice(models.Model):
                 )
             )
             record.stock_valuation = record.stock_quantity * record.average_price
+        # Audit manual values should be unset, because this method is only
+        #  fired when normal update process is fired
+        self.filtered(lambda x: x.average_price_manual).write({
+            "average_price_manual": False,
+            "average_price_manual_dt": False,
+            "average_price_manual_user": False,
+        })
 
     def _update_dependent_svls(self):
         """
@@ -230,6 +284,23 @@ class ProductHistoryAveragePrice(models.Model):
             upd_svls |= svl
 
         return upd_svls, ret_phaps
+
+    def button_price_edit(self):
+        self.ensure_one()
+        Wizard = self.env["phap.price.edit.wizard"]
+        new = Wizard.create({
+            "phap_id": self.id,
+            "average_price_new": self.average_price,
+        })
+        return {
+            "name": _("Average Price Edit Wizard"),
+            'res_model': "phap.price.edit.wizard",
+            "view_mode": "form",
+            "view_type": "form",
+            "res_id": new.id,
+            "target": "new",
+            "type": "ir.actions.act_window",
+        }
 
     # TODO remove as unnecessary (replaced by stkco_move.py later recalculation "in the future")
     def recalculation_average_price(self, last_quantity, last_average_price, last_value, last_day_id):

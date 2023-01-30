@@ -38,6 +38,12 @@
                     date="date"
                     default_period="this_month"
                 />
+                <separator />
+                <filter
+                    name="filter_manual"
+                    string="Manually set"
+                    domain="[('average_price_manual', '=', True)]"
+                />
                 <group expand="0" string="Group By">
                     <filter
                         string="Product"
@@ -68,6 +74,8 @@
         <field name="model">product.history.average.price</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -94,8 +102,29 @@
                         <page string="Valuations">
                             <field name="svl_ids" />
                         </page>
+                        <page string="Manual info">
+                            <group>
+                                <field
+                                    name="average_price_manual"
+                                    widget="boolean_toggle"
+                                />
+                                <field
+                                    name="average_price_manual_dt"
+                                    string="Last manually changed on"
+                                    attrs="{'invisible': [('average_price_manual', '=', False)]}"
+                                />
+                                <field
+                                    name="average_price_manual_user"
+                                    string="Changed by"
+                                    attrs="{'invisible': [('average_price_manual', '=', False)]}"
+                                />
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>                
             </form>
         </field>
     </record>
@@ -122,13 +151,40 @@
             </field>
         </field>
     </record>
+    <record id="view_product_history_average_price_form_edit" model="ir.ui.view">
+        <field name="name">product.history.average.price form price edit</field>
+        <field name="model">product.history.average.price</field>
+        <field
+            name="inherit_id"
+            ref="stock_valuation.view_product_history_average_price_form"
+        />
+        <field
+            name="groups_id"
+            eval="[(4, ref('stock_valuation.group_stock_history_average_price_edit'))]"
+        />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    name="button_price_edit"
+                    type="object"
+                    string="Change average price"
+                    icon="fa-dollar"
+                />
+            </header>
+        </field>
+    </record>
 
     <record id="view_product_history_average_price_tree" model="ir.ui.view">
         <field name="name">product.history.average.price tree</field>
         <field name="model">product.history.average.price</field>
         <field name="arch" type="xml">
-            <tree default_order="date desc">
+            <tree
+                default_order="date desc"
+                decoration-bf="average_price_manual == True"
+                decoration-danger="average_price_manual == True"
+            >
                 <field name="currency_id" invisible="1" />
+                <field name="average_price_manual" invisible="1" />
                 <field name="date" />
                 <field name="product_id" />
                 <field
