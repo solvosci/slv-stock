@@ -302,6 +302,23 @@ class ProductHistoryAveragePrice(models.Model):
             "type": "ir.actions.act_window",
         }
 
+    def button_qty_edit(self):
+        self.ensure_one()
+        Wizard = self.env["phap.qty.edit.wizard"]
+        new = Wizard.create({
+            "phap_id": self.id,
+            "stock_quantity_new": self.stock_quantity,
+        })
+        return {
+            "name": _("Quantity Edit Wizard"),
+            'res_model': "phap.qty.edit.wizard",
+            "view_mode": "form",
+            "view_type": "form",
+            "res_id": new.id,
+            "target": "new",
+            "type": "ir.actions.act_window",
+        }
+
     # TODO remove as unnecessary (replaced by stkco_move.py later recalculation "in the future")
     def recalculation_average_price(self, last_quantity, last_average_price, last_value, last_day_id):
         last_day_id.total_quantity_day += last_quantity
@@ -331,3 +348,47 @@ class ProductHistoryAveragePrice(models.Model):
             ("date", "<=", dt),
         ], order="date desc", limit=1)
         return history_price and history_price.average_price or 0.0
+
+    def _update_quantity(self, location_id, stock_quantity_new):
+        """
+        Updates this PHAP stock quantity, applying it to a certain location.
+        """
+        self.ensure_one()
+        # TODO no lots & packages, but we should ensure on it
+        quant_obj = self.env["stock.quant"]
+        quant = quant_obj.search([
+            ("product_id", "=", self.product_id.id),
+            ("location_id", "=", location_id.id),
+        ])
+        # FIXME it works with UTC+x countries, e.g.
+        #       for CET we'll obtain mm/dd/yyyy 01:00:00,
+        #       Improve it when possible
+        stock_move_custom_date = self.date
+        # Workaround: in stock.quantity the available quantity is
+        #  the quantity _today_.
+        # So we have to hack current process quantity making _today_
+        #  the equivalent quantity adjustment
+        # e.g
+        # - At 01/10/2023 we've got 15 and we want to update to 25.
+        #   So we want to increase 10.
+        # - But today there are 6.
+        # - Then, we should "update" quantity to 16 = 6 + (25-15),
+        #   with the proper date in context
+        quant_diff = stock_quantity_new - self.stock_quantity
+        if quant:
+            quantity_adj = quant.quantity + quant_diff
+            quant.with_context(
+                inventory_mode=True,
+                stock_move_custom_date=stock_move_custom_date
+            ).inventory_quantity = quantity_adj
+        else:
+            # It's supposed to call create method in this case, because
+            #  _today_ has no stock quant entries yet
+            quant_obj.with_context(
+                inventory_mode=True,
+                stock_move_custom_date=stock_move_custom_date
+            ).create({
+                "product_id": self.product_id.id,
+                "location_id": location_id.id,
+                "inventory_quantity": quant_diff,
+            })

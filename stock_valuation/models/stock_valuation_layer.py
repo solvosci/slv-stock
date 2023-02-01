@@ -147,7 +147,8 @@ class StockValuationLayer(models.Model):
                         move_id.product_id,
                         self.env["stock.warehouse"].browse(
                             vals["warehouse_id"]
-                        )
+                        ),
+                        dt=date
                     )
                     vals["value"] = vals.get("unit_cost") * vals.get("quantity")
 

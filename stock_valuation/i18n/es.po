@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 18:39+0000\n"
-"PO-Revision-Date: 2023-01-30 18:39+0000\n"
+"POT-Creation-Date: 2023-02-03 12:04+0000\n"
+"PO-Revision-Date: 2023-02-03 12:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -112,6 +112,7 @@ msgstr "Precio medio durante la creación"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_qty_edit_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -122,8 +123,22 @@ msgstr "Cambiar precio medio"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
+msgid "Change stock quantity"
+msgstr "Cambiar la cantidad en stock"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
 msgid "Changed by"
 msgstr "Cambiado por"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_qty_edit_wizard_form
+msgid ""
+"Changing quantity will fire later stock valuation recalculation.\n"
+"                            This process could take unexpected time execution."
+msgstr ""
+"Cambiar la cantidad lanzará recálculos de cantidad en stock posteriores.\n"
+"                            Este proceso podría llevar un tiempo indeterminado."
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__company_id
@@ -134,6 +149,7 @@ msgstr "Empresa"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_qty_edit_wizard_form
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -144,6 +160,7 @@ msgstr "Fecha de creación de la valoración"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_uid
@@ -153,6 +170,7 @@ msgstr "Creado por"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__create_date
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__create_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__create_date
@@ -174,6 +192,11 @@ msgid "Current average price"
 msgstr "Precio medio actual"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__stock_quantity
+msgid "Current stock quantity"
+msgstr "Cantidad en stock actual"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__date
@@ -188,6 +211,7 @@ msgstr "Evolución por fecha"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__display_name
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__display_name
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__display_name
@@ -252,6 +276,7 @@ msgstr "Precios medios históricos"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__id
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__id
@@ -288,6 +313,7 @@ msgstr "Es una devolución"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard____last_update
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date____last_update
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard____last_update
@@ -297,6 +323,7 @@ msgstr "Últ. modificado en"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_uid
@@ -306,6 +333,7 @@ msgstr "Últ. actualización por"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__write_date
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__write_date
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__write_date
@@ -316,7 +344,7 @@ msgstr "Últ. actualización en"
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
 msgid "Last manually changed on"
-msgstr "Cambiado manualmente por últ. vez en"
+msgstr "Cambiado manualmente por ult. vez en"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
@@ -324,9 +352,24 @@ msgid "Leave empty if every warehouse is required"
 msgstr "Dejar vacío si se solicitan todos los almacenes"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__location_id
+msgid "Location Stock"
+msgstr "Ubicación de stock"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_main_attachment_id
 msgid "Main Attachment"
 msgstr "Adjunto principal"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_qty_edit_wizard_form
+msgid ""
+"Making this action will add/remove to selected location the stock\n"
+"                            quantity as a result of the difference between current and desired\n"
+"                            quantity"
+msgstr ""
+"Realizar esta acción añadirá o restará a la ubicación seleccionada la cantidad\n"
+"                            como resultado de la diferencia entre la cantidad actual y la deseada"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form
@@ -353,6 +396,11 @@ msgstr "Mensajes"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__average_price_edit
 msgid "New average price"
 msgstr "Nuevo precio medio"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__stock_quantity_new
+msgid "New stock quantity"
+msgstr "Nueva cantidad en stock"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_needaction_counter
@@ -385,7 +433,13 @@ msgid "PHAP Price Edit Wizard"
 msgstr "Asistente de edición de precio de PHAP"
 
 #. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_phap_qty_edit_wizard
+msgid "PHAP Quantity Edit Wizard"
+msgstr "Asistente de edición de cantidad en stock"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__phap_id
+#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__phap_id
 msgid "Phap"
 msgstr "PHAP"
 
@@ -464,6 +518,12 @@ msgid "Purchase Order Line"
 msgstr "Línea de pedido de compra"
 
 #. module: stock_valuation
+#: code:addons/stock_valuation/models/product_history_average_price.py:0
+#, python-format
+msgid "Quantity Edit Wizard"
+msgstr "Asistente de edición de cantidad"
+
+#. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_stock_quant
 msgid "Quants"
 msgstr "Cantidades"
@@ -531,6 +591,7 @@ msgid "Stock Valuation Layer"
 msgstr "Capa de valoración de stock"
 
 #. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_phap_qty_edit_wizard__stock_quantity
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__stock_quantity
 msgid "Stock for this product and warehouse at this date"
 msgstr "Existencias para este producto y almacén a esta fecha"
