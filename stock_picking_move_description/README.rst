@@ -1,5 +1,5 @@
 =================================
-Srock Picking - Move descriptions
+Stock Picking - Move descriptions
 =================================
 
 .. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -51,6 +51,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * David Alonso <david.alonso@solvos.es>
+* Lucia Pinheiro <lucia.pinheiro@solvos.es>
 
 Maintainers
 ~~~~~~~~~~~
