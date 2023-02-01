@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_phap_qty_edit_wizard_form" model="ir.ui.view">
+        <field name="name">phap.qty.edit.wizard form</field>
+        <field name="model">phap.qty.edit.wizard</field>
+        <field name="arch" type="xml"> 
+            <form>
+                <sheet>
+                    <group>
+                        <span name="warn_message">
+                            Changing quantity will fire later stock valuation recalculation.
+                            This process could take unexpected time execution.
+                            <p/>
+                            Making this action will add/remove to selected location the stock
+                            quantity as a result of the difference between current and desired
+                            quantity
+                        </span>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="stock_quantity" />
+                            <field name="location_id" />
+                        </group>
+                        <group>
+                            <field name="stock_quantity_new" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button
+                            name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Decimal precision workaround
+         TODO set digits to 'Product Unit Of Measure' in field definition?
+    -->
+    <record id="view_phap_qty_edit_wizard_form_dp" model="ir.ui.view">
+        <field name="name">phap.qty.edit.wizard form dp</field>
+        <field name="model">phap.qty.edit.wizard</field>
+        <field
+            name="inherit_id"
+            ref="stock_valuation.view_phap_qty_edit_wizard_form"
+        />
+        <field name="arch" type="xml">
+            <field name="stock_quantity" position="attributes">
+                <attribute name="digits">[12,3]</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

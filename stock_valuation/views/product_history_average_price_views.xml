@@ -75,6 +75,12 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button
+                        name="button_qty_edit"
+                        type="object"
+                        string="Change stock quantity"
+                        icon="fa-pencil"
+                    />
                 </header>
                 <sheet>
                     <group>

@@ -25,6 +25,7 @@
         "views/product_average_price_views.xml",
         "views/product_product_views.xml",
         "wizards/phap_price_edit_views.xml",
+        "wizards/phap_qty_edit_views.xml",
         "report/product_average_price_date_views.xml",
         "report/product_average_price_date_wizard_views.xml",
     ],
