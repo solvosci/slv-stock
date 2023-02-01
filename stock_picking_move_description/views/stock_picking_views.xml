@@ -14,4 +14,20 @@
             </xpath>
         </field>
     </record>
+
+     <record id="view_move_kanban" model="ir.ui.view">
+        <field name="name">stock.move.kanban (in stock_picking_move_description)</field>
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_kandan" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban[hasclass('o_kanban_mobile')]" position="inside">
+                <field name="description_picking"/>
+             </xpath>
+            <xpath expr="//div[hasclass('o_kanban_record_body')]" position="before">
+                <div attrs="{'invisible': [('description_picking', '=', False)]}">
+                    <span> Description: <field name="description_picking"/></span><br/>
+                </div>
+            </xpath>
+        </field>
+    </record>
 </odoo>
