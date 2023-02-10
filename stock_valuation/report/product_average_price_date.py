@@ -2,6 +2,7 @@
 # License LGPL-3 - See https://www.gnu.org/licenses/lgpl-3.0.html
 
 from odoo import api, models, fields
+from odoo.tools.float_utils import float_compare
 
 
 class ProductAveragePriceDate(models.TransientModel):
@@ -21,6 +22,16 @@ class ProductAveragePriceDate(models.TransientModel):
     average_price = fields.Monetary(readonly=True)
     stock_quantity = fields.Float(readonly=True)
     stock_valuation = fields.Monetary(readonly=True)
+    stock_zero = fields.Integer(
+        compute="_compute_stock_zero",
+        store=True,
+        help="""
+            float_compare based stock condition value:
+            - 1 if is positive
+            - 0 if is zero
+            - -1 if is negative
+        """,
+    )
 
     @api.model
     def _from_data_create(self, date, warehouse_ids=False):
@@ -75,3 +86,12 @@ class ProductAveragePriceDate(models.TransientModel):
                 "stock_valuation": row["stock_valuation"],
             })
         return papds
+
+    @api.depends("stock_quantity")
+    def _compute_stock_zero(self):
+        for record in self:
+            record.stock_zero = float_compare(
+                record.stock_quantity,
+                0.0,
+                precision_rounding=record.product_id.uom_id.rounding or 0.001
+            )
