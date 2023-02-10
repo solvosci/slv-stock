@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_template_property_form" model="ir.ui.view">
+        <field name="name">product.template.stock.property.form.inherit (in stock_valuation)</field>
+        <field name="model">product.template</field>
+        <field
+            name="inherit_id"
+            ref="stock_account.view_template_property_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='standard_price_uom']" position="after">
+                <field name="warehouse_valuation" invisible="1"/>
+                <field name="standard_price_warehouse_count" invisible="1"/>                
+                <field
+                    name="standard_price_warehouse_ids"
+                    mode="tree"
+                    readonly="1"
+                    attrs="{'invisible': [
+                        '|',
+                            ('warehouse_valuation','=',False),
+                            ('standard_price_warehouse_count','=',0),
+                    ]}"
+                >
+                    <tree>
+                        <field name="currency_id" invisible="1" />
+                        <field name="warehouse_id" />
+                        <field name="stock_quantity" />                        
+                        <field name="average_price" options="{'currency_field': 'currency_id'}"/>
+                    </tree>
+                </field>
+                <div
+                    name="standard_price_not_available"
+                    attrs="{'invisible': [
+                        '|',
+                            ('is_product_variant','=',True),
+                            '|',
+                                ('warehouse_valuation','=',False),
+                                ('standard_price_warehouse_count','!=',0),
+                    ]}"
+                >                    
+                    Average prices by warehouse not availables (there are not
+                    prices yet, or this product has more than a variant)
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
