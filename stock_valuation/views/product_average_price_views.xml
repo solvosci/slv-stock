@@ -8,6 +8,17 @@
             <search>
                 <field name="product_id" />
                 <field name="warehouse_id" />
+                <filter
+                    name="filter_stock_non_zero"
+                    domain="[('stock_zero', '!=', 0)]"
+                    string="Non-zero stock"
+                />
+                <separator/>
+                <filter
+                    name="filter_stock_negative"
+                    domain="[('stock_zero', '=', -1)]"
+                    string="Negative stock"
+                />
                 <group expand="0" string="Group By">
                     <filter
                         string="Product"
@@ -30,11 +41,16 @@
         <field name="name">product.average.price tree</field>
         <field name="model">product.average.price</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree
+                decoration-danger="stock_zero == -1"
+                decoration-muted="stock_zero == 0"
+            >
                 <field name="currency_id" invisible="1" />
+                <field name="stock_zero" invisible="1" />
                 <field name="product_id" />
                 <field name="warehouse_id" />
                 <field name="average_price" />
+                <field name="stock_quantity" />                
             </tree>
         </field>
     </record>
@@ -64,6 +80,7 @@
                         <group>
                             <field name="currency_id" invisible="1" />
                             <field name="average_price" />
+                            <field name="stock_quantity" />                            
                         </group>
                     </group>
                     <notebook>

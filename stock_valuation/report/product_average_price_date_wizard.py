@@ -29,6 +29,7 @@ class ProductAveragePriceDateWizard(models.TransientModel):
             "type": "ir.actions.act_window",
             "domain": [("id", "in", papds.ids)],
             "context": {
+                "search_default_filter_stock_non_zero": True,
                 "search_default_groupby_product": (
                     len(self.warehouse_ids) != 1
                 ),
