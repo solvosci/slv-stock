@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record
+        id="stock_account.action_stock_inventory_valuation"
+        model="ir.actions.act_window"
+    >
+        <field name="context">{
+            'search_default_group_by_product_id': 1,
+            'hide_origin_partner_id': True,
+        }</field>
+    </record>
+
     <record id="view_stock_valuation_layer_tree_inherit" model="ir.ui.view">
         <field name="name">stock.valuation.layer.tree.inherit (stock valuation)</field>
         <field name="model">stock.valuation.layer</field>
         <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='create_date']" position="after">
-                <field name="warehouse_id" />
+                <field
+                    name="warehouse_id"
+                    optional="hide"
+                />
+                <field name="origin_type"
+                    optional="hide"
+                />
                 <field name="document_origin" />
                 <field name="move_reference" />                
+                <!-- This field is computed non-stored, by default (tree general
+                     action) is not shown -->
+                <field
+                    name="origin_partner_id"
+                    optional="hide"
+                    invisible="context.get('hide_origin_partner_id', False)"
+                />
             </xpath>
             <xpath expr="//field[@name='uom_id']" position="after">
                 <field name="unit_cost" />
@@ -41,11 +64,13 @@
         <field name="inherit_id" ref="stock_account.view_inventory_valuation_search"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_tmpl_id']" position="after">
+                <field name="origin_type" />
                 <field name="document_origin" />
                 <field name="move_reference" />
             </xpath>
             <xpath expr="//filter[@name='group_by_product_id']" position="after">
                 <filter string="Warehouse" name="group_by_warehouse_id" context="{'group_by': 'warehouse_id'}"/>
+                <filter string="Type" name="group_by_origin_type" context="{'group_by': 'origin_type'}"/>
             </xpath>
         </field>
     </record>
@@ -66,19 +91,25 @@
                     attrs="{'invisible': [('warehouse_valuation','=',False)]}"
                 >
                     <group>
-                        <field name="warehouse_id" />
-                        <field name="document_origin" />
-                        <field name="move_reference" />
-                        <field
-                            name="average_price"
-                            groups="base.group_no_one"
-                        />
-                        <field name="accumulated"/>
-                        <field name="is_return"/>
-                        <field
-                            name="history_average_price_id"
-                            groups="base.group_no_one"
-                        />
+                        <group>
+                            <field name="warehouse_id" />
+                            <field name="origin_type" />
+                            <field name="document_origin" />
+                            <field name="move_reference" />
+                            <field name="origin_partner_id" />
+                        </group>
+                        <group>
+                            <field
+                                name="average_price"
+                                groups="base.group_no_one"
+                            />
+                            <field name="accumulated"/>
+                            <field name="is_return"/>
+                            <field
+                                name="history_average_price_id"
+                                groups="base.group_no_one"
+                            />
+                        </group>                        
                     </group>
                 </page>
             </xpath>
