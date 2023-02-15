@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-10 17:46+0000\n"
-"PO-Revision-Date: 2023-02-10 17:46+0000\n"
+"POT-Creation-Date: 2023-02-16 09:36+0000\n"
+"PO-Revision-Date: 2023-02-16 09:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,31 @@ msgstr ""
 "            - 1 si es positivo\n"
 "            - 0 si es cero\n"
 "            - -1 if si es negativo\n"
+"        "
+
+#. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_stock_valuation_layer__origin_type
+msgid ""
+"\n"
+"        Possible types:\n"
+"        - purchase - comes from a purchase or purchase return\n"
+"        - sale - comes from a sale or sale return\n"
+"        - internal - internal transfer\n"
+"        - adjustment - Inventory adjustment\n"
+"        - scrap - Scrap\n"
+"        - mrp - comes from a production\n"
+"        - unbuild - comes from an unbuild\n"
+"        "
+msgstr ""
+"\n"
+"        Posibles tipos:\n"
+"        - purchase - compra o devolución de una compra\n"
+"        - sale - venta o devolución de una venta\n"
+"        - internal - transferencia interna\n"
+"        - adjustment - ajuste de inventario\n"
+"        - scrap - desecho\n"
+"        - mrp - Producción\n"
+"        - unbuild - Despiece\n"
 "        "
 
 #. module: stock_valuation
@@ -72,6 +97,11 @@ msgstr "Acumulado"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_needaction
 msgid "Action Needed"
 msgstr "Acción necesaria"
+
+#. module: stock_valuation
+#: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__adjustment
+msgid "Adjustment"
+msgstr "Ajuste de inventario"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_attachment_count
@@ -324,6 +354,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Cuando está marcado, algunos mensajes tienen error de envío"
 
 #. module: stock_valuation
+#: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__internal
+msgid "Internal"
+msgstr "Transferencia interna"
+
+#. module: stock_valuation
 #: model:res.groups,name:stock_valuation.group_stock_history_average_price_edit
 msgid "Inventory: can edit history average price"
 msgstr "Inventario: puede editar el precio medio histórico"
@@ -477,6 +512,11 @@ msgid "PHAP Quantity Edit Wizard"
 msgstr "Asistente de edición de cantidad en stock"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__origin_partner_id
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__phap_id
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__phap_id
 msgid "Phap"
@@ -558,6 +598,11 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: stock_valuation
+#: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__purchase
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_purchase_order_line
 msgid "Purchase Order Line"
 msgstr "Línea de pedido de compra"
@@ -582,6 +627,16 @@ msgstr "Referencia"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Error de envío de SMS"
+
+#. module: stock_valuation
+#: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__sale
+msgid "Sale"
+msgstr "Venta"
+
+#. module: stock_valuation
+#: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__scrap
+msgid "Scrap"
+msgstr "Desecho"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_date_wizard_form
@@ -689,6 +744,12 @@ msgstr "Total acum. en entradas"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__total_quantity_day
 msgid "Total inputs"
 msgstr "Total entradas"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__origin_type
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
+msgid "Type"
+msgstr "Tipo"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread

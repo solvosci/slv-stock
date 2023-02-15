@@ -1,7 +1,7 @@
 # © 2022 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import fields, models, api
+from odoo import api, fields, models, api
 import pdb
 
 
@@ -28,6 +28,31 @@ class StockValuationLayer(models.Model):
 
     warehouse_valuation = fields.Boolean(
         related="product_id.warehouse_valuation",
+    )
+
+    origin_type = fields.Selection(
+        selection=[
+            ("purchase", "Purchase"),
+            ("sale", "Sale"),
+            ("internal", "Internal"),
+            ("adjustment", "Adjustment"),
+            ("scrap", "Scrap"),
+        ],
+        compute="_compute_origin_type",
+        store=True,
+        string="Type",
+        help="""
+        Possible types:
+        - purchase - comes from a purchase or purchase return
+        - sale - comes from a sale or sale return
+        - internal - internal transfer
+        - adjustment - Inventory adjustment
+        - scrap - Scrap
+        """,
+    )
+    origin_partner_id = fields.Many2one(
+        related="stock_move_id.picking_partner_id",
+        string="Partner",
     )
 
     @api.model
@@ -173,6 +198,25 @@ class StockValuationLayer(models.Model):
 
         # TODO update date by cr call, is it needed?
         return super(StockValuationLayer, self).create(vals)
+
+    @api.depends("stock_move_id")
+    def _compute_origin_type(self):
+        for svl in self:
+            origin_type = False
+            sm = svl.stock_move_id
+            if sm.purchase_line_id:
+                origin_type = "purchase"
+            elif sm.sale_line_id:
+                origin_type = "sale"
+            elif sm.scrapped:
+                origin_type = "scrap"
+            elif sm.picking_type_id.code == "internal":
+                origin_type = "internal"
+            elif (sm.location_id | sm.location_dest_id).filtered(
+                lambda x: x.usage == "inventory"
+            ):
+                origin_type = "adjustment"
+            svl.origin_type = origin_type
 
     def get_history_values(self, product_id, warehouse_id, date):
         PHAP = self.env['product.history.average.price'].sudo()
