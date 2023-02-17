@@ -3,13 +3,41 @@
 
 import logging
 
-from odoo import api, models
+from odoo import _, api, models
+from odoo.exceptions import UserError
 
 logger = logging.getLogger(__name__)
 
 
 class StockMove(models.Model):
     _inherit = "stock.move"
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        """
+        It's possible to add move to an already done picking,
+        we prevent it beacause we're not prepared yet for this situation
+        (a SVL should be added in this case)
+        # TODO support it
+        # TODO for very internal moves (between the same warehouse) we
+        #      could enable the operation, because no SVLs will be created
+        """
+        for vals in vals_list:
+            if (
+                vals.get("picking_id", False)
+                and vals.get("state", "draft") == "done"
+            ):
+                picking_id = self.env["stock.picking"].browse(vals["picking_id"])
+                product_id = self.env["product.product"].browse(vals["product_id"])
+                if (
+                    picking_id.picking_type_code == "internal"
+                    and product_id.warehouse_valuation
+                ):
+                    raise UserError(_(
+                        "Cannot add a move for %s in an done internal"
+                        " transfer. Please create a new transfer instead"
+                    ) % product_id.name)
+        return super().create(vals_list)
 
     def _action_done(self, cancel_backorder=False):
         """
