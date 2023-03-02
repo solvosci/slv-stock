@@ -8,6 +8,12 @@ import pdb
 class StockValuationLayer(models.Model):
     _inherit = "stock.valuation.layer"
 
+    # Original code at stock_account forces it to product_id.active,
+    #  we remove it, as active should be always be to True
+    # Anyway, we preserve original active flag, and use it in views
+    active = fields.Boolean(related="", default=True)
+    product_active = fields.Boolean(related="product_id.active")
+
     create_date_valuation = fields.Datetime(
         default=lambda self: fields.Datetime.now(),
         readonly=True,
