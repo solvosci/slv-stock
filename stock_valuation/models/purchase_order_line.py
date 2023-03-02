@@ -13,7 +13,7 @@ class PurchaseOrderLine(models.Model):
         SVLs should be changed and linked PHAPs recomputed & SVLs updated
         """
         res = super().write(values)
-        if values.get("price_unit"):
+        if "price_unit" in values.keys():
             line_moves = self.env["stock.move"]
             affected_moves = self.env["stock.move"]
             for line in self.filtered(
