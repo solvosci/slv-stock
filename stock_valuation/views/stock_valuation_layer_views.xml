@@ -17,6 +17,7 @@
         <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='create_date']" position="after">
+                <field name="product_active" invisible="1" />
                 <field
                     name="warehouse_id"
                     optional="hide"
@@ -43,6 +44,9 @@
                     name="history_average_price_id"
                     groups="base.group_no_one"
                 />
+            </xpath>
+            <xpath expr="." position="attributes">
+                <attribute name="decoration-muted">not product_active</attribute>
             </xpath>
         </field>
     </record>
