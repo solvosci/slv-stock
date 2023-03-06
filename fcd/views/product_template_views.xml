@@ -8,6 +8,8 @@
             <xpath expr="//field[@name='scientific_name']" position="after">
                 <field name="official_commercial_name" />
                 <field name="fao" />
+                <field name="fcd_expiration_days" />
+                <field name="caliber" />
             </xpath>
         </field>
     </record>

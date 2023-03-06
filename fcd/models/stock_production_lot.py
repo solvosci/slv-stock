@@ -12,7 +12,7 @@ class StockProductionLot(models.Model):
     fcd_document_line_name = fields.Char(related="fcd_document_line_id.name")
     fcd_document_line_box_count = fields.Integer(related="fcd_document_line_id.box_count")
 
-    qc_inspection_ids = fields.One2many(comodel_name='qc.inspection', related="fcd_document_id.qc_inspection_ids", string='Inspection')  
+    qc_inspection_ids = fields.One2many(comodel_name='qc.inspection', related="fcd_document_id.qc_inspection_ids", string='Inspection')
     fcd_document_created_inspections = fields.Integer(related="fcd_document_id.created_inspections")
     fcd_document_done_inspections = fields.Integer(related="fcd_document_id.done_inspections")
     fcd_document_passed_inspections = fields.Integer(related="fcd_document_id.passed_inspections")
@@ -20,3 +20,19 @@ class StockProductionLot(models.Model):
 
     notes_quality = fields.Text()
     notes_line = fields.Text()
+
+    def action_calculate_inspection_context(self):
+        self.ensure_one()
+        return self.fcd_document_id.action_calculate_inspection_context()
+
+    def action_calculate_inspection_done_context(self):
+        self.ensure_one()
+        return self.fcd_document_id.action_calculate_inspection_done_context()
+
+    def action_calculate_inspection_passed_context(self):
+        self.ensure_one()
+        return self.fcd_document_id.action_calculate_inspection_passed_context()
+
+    def action_calculate_inspection_failed_context(self):
+        self.ensure_one()
+        return self.fcd_document_id.action_calculate_inspection_failed_context()

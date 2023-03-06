@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-27 08:33+0000\n"
-"PO-Revision-Date: 2022-12-27 09:37+0100\n"
+"POT-Creation-Date: 2023-04-18 11:02+0000\n"
+"PO-Revision-Date: 2023-04-18 13:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -62,10 +62,41 @@ msgid "Administrator"
 msgstr "Administrador"
 
 #. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_01
+msgid "Ausencia de parásitos"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_02
+msgid "Ausencia de suciedad"
+msgstr ""
+
+#. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document_line__box_count
 #: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_line_box_count
 msgid "Box Count"
 msgstr "Nº de cajas"
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_product_product__caliber
+#: model:ir.model.fields,field_description:fcd.field_product_template__caliber
+msgid "Caliber"
+msgstr "Calibre"
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_03
+msgid "Caract. Organolépticas apt"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_04
+msgid "Cobertura de hielo"
+msgstr ""
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation_code
+msgid "CodAlpha3"
+msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__code
@@ -155,9 +186,45 @@ msgid "Done inspections"
 msgstr "Inspecciones realizadas"
 
 #. module: fcd
+#: model:qc.test,name:fcd.fcd_qc_fish_entry
+msgid "Entrada de pescado"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_05
+msgid "Envases correctos"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_06
+msgid "Envases/bandejas íntegros"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_07
+msgid "Etiqueta"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_08
+msgid "Etiquetado correcto"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_09
+msgid "Evisceración correcta"
+msgstr ""
+
+#. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__expiration_date
 msgid "Expiration Date"
 msgstr "Fecha de caducidad"
+
+#. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_expiration_days
+#: model:ir.model.fields,field_description:fcd.field_product_template__fcd_expiration_days
+msgid "Expiration Days"
+msgstr "Caducidad"
 
 #. module: fcd
 #: model:ir.ui.menu,name:fcd.fcd_fao_subzone_menu_item
@@ -253,13 +320,15 @@ msgstr "Fallida"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__fao
+#: model:ir.model.fields,field_description:fcd.field_product_product__fao
+#: model:ir.model.fields,field_description:fcd.field_product_template__fao
 msgid "Fao"
 msgstr ""
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__fao_zone_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fao_zone
 msgid "Fao Zone"
-msgstr "Zona Fao"
+msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document_line__fcd_document_id
@@ -295,7 +364,7 @@ msgid "Fishing Capture Document - Vendor Lot"
 msgstr "Partida de pesca - Lote de proveedor"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear
 #: model:ir.model.fields,field_description:fcd.field_fcd_ship__fishing_gear_ids
 #: model:ir.ui.menu,name:fcd.fcd_fishing_gear_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
@@ -404,7 +473,6 @@ msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_license_plate
 #: model:ir.model.fields,field_description:fcd.field_fcd_ship__license_plate
 msgid "License Plate"
 msgstr "Matrícula"
@@ -442,6 +510,21 @@ msgstr "Lote/Número de serie"
 #: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_line_name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: fcd
+#: model:qc.test.question.value,name:fcd.fcd_question_01_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_02_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_03_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_04_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_05_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_06_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_07_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_08_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_09_value_02
+#: model:qc.test.question.value,name:fcd.fcd_question_10_value_2
+#: model:qc.test.question.value,name:fcd.fcd_question_11_value_02
+msgid "No"
+msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__notes
@@ -489,7 +572,7 @@ msgid "Official Commercial Name"
 msgstr "Nombre Comercial oficial"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__country_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_country
 msgid "Origin"
 msgstr "Origen"
 
@@ -514,8 +597,8 @@ msgid "Partner Lot"
 msgstr "Lote de proveedor"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation_id
-#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_presentation_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation
+#: model:ir.model.fields,field_description:fcd.field_product_product__fcd_presentation
 #: model:ir.ui.menu,name:fcd.fcd_presentation_menu_item
 msgid "Presentation"
 msgstr "Presentación"
@@ -532,40 +615,21 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method
 #: model:ir.ui.menu,name:fcd.fcd_production_method_menu_item
 msgid "Production Method"
 msgstr "Método de producción"
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_10
+msgid "Producto protegido/aislado"
+msgstr ""
 
 #. module: fcd
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
 #: model_terms:ir.ui.view,arch_db:fcd.stock_production_lot_qc_view_inherit_form
 msgid "Quality"
 msgstr "Calidad"
-
-#. module: fcd
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_created_inspections
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_created_inspections
-msgid "Quality Control Inpection Created"
-msgstr "Control de Calidad Inspección Creada"
-
-#. module: fcd
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_done_inspections
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_done_inspections
-msgid "Quality Control Inpection Done"
-msgstr "Control de Calidad Inspección Realizada"
-
-#. module: fcd
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_failed_inspections
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_failed_inspections
-msgid "Quality Control Inpection Failed"
-msgstr "Control de Calidad Inspección Fallida"
-
-#. module: fcd
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_passed_inspections
-#: model:ir.actions.act_window,name:fcd.fcd_document_qc_inspection_spl_passed_inspections
-msgid "Quality Control Inpection Passed"
-msgstr "Control de Calidad Inspección Correcta"
 
 #. module: fcd
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_document_qc_view_form
@@ -600,7 +664,7 @@ msgid "Second Name"
 msgstr "Segundo nombre"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship
 #: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__ship_ids
 #: model:ir.ui.menu,name:fcd.fcd_ship_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fishing_gear_view_form
@@ -608,12 +672,32 @@ msgid "Ship"
 msgstr "Buque"
 
 #. module: fcd
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_license_plate
+msgid "Ship License Plate"
+msgstr "Matricula"
+
+#. module: fcd
+#: model:qc.test.question.value,name:fcd.fcd_question_01_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_02_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_03_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_04_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_05_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_06_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_07_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_08_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_09_value_01
+#: model:qc.test.question.value,name:fcd.fcd_question_10_value_1
+#: model:qc.test.question.value,name:fcd.fcd_question_11_value_01
+msgid "Si"
+msgstr ""
+
+#. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__specific_lot
 msgid "Specific Lot"
 msgstr "Lote específico"
 
 #. module: fcd
-#: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone_id
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__subzone
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__subzone_ids
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
@@ -675,6 +759,11 @@ msgstr "Fecha de inicio de marea"
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__created_inspections
 #: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_created_inspections
 msgid "Total"
+msgstr ""
+
+#. module: fcd
+#: model:qc.test.question,name:fcd.fcd_question_11
+msgid "Tª Prox. Fusión hielo"
 msgstr ""
 
 #. module: fcd

@@ -9,7 +9,7 @@ class ProductProduct(models.Model):
 
     fcd_document_ids = fields.One2many('fcd.document','product_id')
     fcd_document_count = fields.Integer('fcd.document', compute='_compute_fcd_document_count')
-    fcd_presentation_id = fields.Many2one('fcd.presentation', string='Presentation')
+    fcd_presentation = fields.Char(string='Presentation')
 
     def _compute_fcd_document_count(self):
         for product in self:

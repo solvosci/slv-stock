@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "category": "Stock",
     "website": "",
     "depends": [
@@ -23,6 +23,7 @@
         'data/fcd_presentation.xml',
         'data/fcd_production_method.xml',
         'data/fcd_ship.xml',
+        'data/fcd_qc_inspections.xml',
         'data/res_country.xml',
         'security/fcd_security.xml',
         'security/ir.model.access.csv',
@@ -31,6 +32,8 @@
         'views/qc_inspection_views.xml',
         'views/fcd_document_views.xml',
         'views/fcd_document_line_views.xml',
+        'views/res_partner_views.xml',
+        'views/stock_production_lot_views.xml',
         'views/fcd_fao_zone_views.xml',
         'views/fcd_fao_subzone_views.xml',
         'views/fcd_fishing_gear_views.xml',
@@ -38,8 +41,6 @@
         'views/fcd_production_method_views.xml',
         'views/fcd_ship_views.xml',
         'views/fcd_menu.xml',
-        'views/res_partner_views.xml',
-        'views/stock_production_lot_views.xml'
     ],
     'installable': True,
 }

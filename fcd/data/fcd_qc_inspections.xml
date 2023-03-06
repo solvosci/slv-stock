@@ -1,0 +1,227 @@
+<odoo>
+    <data>
+
+        <!-- FCD Questions -->
+        <record id='fcd_question_01' model='qc.test.question'>
+            <field name='name'>Ausencia de parásitos</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_01_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_01')"/>
+        </record>
+
+        <record id='fcd_question_01_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_01')"/>
+        </record>
+
+        <record id='fcd_question_02' model='qc.test.question'>
+            <field name='name'>Ausencia de suciedad</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_02_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_02')"/>
+        </record>
+
+        <record id='fcd_question_02_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_02')"/>
+        </record>
+
+        <record id='fcd_question_03' model='qc.test.question'>
+            <field name='name'>Caract. Organolépticas apt</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_03_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_03')"/>
+        </record>
+
+        <record id='fcd_question_03_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_03')"/>
+        </record>
+
+        <record id='fcd_question_04' model='qc.test.question'>
+            <field name='name'>Cobertura de hielo</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_04_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_04')"/>
+        </record>
+
+        <record id='fcd_question_04_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_04')"/>
+        </record>
+
+        <record id='fcd_question_05' model='qc.test.question'>
+            <field name='name'>Envases correctos</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_05_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_05')"/>
+        </record>
+
+        <record id='fcd_question_05_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_05')"/>
+        </record>
+
+        <record id='fcd_question_06' model='qc.test.question'>
+            <field name='name'>Envases/bandejas íntegros</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_06_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_06')"/>
+        </record>
+
+        <record id='fcd_question_06_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_06')"/>
+        </record>
+
+        <record id='fcd_question_07' model='qc.test.question'>
+            <field name='name'>Etiqueta</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_07_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_07')"/>
+        </record>
+
+        <record id='fcd_question_07_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_07')"/>
+        </record>
+
+        <record id='fcd_question_08' model='qc.test.question'>
+            <field name='name'>Etiquetado correcto</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_08_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_08')"/>
+        </record>
+
+        <record id='fcd_question_08_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_08')"/>
+        </record>
+
+        <record id='fcd_question_09' model='qc.test.question'>
+            <field name='name'>Evisceración correcta</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_09_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_09')"/>
+        </record>
+
+        <record id='fcd_question_09_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_09')"/>
+        </record>
+
+        <record id='fcd_question_10' model='qc.test.question'>
+            <field name='name'>Producto protegido/aislado</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_10_value_1' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_10')"/>
+        </record>
+
+        <record id='fcd_question_10_value_2' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_10')"/>
+        </record>
+
+        <record id='fcd_question_11' model='qc.test.question'>
+            <field name='name'>Tª Prox. Fusión hielo</field>
+            <field name='sequence'>10</field>
+            <field name='type'>qualitative</field>
+        </record>
+
+        <record id='fcd_question_11_value_01' model='qc.test.question.value'>
+            <field name='name'>Si</field>
+            <field name='ok'>True</field>
+            <field name='test_line' eval="ref('fcd_question_11')"/>
+        </record>
+
+        <record id='fcd_question_11_value_02' model='qc.test.question.value'>
+            <field name='name'>No</field>
+            <field name='ok'>False</field>
+            <field name='test_line' eval="ref('fcd_question_11')"/>
+        </record>
+
+
+        <!-- QC Default Fish Test -->
+        <record id='fcd_qc_fish_entry' model='qc.test'>
+            <field name='name'>Entrada de pescado</field>
+            <field name='type'>generic</field>
+            <field name='active'>True</field>
+            <field name='fill_correct_values'>True</field>
+            <field name='test_lines' eval="[(6,0,[
+                ref('fcd_question_01'),
+                ref('fcd_question_02'),
+                ref('fcd_question_03'),
+                ref('fcd_question_04'),
+                ref('fcd_question_05'),
+                ref('fcd_question_06'),
+                ref('fcd_question_07'),
+                ref('fcd_question_08'),
+                ref('fcd_question_09'),
+                ref('fcd_question_10'),
+                ref('fcd_question_11')
+            ])]"
+            />
+        </record>
+
+    </data>
+</odoo>
