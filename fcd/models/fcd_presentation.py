@@ -4,7 +4,7 @@
 from odoo import models, fields
 
 
-class FcdFishingGear(models.Model):
+class Presentation(models.Model):
     _name = 'fcd.presentation'
     _description = 'fcd.presentation'
 

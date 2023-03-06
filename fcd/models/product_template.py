@@ -9,3 +9,5 @@ class ProductTemplate(models.Model):
 
     official_commercial_name = fields.Char()
     fao = fields.Char()
+    fcd_expiration_days = fields.Integer('Expiration Days')
+    caliber = fields.Char()

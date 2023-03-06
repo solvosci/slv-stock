@@ -9,6 +9,13 @@ class QcInspection(models.Model):
 
     fcd_document_id = fields.Many2one(comodel_name="fcd.document", compute="_compute_fcd_document_id", store=True)
 
+    @api.model
+    def create(self, vals):
+        record = super(QcInspection, self).create(vals)
+        if self.env.context.get('fcd'):
+            record.inspection_lines =  record._prepare_inspection_lines(record.test)
+        return record
+
     def object_selection_values(self):
         result = super().object_selection_values()
         result.extend(

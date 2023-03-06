@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="fcd_document_qc_inspection_spl_created_inspections" model="ir.actions.act_window">
-        <field name="name">Quality Control Inpection Created</field>
-        <field name="res_model">qc.inspection</field>
-        <field name="view_mode">tree,form</field>
-        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
-        <field name="domain">[('fcd_document_id', '=', active_id)]</field>
-    </record>
-
-    <record id="fcd_document_qc_inspection_spl_done_inspections" model="ir.actions.act_window">
-        <field name="name">Quality Control Inpection Done</field>
-        <field name="res_model">qc.inspection</field>
-        <field name="view_mode">tree,form</field>
-        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
-        <field name="domain">[('fcd_document_id', '=', active_id),('state', 'not in', ['draft', 'waiting'])]</field>
-    </record>
-
-    <record id="fcd_document_qc_inspection_spl_passed_inspections" model="ir.actions.act_window">
-        <field name="name">Quality Control Inpection Passed</field>
-        <field name="res_model">qc.inspection</field>
-        <field name="view_mode">tree,form</field>
-        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
-        <field name="domain">[('fcd_document_id', '=', active_id),('state', '=', 'success')]</field>
-    </record>
-
-    <record id="fcd_document_qc_inspection_spl_failed_inspections" model="ir.actions.act_window">
-        <field name="name">Quality Control Inpection Failed</field>
-        <field name="res_model">qc.inspection</field>
-        <field name="view_mode">tree,form</field>
-        <field name="binding_model_id" ref="quality_control_oca.model_qc_inspection"/>
-        <field name="domain">[('fcd_document_id', '=', active_id),('state', '=', 'failed')]</field>
-    </record>
-
     <record id="stock_production_lot_view_inherit_form" model="ir.ui.view">
         <field name="name">stock.production.lot.form (FCD)</field>
         <field name="model">stock.production.lot</field>
@@ -74,7 +42,7 @@
             <xpath expr="//page[@name='description']" position="after">
                 <page string="Quality">
                     <div class="oe_button_box pt-2 mr-1 ml-1" name="button_box" modifiers="{}"> 
-                        <button class="oe_stat_button" name="%(fcd_document_qc_inspection_spl_created_inspections)d" type="action" icon="fa-list"  help="Inspection" >
+                        <button class="oe_stat_button" name="action_calculate_inspection_context" type="object" icon="fa-list"  help="Inspection" >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="fcd_document_created_inspections" widget="statinfo" nolabel="1" class="mr4" />
@@ -82,7 +50,7 @@
                                 <span class="o_stat_text">Inspection Total</span>
                             </div>
                         </button>
-                        <button class="oe_stat_button" name="%(fcd_document_qc_inspection_spl_done_inspections)d" type="action" icon="fa-pencil"  help="Inspection" >
+                        <button class="oe_stat_button" name="action_calculate_inspection_done_context" type="object" icon="fa-pencil"  help="Inspection" >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="fcd_document_done_inspections" widget="statinfo" nolabel="1" class="mr4" />
@@ -90,7 +58,7 @@
                                 <span class="o_stat_text">Inspection Done</span>
                             </div>
                         </button>
-                        <button class="oe_stat_button" name="%(fcd_document_qc_inspection_spl_passed_inspections)d" type="action" icon="fa-thumbs-o-up"  help="Inspection" >
+                        <button class="oe_stat_button" name="action_calculate_inspection_passed_context" type="object" icon="fa-thumbs-o-up"  help="Inspection" >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="fcd_document_passed_inspections" widget="statinfo" nolabel="1" class="mr4" />
@@ -98,7 +66,7 @@
                                 <span class="o_stat_text">Inspection OK</span>
                             </div>
                         </button>
-                        <button class="oe_stat_button" name="%(fcd_document_qc_inspection_spl_failed_inspections)d" type="action" icon="fa-thumbs-o-down"  help="Inspection">
+                        <button class="oe_stat_button" name="action_calculate_inspection_failed_context" type="object" icon="fa-thumbs-o-down"  help="Inspection">
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
                                     <field name="fcd_document_failed_inspections" widget="statinfo" nolabel="1" class="mr4" />

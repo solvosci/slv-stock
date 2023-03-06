@@ -37,7 +37,10 @@
         <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="after">
-                <field name="fcd_presentation_id"/>
+                <field name="official_commercial_name" />
+                <field name="fao" />
+                <field name="fcd_expiration_days" />
+                <field name="caliber" />
             </xpath>
         </field>
     </record>
