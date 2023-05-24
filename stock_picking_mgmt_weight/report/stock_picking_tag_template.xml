@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="w-25">Date:</div>
-                                    <div class="w-75"><span t-esc="move.picking_id.get_datetime_now()" t-options="{'widget': 'datetime'}"/></div>
+                                    <div class="w-75"><span t-field="move.date_net_weight" t-options="{'widget': 'datetime'}"/></div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="w-25">License Plate:</div>
