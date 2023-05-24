@@ -37,6 +37,13 @@ class StockMoveBackend(models.Model):
         store=True,
         readonly=True,
     )
+    date_net_weight = fields.Datetime(
+        compute="_compute_date_net_weight",
+        string="Net weight date",
+        help="""
+        Shows date for last registered weight (gross or tare)
+        """,
+    )
 
     weight_selected = fields.Float(
         digits='Product Unit of Measure')
@@ -54,6 +61,16 @@ class StockMoveBackend(models.Model):
                 )
             else:
                 record.net_weight = 0.0
+
+    def _compute_date_net_weight(self):
+        for move in self:
+            move.date_net_weight = (
+                move.date_gross_weight if move.exclude_tare
+                else (
+                    max(move.date_gross_weight, move.date_tare) if move.date_gross_weight and move.date_tare
+                    else move.date_tare or move.date_gross_weight
+                )
+            )
 
     @api.onchange('exclude_tare')
     def _onchange_exclude_tare(self):
@@ -158,7 +175,13 @@ class StockMovFrontend(models.Model):
     @api.model
     def create(self, values):
         if self.env.context.get("weight_mgmt", False):
-            # TODO first create picking with the suitable picking type
+            # Ensure that other year's ticket name is properly obtained
+            # It also needs "use_date_range" configuration for the ticket sequence
+            ir_sequence_date = (
+                values.get("date_gross_weight", False)
+                or
+                values.get("date_tare", False)
+            )
             new_picking = self.env["stock.picking"].new({
                 "partner_id": values["picking_partner_id"],
                 "vehicle_id": values.get("picking_vehicle_id", False),
@@ -166,7 +189,9 @@ class StockMovFrontend(models.Model):
                 "towing_license_plate": values["picking_towing_license_plate"]
             })
             new_picking.onchange_picking_type()
-            picking = self.env["stock.picking"].create(
+            picking = self.env["stock.picking"].with_context(
+                ir_sequence_date=ir_sequence_date
+            ).create(
                 new_picking._convert_to_write(new_picking._cache)
             )
             values.update({
