@@ -249,9 +249,9 @@ class PurchaseOrderLine(models.Model):
         # TODO this computation doesn't look for related lines
         #      and their invoice dates
         for record in self:
-            moves = record.invoice_lines.mapped("move_id")
             record.invoice_lines_invoice_first_date = (
-                moves and moves.sorted("invoice_date")[0].invoice_date
+                record.invoice_lines
+                and record.invoice_lines.sorted("date")[0].date
                 or False
             )
 
