@@ -11,3 +11,4 @@ class ProductTemplate(models.Model):
     fao = fields.Char()
     fcd_expiration_days = fields.Integer('Expiration Days')
     caliber = fields.Char()
+    presentation_id = fields.Many2one('fcd.presentation')

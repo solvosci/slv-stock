@@ -41,6 +41,7 @@
                 <field name="fao" />
                 <field name="fcd_expiration_days" />
                 <field name="caliber" />
+                <field name="presentation_id" />
             </xpath>
         </field>
     </record>
