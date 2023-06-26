@@ -31,6 +31,17 @@ msgstr ""
 "        "
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_internal_notes
+msgid ""
+"\n"
+"        Obtains concatenated related purchases notes\n"
+"        "
+msgstr ""
+"\n"
+"        Obtiene una lista con las notas internas de los pedidos relacionados\n"
+"        "
+
+#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__picking_state
 msgid ""
 " * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
@@ -1185,6 +1196,11 @@ msgstr "Producto:"
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order__propagate_custom_date
 msgid "Propagate Custom Date"
 msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_internal_notes
+msgid "Purchase Internal Notes"
+msgstr "Observaciones internas en pedidos"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order

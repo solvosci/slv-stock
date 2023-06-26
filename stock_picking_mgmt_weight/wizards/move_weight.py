@@ -57,6 +57,14 @@ class MoveWeight(models.TransientModel):
         string='Notes',
         related="picking_id.note")
     internal_note = fields.Text(string='Internal Notes')
+    purchase_internal_notes = fields.Html(
+        compute="_compute_purchase_internal_notes",
+        store=True,
+        readonly=True,
+        help="""
+        Obtains concatenated related purchases notes
+        """,
+    )
 
     check_move_line_ids = fields.Boolean()
     purchase_order_id = fields.Many2one("purchase.order")
@@ -78,6 +86,17 @@ class MoveWeight(models.TransientModel):
             self.check_move_line_ids = True
         else:
             self.check_move_line_ids = False
+
+    @api.depends("move_line_weight_ids.order_line_id")
+    def _compute_purchase_internal_notes(self):
+        for wizard in self:
+            notes = wizard.move_line_weight_ids.order_line_id.order_id.filtered(
+                lambda x: x.internal_note
+            ).mapped("internal_note")
+            wizard.purchase_internal_notes = (
+                notes and "<p/>".join(notes)
+                or False
+            )
 
     def move_weight_autofill_difference(self):
         self.ensure_one()
