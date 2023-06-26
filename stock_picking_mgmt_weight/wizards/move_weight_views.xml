@@ -41,6 +41,19 @@
                                 <field name="net_weight" readonly="1" colspan="2" nolabel="1"/>
                             </group>
                         </group>
+                        <group
+                            class="m-0"
+                            colspan="2"
+                            attrs="{'invisible': [('purchase_internal_notes','=',False)]}"
+                        >
+                            <label for="purchase_internal_notes"/>
+                            <field
+                                name="purchase_internal_notes"
+                                nolabel="1"
+                                decoration-danger="True"
+                                decoration-bf="True"
+                            />
+                        </group>
                         <group class="m-0" colspan="2">
                             <group style="border-right: none;">
                                 <label for="move_line_weight_ids"/>
