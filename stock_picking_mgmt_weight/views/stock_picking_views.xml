@@ -9,6 +9,7 @@
             <xpath expr="//group/field[@name='backorder_id']" position="after">
                 <field name="type_scale" invisible="1"/>
                 <field name="type_code" invisible="1"/>
+                <field name="outgoing_info_enabled" invisible="1"/>            
                 <field name="vehicle_id" attrs="{'invisible': [('type_scale', '=', False)]}"/>
                 <field name="towing_license_plate" attrs="{'invisible': [('type_scale', '=', False)]}"/>
             </xpath>
@@ -44,7 +45,7 @@
                 <page
                     string="Outgoing Info"
                     name="outgoing_info"
-                    attrs="{'invisible': [('type_code','!=','outgoing')]}"
+                    attrs="{'invisible': [('outgoing_info_enabled','=',False)]}"
                 >
                     <group name="outgoing_info_gr_main">
                         <group name="outgoing_info_gr_1" string="Container">
