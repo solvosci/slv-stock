@@ -58,6 +58,14 @@ class StockPicking(models.Model):
         domain="[('is_company', '=', False)]",
         ondelete="restrict",
     )
+    outgoing_info_enabled = fields.Boolean(
+        compute="_compute_outgoing_info_enabled",
+        help="""
+        Technical field that is used in 'Outgoing Info' management
+        (that block is only shown for outgoing operations, or internal
+        between warehouses)
+        """,
+    )
 
     picking_classification_ids = fields.One2many(
         comodel_name='stock.picking.classification',
@@ -105,6 +113,16 @@ class StockPicking(models.Model):
             picking.container_gross_weight = gross_weight
             picking.container_vgm_weight = (
                 gross_weight + picking.container_tare
+            )
+
+    def _compute_outgoing_info_enabled(self):
+        for picking in self:
+            picking.outgoing_info_enabled = (
+                picking.type_code == "outgoing"
+                or (
+                    picking.type_code == "internal"
+                    and picking.location_id.get_warehouse() != picking.location_dest_id.get_warehouse()
+                )
             )
 
     def move_weight(self):
