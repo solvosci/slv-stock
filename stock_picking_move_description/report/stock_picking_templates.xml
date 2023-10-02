@@ -32,8 +32,25 @@
         >
             <th name="th_sm_description"><strong>Description</strong></th>
         </xpath>
-
     </template>
+
+    <template
+        id="stock_report_delivery_has_serial_move_line_description"
+        inherit_id="stock.stock_report_delivery_has_serial_move_line"
+    >
+        <xpath
+            expr="//span[@t-field='move_line.product_id']/parent::td"
+            position="after"
+        >
+            <td>
+                <span t-field="move_line.move_id.description_picking"/>
+            </td>
+        </xpath>
+        <xpath expr="//span[@t-esc='description']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>        
+    </template>
+
 
     <template
         id="stock_report_delivery_aggregated_move_lines"
