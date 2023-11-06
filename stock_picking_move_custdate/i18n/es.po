@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_move_custdate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-06 12:17+0000\n"
+"PO-Revision-Date: 2023-11-06 12:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_move_custdate
+#: model:ir.model.fields,help:stock_picking_move_custdate.field_stock_picking__effective_planned_date
+msgid ""
+"\n"
+"        When filled, moves for this picking will be saved\n"
+"        with this date.\n"
+"        Leave blank if default behavior is required.\n"
+"        "
+msgstr ""
+"\n"
+"        Cuando está cubierta, los movimientos para este albarán\n"
+"        se guardarán con esta fecha.\n"
+"        Dejarla sin cubrir si se quiere el comportamiento por defecto.\n"
+"        "
+
+#. module: stock_picking_move_custdate
+#: model_terms:ir.ui.view,arch_db:stock_picking_move_custdate.view_picking_internal_search
+msgid "Effective Planned Date set"
+msgstr "Asignada fecha efectiva planificada"
+
+#. module: stock_picking_move_custdate
+#: model:ir.model.fields,field_description:stock_picking_move_custdate.field_stock_picking__effective_planned_date
+msgid "Effective planned date"
+msgstr "Fecha efectiva planificada"
+
+#. module: stock_picking_move_custdate
+#: model:ir.model,name:stock_picking_move_custdate.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"

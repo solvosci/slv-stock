@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_picking_move_custdate)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <field name="date_done" position="before">
+                <field name="effective_planned_date" />
+            </field>
+        </field>
+    </record>
+
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">stock.picking.tree (in stock_picking_move_custdate)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <field name="date_done" position="before">
+                <field name="effective_planned_date" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_picking_internal_search" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search (in stock_picking_move_custdate)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search" />
+        <field name="arch" type="xml">
+            <filter name="backorder" position="after">
+                <separator/>
+                <filter
+                    name="effective_planned_date_on"
+                    string="Effective Planned Date set"
+                    domain="[('effective_planned_date', '!=', False)]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
