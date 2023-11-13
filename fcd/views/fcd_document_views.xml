@@ -34,7 +34,18 @@
                             </group>
                         </page>
                         <page string="Fishing">
-                            <group>
+                            <group string="Editable Fields">
+                                <group>
+                                    <field name="ship_id" />
+                                    <field name="presentation_id" />
+                                    <field name="fishing_gear_id" />
+                                </group>
+                                <group>
+                                    <field name="production_method_id" />
+                                    <field name="subzone_id" />
+                                </group>
+                            </group>
+                            <group string="Data">
                                 <group>
                                     <field name="product_id" />
                                     <field name="ship" />
@@ -55,7 +66,7 @@
                                     <field name="tide_end_date" />
                                 </group>
                                 <group>
-                                    <field name="fao_zone"/>
+                                    <field name="fao_zone" />
                                     <field name="subzone" invisible="1"/>
                                 </group>
                             </group>

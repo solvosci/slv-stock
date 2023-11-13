@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 06:47+0000\n"
-"PO-Revision-Date: 2023-06-16 06:47+0000\n"
+"POT-Creation-Date: 2023-11-13 10:17+0000\n"
+"PO-Revision-Date: 2023-11-13 10:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -145,6 +145,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Data"
+msgstr ""
+
+#. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__description
 msgid "Description"
 msgstr ""
@@ -181,6 +186,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__done_inspections
 #: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_done_inspections
 msgid "Done inspections"
+msgstr ""
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Editable Fields"
 msgstr ""
 
 #. module: fcd
@@ -363,6 +373,7 @@ msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_ship__fishing_gear_ids
 #: model:ir.ui.menu,name:fcd.fcd_fishing_gear_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
@@ -596,8 +607,9 @@ msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation
-#: model:ir.model.fields,field_description:fcd.field_product_product__presentation
-#: model:ir.model.fields,field_description:fcd.field_product_template__presentation
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation_id
+#: model:ir.model.fields,field_description:fcd.field_product_product__presentation_id
+#: model:ir.model.fields,field_description:fcd.field_product_template__presentation_id
 #: model:ir.ui.menu,name:fcd.fcd_presentation_menu_item
 msgid "Presentation"
 msgstr ""
@@ -615,6 +627,7 @@ msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method_id
 #: model:ir.ui.menu,name:fcd.fcd_production_method_menu_item
 msgid "Production Method"
 msgstr ""
@@ -664,6 +677,7 @@ msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__ship
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__ship_ids
 #: model:ir.ui.menu,name:fcd.fcd_ship_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fishing_gear_view_form
@@ -697,6 +711,7 @@ msgstr ""
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__subzone
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__subzone_ids
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
