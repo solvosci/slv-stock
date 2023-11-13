@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-16 06:48+0000\n"
-"PO-Revision-Date: 2023-06-16 06:48+0000\n"
+"POT-Creation-Date: 2023-11-13 10:18+0000\n"
+"PO-Revision-Date: 2023-11-13 11:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. module: fcd
 #: model_terms:ir.ui.view,arch_db:fcd.product_product_view_inherit_form
@@ -145,6 +147,11 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Data"
+msgstr "Datos"
+
+#. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__description
 msgid "Description"
 msgstr "Descripción"
@@ -182,6 +189,11 @@ msgstr "Nombre de la división"
 #: model:ir.model.fields,field_description:fcd.field_stock_production_lot__fcd_document_done_inspections
 msgid "Done inspections"
 msgstr "Inspecciones realizadas"
+
+#. module: fcd
+#: model_terms:ir.ui.view,arch_db:fcd.fcd_document_view_form
+msgid "Editable Fields"
+msgstr "Campos editables"
 
 #. module: fcd
 #: model:qc.test,name:fcd.fcd_qc_fish_entry
@@ -363,6 +375,7 @@ msgstr "Partida de pesca - Lote de proveedor"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__fishing_gear_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_ship__fishing_gear_ids
 #: model:ir.ui.menu,name:fcd.fcd_fishing_gear_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_ship_view_search
@@ -596,8 +609,9 @@ msgstr "Lote de proveedor"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation
-#: model:ir.model.fields,field_description:fcd.field_product_product__presentation
-#: model:ir.model.fields,field_description:fcd.field_product_template__presentation
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__presentation_id
+#: model:ir.model.fields,field_description:fcd.field_product_product__presentation_id
+#: model:ir.model.fields,field_description:fcd.field_product_template__presentation_id
 #: model:ir.ui.menu,name:fcd.fcd_presentation_menu_item
 msgid "Presentation"
 msgstr "Presentación"
@@ -615,6 +629,7 @@ msgstr "Plantilla de producto"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__production_method_id
 #: model:ir.ui.menu,name:fcd.fcd_production_method_menu_item
 msgid "Production Method"
 msgstr "Método de producción"
@@ -664,6 +679,7 @@ msgstr "Segundo nombre"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__ship
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__ship_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_fishing_gear__ship_ids
 #: model:ir.ui.menu,name:fcd.fcd_ship_menu_item
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fishing_gear_view_form
@@ -697,6 +713,7 @@ msgstr "Lote específico"
 
 #. module: fcd
 #: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone
+#: model:ir.model.fields,field_description:fcd.field_fcd_document__subzone_id
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_subzone__subzone
 #: model:ir.model.fields,field_description:fcd.field_fcd_fao_zone__subzone_ids
 #: model_terms:ir.ui.view,arch_db:fcd.fcd_fao_zone_view_form
