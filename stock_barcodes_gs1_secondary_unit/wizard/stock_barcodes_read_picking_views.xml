@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_stock_barcodes_read_picking_form" model="ir.ui.view">
+        <field name="name">stock.barcodes.read.picking.form</field>
+        <field name="model">wiz.stock.barcodes.read.picking</field>
+        <field name="inherit_id" ref="stock_barcodes.view_stock_barcodes_read_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='option_qty']" position="after">
+                <group>
+                    <div class="mt4">
+                        <strong class="d-none d-sm-block">Boxes</strong>
+                        <span
+                            class="fa fa-hashtag d-sm-none oe_span_small_icon"
+                            title="Boxes"
+                        />
+                        <field
+                            name="secondary_unit_qty"
+                            attrs="{'readonly': [('manual_entry', '=', False)]}"
+                            force_save="1"
+                            style="width:85%"
+                            class="h5"
+                        />
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
