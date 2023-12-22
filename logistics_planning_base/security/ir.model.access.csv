@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_logistics_schedule_user,logistics.schedule user,model_logistics_schedule,group_lp_user,1,1,0,0
+access_stock_move_user,stock.move user,model_stock_move,group_lp_user,1,0,0,0
+access_stock_picking_user,stock.picking user,model_stock_picking,group_lp_user,1,0,0,0
+access_logistics_schedule_manager,logistics.schedule manager,model_logistics_schedule,group_lp_manager,1,1,1,1
