@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="ir.module.category" id="module_lp_category">
+            <field name="name">Logistics Planning</field>
+        </record>
+
+        <record id="group_lp_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_lp_category"/>
+            <field 
+                name="implied_ids"
+                eval="[(4, ref('base.group_user'))]"
+            />
+        </record>
+        <record id="group_lp_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_lp_category"/>
+            <field 
+                name="implied_ids"
+                eval="[(4, ref('logistics_planning_base.group_lp_user'))]"
+            />
+            <field
+                name="users"
+                eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+            />
+        </record>
+        <record model="ir.rule" id="logistics_planning_rule">
+            <field name="name">Logistics Planning multi-company</field>
+            <field name="model_id" search="[('model','=','logistics.schedule')]" model="ir.model"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('company_id','in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>
