@@ -9,12 +9,6 @@ class WizStockBarcodesReadPicking(models.TransientModel):
 
     secondary_unit_qty = fields.Integer(default=1)
 
-    @api.onchange('secondary_unit_qty')
-    def _onchange_secondary_unit_qty(self):
-        if self.barcode:
-            product_qty = self.env["gs1_barcode"].decode(self.barcode).get("37", 0.0)
-            self.product_qty = product_qty * self.secondary_unit_qty
-
     def update_fields_after_process_stock(self, moves):
         move_line_id = moves.move_line_ids.filtered(lambda x: x.lot_id == self.lot_id)[0]
         if self.product_qty == move_line_id.qty_done:
@@ -26,3 +20,8 @@ class WizStockBarcodesReadPicking(models.TransientModel):
 
         self.secondary_unit_qty = 1
         super(WizStockBarcodesReadPicking, self).update_fields_after_process_stock(moves)
+
+    def _process_stock_move_line(self):
+        if self.secondary_unit_qty:
+            self.product_qty = self.product_qty * self.secondary_unit_qty
+        super(WizStockBarcodesReadPicking, self)._process_stock_move_line()

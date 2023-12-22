@@ -10,7 +10,7 @@
                     <div class="mt4">
                         <strong class="d-none d-sm-block">Boxes</strong>
                         <span
-                            class="fa fa-hashtag d-sm-none oe_span_small_icon"
+                            class="fa fa-dropbox d-sm-none oe_span_small_icon"
                             title="Boxes"
                         />
                         <field
