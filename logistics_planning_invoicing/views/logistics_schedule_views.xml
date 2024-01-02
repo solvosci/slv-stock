@@ -38,13 +38,7 @@
             <xpath expr="//field[@name='license_plate_2']" position="after">
                 <field
                     name="is_finished"
-                    attrs="{'invisible': [
-                        '|',
-                        ('state', '!=', 'ready'),
-                        '|',
-                        ('is_invoiceable', '=', True),
-                        ('account_move_line_id', '!=', False),
-                    ]}"
+                    attrs="{'invisible': [('is_finished', '=', False)]}"
                     widget="boolean_toggle"
                 />
             </xpath>
@@ -60,11 +54,11 @@
             <xpath expr="//field[@name='note']" position="after">
                 <field name="account_move_id" />
                 <field name="is_invoiceable" invisible="1"/>
-                <!-- field
+                <field
                     name="is_finished"
-                    attrs="{'readonly': ['|', ('state', '!=', 'ready'), ('is_invoiceable', '=', True)]}"
-                    widget="boolean_toggle"
-                / -->
+                    optional="hide"
+                    groups="base.group_no_one"
+                />
             </xpath>
         </field>
     </record>

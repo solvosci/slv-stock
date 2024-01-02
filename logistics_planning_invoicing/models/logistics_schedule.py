@@ -15,9 +15,27 @@ class LogisticsSchedule(models.Model):
     is_finished = fields.Boolean()
 
     def write(self, values):
-        if "is_finished" in values and values['is_finished']:
-            self.state = 'done'
-        return super().write(values)
+        """
+        When is_finished mark is changed,
+        - when is marked (because a stock move is selected and this LS is
+          automatically marked as finished) => state must be marked as Done
+        - when umarked (manually from Done state) => state have to be moved to ready
+          TODO prevent passing for cancel state?
+        """
+        ret = super().write(values)
+        if (
+            "is_finished" in values
+            and not self.env.context.get("skip_is_finished", False)
+        ):            
+            if values["is_finished"]:
+                self._action_done(skip_can_set_to_done=True)
+            else:
+                to_ready = self.filtered(
+                    lambda x: x.state == "done"
+                ).with_context(skip_is_finished=True)
+                to_ready.with_context(skip_is_finished=True)._action_cancel()
+                to_ready._action_ready()
+        return ret
 
     @api.depends('account_move_line_id', 'state')
     def _compute_is_invoiceable(self):
@@ -44,6 +62,10 @@ class LogisticsSchedule(models.Model):
                 "There are %d schedule(s) already invoiced,"
                 " please first unselect them"
             ) % len(not_cancellable))
+        if not self.env.context.get("skip_is_finished", False):
+            to_cancel.filtered(lambda x: x.is_finished).write({
+                "is_finished": False
+            })
         return to_cancel
 
     # def is_invoiceable(self):
