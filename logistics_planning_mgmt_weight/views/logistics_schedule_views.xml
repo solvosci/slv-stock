@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="logistics_schedule_view_search" model="ir.ui.view">
+        <field name="name">logistics.schedule.search (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="supply_condition_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_product_id']" position="after">
+                <filter
+                    string="Supply Condition"
+                    name="supply_condition_id"
+                    context="{'group_by': 'supply_condition_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="logistics_schedule_view_form_common" model="ir.ui.view">
+        <field name="name">logistics.schedule.form common (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <field name="supply_condition_id" />
+            </xpath>
+        </field>
+    </record>
+    <record id="logistics_schedule_view_form_purchase" model="ir.ui.view">
+        <field name="name">logistics.schedule.form purchase (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_purchase.logistics_schedule_view_form"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="attributes">
+                <attribute
+                    name="domain"
+                    operation="domain_add"
+                    condition=""
+                    join_operator="OR"
+                >[
+                    ('state', '=', 'done'),
+                    ('logistics_schedule_id', '=', False),
+                    ('logistics_schedule_disabled', '=', False),
+                    ('purchase_line_id.related_real_order_line_id', '!=', False),
+                    ('purchase_line_id.related_real_order_line_id', '=', purchase_order_line_id),
+                ]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- record id="logistics_schedule_view_form_purchase" model="ir.ui.view">
+        <field name="name">logistics.schedule.form purchase (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_purchase.logistics_schedule_view_form"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="attributes">
+                <attribute
+                    name="domain"
+                    operation="domain_add"
+                    condition=""
+                    join_operator="OR"
+                >[
+                    ('state', '=', 'done'),
+                    ('purchase_line_id.related_real_order_line_id', '=', purchase_order_line_id),
+                ]</attribute>
+            </field>
+        </field>
+    </record -->
+
+    <record id="logistics_schedule_view_tree_common" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <field name="supply_condition_id" />
+            </xpath>
+        </field>
+    </record>
+    <record id="logistics_schedule_view_tree_purchase" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree purchase (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_purchase.logistics_schedule_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="attributes">
+                <attribute
+                    name="domain"
+                    operation="domain_add"
+                    condition=""
+                    join_operator="OR"
+                >[
+                    ('state', '=', 'done'),
+                    ('logistics_schedule_id', '=', False),
+                    ('logistics_schedule_disabled', '=', False),
+                    ('purchase_line_id.related_real_order_line_id', '!=', False),
+                    ('purchase_line_id.related_real_order_line_id', '=', purchase_order_line_id),
+                ]</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

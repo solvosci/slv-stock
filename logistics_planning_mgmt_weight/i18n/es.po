@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* logistics_planning_mgmt_weight
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-06 18:06+0000\n"
+"PO-Revision-Date: 2024-02-06 18:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ground
+msgid "Ground"
+msgstr "Terrestre"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ocean-going
+msgid "Ocean-Going"
+msgstr "Marítimo"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_logistics_schedule__supply_condition_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_view_search
+msgid "Supply Condition"
+msgstr "Cond. suministro"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_vehicle_type__ls_sale_transport_type
+msgid "Transport Type"
+msgstr "Tipo de transporte"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_vehicle_type
+msgid "Vehicle Type"
+msgstr "Tipo de vehículo"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_logistics_schedule
+msgid "logistics.schedule"
+msgstr "Planificación logística"
