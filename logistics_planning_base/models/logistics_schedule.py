@@ -146,10 +146,9 @@ class LogisticsSchedule(models.Model):
             "logistics_planning_base.action_logistics_schedule_%s_form"
             % self.env.context["default_type"]
         )
-
-        action.res_id = self.id
-        return action.read()[0]
-        # return action
+        result = action.read()[0]
+        result["res_id"] = self.id
+        return result
 
     def action_logistics_schedule_ready(self):
         self.browse(self.env.context.get("active_ids", []))._action_ready()
