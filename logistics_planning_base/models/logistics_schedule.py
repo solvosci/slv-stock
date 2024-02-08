@@ -91,6 +91,7 @@ class LogisticsSchedule(models.Model):
     )
     scheduled_load_date = fields.Date(states=READONLY3_STATES)
     commitment_date = fields.Datetime(states=READONLY2_STATES)
+    commitment_date_hour = fields.Float(states=READONLY2_STATES)
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
@@ -138,6 +139,18 @@ class LogisticsSchedule(models.Model):
     def _compute_product_uom_qty(self):
         for record in self.filtered(lambda x: x.stock_move_id):
             record.product_uom_qty = record.stock_move_id.product_uom_qty
+
+    @api.constrains("commitment_date_hour")
+    def _check_commitment_date_hour(self):
+        invalid_hours = self.filtered(
+            lambda x: not (0 < x.commitment_date_hour < 24)
+        )
+        if invalid_hours:
+            raise ValidationError(_(
+                "Commitment hour invalid. Accepted values between 00:00"
+                " and 23:59"
+            ))
+
 
     def action_logistics_schedule_form_view(self):
         # action = self.env.ref('logistics_planning_base.action_logistics_schedule_form')

@@ -64,6 +64,10 @@
                 <field name="product_uom_qty" />
                 <field name="scheduled_load_date" />
                 <field name="commitment_date" />
+                <field
+                    name="commitment_date_hour"
+                    widget="float_time"
+                />
                 <field name="currency_id" invisible="1"/>
                 <field name="logistics_price_unit_type" />
                 <field name="logistics_price_unit" widget="monetary" />
@@ -121,6 +125,9 @@
                     condition=""
                     join_operator="AND"
                 >[('picking_code', '=', 'outgoing')]</attribute>
+            </field>
+            <field name="commitment_date_hour" position="attributes">
+                <attribute name="invisible">1</attribute>
             </field>
         </field>
     </record>

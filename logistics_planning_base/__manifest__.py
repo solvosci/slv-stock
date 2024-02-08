@@ -21,5 +21,6 @@
         'views/res_config_settings_views.xml'
     ],
     'installable': True,
+    "application": True,
     'post_init_hook': 'post_init_hook',
 }
