@@ -74,7 +74,7 @@ class SaleOrderLine(models.Model):
         Wizard = self.env["logistics.schedule.sale.add.wizard"]
         new = Wizard.create({
             "sale_line_id": self.id,
-            "ls_count": len(self.logistics_schedule_ids),
+            "ls_count": len(self.sudo().logistics_schedule_ids),
             "logistics_price_unit_type": self.logistics_price_unit_type,
             "currency_id": self.currency_id.id,
         })

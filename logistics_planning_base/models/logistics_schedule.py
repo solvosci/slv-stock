@@ -4,6 +4,8 @@
 from odoo import _, api, models, fields
 from odoo.exceptions import ValidationError
 
+import re
+
 TRANSPORT_TYPE = [
     ('ground', 'Ground'),
     ('ocean-going', 'Ocean-Going'),
@@ -12,6 +14,7 @@ PRICE_UNIT_TYPES = [
     ("trip", "Trip"),
     ("unit", "Unit"),
 ]
+LICENSE_PLATE_RE = "^\w+$"
 
 
 class LogisticsSchedule(models.Model):
@@ -173,6 +176,22 @@ class LogisticsSchedule(models.Model):
                 " and 23:59"
             ))
 
+    @api.onchange("license_plate_1")
+    def _check_license_plate_1(self):
+        self._check_license_plate_valid("license_plate_1")
+
+    @api.onchange("license_plate_2")
+    def _check_license_plate_2(self):
+        self._check_license_plate_valid("license_plate_2")
+
+    def _check_license_plate_valid(self, license_plate_field):
+        license_plate = self[license_plate_field]
+        if license_plate and not re.match(LICENSE_PLATE_RE, license_plate):
+            self[license_plate_field] = False
+            raise ValidationError(
+                _("Wrong license plate: [%s] (only alphanumeric characters are valid)")
+                % license_plate
+            )
 
     def action_logistics_schedule_form_view(self):
         # action = self.env.ref('logistics_planning_base.action_logistics_schedule_form')
