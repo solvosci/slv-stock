@@ -54,11 +54,12 @@ class SaleOrderLine(models.Model):
             "type": "output",
             "origin": self.order_id.name,
             "company_id": self.company_id.id,
+            "destination_partner_id": self.order_id.warehouse_id.id,
             "partner_id": self.order_partner_id.id,
             "product_id": self.product_id.id,
             "product_uom": self.product_uom.id,
             # Addon sale_order_line_date
-            "commitment_date": (
+            "scheduled_load_date": (
                 "commitment_date" in self and self["commitment_date"]
                 or False
             ),

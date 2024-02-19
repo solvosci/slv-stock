@@ -17,12 +17,10 @@ class SaleOrder(models.Model):
     logistics_account_move_ids = fields.Many2many(
         comodel_name="account.move",
         compute="_compute_logistics_account_moves",
-        compute_sudo=True,
         string="Logistics Bills",
     )
     logistics_account_move_count = fields.Integer(
         compute="_compute_logistics_account_moves",
-        compute_sudo=True,
         string="Logistics Bill Count",
     )
 
