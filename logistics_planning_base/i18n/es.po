@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 18:03+0000\n"
-"PO-Revision-Date: 2024-02-06 18:03+0000\n"
+"POT-Creation-Date: 2024-02-19 16:40+0000\n"
+"PO-Revision-Date: 2024-02-19 16:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,18 @@ msgstr "Transportista"
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date
 msgid "Commitment Date"
-msgstr "Fecha de entrega"
+msgstr "Fecha carga"
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date_hour
+msgid "Commitment Date Hour"
+msgstr "Hora carga"
+
+#. module: logistics_planning_base
+#: code:addons/logistics_planning_base/models/logistics_schedule.py:0
+#, python-format
+msgid "Commitment hour invalid. Accepted values between 00:00 and 23:59"
+msgstr "Hora carga inválida. Valores aceptados entre 00:00 y 23:59"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__company_id
@@ -121,6 +132,12 @@ msgstr "Borrador"
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
 msgid "Edit"
 msgstr "Editar"
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__effective_carrier_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
+msgid "Effective Carrier"
+msgstr "Transportista efectivo"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields.selection,name:logistics_planning_base.selection__logistics_schedule__transport_type__ground
