@@ -89,7 +89,7 @@ class LogisticsSchedule(models.Model):
         readonly=False,
         states=READONLY3_STATES,
     )
-    scheduled_load_date = fields.Date(states=READONLY3_STATES)
+    scheduled_load_date = fields.Date(states=READONLY2_STATES)
     commitment_date = fields.Datetime(states=READONLY2_STATES)
     commitment_date_hour = fields.Float(states=READONLY2_STATES)
     logistics_price_unit_type = fields.Selection(
@@ -111,6 +111,11 @@ class LogisticsSchedule(models.Model):
     carrier_id = fields.Many2one(
         'res.partner',
         string="Carrier",
+        states=READONLY3_STATES,
+    )
+    effective_carrier_id = fields.Many2one(
+        'res.partner',
+        string="Effective Carrier",
         states=READONLY3_STATES,
     )
     license_plate_1 = fields.Char(states=READONLY3_STATES)
@@ -139,6 +144,22 @@ class LogisticsSchedule(models.Model):
     def _compute_product_uom_qty(self):
         for record in self.filtered(lambda x: x.stock_move_id):
             record.product_uom_qty = record.stock_move_id.product_uom_qty
+
+    @api.onchange("stock_move_id")
+    def _onchange_stock_move_id(self):
+        self.ensure_one()
+        if self.stock_move_id:
+            self.write({
+                "commitment_date": self.stock_move_id.date,
+                "schedule_finished": True,
+            })
+
+    @api.onchange("carrier_id")
+    def _onchange_carrier_id(self):
+        # TODO move effective_carrier_id to compute stored?
+        self.ensure_one()
+        if self.carrier_id and not self.effective_carrier_id:
+            self.effective_carrier_id = self.carrier_id
 
     @api.constrains("commitment_date_hour")
     def _check_commitment_date_hour(self):

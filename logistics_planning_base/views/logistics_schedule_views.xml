@@ -73,6 +73,7 @@
                 <field name="logistics_price_unit" widget="monetary" />
                 <field name="logistics_price_unit_done" widget="monetary" />
                 <field name="carrier_id" />
+                <field name="effective_carrier_id" />                
                 <field name="license_plate_1" />
                 <field name="license_plate_2" />
                 <field name="state" readonly="1"/>
@@ -142,6 +143,8 @@
                 <field name="picking_id"/>
                 <field name="partner_id"/>
                 <field name="product_id"/>
+                <field name="carrier_id" />
+                <field name="effective_carrier_id" />
                 <separator/>
                 <filter string="Pending" name="pending" domain="[('state', 'in', ['draft','ready'])]"/>
                 <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
@@ -157,6 +160,7 @@
                 <separator/>
                 <filter string="Ground" name="transport_type_ground" domain="[('transport_type', '=', 'ground')]"/>
                 <filter string="Ocean-Going" name="transport_type_ocean" domain="[('transport_type', '=', 'ocean-going')]"/>
+                <separator/>
                 <filter string="Trip" name="logistics_price_unit_type_trip" domain="[('logistics_price_unit_type', '=', 'trip')]"/>
                 <filter string="Unit" name="logistics_price_unit_type_unit" domain="[('logistics_price_unit_type', '=', 'unit')]"/>
                 <group expand="0" string="Group By...">
@@ -166,6 +170,7 @@
                     <filter string="Partner" name="group_partner_id" context="{'group_by': 'partner_id'}"/>
                     <filter string="Product" name="group_product_id" context="{'group_by': 'product_id'}"/>
                     <filter string="Carrier" name="group_carrier_id" context="{'group_by': 'carrier_id'}"/>
+                    <filter string="Effective Carrier" name="group_effective_carrier_id" context="{'group_by': 'effective_carrier_id'}"/>
                     <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
                     <filter string="Scheduled Load Date" name="group_scheduled_load_date" context="{'group_by': 'scheduled_load_date'}"/>
                 </group>
@@ -231,6 +236,7 @@
                         <group>
                             <field name="transport_type" />
                             <field name="carrier_id" />
+                            <field name="effective_carrier_id" />
                             <field name="license_plate_1" />
                             <field name="license_plate_2" />
                             <field
