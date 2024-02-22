@@ -6,14 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-28 12:44+0000\n"
-"PO-Revision-Date: 2023-06-28 12:44+0000\n"
+"POT-Creation-Date: 2024-02-27 17:36+0000\n"
+"PO-Revision-Date: 2024-02-27 17:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_internal_notes
+msgid ""
+"\n"
+"        Obtains concatenated related purchases notes\n"
+"        "
+msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__date_net_weight
@@ -34,22 +42,6 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_internal_notes
-msgid ""
-"\n"
-"        Obtains concatenated related purchases notes\n"
-"        "
-msgstr ""
-
-#. module: stock_picking_mgmt_weight
-#: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__date_net_weight
-msgid ""
-"\n"
-"        Shows date for last registered weight (gross or tare)\n"
-"        "
-msgstr ""
-
-#. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__picking_state
 msgid ""
 " * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
@@ -65,6 +57,7 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #, python-format
 msgid "%s-%s (%.2f pend.)"
@@ -1425,11 +1418,14 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_line_tree
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_purchase_order_weight_form_inherit
 msgid "Supp. Cond."
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_supply_condition
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_purchase_order_line__supply_condition_id
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_sale_order_line__supply_condition_id
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_supply_condition_form
 msgid "Supply Condition"
