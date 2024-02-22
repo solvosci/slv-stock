@@ -201,11 +201,17 @@ class LogisticsSchedule(models.Model):
 
     def _action_cancel(self):
         to_cancel = self.filtered(lambda x: x.state in ['draft', 'ready', 'done'])
-        to_cancel.write({"state": "cancel", "stock_move_id": False})
+        to_cancel.write({
+            "state": "cancel",
+            "stock_move_id": False,
+            "schedule_finished": False,
+        })
         return to_cancel
 
-    def _action_done(self):
-        to_done = self.filtered(lambda x: x.can_set_to_done)
+    def _action_done(self, skip_can_set_to_done=False):
+        to_done = self
+        if not skip_can_set_to_done:
+            to_done = to_done.filtered(lambda x: x.can_set_to_done)
         to_done_wo_sm = to_done.filtered(lambda x: not x.stock_move_id)
         if len(to_done_wo_sm) > 0:
             raise ValidationError(_(
