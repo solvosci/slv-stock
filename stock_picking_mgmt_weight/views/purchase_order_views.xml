@@ -88,6 +88,12 @@
             </xpath>
             <xpath expr="//tree/field[@name='name']" position="after">
                 <field
+                    name="supply_condition_id"
+                    optional="show"
+                    string="Supp. Cond."
+                    options="{'no_create_edit': True, 'no_create': True}"
+                />
+                <field
                     name="identification_document_number"
                     optional="hide"
                     attrs="{'invisible': [('state', 'not in', ('purchase', 'done'))]}"
