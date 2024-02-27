@@ -58,7 +58,14 @@
                     widget="many2onebutton"
                     string="Orig."
                 />
-            </xpath>            
+            </xpath>
+            <field name="name" position="after">
+                <field
+                    name="supply_condition_id"
+                    optional="show"
+                    string="Supp. Cond."
+                />
+            </field>
             <xpath expr="//field[@name='product_qty']" position="after">
                 <field name="order_user_id" string="Repr."/>
                 <field name="qty_received" string="Received" optional="hide"/>
