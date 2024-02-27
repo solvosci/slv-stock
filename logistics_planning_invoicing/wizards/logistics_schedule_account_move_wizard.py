@@ -12,6 +12,7 @@ class LogisticsScheduleAccountMove(models.TransientModel):
     company_id = fields.Many2one('res.company', related='logistics_schedule_ids.company_id')
     carrier_id = fields.Many2one('res.partner', readonly=True)
     journal_id = fields.Many2one('account.journal', default=lambda self: self.env.user.company_id.logistics_schedule_default_journal_id.id)
+    ref = fields.Char(string="Bill Reference")
 
     def create_invoice(self):
         action = self.env.ref('account.action_move_in_invoice_type')
@@ -21,6 +22,7 @@ class LogisticsScheduleAccountMove(models.TransientModel):
             "default_partner_id": self.carrier_id.id,
             "default_journal_id": self.journal_id.id,
             "default_company_id": self.company_id.id,
+            "default_ref": self.ref,
         })
         res = self.env.ref('account.view_move_form', False)
         form_view = [(res and res.id or False, 'form')]

@@ -126,7 +126,7 @@ class LogisticsSchedule(models.Model):
 
         product = self._get_invoice_product()
         return {
-            'name': '%s: %s' % (ls_id.picking_id.name or '', ls_id.product_id.name),
+            'name': move_id.ref or ('%s: %s' % (ls_id.picking_id.name or '', ls_id.product_id.name)),
             'move_id': move_id.id,
             'currency_id': ls_id.currency_id.id,
             'logistics_schedule_id': ls_id.id,
