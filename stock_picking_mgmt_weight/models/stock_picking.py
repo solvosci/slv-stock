@@ -15,6 +15,7 @@ class StockPicking(models.Model):
         'vehicle.vehicle',
         string='Vehicle',
         ondelete="restrict",
+        copy=False,
     )
     # TODO related, computed, a regular field?
     # carrier_vehicle_id = fields.Many2one(related="vehicle_id.carrier_id")
@@ -26,8 +27,9 @@ class StockPicking(models.Model):
         domain="[('is_company', '=', True)]",
         ondelete="restrict",
     )
-    towing_license_plate = fields.Char()
+    towing_license_plate = fields.Char(copy=False)
     container_number = fields.Char(
+        copy=False,
         help="A text representing container no. for an outgoing operation",
     )
     container_tare = fields.Float(
