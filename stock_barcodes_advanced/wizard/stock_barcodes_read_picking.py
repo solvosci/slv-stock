@@ -19,7 +19,9 @@ class WizStockBarcodesReadPicking(models.TransientModel):
         if res:
             for move_line_id, qty in res.items():
                 ml_id = self.env['stock.move.line'].browse(move_line_id)
-                ml_id.picking_id.do_unreserve()
+                for line in ml_id.picking_id.move_line_ids_without_package.filtered(lambda x: not x.qty_done and x.product_uom_qty):
+                    line.unlink()
+                # ml_id.picking_id.do_unreserve()
                 ml_id.product_uom_qty = ml_id.qty_done
                 self.env['stock.quant']._update_reserved_quantity(ml_id.product_id, ml_id.location_id, qty, ml_id.lot_id)
         return res
