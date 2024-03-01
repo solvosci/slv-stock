@@ -14,6 +14,17 @@ class WizStockBarcodesReadPicking(models.TransientModel):
         self.pending_move_ids._compute_qty_done()
         super(WizStockBarcodesReadPicking, self).update_fields_after_process_stock(moves)
 
+    def _process_stock_move_line(self):
+        res = super(WizStockBarcodesReadPicking, self)._process_stock_move_line()
+        if res:
+            for move_line_id, qty in res.items():
+                ml_id = self.env['stock.move.line'].browse(move_line_id)
+                ml_id.picking_id.do_unreserve()
+                ml_id.product_uom_qty = ml_id.qty_done
+                self.env['stock.quant']._update_reserved_quantity(ml_id.product_id, ml_id.location_id, qty, ml_id.lot_id)
+        return res
+
+
 class WizCandidatePicking(models.TransientModel):
     _inherit = "wiz.candidate.picking"
 
