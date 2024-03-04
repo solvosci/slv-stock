@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-19 16:40+0000\n"
-"PO-Revision-Date: 2024-02-19 16:40+0000\n"
+"POT-Creation-Date: 2024-03-04 16:28+0000\n"
+"PO-Revision-Date: 2024-03-04 16:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -124,6 +124,16 @@ msgid "Done"
 msgstr "Hecho"
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_input_view_tree
+msgid "Download Date"
+msgstr "Fecha descarga"
+
+#. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_input_view_tree
+msgid "Download Hour"
+msgstr "Hora descarga"
+
+#. module: logistics_planning_base
 #: model:ir.model.fields.selection,name:logistics_planning_base.selection__logistics_schedule__state__draft
 msgid "Draft"
 msgstr "Borrador"
@@ -190,6 +200,11 @@ msgstr "Matrícula 1"
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__license_plate_2
 msgid "License Plate 2"
 msgstr "Matrícula 2"
+
+#. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_input_view_tree
+msgid "Load Date"
+msgstr "Fecha carga"
 
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
@@ -351,6 +366,11 @@ msgstr "Cantidad"
 #: model:ir.model.fields.selection,name:logistics_planning_base.selection__logistics_schedule__state__ready
 msgid "Ready"
 msgstr "En curso"
+
+#. module: logistics_planning_base
+#: model:ir.model,name:logistics_planning_base.model_stock_return_picking
+msgid "Return Picking"
+msgstr "Albarán de devolución"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__schedule_finished
