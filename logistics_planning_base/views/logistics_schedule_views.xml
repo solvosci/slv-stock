@@ -104,6 +104,16 @@
                     join_operator="AND"
                 >[('picking_code', '=', 'incoming')]</attribute>
             </field>
+            <field name="scheduled_load_date" position="attributes">
+                <attribute name="string">Load Date</attribute>
+            </field>
+            <field name="commitment_date" position="attributes">
+                <attribute name="string">Download Date</attribute>
+                <attribute name="widget">date</attribute>
+            </field>
+            <field name="commitment_date_hour" position="attributes">
+                <attribute name="string">Download Hour</attribute>
+            </field>
         </field>
     </record>
     <record id="logistics_schedule_output_view_tree" model="ir.ui.view">
