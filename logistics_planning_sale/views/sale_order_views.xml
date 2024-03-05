@@ -33,7 +33,7 @@
                     title="Add schedule(s)"
                     attrs="{'invisible': [
                         '|',
-                        ('state', 'in', ['draft', 'sent']),
+                        ('state', '!=', 'sale'),
                         ('ls_schedule_allowed', '=', False),
                     ]}"
                 />

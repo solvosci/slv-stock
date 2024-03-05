@@ -45,7 +45,7 @@ class SaleOrderLine(models.Model):
             line.ls_schedule_allowed = (
                 not line.display_type
                 and line.product_id.type in ["product", "consu"]
-                and line.state in ["draft", "sent", "sale"]
+                and line.state in ["draft", "sent", "sale", "done"]
             )
 
     def _prepare_logistics_schedule(self):
