@@ -67,7 +67,7 @@ class LogisticsSchedule(models.Model):
     destination_partner_id = fields.Many2one(
         'res.partner',
         string="Destination",
-        states=READONLY2_STATES,
+        states=READONLY3_STATES,
     )
     partner_id = fields.Many2one('res.partner', states=READONLY1_STATES)
     transport_type = fields.Selection(
@@ -89,9 +89,10 @@ class LogisticsSchedule(models.Model):
         readonly=False,
         states=READONLY3_STATES,
     )
-    scheduled_load_date = fields.Date(states=READONLY2_STATES)
+    scheduled_load_date = fields.Date(states=READONLY1_STATES)
     commitment_date = fields.Datetime(states=READONLY2_STATES)
     commitment_date_hour = fields.Float(states=READONLY2_STATES)
+    effective_date = fields.Datetime(states=READONLY2_STATES)
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
@@ -185,7 +186,9 @@ class LogisticsSchedule(models.Model):
         return result
 
     def action_logistics_schedule_ready(self):
-        self.browse(self.env.context.get("active_ids", []))._action_ready()
+        self.browse(self.env.context.get("active_ids", [])).with_context(
+            ls_check_req_fields=True
+        )._action_ready()
 
     def action_logistics_schedule_cancel(self):
         self.browse(self.env.context.get("active_ids", []))._action_cancel()
@@ -194,10 +197,29 @@ class LogisticsSchedule(models.Model):
         self.browse(self.env.context.get("active_ids", []))._action_done()
 
     def _action_ready(self):
-        # TODO add more condition like e.g. required values
         to_ready = self.filtered(lambda x: x.state in ["draft", "cancel"])
+        if self.env.context.get("ls_check_req_fields", False):
+            req_fields = self._action_ready_fields_check_req_fields()
+            for ls in to_ready:
+                ok = all([ls[field] for field in req_fields])
+                if not ok:
+                    raise ValidationError(
+                        _(
+                            "Cannot mark schedule(s) as ready: there's at least one"
+                            "required field unset. Required fields:\n\n- %s"
+                        ) % "\n- ".join(req_fields.values())
+                    )
         to_ready.write({"state": "ready"})
         return to_ready
+
+    def _action_ready_fields_check_req_fields(self):
+        return {
+            "partner_id": _("Contact (Provider/Vendor)"),
+            "transport_type": _("Transport type"),
+            "product_id": _("Product"),
+            "scheduled_load_date": _("Scheduled Date"),
+            "logistics_price_unit_type": _("Price Type"),
+        }
 
     def _action_cancel(self):
         to_cancel = self.filtered(lambda x: x.state in ['draft', 'ready', 'done'])

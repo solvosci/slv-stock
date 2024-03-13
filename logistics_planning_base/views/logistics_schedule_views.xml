@@ -62,12 +62,13 @@
                 <field name="transport_type" />
                 <field name="product_id" />
                 <field name="product_uom_qty" />
-                <field name="scheduled_load_date" />
-                <field name="commitment_date" />
+                <field name="scheduled_load_date" string="Sched. Load" />
+                <field name="commitment_date" string="Load" />
                 <field
                     name="commitment_date_hour"
                     widget="float_time"
                 />
+                <field name="effective_date" string="Effective" />
                 <field name="currency_id" invisible="1"/>
                 <field name="logistics_price_unit_type" />
                 <field name="logistics_price_unit" widget="monetary" />
@@ -104,15 +105,11 @@
                     join_operator="AND"
                 >[('picking_code', '=', 'incoming')]</attribute>
             </field>
-            <field name="scheduled_load_date" position="attributes">
-                <attribute name="string">Load Date</attribute>
-            </field>
             <field name="commitment_date" position="attributes">
-                <attribute name="string">Download Date</attribute>
                 <attribute name="widget">date</attribute>
             </field>
             <field name="commitment_date_hour" position="attributes">
-                <attribute name="string">Download Hour</attribute>
+                <attribute name="string">Hour</attribute>
             </field>
         </field>
     </record>
@@ -136,6 +133,9 @@
                     condition=""
                     join_operator="AND"
                 >[('picking_code', '=', 'outgoing')]</attribute>
+            </field>
+            <field name="scheduled_load_date" position="attributes">
+                <attribute name="string">Sched. Down.</attribute>
             </field>
             <field name="commitment_date_hour" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -167,6 +167,8 @@
                 />
                 <separator/>
                 <filter string="Scheduled Load Date" name="scheduled_load_date" date="scheduled_load_date"/>
+                <filter string="Commitment Date" name="commitment_date" date="commitment_date"/>
+                <filter string="Effective Date" name="scheduled_load_date" date="effective_date"/>
                 <separator/>
                 <filter string="Ground" name="transport_type_ground" domain="[('transport_type', '=', 'ground')]"/>
                 <filter string="Ocean-Going" name="transport_type_ocean" domain="[('transport_type', '=', 'ocean-going')]"/>
@@ -199,6 +201,7 @@
                         type="action"
                         string="Mark as Ready"
                         attrs="{'invisible': [('state', 'not in', ['draft', 'cancel'])]}"
+                        context="{'ls_check_req_fields': True}"
                     />
                     <field name="can_set_to_done" invisible="1" />
                     <button
@@ -242,6 +245,7 @@
                         <group>
                             <field name="scheduled_load_date" />
                             <field name="commitment_date" />
+                            <field name="effective_date" />
                         </group>
                         <group>
                             <field name="transport_type" />
