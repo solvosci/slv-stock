@@ -88,3 +88,17 @@ class SaleOrderLine(models.Model):
             "target": "new",
             "type": "ir.actions.act_window",
         }
+
+    def write(self, values):
+        """
+        We add here those sale line values that should be hardlinked
+        to logistics schedules
+        """
+        ret = super().write(values)
+        # This value is already added by sale_order_line_date, but this
+        #  code make our addon actually independent on it
+        if "commitment_date" in values:
+            self.sudo().logistics_schedule_ids.filtered(
+                lambda x: x.state not in ["done", "cancel"]
+            ).write({"scheduled_load_date": values["commitment_date"]})
+        return ret
