@@ -18,6 +18,8 @@
     "data": [
         "views/vehicle_type_views.xml",
         "views/sale_order_line_views.xml",
+        "views/stock_move_views.xml",
         "views/logistics_schedule_views.xml",
+        "views/logistics_schedule_menu.xml",
     ],
 }

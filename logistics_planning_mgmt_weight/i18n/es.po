@@ -6,14 +6,53 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 18:06+0000\n"
-"PO-Revision-Date: 2024-02-06 18:06+0000\n"
+"POT-Creation-Date: 2024-03-21 17:53+0000\n"
+"PO-Revision-Date: 2024-03-21 17:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,help:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
+msgid ""
+"\n"
+"        Technical field used as workaround when is required to prefill\n"
+"        picking_parter_id with default_ from an action.\n"
+"        This happens when we want to create a new ticket from a\n"
+"        logistic schedule as draft record\n"
+"        "
+msgstr ""
+"\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
+"        desde una acción picking_parter_id con el default_.\n"
+"        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
+"        planificación logística como borrador\n"
+"        "
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,help:logistics_planning_mgmt_weight.field_stock_move__aux_picking_vehicle_id
+msgid ""
+"\n"
+"        Technical field used as workaround when is required to prefill\n"
+"        picking_vehicle_id with default_ from an action.\n"
+"        This happens when we want to create a new ticket from a\n"
+"        logistic schedule as draft record\n"
+"        "
+msgstr ""
+"\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
+"        desde una acción picking_vehicle_id con el default_.\n"
+"        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
+"        planificación logística como borrador\n"
+"        "
+
+#. module: logistics_planning_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree_mgmt_weight
+msgid "Create ticket"
+msgstr "Crear ticket"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ground
@@ -26,9 +65,25 @@ msgid "Ocean-Going"
 msgstr "Marítimo"
 
 #. module: logistics_planning_mgmt_weight
+#: model:ir.actions.act_window,name:logistics_planning_mgmt_weight.action_logistics_schedule_input_mgmt_weight
+#: model:ir.ui.menu,name:logistics_planning_mgmt_weight.menu_mgmt_weight_schedules_pending_inputs
+msgid "Pending Inputs"
+msgstr "Entradas pendientes"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea de pedido de compra"
+
+#. module: logistics_planning_mgmt_weight
 #: model:ir.model,name:logistics_planning_mgmt_weight.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Línea de pedido de venta"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.ui.menu,name:logistics_planning_mgmt_weight.menu_mgmt_weight_schedules
+msgid "Schedules"
+msgstr "Planificaciones"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model,name:logistics_planning_mgmt_weight.model_stock_move
@@ -36,10 +91,37 @@ msgid "Stock Move"
 msgstr "Movimiento de existencias"
 
 #. module: logistics_planning_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_view_tree_common
+msgid "Supp. Cond."
+msgstr "Cond. Sum."
+
+#. module: logistics_planning_mgmt_weight
+#: code:addons/logistics_planning_mgmt_weight/models/logistics_schedule.py:0
 #: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_logistics_schedule__supply_condition_id
 #: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_view_search
+#, python-format
 msgid "Supply Condition"
 msgstr "Cond. suministro"
+
+#. module: logistics_planning_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
+msgid "Ticket partner (auxiliar)"
+msgstr "Contacto del ticket (auxiliar)"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_stock_move__aux_picking_vehicle_id
+msgid "Ticket vehicle (auxiliar)"
+msgstr "Vehículo del ticket (auxiliar)"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_vehicle_type__ls_sale_transport_type
@@ -55,3 +137,8 @@ msgstr "Tipo de vehículo"
 #: model:ir.model,name:logistics_planning_mgmt_weight.model_logistics_schedule
 msgid "logistics.schedule"
 msgstr "Planificación logística"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model,name:logistics_planning_mgmt_weight.model_stock_move_weight_wizard
+msgid "stock.move.weight.wizard"
+msgstr ""
