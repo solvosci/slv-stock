@@ -18,7 +18,8 @@
         'views/logistics_schedule_menu.xml',
         'views/stock_picking_views.xml',
         'views/stock_move_views.xml',
-        'views/res_config_settings_views.xml'
+        'views/res_config_settings_views.xml',
+        "wizards/stock_picking_return_ls_views.xml"
     ],
     'installable': True,
     "application": True,
