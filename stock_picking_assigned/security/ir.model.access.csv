@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sp_assigned_wizard,sp_assigned_wizard,stock_picking_assigned.model_sp_assigned_wizard,stock.group_stock_manager,1,1,1,1
+access_sp_assigned_line_wizard,sp_assigned_line_wizard,stock_picking_assigned.model_sp_assigned_line_wizard,stock.group_stock_manager,1,1,1,1
+
