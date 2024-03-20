@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sp_assigned_wizard_form" model="ir.ui.view">
+        <field name="name">sp.assigned.wizard.form</field>
+        <field name="model">sp.assigned.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="picking_type_id" invisible="1"/>
+                            <field name="product_id"/>
+                        </group>
+                        <group>
+                            <field name="lot_id" domain="[('product_id', '=', product_id)]" context="{'stock_picking_assigned': True}"/>
+                            <field name="qty_remaining"/>
+                        </group>
+
+                        <field name="line_ids" readonly="0"/>
+                    </group>
+                    <footer>
+                        <button name="button_assigned_and_validate"
+                            string="Assign and Validate"
+                            type="object"
+                            class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sp_assigned_line_wizard_tree" model="ir.ui.view">
+        <field name="name">sp.assigned.line.wizard.tree</field>
+        <field name="model">sp.assigned.line.wizard</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false" editable="bottom" decoration-success="qty_to_add > 0">
+                <field name="picking_id"/>
+                <field name="partner_id" />
+                <field name="move_id" invisible="1"/>
+                <field name="qty_to_add" />
+                <field name="qty_done_demand"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
