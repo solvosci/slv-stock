@@ -11,6 +11,31 @@ class StockMove(models.Model):
     logistics_schedule_id = fields.Many2one('logistics.schedule', copy=False)
     logistics_schedule_disabled = fields.Boolean(copy=False)
 
+    warehouse_partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        compute="_compute_warehouse_partner_id",
+        store=True,        
+        string="Warehouse Partner",
+        help="""
+        Technical field enables us accessing partner for the origin location
+        warehouse for this move.
+        We'll only calculate it for internal transfers.
+        """,
+    )
+
+    @api.depends("location_id", "picking_code")
+    def _compute_warehouse_partner_id(self):
+        # TODO move to read_group() for faster initialization during installation?
+        internal_moves = self.filtered(
+            lambda x: (
+                x.picking_code == "internal"
+                and x.location_id.usage == "internal"
+            )
+        )
+        for move in internal_moves:
+            move.warehouse_partner_id = move.location_id.get_warehouse().partner_id
+        (self - internal_moves).write({"warehouse_partner_id": False})
+
     def _prepare_name_get(self):
         return (
             "%s (%.3f %s)"
