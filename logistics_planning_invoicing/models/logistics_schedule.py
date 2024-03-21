@@ -3,6 +3,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 from odoo.addons.logistics_planning_base.models.logistics_schedule import TRANSPORT_TYPE
 
@@ -37,10 +38,14 @@ class LogisticsSchedule(models.Model):
                 to_ready._action_ready()
         return ret
 
-    @api.depends('account_move_line_id', 'state')
+    @api.depends("account_move_line_id", "state", "product_uom_qty")
     def _compute_is_invoiceable(self):
         for record in self:
-            if record.account_move_line_id or record.state == 'done':
+            if (
+                record.account_move_line_id
+                or record.state == 'done'
+                or float_is_zero(record.product_uom_qty, precision_rounding=record.product_uom.rounding)
+            ):
                 record.is_invoiceable = False
             else:
                 record.is_invoiceable = True
