@@ -50,7 +50,7 @@
                 <field
                     name="stock_move_id"
                     domain="[
-                        ('picking_partner_id', '=', partner_id),
+                        ('picking_partner_id', 'in', [partner_id, False]),
                         ('product_id', '=', product_id),
                         ('state', '=', 'done'),
                         ('logistics_schedule_id', '=', False),
@@ -58,10 +58,11 @@
                     ]"
                     context="{'logistics_schedule_view': True}"
                     options="{'no_create_edit': True, 'no_create': True}"
+                    string="Mov."
                 />
                 <field name="transport_type" />
                 <field name="product_id" />
-                <field name="product_uom_qty" />
+                <field name="product_uom_qty" string="Qty"/>
                 <field name="scheduled_load_date" string="Sched. Load" />
                 <field name="commitment_date" string="Load" />
                 <field
@@ -70,18 +71,19 @@
                 />
                 <field name="effective_date" string="Effective" />
                 <field name="currency_id" invisible="1"/>
-                <field name="logistics_price_unit_type" />
-                <field name="logistics_price_unit" widget="monetary" />
-                <field name="logistics_price_unit_done" widget="monetary" />
-                <field name="carrier_id" />
-                <field name="effective_carrier_id" />                
-                <field name="license_plate_1" />
-                <field name="license_plate_2" />
-                <field name="state" readonly="1"/>
+                <field name="logistics_price_unit_type" string="Pr. T." />
+                <field name="logistics_price_unit" widget="monetary" string="Ord. Pr." />
+                <field name="logistics_price_unit_done" widget="monetary" string="Conf. Pr." />
+                <field name="carrier_id" string="Carr."/>
+                <field name="effective_carrier_id" string="Eff. Carr." />  
+                <field name="license_plate_1" string="L.P. 1" />
+                <field name="license_plate_2" string="L.P. 2"  />
+                <field name="state" readonly="1" string="St." />
                 <field
                     name="schedule_finished"
                     nolabel="1"
                     widget="boolean_toggle"
+                    string="Sch. Fi."
                 />
                 <field name="note" />
             </tree>
@@ -132,7 +134,13 @@
                     operation="domain_add"
                     condition=""
                     join_operator="AND"
-                >[('picking_code', '=', 'outgoing')]</attribute>
+                >[
+                    '|',
+                    ('picking_code', '=', 'outgoing'),
+                        '&amp;',
+                        ('picking_code', '=', 'internal'),
+                        ('warehouse_partner_id', '=', destination_partner_id),
+                ]</attribute>
             </field>
             <field name="scheduled_load_date" position="attributes">
                 <attribute name="string">Sched. Down.</attribute>
@@ -323,7 +331,13 @@
                     operation="domain_add"
                     condition=""
                     join_operator="AND"
-                >[('picking_code', '=', 'outgoing')]</attribute>
+                >[
+                    '|',
+                    ('picking_code', '=', 'outgoing'),
+                        '&amp;',
+                        ('picking_code', '=', 'internal'),
+                        ('warehouse_partner_id', '=', destination_partner_id),
+                ]</attribute>
             </field>
         </field>
     </record>

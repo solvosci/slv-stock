@@ -141,7 +141,7 @@ class LogisticsSchedule(models.Model):
         to_done.write({"can_set_to_done": True})
         (self - to_done).write({"can_set_to_done": False})
 
-    @api.depends("stock_move_id")
+    @api.depends("stock_move_id.product_uom_qty")
     def _compute_product_uom_qty(self):
         for record in self.filtered(lambda x: x.stock_move_id):
             record.product_uom_qty = record.stock_move_id.product_uom_qty
