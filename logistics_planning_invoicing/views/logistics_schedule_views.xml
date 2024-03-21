@@ -52,7 +52,7 @@
         <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='note']" position="after">
-                <field name="account_move_id" />
+                <field name="account_move_id" string="Inv." />
                 <field name="is_invoiceable" invisible="1"/>
                 <field
                     name="is_finished"

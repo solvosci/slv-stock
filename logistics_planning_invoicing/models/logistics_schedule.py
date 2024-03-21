@@ -3,6 +3,7 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 from odoo.addons.logistics_planning_base.models.logistics_schedule import TRANSPORT_TYPE
 
@@ -37,7 +38,7 @@ class LogisticsSchedule(models.Model):
                 to_ready._action_ready()
         return ret
 
-    @api.depends('account_move_line_id', 'state')
+    @api.depends("account_move_line_id", "state")
     def _compute_is_invoiceable(self):
         for record in self:
             if record.account_move_line_id or record.state == 'done':
@@ -90,6 +91,10 @@ class LogisticsSchedule(models.Model):
             raise ValidationError(_("There are at least one schedule without carrier selected"))
         if lg_ids.filtered(lambda x: not x.schedule_finished):
             raise ValidationError(_("There are at least one schedule unmarked as finished"))
+        if lg_ids.filtered(lambda x: (
+            float_is_zero(x.product_uom_qty, precision_rounding=x.product_uom.rounding)
+        )):
+            raise ValidationError(_("There are at least one schedule with quantity unset"))
 
         if len(carrier_id) > 1:
             raise ValidationError(_('You cannot select multiple schedules with different carriers.'))

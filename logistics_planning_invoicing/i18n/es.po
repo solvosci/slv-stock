@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 18:16+0000\n"
-"PO-Revision-Date: 2024-02-27 18:16+0000\n"
+"POT-Creation-Date: 2024-03-25 15:51+0000\n"
+"PO-Revision-Date: 2024-03-25 15:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -115,6 +115,11 @@ msgid "In invoice"
 msgstr "En factura"
 
 #. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_tree
+msgid "Inv."
+msgstr "Fact."
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__account_move_id
 msgid "Invoice"
 msgstr "Factura"
@@ -210,6 +215,12 @@ msgstr ""
 #, python-format
 msgid "There are at least one schedule unmarked as finished"
 msgstr "Hay al menos una planificación no marcada como finalizada"
+
+#. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#, python-format
+msgid "There are at least one schedule with quantity unset"
+msgstr "Hay al menos una planificación sin cantidad cubierta"
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
