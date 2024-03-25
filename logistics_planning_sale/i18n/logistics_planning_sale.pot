@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* logistics_planning_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-06 18:05+0000\n"
+"PO-Revision-Date: 2024-02-06 18:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,help:logistics_planning_sale.field_sale_order_line__ls_schedule_allowed
+msgid ""
+"\n"
+"        Technical field that determines if logistics schedules\n"
+"        are allowed for this line\n"
+"        "
+msgstr ""
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/models/sale_order_line.py:0
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
+#, python-format
+msgid "Add schedule(s)"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_logistics_schedule_sale_add_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_logistics_schedule_sale_add_wizard
+msgid "Create Schedules"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__ls_count
+msgid "Current schedule count"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__ls_transport_type__ground
+msgid "Ground"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_init
+msgid "Initial required schedules"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_account_move_count
+msgid "Logistics Bill Count"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_account_move_ids
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
+msgid "Logistics Bills"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__logistics_price_unit
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_price_unit
+msgid "Logistics Price Unit"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__logistics_price_unit_type
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_price_unit_type
+msgid "Logistics Price Unit Type"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_logistics_schedule_sale_add_wizard
+msgid "Logistics Schedule Add - Sale wizard"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_schedule_ids
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_ids
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_ls
+msgid "Logistics Schedules"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__ls_schedule_allowed
+msgid "Ls Schedule Allowed"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__ls_new
+msgid "New schedules to be added"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__ls_transport_type__ocean-going
+msgid "Ocean-Going"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule__sale_order_id
+msgid "Order Reference"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Please fill a valid Initial required schedules (>=0) for every order line "
+"for the following orders: %s"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/wizards/logistics_schedule_sale_add_wizard.py:0
+#, python-format
+msgid "Please fill a valid number of new schedules to be added (> 0)"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__product_id
+msgid "Product"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__sale_line_id
+msgid "Sale Line"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule__sale_order_line_id
+msgid "Sale Order Line"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__ls_transport_type
+msgid "Transport Type"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__logistics_schedule_sale_add_wizard__logistics_price_unit_type__trip
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__trip
+msgid "Trip"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__logistics_schedule_sale_add_wizard__logistics_price_unit_type__unit
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__unit
+msgid "Unit"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_logistics_schedule
+msgid "logistics.schedule"
+msgstr ""

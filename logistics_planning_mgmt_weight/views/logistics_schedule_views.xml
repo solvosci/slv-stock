@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="logistics_schedule_view_search" model="ir.ui.view">
+        <field name="name">logistics.schedule.search (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="supply_condition_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_product_id']" position="after">
+                <filter
+                    string="Supply Condition"
+                    name="supply_condition_id"
+                    context="{'group_by': 'supply_condition_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="logistics_schedule_view_form_common" model="ir.ui.view">
+        <field name="name">logistics.schedule.form common (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="supply_condition_id" />
+            </xpath>
+        </field>
+    </record>
+    <record id="logistics_schedule_view_form_purchase" model="ir.ui.view">
+        <field name="name">logistics.schedule.form purchase (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_purchase.logistics_schedule_view_form"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="attributes">
+                <attribute
+                    name="domain"
+                    operation="domain_add"
+                    condition=""
+                    join_operator="OR"
+                >[
+                    ('picking_partner_id', '=', partner_id),
+                    ('state', 'in', ['draft', 'cancel']),
+                    ('logistics_schedule_id', '=', False),
+                    ('logistics_schedule_disabled', '=', False),
+                    ('picking_code', '=', 'incoming'),
+                    ('net_weight', '&gt;', 0),
+                ]</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="logistics_schedule_view_tree_common" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_uom_qty']" position="after">
+                <field name="supply_condition_id" string="Supp. Cond." />
+            </xpath>
+        </field>
+    </record>
+    <record id="logistics_schedule_view_tree_purchase" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree purchase (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_purchase.logistics_schedule_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="attributes">
+                <!--
+                        same partner
+                        tickets pending to be classified or already classified
+                        still unassigned and available
+                        only input tickets
+                        only finished weights (with a valid net value)
+                -->
+                <!-- TODO if necessary, use ('picking_type_id.scale','=',True) -->
+                <attribute
+                    name="domain"
+                    operation="domain_add"
+                    condition=""
+                    join_operator="OR"
+                >[
+                    ('picking_partner_id', '=', partner_id),
+                    ('state', 'in', ['draft', 'cancel']),
+                    ('logistics_schedule_id', '=', False),
+                    ('logistics_schedule_disabled', '=', False),
+                    ('picking_code', '=', 'incoming'),
+                    ('net_weight', '&gt;', 0),
+                ]</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="logistics_schedule_input_view_tree" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree input (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field
+            name="inherit_id"
+            ref="logistics_planning_base.logistics_schedule_input_view_tree"
+        />
+        <field eval="100" name="priority" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stock_move_id']" position="attributes">
+                <attribute name="string">Ticket</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="logistics_schedule_input_view_tree_mgmt_weight" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree input mgmt weight (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field
+            name="inherit_id"
+            ref="logistics_planning_base.logistics_schedule_input_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <button
+                name="action_logistics_schedule_form_view"
+                position="after"
+            >
+                <button
+                    name="action_logistics_schedule_create_input_ticket"
+                    icon="fa-ticket"
+                    class="p-0"
+                    type="object"
+                    title="Create ticket"
+                />                
+            </button>
+            <button
+                name="action_logistics_schedule_form_view"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </button>
+        </field>
+    </record>
+</odoo>

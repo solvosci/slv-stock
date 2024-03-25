@@ -1,0 +1,215 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* logistics_planning_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-06 18:05+0000\n"
+"PO-Revision-Date: 2024-02-06 18:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,help:logistics_planning_sale.field_sale_order_line__ls_schedule_allowed
+msgid ""
+"\n"
+"        Technical field that determines if logistics schedules\n"
+"        are allowed for this line\n"
+"        "
+msgstr ""
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/models/sale_order_line.py:0
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
+#, python-format
+msgid "Add schedule(s)"
+msgstr "Añadir planificación(es)"
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_logistics_schedule_sale_add_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_logistics_schedule_sale_add_wizard
+msgid "Create Schedules"
+msgstr "Crear planificaciones"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__ls_count
+msgid "Current schedule count"
+msgstr "Número actual de planificaciones"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__ls_transport_type__ground
+msgid "Ground"
+msgstr "Terrestre"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__id
+msgid "ID"
+msgstr "Id."
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_init
+msgid "Initial required schedules"
+msgstr "Nº inicial de planif. requeridas"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_account_move_count
+msgid "Logistics Bill Count"
+msgstr "Número de facturas de gastos"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_account_move_ids
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
+msgid "Logistics Bills"
+msgstr "Fact. gastos"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__logistics_price_unit
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_price_unit
+msgid "Logistics Price Unit"
+msgstr "Prec. ud. logístico"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__logistics_price_unit_type
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_price_unit_type
+msgid "Logistics Price Unit Type"
+msgstr "Tipo de precio logístico"
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_logistics_schedule_sale_add_wizard
+msgid "Logistics Schedule Add - Sale wizard"
+msgstr "Asistente para añadir planificaciones a la venta"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order__logistics_schedule_ids
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_ids
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_ls
+msgid "Logistics Schedules"
+msgstr "Planificaciones logísticas"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__ls_schedule_allowed
+msgid "Ls Schedule Allowed"
+msgstr "Está permitido para planificaciones logísticas"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__ls_new
+msgid "New schedules to be added"
+msgstr "Nuevas planificaciones a añadir"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__ls_transport_type__ocean-going
+msgid "Ocean-Going"
+msgstr "Marítimo"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule__sale_order_id
+msgid "Order Reference"
+msgstr "Ref. pedido"
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Please fill a valid Initial required schedules (>=0) for every order line "
+"for the following orders: %s"
+msgstr ""
+"Por favor cubra un Nº inicial de planif. requeridas válido (>0) para cada línea "
+"para los siguientes pedidos: %s"
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/wizards/logistics_schedule_sale_add_wizard.py:0
+#, python-format
+msgid "Please fill a valid number of new schedules to be added (> 0)"
+msgstr "Por favor, rellene un número válido para las nuevas planificaciones a añadir (> 0)"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard__sale_line_id
+msgid "Sale Line"
+msgstr "Línea de venta"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule__sale_order_line_id
+msgid "Sale Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venta"
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de pedido de venta"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__ls_transport_type
+msgid "Transport Type"
+msgstr "Tipo de transporte"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__logistics_schedule_sale_add_wizard__logistics_price_unit_type__trip
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__trip
+msgid "Trip"
+msgstr "Viaje"
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__logistics_schedule_sale_add_wizard__logistics_price_unit_type__unit
+#: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__unit
+msgid "Unit"
+msgstr "Unidad"
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_logistics_schedule
+msgid "logistics.schedule"
+msgstr "Planificación logística"

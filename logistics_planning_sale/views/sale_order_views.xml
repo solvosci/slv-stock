@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_all" model="ir.ui.view">
+        <field name="name">sale.order.form all (in logistics_planning_sale)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_view_ls_account_move"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o"
+                    attrs="{'invisible': [('logistics_account_move_count', '=', 0)]}"
+                >
+                    <field
+                        name="logistics_account_move_count"
+                        widget="statinfo"
+                        string="Logistics Bills"
+                    />
+                </button>
+            </xpath>
+            <xpath
+                expr="//page[@name='order_lines']/field/tree/field[@name='sequence']"
+                position="after"
+            >
+                <field name="ls_schedule_allowed" invisible="1" />
+                <button
+                    name="action_logistics_schedule_add"
+                    icon="fa-truck"
+                    class="p-0"
+                    type="object"
+                    title="Add schedule(s)"
+                    attrs="{'invisible': [
+                        '|',
+                        ('state', '!=', 'sale'),
+                        ('ls_schedule_allowed', '=', False),
+                    ]}"
+                />
+            </xpath>
+            <xpath
+                expr="//page[@name='order_lines']/field/form//field[@name='tax_id']"
+                position="before"
+            >
+                <field name="ls_transport_type" />
+                <field name="logistics_price_unit_type" />
+                <field name="logistics_price_unit" widget="monetary" />
+            </xpath>
+            <xpath
+                expr="//page[@name='order_lines']/field/tree/field[@name='tax_id']"
+                position="before"
+            >
+                <field name="ls_transport_type" optional="hide" />
+                <field name="logistics_price_unit_type" optional="hide" />
+                <field
+                    name="logistics_price_unit"
+                    optional="hide" 
+                    widget="monetary"
+                />
+                <field
+                    name="logistics_schedule_init"
+                    optional="show" 
+                    attrs="{'column_invisible': [('parent.state', 'not in', ['draft', 'sent'])]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_form_ls" model="ir.ui.view">
+        <field name="name">sale.order.form schedules (in logistics_planning_sale)</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="groups_id" eval="[(4, ref('logistics_planning_base.group_lp_user'))]" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='other_information']"
+                position="before"
+            >
+                <page
+                    name="logistics_schedules" string="Logistics Schedules"
+                    attrs="{'invisible': [('logistics_schedule_ids', '=', [])]}"
+                >
+                    <field name="logistics_schedule_ids">
+                        <tree
+                            decoration-muted="state=='cancel'"
+                            decoration-success="state=='done'"
+                            decoration-danger="state=='draft'"
+                        >
+                            <field name="stock_move_id" />
+                            <field name="transport_type" />
+                            <field name="product_id" />
+                            <field name="product_uom_qty" />
+                            <field name="scheduled_load_date" />
+                            <field name="commitment_date" />
+                            <field name="currency_id" invisible="1"/>
+                            <field name="logistics_price_unit" widget="monetary" />
+                            <field name="logistics_price_unit_done" widget="monetary" />
+                            <field name="carrier_id" />
+                            <field name="license_plate_1" />
+                            <field name="license_plate_2" />
+                            <field name="state" />
+                            <field name="note" optional="hide" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
