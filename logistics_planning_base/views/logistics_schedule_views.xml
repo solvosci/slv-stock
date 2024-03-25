@@ -63,6 +63,12 @@
                 <field name="transport_type" />
                 <field name="product_id" />
                 <field name="product_uom_qty" string="Qty"/>
+                <field
+                    name="product_uom"
+                    optional="hide"
+                    force_save="1"
+                    groups="uom.group_uom"
+                />
                 <field name="scheduled_load_date" string="Sched. Load" />
                 <field name="commitment_date" string="Load" />
                 <field
@@ -238,7 +244,7 @@
                             <field
                                 name="stock_move_id"
                                 domain="[
-                                    ('picking_partner_id', '=', partner_id),
+                                    ('picking_partner_id', 'in', [partner_id, False]),
                                     ('product_id', '=', product_id),
                                     ('state', '=', 'done'),
                                     ('logistics_schedule_id', '=', False),
@@ -274,7 +280,11 @@
                             <div class="o_row no-gutters d-flex">
                                 <div class="col">
                                     <field name="product_uom_qty" class="mr-1" />
-                                    <field name="product_uom" />
+                                    <field
+                                        name="product_uom"
+                                        force_save="1"
+                                        groups="uom.group_uom"
+                                    />            
                                 </div>
                             </div>
                             <label for="logistics_price_unit"/>

@@ -141,6 +141,11 @@ class LogisticsSchedule(models.Model):
         to_done.write({"can_set_to_done": True})
         (self - to_done).write({"can_set_to_done": False})
 
+    @api.onchange("product_id")
+    def _onchange_product_id(self):
+        # For manual logistics schedules
+        self.product_uom = self.product_id.uom_id
+
     @api.depends("stock_move_id.product_uom_qty")
     def _compute_product_uom_qty(self):
         for record in self.filtered(lambda x: x.stock_move_id):
