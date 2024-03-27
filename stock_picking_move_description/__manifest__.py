@@ -7,12 +7,14 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "16.0.1.0.0",
+    "version": "16.0.2.0.0",
     "category": "Inventory/Inventory",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": ["stock"],
-    "data": [        
+    "data": [ 
+        "security/res_groups.xml",      
         "views/stock_picking_views.xml",
+        "views/res_config_settings.xml",
         "report/stock_picking_templates.xml",
     ],
     'installable': True,

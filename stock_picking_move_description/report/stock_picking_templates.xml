@@ -4,6 +4,20 @@
         inherit_id="stock.report_delivery_document"
     >
         <!-- Stock moves -->
+        <!-- Hide Product in report_delivery_document-->
+        <xpath expr="//th[@name='th_sm_product']" position="attributes">
+            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+        </xpath>
+
+        <xpath expr="//td[span[@t-field='move.product_id']]" position="attributes">
+            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+        </xpath>
+
+        <!-- Hide Product in report_delivery_document state=done-->
+        <xpath expr="//th[@name='th_sml_product']" position="attributes">
+            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+        </xpath>
+        <!---->
         <xpath
             expr="//th[@name='th_sm_product']"
             position="after"
@@ -38,6 +52,11 @@
         id="stock_report_delivery_has_serial_move_line_description"
         inherit_id="stock.stock_report_delivery_has_serial_move_line"
     >
+        <!-- Hide Product in stock_report_delivery_has_serial_move_line-->
+        <xpath expr="//td[span[@t-field='move_line.product_id']]" position="attributes">
+            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+        </xpath>
+        <!---->
         <xpath
             expr="//span[@t-field='move_line.product_id']/parent::td"
             position="after"
@@ -56,6 +75,11 @@
         id="stock_report_delivery_aggregated_move_lines"
         inherit_id="stock.stock_report_delivery_aggregated_move_lines"
     >
+        <!-- Hide Product in stock_report_delivery_aggregated_move_lines -->
+        <xpath expr="//td[1]" position="attributes">
+            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+        </xpath>
+        <!---->
         <xpath expr="//td[1]/p" position="attributes">
             <attribute name="t-if">False</attribute>
         </xpath>
