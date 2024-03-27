@@ -7,12 +7,13 @@
     """,
     "author": "Solvos",
     "license": "AGPL-3",
-    "version": "15.0.1.0.1",
+    "version": "15.0.2.0.0",
     "category": "Inventory/Inventory",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
         "stock_move_action_done_custdate",
         "stock_inventory",
     ],
+    "data": ["views/stock_quant_views.xml"],
     'installable': True,
 }
