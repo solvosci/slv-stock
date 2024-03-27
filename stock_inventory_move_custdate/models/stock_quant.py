@@ -25,7 +25,7 @@ class StockQuant(models.Model):
         )
         for inv in inv_ids:
             quants = (
-                inv.stock_quant_ids.filtered(lambda x: x.to_do) - quants_not_in_invs
+                (self & inv.stock_quant_ids.filtered(lambda x: x.to_do)) - quants_not_in_invs
             ).with_context(
                 stock_move_custom_date=inv.date
             )
