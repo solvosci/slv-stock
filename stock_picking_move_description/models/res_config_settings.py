@@ -7,4 +7,4 @@ from odoo import api, fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    group_stock = fields.Boolean(implied_group="stock_picking_move_description.group_stock")
+    group_picking_report = fields.Boolean(implied_group="stock_picking_move_description.group_picking_report")

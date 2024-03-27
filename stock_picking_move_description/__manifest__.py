@@ -12,7 +12,7 @@
     "website": "https://github.com/solvosci/slv-stock",
     "depends": ["stock"],
     "data": [ 
-        "security/res_groups.xml",      
+        "security/stock_picking_move_description_security.xml",      
         "views/stock_picking_views.xml",
         "views/res_config_settings.xml",
         "report/stock_picking_templates.xml",

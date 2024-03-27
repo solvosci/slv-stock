@@ -6,16 +6,16 @@
         <!-- Stock moves -->
         <!-- Hide Product in report_delivery_document-->
         <xpath expr="//th[@name='th_sm_product']" position="attributes">
-            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+            <attribute name="groups">stock_picking_move_description.group_picking_report</attribute>
         </xpath>
 
         <xpath expr="//td[span[@t-field='move.product_id']]" position="attributes">
-            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+            <attribute name="groups">stock_picking_move_description.group_picking_report</attribute>
         </xpath>
 
         <!-- Hide Product in report_delivery_document state=done-->
         <xpath expr="//th[@name='th_sml_product']" position="attributes">
-            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+            <attribute name="groups">stock_picking_move_description.group_picking_report</attribute>
         </xpath>
         <!---->
         <xpath
@@ -54,7 +54,7 @@
     >
         <!-- Hide Product in stock_report_delivery_has_serial_move_line-->
         <xpath expr="//td[span[@t-field='move_line.product_id']]" position="attributes">
-            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+            <attribute name="groups">stock_picking_move_description.group_picking_report</attribute>
         </xpath>
         <!---->
         <xpath
@@ -77,7 +77,7 @@
     >
         <!-- Hide Product in stock_report_delivery_aggregated_move_lines -->
         <xpath expr="//td[1]" position="attributes">
-            <attribute name="groups">stock_picking_move_description.group_stock</attribute>
+            <attribute name="groups">stock_picking_move_description.group_picking_report</attribute>
         </xpath>
         <!---->
         <xpath expr="//td[1]/p" position="attributes">

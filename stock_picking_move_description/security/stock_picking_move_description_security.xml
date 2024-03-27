@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="group_stock" model="res.groups">
-        <field name="name">Stock Group</field>
+    <record id="group_picking_report" model="res.groups">
+        <field name="name">Picking report: hide product column</field>
         <field name="category_id" ref="base.module_category_hidden" />
     </record>
 
