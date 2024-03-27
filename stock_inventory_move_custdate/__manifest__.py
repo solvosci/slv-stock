@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "AGPL-3",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "category": "Inventory/Inventory",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
