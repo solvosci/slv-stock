@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_picking_report_show_prod" model="res.groups">
+            <field name="name">Delivery Slip: show product column</field>
+            <field name="category_id" ref="base.module_category_hidden" />
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="base.group_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('stock_picking_move_description.group_picking_report_show_prod'))]"/>
+        </record>
+    </data>
+</odoo>
