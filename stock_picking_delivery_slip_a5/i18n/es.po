@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_delivery_slip_a5
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-16 08:42+0000\n"
+"PO-Revision-Date: 2024-04-16 10:43+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: stock_picking_delivery_slip_a5
+#: model:ir.actions.report,print_report_name:stock_picking_delivery_slip_a5.action_report_stock_picking_document_scr_a5
+msgid "'Delivery slip A5 - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+
+#. module: stock_picking_delivery_slip_a5
+#: model_terms:ir.ui.view,arch_db:stock_picking_delivery_slip_a5.report_stock_picking_document_scr_a5
+msgid "<span><b>Contact:</b></span><br/>"
+msgstr "Contacto"
+
+#. module: stock_picking_delivery_slip_a5
+#: model:ir.actions.report,name:stock_picking_delivery_slip_a5.action_report_stock_picking_document_scr_a5
+msgid "Delivery slip A5"
+msgstr "Albarán A5"
+
+#. module: stock_picking_delivery_slip_a5
+#: model_terms:ir.ui.view,arch_db:stock_picking_delivery_slip_a5.report_stock_picking_document_scr_a5
+msgid "VAT:"
+msgstr "CIF/NIF:"

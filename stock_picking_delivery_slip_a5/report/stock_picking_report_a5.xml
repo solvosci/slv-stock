@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_stock_picking_document_scr_a5" model="ir.actions.report">
+            <field name="name">Delivery slip A5</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">stock_picking_delivery_slip_a5.report_stock_picking_document_vp_scr_a5</field>
+            <field name="report_file">stock_picking_delivery_slip_a5.report_stock_picking_document_vp_scr_a5</field>
+            <field name="print_report_name">'Delivery slip A5 - %s - %s' % (object.partner_id.name or '', object.name)</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="paperformat_picking_a5" />
+        </record>
+    </data>
+</odoo>
+
