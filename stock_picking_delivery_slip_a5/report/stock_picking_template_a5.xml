@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template
+            id="report_stock_picking_document_scr_a5"
+            inherit_id="stock.report_delivery_document" primary="True"
+        >
+            <xpath expr="//t[@t-set='o']/.. " position="attributes">
+                <attribute name="t-call">web.basic_layout</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.name']/.." position="after">
+                <span><b>Contact:</b></span><br/>
+                <span t-field="o.partner_id.contact_address"/><br/>
+                <span>VAT:<span t-field="o.partner_id.vat"/></span>
+            </xpath>
+        </template>       
+        <template id="report_stock_picking_document_vp_scr_a5">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="stock_picking_delivery_slip_a5.report_stock_picking_document_scr_a5" t-lang="o.partner_id.lang"/>
+                </t>
+        </template>
+    </data>
+</odoo>
+
