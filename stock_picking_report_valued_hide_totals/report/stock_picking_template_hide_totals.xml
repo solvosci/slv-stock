@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <template
+            id="report_stock_picking_document_hide_totals"
+            inherit_id="stock_picking_report_valued.valued_report_picking"
+        >
+            <xpath expr="//span[@t-field='o.amount_untaxed']/../../../.." position="attributes">
+            <attribute name="t-if">False</attribute>
+            </xpath>
+        </template>       
+    </data>
+</odoo>
+
