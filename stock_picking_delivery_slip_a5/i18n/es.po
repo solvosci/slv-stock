@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 08:42+0000\n"
-"PO-Revision-Date: 2024-04-16 10:43+0200\n"
+"POT-Creation-Date: 2024-04-17 07:32+0000\n"
+"PO-Revision-Date: 2024-04-17 09:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. module: stock_picking_delivery_slip_a5
 #: model:ir.actions.report,print_report_name:stock_picking_delivery_slip_a5.action_report_stock_picking_document_scr_a5
 msgid "'Delivery slip A5 - %s - %s' % (object.partner_id.name or '', object.name)"
-msgstr ""
+msgstr "'Albarán A5 - %s - %s' % (object.partner_id.name or '', object.name)"
 
 #. module: stock_picking_delivery_slip_a5
 #: model_terms:ir.ui.view,arch_db:stock_picking_delivery_slip_a5.report_stock_picking_document_scr_a5
 msgid "<span><b>Contact:</b></span><br/>"
-msgstr "Contacto"
+msgstr "<span style=\"font-weight: bold;\">Contacto:</span><br/>"
 
 #. module: stock_picking_delivery_slip_a5
 #: model:ir.actions.report,name:stock_picking_delivery_slip_a5.action_report_stock_picking_document_scr_a5
