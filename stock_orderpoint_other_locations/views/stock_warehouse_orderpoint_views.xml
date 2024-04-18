@@ -1,0 +1,91 @@
+<odoo>
+    <record id="warehouse_orderpoint_search" model="ir.ui.view">
+        <field name="name">stock.warehouse.orderpoint.search (in stock_orderpoint_other_locations)</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field
+            name="inherit_id"
+            ref="stock.warehouse_orderpoint_search"
+        />
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field
+                    name="other_location_ids"
+                    groups="stock.group_stock_multi_locations"
+                />
+            </field>
+            <filter name="location" position="after">
+                <filter
+                    string="Other Location"
+                    name="groupby_other_location_ids"
+                    domain="[]"
+                    context="{'group_by': 'other_location_ids'}"
+                    groups="stock.group_stock_multi_locations"
+                />
+            </filter>
+        </field>
+    </record>
+
+    <record id="view_warehouse_orderpoint_form" model="ir.ui.view">
+        <field name="name">stock.warehouse.orderpoint.form (in stock_orderpoint_other_locations)</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_warehouse_orderpoint_form"
+        />
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field
+                    name="other_location_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    domain="[('id', 'in', allowed_location_ids)]"
+                    attrs="{'readonly': [('location_id', '=', False)]}"
+                    groups="stock.group_stock_multi_locations"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_warehouse_orderpoint_tree_editable" model="ir.ui.view">
+        <field name="name">stock.warehouse.orderpoint.tree.editable (in stock_orderpoint_other_locations)</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_warehouse_orderpoint_tree_editable"
+        />
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="allowed_location_ids" invisible="1"/>            
+                <field
+                    name="other_location_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    domain="[('id', 'in', allowed_location_ids)]"
+                    attrs="{'readonly': [('location_id', '=', False)]}"
+                    groups="stock.group_stock_multi_locations"
+                />
+            </field>
+        </field>
+    </record>
+    <record id="view_warehouse_orderpoint_tree_editable_config" model="ir.ui.view">
+        <field name="name">stock.warehouse.orderpoint.tree.editable.config (in stock_orderpoint_other_locations)</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_warehouse_orderpoint_tree_editable_config"
+        />
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="allowed_location_ids" invisible="1"/>
+                <field
+                    name="other_location_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    domain="[('id', 'in', allowed_location_ids)]"
+                    attrs="{'readonly': [('location_id', '=', False)]}"
+                    groups="stock.group_stock_multi_locations"                    
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

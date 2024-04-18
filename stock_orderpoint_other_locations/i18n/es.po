@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_orderpoint_other_locations
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-18 12:47+0000\n"
+"PO-Revision-Date: 2024-04-18 14:49+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: stock_orderpoint_other_locations
+#: model:ir.model.fields,help:stock_orderpoint_other_locations.field_stock_warehouse_orderpoint__other_location_ids
+msgid ""
+"\n"
+"        When set, locations filled are taken in account when calculating\n"
+"        available and virtual quantities, during procurement rules execution.\n"
+"        Then, obtained quantities for these locations are added to available\n"
+"        stock count and should prevent firing rules\n"
+"        "
+msgstr ""
+"\n"
+"        Se tienen en cuenta las ubicaciones indicadas cuando se calculan las\n"
+"        existencias disponibles y virtuales, cuando se ejecutan las reglas del planificador.\n"
+"        Las cantidades obtenidas se consideran como disponibles a mayores,\n"
+"        evitando que se lancen las reglas si hay stock suficiente\n"
+"        "
+
+#. module: stock_orderpoint_other_locations
+#: model:ir.model,name:stock_orderpoint_other_locations.model_stock_warehouse_orderpoint
+msgid "Minimum Inventory Rule"
+msgstr "Regla de inventario mínimo"
+
+#. module: stock_orderpoint_other_locations
+#: model_terms:ir.ui.view,arch_db:stock_orderpoint_other_locations.warehouse_orderpoint_search
+msgid "Other Location"
+msgstr "Otra ubicación"
+
+#. module: stock_orderpoint_other_locations
+#: model:ir.model.fields,field_description:stock_orderpoint_other_locations.field_stock_warehouse_orderpoint__other_location_ids
+msgid "Other Locations"
+msgstr "Otras ubicaciones"
