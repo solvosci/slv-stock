@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_inventory_draft_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-24 11:30+0000\n"
+"PO-Revision-Date: 2024-04-24 11:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_inventory_draft_warning
+#: model_terms:ir.ui.view,arch_db:stock_inventory_draft_warning.view_stock_quant_draft_warn_wiz_tree
+msgid "Cancel"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model_terms:ir.ui.view,arch_db:stock_inventory_draft_warning.view_stock_quant_draft_warn_wiz_tree
+msgid "Continue"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model,name:stock_inventory_draft_warning.model_stock_inventory
+msgid "Inventory Adjustment Group"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model_terms:ir.ui.view,arch_db:stock_inventory_draft_warning.view_stock_quant_draft_warn_wiz_tree
+msgid "Involved Products"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__product_ids
+msgid "Involved products (10 max)"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: code:addons/slv-stock/stock_inventory_draft_warning/models/stock_inventory.py:0
+#: code:addons/stock_inventory_draft_warning/models/stock_inventory.py:0
+#, python-format
+msgid "Pending Inventory Adjustments"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__stock_inventory_id
+msgid "Stock Inventory"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model,name:stock_inventory_draft_warning.model_stock_quant_draft_warn_wiz
+msgid "Stock Quant Wizard"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: code:addons/slv-stock/stock_inventory_draft_warning/models/stock_inventory.py:0
+#: code:addons/stock_inventory_draft_warning/models/stock_inventory.py:0
+#, python-format
+msgid "There are %d pending inventory adjustments. Please complete them first"
+msgstr ""
+
+#. module: stock_inventory_draft_warning
+#: model:ir.model.fields,field_description:stock_inventory_draft_warning.field_stock_quant_draft_warn_wiz__warning_message
+msgid "Warning Message"
+msgstr ""

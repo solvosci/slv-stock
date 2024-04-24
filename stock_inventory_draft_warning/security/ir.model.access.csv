@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_quant_draft_warn_wiz,stock_quant_draft_warn_wiz,stock_inventory_draft_warning.model_stock_quant_draft_warn_wiz,stock.group_stock_user,1,1,1,1
