@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_quant_draft_warn_wiz_tree" model="ir.ui.view">
+        <field name="name">stock.quant.draft.warn.wiz.form</field>
+        <field name="model">stock.quant.draft.warn.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Involved Products">
+                <group>
+                    <field name="warning_message" nolabel="1" readonly="1"></field>
+                </group>
+                <group>
+                    <label for="product_ids"/>
+                </group>
+                <group>
+                    <field name="product_ids" widget="many2many_tags" nolabel="1"/>
+                </group>
+                <footer>
+                    <button
+                        name="button_continue"
+                        type="object"
+                        string="Continue"
+                        class="oe_highlight"
+                    />
+                    <button special="cancel" string="Cancel" class="btn-secondary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

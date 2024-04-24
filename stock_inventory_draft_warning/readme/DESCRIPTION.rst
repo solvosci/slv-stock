@@ -1,0 +1,1 @@
+Adds warning that show draft stocks move in Inventory Adjustments.
