@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_logistics_schedule_input" model="ir.actions.act_window">
+        <field name="name">Input</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistics.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="logistics_schedule_input_view_tree" />        
+        <field name="domain">[("type", "=", "input")]</field>
+        <field name="context">{"logistics_schedule_view": True, "default_type": "input", "search_default_pending": 1}</field>
+    </record>
+    <!-- record id="act_ls_input_view_tree" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="4"/>
+        <field name="view_id" ref="logistics_schedule_input_view_tree"/>
+        <field name="act_window_id" ref="action_logistics_schedule_input"/>
+    </record>
+    <record id="act_ls_input_view_form" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="5"/>
+        <field name="view_id" ref="logistics_schedule_input_view_form"/>
+        <field name="act_window_id" ref="action_logistics_schedule_input"/>
+    </record -->
+
+    <record id="action_logistics_schedule_output" model="ir.actions.act_window">
+        <field name="name">Output</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistics.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="logistics_schedule_output_view_tree" />
+        <field name="domain">[("type", "=", "output")]</field>
+        <field name="context">{"logistics_schedule_view": True, "default_type": "output", "search_default_pending": 1}</field>
+    </record>
+    <!-- record id="act_ls_output_view_tree" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="sequence" eval="4"/>
+        <field name="view_id" ref="logistics_schedule_output_view_tree"/>
+        <field name="act_window_id" ref="action_logistics_schedule_output"/>
+    </record>
+    <record id="act_ls_output_view_form" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="sequence" eval="5"/>
+        <field name="view_id" ref="logistics_schedule_output_view_form"/>
+        <field name="act_window_id" ref="action_logistics_schedule_output"/>
+    </record -->
+
+    <record id="action_logistics_schedule_input_form" model="ir.actions.act_window">
+        <field name="name">Logistic Schedule Input</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistics.schedule</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="logistics_schedule_input_view_form" />
+        <field name="target">new</field>
+    </record>
+    <record id="action_logistics_schedule_output_form" model="ir.actions.act_window">
+        <field name="name">Logistic Schedule Output</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistics.schedule</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="logistics_schedule_output_view_form" />
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem
+        id="menu_root"
+        name="Logistics Planning"
+        web_icon="logistics_planning_base,static/description/icon.png"
+    />
+
+    <menuitem
+        id="menu_planning"
+        parent="menu_root"
+        name="Plannings"
+        groups="group_lp_user"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_input"
+        parent="menu_planning"
+        name="Inputs"
+        action="action_logistics_schedule_input"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_output"
+        parent="menu_planning"
+        name="Outputs"
+        action="action_logistics_schedule_output"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_config"
+        parent="menu_root"
+        name="Configuration"
+        groups="group_lp_manager"
+        sequence="20"/>
+
+</odoo>
