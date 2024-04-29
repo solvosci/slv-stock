@@ -55,7 +55,7 @@ class SaleOrderLine(models.Model):
             "type": "output",
             "origin": self.order_id.name,
             "company_id": self.company_id.id,
-            "destination_partner_id": self.order_id.warehouse_id.id,
+            "destination_partner_id": self.order_id.warehouse_id.partner_id.id,
             "partner_id": self.order_partner_id.id,
             "product_id": self.product_id.id,
             "product_uom": self.product_uom.id,
