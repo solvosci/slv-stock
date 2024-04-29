@@ -52,7 +52,7 @@ class PurchaseOrderLine(models.Model):
             "type": "input",
             "origin": self.order_id.name,
             "company_id": self.company_id.id,
-            "destination_partner_id": self.order_id.picking_type_id.warehouse_id.id,
+            "destination_partner_id": self.order_id.picking_type_id.warehouse_id.partner_id.id,
             "partner_id": self.partner_id.id,
             "product_id": self.product_id.id,
             "product_uom": self.product_uom.id,
