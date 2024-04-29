@@ -1,0 +1,1 @@
+from . import logistics_schedule_sale_add_wizard
