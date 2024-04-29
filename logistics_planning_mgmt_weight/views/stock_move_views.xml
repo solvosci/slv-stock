@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_move_mgmt_weight_frontend_weight_form_view" model="ir.ui.view">
+        <field name="name">stock.move.form (weight frontend) (in logistics_planning_mgmt_weight)</field>
+        <field name="model">stock.move</field>
+        <field
+            name="inherit_id"
+            ref="stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view"
+        />
+        <field name="arch" type="xml">
+            <field name="picking_partner_id" position="before">
+                <field name="aux_picking_partner_id" invisible="1" />
+            </field>
+            <field name="picking_vehicle_id" position="before">
+                <field name="aux_picking_vehicle_id" invisible="1" />
+            </field>
+        </field>
+    </record>
+</odoo>
