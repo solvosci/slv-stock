@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 12:24+0000\n"
-"PO-Revision-Date: 2024-04-19 14:25+0200\n"
+"POT-Creation-Date: 2024-05-02 15:52+0000\n"
+"PO-Revision-Date: 2024-05-02 17:54+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -25,6 +25,21 @@ msgid ""
 "        are allowed for this line\n"
 "        "
 msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,help:logistics_planning_sale.field_stock_warehouse__ls_so_create_disable_default
+msgid ""
+"\n"
+"        When checked, a SO created with destination this warehouse\n"
+"        won't create logistics plannings by default.\n"
+"        That could be changed for any SO anyway\n"
+"        "
+msgstr ""
+"\n"
+"        Cuando está marcado, al crear PV cuyo destino es este almacén\n"
+"        no se generarán las planificaciones logísticas por defecto.\n"
+"        Dicho comportamiento se podría cambiar en cada PV, en todo caso\n"
+"        "
 
 #. module: logistics_planning_sale
 #: code:addons/logistics_planning_sale/models/sale_order_line.py:0
@@ -64,6 +79,11 @@ msgid "Current schedule count"
 msgstr "Número actual de planificaciones"
 
 #. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_stock_warehouse__ls_so_create_disable_default
+msgid "Disable SO plannings creation by default"
+msgstr "Deshabilitar la creación de planificaciones en PVs por defecto"
+
+#. module: logistics_planning_sale
 #: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
 msgid "Disable log. sched."
 msgstr "Deshab. planif. log."
@@ -92,6 +112,11 @@ msgstr "Id."
 #: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_init
 msgid "Initial required schedules"
 msgstr "Nº inicial de planif. requeridas"
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.stock_warehouse_view_search
+msgid "LS Disabled by default"
+msgstr "Planificaciones logísticas deshabilitadas por defecto"
 
 #. module: logistics_planning_sale
 #: model:ir.model.fields,field_description:logistics_planning_sale.field_logistics_schedule_sale_add_wizard____last_update
@@ -238,6 +263,11 @@ msgstr "Viaje"
 #: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__unit
 msgid "Unit"
 msgstr "Unidad"
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Almacén"
 
 #. module: logistics_planning_sale
 #: model:ir.model,name:logistics_planning_sale.model_logistics_schedule

@@ -1,7 +1,7 @@
 # © 2024 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -34,6 +34,13 @@ class SaleOrder(models.Model):
         compute="_compute_logistics_account_moves",
         string="Logistics Bill Count",
     )
+
+    @api.onchange("warehouse_id")
+    def _ls_onchange_warehouse_id(self):
+        if self.warehouse_id:
+            self.logistics_schedule_disabled = (
+                self.warehouse_id.ls_so_create_disable_default
+            )
 
     def _compute_logistics_account_moves(self):
         for so in self:
