@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="priority" eval="101"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <button
+                    name="%(stock_split_picking.action_stock_split_picking)s"
+                    states="draft,confirmed,waiting,assigned"
+                    string="Split"
+                    groups="stock.group_stock_user"
+                    type="action" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
