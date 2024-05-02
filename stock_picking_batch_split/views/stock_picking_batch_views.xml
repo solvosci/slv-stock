@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_batch_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.batch.form</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch_extended.stock_batch_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_ids']" position="attributes">
+                <attribute name="context">{'tree_view_ref':'stock_picking_batch_split.vpicktree'}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='move_lines']/tree/field[@name='product_uom']" position="after">
+                <button
+                    name="stock_move_split_picking"
+                    states="draft,confirmed,waiting,assigned"
+                    string="Split"
+                    groups="stock.group_stock_user"
+                    type="object" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
