@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-19 12:24+0000\n"
-"PO-Revision-Date: 2024-04-19 12:24+0000\n"
+"POT-Creation-Date: 2024-05-02 15:51+0000\n"
+"PO-Revision-Date: 2024-05-02 15:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,16 @@ msgid ""
 "\n"
 "        Technical field that determines if logistics schedules\n"
 "        are allowed for this line\n"
+"        "
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model.fields,help:logistics_planning_sale.field_stock_warehouse__ls_so_create_disable_default
+msgid ""
+"\n"
+"        When checked, a SO created with destination this warehouse\n"
+"        won't create logistics plannings by default.\n"
+"        That could be changed for any SO anyway\n"
 "        "
 msgstr ""
 
@@ -62,6 +72,11 @@ msgid "Current schedule count"
 msgstr ""
 
 #. module: logistics_planning_sale
+#: model:ir.model.fields,field_description:logistics_planning_sale.field_stock_warehouse__ls_so_create_disable_default
+msgid "Disable SO plannings creation by default"
+msgstr ""
+
+#. module: logistics_planning_sale
 #: model_terms:ir.ui.view,arch_db:logistics_planning_sale.view_order_form_all
 msgid "Disable log. sched."
 msgstr ""
@@ -89,6 +104,11 @@ msgstr ""
 #. module: logistics_planning_sale
 #: model:ir.model.fields,field_description:logistics_planning_sale.field_sale_order_line__logistics_schedule_init
 msgid "Initial required schedules"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model_terms:ir.ui.view,arch_db:logistics_planning_sale.stock_warehouse_view_search
+msgid "LS Disabled by default"
 msgstr ""
 
 #. module: logistics_planning_sale
@@ -163,6 +183,7 @@ msgstr ""
 
 #. module: logistics_planning_sale
 #: code:addons/logistics_planning_sale/models/sale_order.py:0
+#: code:addons/logistics_planning_sale/models/sale_order.py:0
 #, python-format
 msgid ""
 "Please fill a valid Initial required schedules (>=0) for every order line "
@@ -230,6 +251,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:logistics_planning_sale.selection__logistics_schedule_sale_add_wizard__logistics_price_unit_type__unit
 #: model:ir.model.fields.selection,name:logistics_planning_sale.selection__sale_order_line__logistics_price_unit_type__unit
 msgid "Unit"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: model:ir.model,name:logistics_planning_sale.model_stock_warehouse
+msgid "Warehouse"
 msgstr ""
 
 #. module: logistics_planning_sale
