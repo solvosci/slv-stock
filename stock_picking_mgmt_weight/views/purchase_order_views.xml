@@ -104,6 +104,7 @@
                 <attribute name="attrs">{"optional": "hide"}</attribute>
             </xpath>
             <xpath expr="//tree/field[@name='qty_received']" position="after">
+                <field name="classification_order_line_ids" invisible="1"/>
                 <field name="qty_received_ext" string="Received*"/>
                 <field name="pending_qty" string="Pending"/>
                 <field
