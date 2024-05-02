@@ -25,6 +25,12 @@
                     name="logistics_schedule_skip"
                     groups="base.group_no_one"
                 />
+                <field
+                    name="logistics_schedule_disabled"
+                    widget="boolean_toggle"
+                    string="Disable log. sched."
+                    attrs="{'invisible': [('logistics_schedule_skip','=',True)]}"
+                />
             </xpath>            
             <xpath
                 expr="//field[@name='order_line']/tree/field[@name='sequence']"

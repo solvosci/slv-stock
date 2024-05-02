@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 15:07+0000\n"
-"PO-Revision-Date: 2024-04-11 15:07+0000\n"
+"POT-Creation-Date: 2024-05-02 15:51+0000\n"
+"PO-Revision-Date: 2024-05-02 17:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_purchase
 #: model:ir.model.fields,help:logistics_planning_purchase.field_purchase_order_line__ls_schedule_allowed
@@ -38,8 +40,25 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Campo técnico que permite saltarse la creación de las planificaciones\n"
+"        Campo técnico que permite saltarse la creación de las "
+"planificaciones\n"
 "        logísticas cuando se aprueba un pedido\n"
+"        "
+
+#. module: logistics_planning_purchase
+#: model:ir.model.fields,help:logistics_planning_purchase.field_stock_picking_type__ls_po_create_disable_default
+msgid ""
+"\n"
+"        When checked, a PO created with this picking operation\n"
+"        won't create logistics plannings by default.\n"
+"        That could be changed for any PO anyway\n"
+"        "
+msgstr ""
+"\n"
+"        Cuando está marcado, al crear un PC con este tipo de operación de "
+"almacén\n"
+"        no se generarán las planificaciones logísticas por defecto.\n"
+"        Dicho comportamiento se podría cambiar en cada PC, en todo caso\n"
 "        "
 
 #. module: logistics_planning_purchase
@@ -80,6 +99,21 @@ msgid "Current schedule count"
 msgstr "Número actual de planificaciones"
 
 #. module: logistics_planning_purchase
+#: model:ir.model.fields,field_description:logistics_planning_purchase.field_stock_picking_type__ls_po_create_disable_default
+msgid "Disable PO plannings creation by default"
+msgstr "Deshabilitar la creación de planificaciones para PCs por defecto"
+
+#. module: logistics_planning_purchase
+#: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.purchase_order_view_form_inherit_all
+msgid "Disable log. sched."
+msgstr "Deshab. planif. log."
+
+#. module: logistics_planning_purchase
+#: model:ir.model.fields,field_description:logistics_planning_purchase.field_purchase_order__logistics_schedule_disabled
+msgid "Disable logistics schedules creation"
+msgstr "Deshabilitar la creación de planificaciones logísticas"
+
+#. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_logistics_schedule_purchase_add_wizard__display_name
 msgid "Display Name"
 msgstr ""
@@ -93,6 +127,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_purchase_order_line__logistics_schedule_init
 msgid "Initial required schedules"
 msgstr "Nº inicial de planif. requeridas"
+
+#. module: logistics_planning_purchase
+#: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.view_pickingtype_filter
+msgid "LS PO Disabled by default"
+msgstr "Planificaciones logísticas deshabilitadas para PCs por defecto"
 
 #. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_logistics_schedule_purchase_add_wizard____last_update
@@ -166,6 +205,11 @@ msgid "Order Reference"
 msgstr "Ref. pedido"
 
 #. module: logistics_planning_purchase
+#: model:ir.model,name:logistics_planning_purchase.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Tipo de Albarán"
+
+#. module: logistics_planning_purchase
 #: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #, python-format
 msgid ""
@@ -180,8 +224,8 @@ msgstr ""
 #, python-format
 msgid "Please fill a valid number of new schedules to be added (> 0)"
 msgstr ""
-"Por favor, rellene un número válido para las nuevas planificaciones a añadir"
-" (> 0)"
+"Por favor, rellene un número válido para las nuevas planificaciones a "
+"añadir (> 0)"
 
 #. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_logistics_schedule_purchase_add_wizard__product_id

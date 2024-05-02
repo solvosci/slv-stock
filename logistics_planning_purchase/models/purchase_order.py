@@ -1,7 +1,7 @@
 # © 2024 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -22,6 +22,17 @@ class PurchaseOrder(models.Model):
         creation during order approval
         """,
     )
+    logistics_schedule_disabled = fields.Boolean(
+        string="Disable logistics schedules creation",
+        default=False,
+        copy=False,
+        readonly=False,        
+        states={
+            "cancel": [("readonly", True)],
+            "done": [("readonly", True)],
+        },
+        tracking=True,
+    )
     logistics_account_move_ids = fields.Many2many(
         comodel_name="account.move",
         compute="_compute_logistics_account_moves",
@@ -34,6 +45,13 @@ class PurchaseOrder(models.Model):
     ls_transport_type = fields.Selection(
         related="incoterm_id.ls_sale_transport_type",
     )
+
+    @api.onchange("picking_type_id")
+    def _ls_onchange_picking_type_id(self):
+        if self.picking_type_id:
+            self.logistics_schedule_disabled = (
+                self.picking_type_id.ls_po_create_disable_default
+            )
 
     def _compute_logistics_account_moves(self):
         for po in self:
