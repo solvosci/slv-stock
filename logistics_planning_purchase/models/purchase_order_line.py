@@ -41,6 +41,7 @@ class PurchaseOrderLine(models.Model):
         for line in self:
             line.ls_schedule_allowed = (
                 not line.logistics_schedule_skip
+                and not line.order_id.logistics_schedule_disabled
                 and not line.display_type
                 and line.product_id.type in ["product", "consu"]
                 and line.state in ["draft", "sent", "to approve", "purchase"]

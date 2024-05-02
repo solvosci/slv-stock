@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 15:06+0000\n"
-"PO-Revision-Date: 2024-04-11 15:06+0000\n"
+"POT-Creation-Date: 2024-05-02 15:45+0000\n"
+"PO-Revision-Date: 2024-05-02 15:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,17 @@ msgid ""
 msgstr ""
 
 #. module: logistics_planning_purchase
+#: model:ir.model.fields,help:logistics_planning_purchase.field_stock_picking_type__ls_po_create_disable_default
+msgid ""
+"\n"
+"        When checked, a PO created with this picking operation\n"
+"        won't create logistics plannings by default.\n"
+"        That could be changed for any PO anyway\n"
+"        "
+msgstr ""
+
+#. module: logistics_planning_purchase
+#: code:addons/logistics_planning_purchase/models/purchase_order_line.py:0
 #: code:addons/logistics_planning_purchase/models/purchase_order_line.py:0
 #: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.purchase_order_view_form_inherit_all
 #, python-format
@@ -72,6 +83,21 @@ msgid "Current schedule count"
 msgstr ""
 
 #. module: logistics_planning_purchase
+#: model:ir.model.fields,field_description:logistics_planning_purchase.field_stock_picking_type__ls_po_create_disable_default
+msgid "Disable PO plannings creation by default"
+msgstr ""
+
+#. module: logistics_planning_purchase
+#: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.purchase_order_view_form_inherit_all
+msgid "Disable log. sched."
+msgstr ""
+
+#. module: logistics_planning_purchase
+#: model:ir.model.fields,field_description:logistics_planning_purchase.field_purchase_order__logistics_schedule_disabled
+msgid "Disable logistics schedules creation"
+msgstr ""
+
+#. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_logistics_schedule_purchase_add_wizard__display_name
 msgid "Display Name"
 msgstr ""
@@ -84,6 +110,11 @@ msgstr ""
 #. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_purchase_order_line__logistics_schedule_init
 msgid "Initial required schedules"
+msgstr ""
+
+#. module: logistics_planning_purchase
+#: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.view_pickingtype_filter
+msgid "LS PO Disabled by default"
 msgstr ""
 
 #. module: logistics_planning_purchase
@@ -158,6 +189,12 @@ msgid "Order Reference"
 msgstr ""
 
 #. module: logistics_planning_purchase
+#: model:ir.model,name:logistics_planning_purchase.model_stock_picking_type
+msgid "Picking Type"
+msgstr ""
+
+#. module: logistics_planning_purchase
+#: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #, python-format
 msgid ""
