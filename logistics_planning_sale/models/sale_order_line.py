@@ -56,7 +56,7 @@ class SaleOrderLine(models.Model):
             "origin": self.order_id.name,
             "company_id": self.company_id.id,
             "destination_partner_id": self.order_id.warehouse_id.partner_id.id,
-            "partner_id": self.order_partner_id.id,
+            "partner_id": self.order_id.partner_shipping_id.id,
             "product_id": self.product_id.id,
             "product_uom": self.product_uom.id,
             # Addon sale_order_line_date
