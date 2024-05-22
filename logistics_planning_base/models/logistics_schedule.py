@@ -158,10 +158,11 @@ class LogisticsSchedule(models.Model):
     def _onchange_stock_move_id(self):
         self.ensure_one()
         if self.stock_move_id:
+            date_field = "commitment_date" if self.type == 'output' else "effective_date"
             self.write({
-                "commitment_date": self.stock_move_id.date,
+                date_field: self.stock_move_id.date,
                 "schedule_finished": True,
-            })
+            }) 
 
     @api.onchange("carrier_id")
     def _onchange_carrier_id(self):
