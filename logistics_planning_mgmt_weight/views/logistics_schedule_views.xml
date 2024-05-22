@@ -58,7 +58,7 @@
         <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_uom_qty']" position="after">
-                <field name="supply_condition_id" string="Supp. Cond." />
+                <field name="supply_condition_id" string="Supp. Cond." optional="show"/>
             </xpath>
         </field>
     </record>
