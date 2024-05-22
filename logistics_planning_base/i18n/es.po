@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 15:31+0000\n"
-"PO-Revision-Date: 2024-04-11 15:31+0000\n"
+"POT-Creation-Date: 2024-05-22 06:21+0000\n"
+"PO-Revision-Date: 2024-05-22 08:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,help:logistics_planning_base.field_logistics_schedule__origin
@@ -99,10 +101,9 @@ msgid "Carrier"
 msgstr "Transportista"
 
 #. module: logistics_planning_base
-#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
 msgid "Commitment Date"
-msgstr "Fecha carga"
+msgstr "Fecha Carga"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date_hour
@@ -160,6 +161,18 @@ msgid "Currency"
 msgstr "Moneda"
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_tree
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_tree
+msgid "Delivery Date"
+msgstr "Fecha Entrega"
+
+#. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__destination_partner_id
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
 msgid "Destination"
@@ -198,18 +211,12 @@ msgid "Eff. Carr."
 msgstr "Trans. Efec."
 
 #. module: logistics_planning_base
-#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
-msgid "Effective"
-msgstr "Efectiva"
-
-#. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__effective_carrier_id
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
 msgid "Effective Carrier"
 msgstr "Transportista efectivo"
 
 #. module: logistics_planning_base
-#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__effective_date
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
 msgid "Effective Date"
 msgstr "Fecha efectiva"
@@ -286,9 +293,9 @@ msgid "License Plate 2"
 msgstr "Matrícula 2"
 
 #. module: logistics_planning_base
-#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
-msgid "Load"
-msgstr "Carga"
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date
+msgid "Load Date"
+msgstr "Fecha Carga"
 
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
@@ -360,12 +367,12 @@ msgstr "Marcar como finalizado"
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
 msgid "Mov."
-msgstr "Mov."
+msgstr ""
 
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_stock_return_picking_ls_wizard
 msgid "NO"
-msgstr "NO"
+msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__name
@@ -428,8 +435,7 @@ msgstr "Albarán"
 #. module: logistics_planning_base
 #: model:ir.model,name:logistics_planning_base.model_stock_return_picking_ls_wizard
 msgid "Picking return wizard - LS confirmation"
-msgstr ""
-"Asistente de devoluciones - Confirmación de Planificaciones Logísticas"
+msgstr "Asistente de devoluciones - Confirmación de Planificaciones Logísticas"
 
 #. module: logistics_planning_base
 #: model:ir.ui.menu,name:logistics_planning_base.menu_planning
@@ -497,14 +503,16 @@ msgid "Sch. Fi."
 msgstr "Pl. fin"
 
 #. module: logistics_planning_base
-#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_tree
-msgid "Sched. Down."
-msgstr "Desc. prev."
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
+msgid "Sched. Date"
+msgstr "Fecha prevista"
 
 #. module: logistics_planning_base
-#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
-msgid "Sched. Load"
-msgstr "Carga prev."
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_tree
+msgid "Sched. Down."
+msgstr "Fec. entr. prev."
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__schedule_finished
@@ -614,6 +622,11 @@ msgid "Unit"
 msgstr "Unidad"
 
 #. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__effective_date
+msgid "Unloading Date"
+msgstr "Fecha Descarga"
+
+#. module: logistics_planning_base
 #: model:res.groups,name:logistics_planning_base.group_lp_user
 msgid "User"
 msgstr "Usuario"
@@ -627,8 +640,7 @@ msgstr "Contacto del almacén"
 #: code:addons/logistics_planning_base/models/logistics_schedule.py:0
 #, python-format
 msgid "Wrong license plate: [%s] (only alphanumeric characters are valid)"
-msgstr ""
-"Matrícula no válida: [%s] (solo están permitidos caracteres alfanuméricos)"
+msgstr "Matrícula no válida: [%s] (solo están permitidos caracteres alfanuméricos)"
 
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_stock_return_picking_ls_wizard

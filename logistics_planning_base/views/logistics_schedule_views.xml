@@ -44,9 +44,9 @@
                     type="object"
                     title="Edit"
                 />
-                <field name="origin" />
-                <field name="destination_partner_id" />                
-                <field name="partner_id" />
+                <field name="origin" optional="show" />
+                <field name="destination_partner_id" optional="show" />                
+                <field name="partner_id" optional="show" />
                 <field
                     name="stock_move_id"
                     domain="[
@@ -59,39 +59,42 @@
                     context="{'logistics_schedule_view': True}"
                     options="{'no_create_edit': True, 'no_create': True}"
                     string="Mov."
+                    optional="show"
                 />
-                <field name="transport_type" string="Type"/>
-                <field name="product_id" />
-                <field name="product_uom_qty" string="Qty"/>
+                <field name="transport_type" string="Type" optional="show" />
+                <field name="product_id" optional="show" />
+                <field name="product_uom_qty" string="Qty" optional="show" />
                 <field
                     name="product_uom"
                     optional="hide"
                     force_save="1"
                     groups="uom.group_uom"
                 />
-                <field name="scheduled_load_date" string="Sched. Load" />
-                <field name="commitment_date" string="Load" />
+                <field name="scheduled_load_date" string="Sched. Date" optional="show" />
+                <field name="commitment_date" optional="show" />
                 <field
                     name="commitment_date_hour"
                     widget="float_time"
+                    optional="show"
                 />
-                <field name="effective_date" string="Effective" />
+                <field name="effective_date" optional="show"/>
                 <field name="currency_id" invisible="1"/>
-                <field name="logistics_price_unit_type" string="Pr. T." />
-                <field name="logistics_price_unit" widget="monetary" string="Ord. Pr." />
-                <field name="logistics_price_unit_done" widget="monetary" string="Conf. Pr." />
-                <field name="carrier_id" string="Carr."/>
-                <field name="effective_carrier_id" string="Eff. Carr." />  
-                <field name="license_plate_1" string="L.P. 1" />
-                <field name="license_plate_2" string="L.P. 2"  />
-                <field name="state" readonly="1" string="St." />
+                <field name="logistics_price_unit_type" string="Pr. T." optional="show" />
+                <field name="logistics_price_unit" widget="monetary" string="Ord. Pr." optional="show"/>
+                <field name="logistics_price_unit_done" widget="monetary" string="Conf. Pr." optional="show"/>
+                <field name="carrier_id" string="Carr." optional="show"/>
+                <field name="effective_carrier_id" string="Eff. Carr." optional="show" />  
+                <field name="license_plate_1" string="L.P. 1" optional="show"/>
+                <field name="license_plate_2" string="L.P. 2" optional="show" />
+                <field name="state" readonly="1" string="St." optional="show" />
                 <field
                     name="schedule_finished"
                     nolabel="1"
                     widget="boolean_toggle"
                     string="Sch. Fi."
+                    optional="show"
                 />
-                <field name="note" />
+                <field name="note" optional="show" />
             </tree>
         </field>
     </record>
@@ -153,6 +156,12 @@
             </field>
             <field name="commitment_date_hour" position="attributes">
                 <attribute name="invisible">1</attribute>
+            </field>
+            <field name="effective_date" position="attributes">
+                <attribute name="string">Delivery Date</attribute>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="string">Customer</attribute>
             </field>
         </field>
     </record>
@@ -257,7 +266,7 @@
                             <field name="destination_partner_id" />
                         </group>
                         <group>
-                            <field name="scheduled_load_date" />
+                            <field name="scheduled_load_date" string="Sched. Date"/>
                             <field name="commitment_date" />
                             <field name="effective_date" />
                         </group>
@@ -348,6 +357,15 @@
                         ('picking_code', '=', 'internal'),
                         ('warehouse_partner_id', '=', destination_partner_id),
                 ]</attribute>
+            </field>
+            <field name="scheduled_load_date" position="attributes">
+                <attribute name="string">Sched. Down.</attribute>
+            </field>
+            <field name="effective_date" position="attributes">
+                <attribute name="string">Delivery Date</attribute>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="string">Customer</attribute>
             </field>
         </field>
     </record>

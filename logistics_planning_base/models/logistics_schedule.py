@@ -93,9 +93,9 @@ class LogisticsSchedule(models.Model):
         states=READONLY3_STATES,
     )
     scheduled_load_date = fields.Date(states=READONLY1_STATES)
-    commitment_date = fields.Datetime(states=READONLY2_STATES)
+    commitment_date = fields.Datetime(states=READONLY2_STATES, string='Load Date')
     commitment_date_hour = fields.Float(states=READONLY2_STATES)
-    effective_date = fields.Datetime(states=READONLY2_STATES)
+    effective_date = fields.Datetime(states=READONLY2_STATES, string='Unloading Date')
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
