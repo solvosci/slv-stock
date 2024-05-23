@@ -78,25 +78,31 @@ class SaleOrder(models.Model):
         return result        
 
     def action_confirm(self):
-        bad_order_lines = self.order_line.filtered(
-            lambda x: x.ls_schedule_allowed and x.logistics_schedule_init <= 0
-        )
-        if bad_order_lines:
-            bad_orders = bad_order_lines.order_id.mapped("name")
-            raise ValidationError(
-                _(
-                    "Please fill a valid Initial required schedules (>=0)"
-                    " for every order line for the following orders: %s"
-                ) % ", ".join(bad_orders)
+        # If there are already logistics schedules linked to this SO we won't
+        #  re-create them. Such situation occurs e.g. when SO was previously
+        #  cancelled and set back to quotation
+        skip_ls_process = bool(self.logistics_schedule_ids)
+        if not skip_ls_process:
+            bad_order_lines = self.order_line.filtered(
+                lambda x: x.ls_schedule_allowed and x.logistics_schedule_init <= 0
             )
+            if bad_order_lines:
+                bad_orders = bad_order_lines.order_id.mapped("name")
+                raise ValidationError(
+                    _(
+                        "Please fill a valid Initial required schedules (>=0)"
+                        " for every order line for the following orders: %s"
+                    ) % ", ".join(bad_orders)
+                )
         res = super().action_confirm()
-        ls_values = []
-        for line in self.order_line.filtered(lambda x: x.ls_schedule_allowed):
-            ls_values += [
-                line._prepare_logistics_schedule()
-                for i in range(0, line.logistics_schedule_init)
-            ]
-        if ls_values:
-            ls_ids = self.env["logistics.schedule"].sudo().create(ls_values)
-            ls_ids._action_ready()
+        if not skip_ls_process:
+            ls_values = []
+            for line in self.order_line.filtered(lambda x: x.ls_schedule_allowed):
+                ls_values += [
+                    line._prepare_logistics_schedule()
+                    for i in range(0, line.logistics_schedule_init)
+                ]
+            if ls_values:
+                ls_ids = self.env["logistics.schedule"].sudo().create(ls_values)
+                ls_ids._action_ready()
         return res
