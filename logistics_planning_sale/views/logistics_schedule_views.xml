@@ -28,7 +28,7 @@
                     join_operator="AND"
                 >[
                     '|',
-                        ('sale_line_id', '=', sale_order_line_id),
+                        ('rel_sale_order_id', '=', sale_order_id),
                         '&amp;',
                             ('sale_line_id', '!=', False),
                             ('ls_sale_disabled', '=', True),
@@ -60,7 +60,7 @@
                 <field name="sale_order_line_id" invisible="1" />
             </xpath>
             <field name="stock_move_id" position="attributes">
-                <!-- Moves linked to our sales order line, or linked to those
+                <!-- Moves linked to our sales order, or linked to those
                      sale lines with planning disabled
                 -->
                 <attribute
@@ -70,7 +70,7 @@
                     join_operator="AND"
                 >[
                     '|',
-                        ('sale_line_id', '=', sale_order_line_id),
+                        ('rel_sale_order_id', '=', sale_order_id),
                         '&amp;',
                             ('sale_line_id', '!=', False),
                             ('ls_sale_disabled', '=', True),
