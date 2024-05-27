@@ -158,10 +158,14 @@ class LogisticsSchedule(models.Model):
     def _onchange_stock_move_id(self):
         self.ensure_one()
         if self.stock_move_id:
+            sched_finish = (
+                self.type == "output"
+                or self.env.context.get("sched_finish_input_auto", True)
+            )
             date_field = "commitment_date" if self.type == 'output' else "effective_date"
             self.write({
                 date_field: self.stock_move_id.date,
-                "schedule_finished": True,
+                "schedule_finished": sched_finish,
             }) 
 
     @api.onchange("carrier_id")
@@ -218,6 +222,9 @@ class LogisticsSchedule(models.Model):
     def action_logistics_schedule_cancel(self):
         self.browse(self.env.context.get("active_ids", []))._action_cancel()
 
+    def action_logistics_schedule_finished(self):
+        self.browse(self.env.context.get("active_ids", []))._action_sched_finished()
+
     def action_logistics_schedule_done(self):
         self.browse(self.env.context.get("active_ids", []))._action_done()
 
@@ -255,6 +262,23 @@ class LogisticsSchedule(models.Model):
         })
         return to_cancel
 
+    def _check_safe_finished(self):
+        # TO BE OVERRIDEN by addons that inherit from this one
+        pass
+
+    def _action_sched_finished(self):
+        # sudo access will be needed for logistics_planning_mgmt_weight limited
+        #  access users
+        to_sched_finished = self.sudo().filtered(
+            lambda x: (
+                not x.schedule_finished
+                and x.state == "ready"
+                and x.stock_move_id
+            )
+        )
+        to_sched_finished.write({"schedule_finished": True})
+        return to_sched_finished
+
     def _action_done(self, skip_can_set_to_done=False):
         to_done = self
         if not skip_can_set_to_done:
@@ -275,6 +299,8 @@ class LogisticsSchedule(models.Model):
         return to_done
 
     def write(self, values):
+        if values.get("schedule_finished", False):
+            self._check_safe_finished()
         if "stock_move_id" in values:
             # We assume that only a record is selected, no "expected singleton" should be fired
             # (1) If there was a previous stock move linked, ls should be unlinked

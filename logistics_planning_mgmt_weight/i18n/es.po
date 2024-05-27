@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 17:53+0000\n"
-"PO-Revision-Date: 2024-03-21 17:53+0000\n"
+"POT-Creation-Date: 2024-05-27 15:35+0000\n"
+"PO-Revision-Date: 2024-05-27 17:35+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,help:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
@@ -58,6 +60,11 @@ msgstr "Crear ticket"
 #: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ground
 msgid "Ground"
 msgstr "Terrestre"
+
+#. module: logistics_planning_mgmt_weight
+#: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree_mgmt_weight
+msgid "Mark schedule as finished"
+msgstr "Marcar la planificación como finalizada"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ocean-going
@@ -106,7 +113,7 @@ msgstr "Cond. suministro"
 #. module: logistics_planning_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree
 msgid "Ticket"
-msgstr "Ticket"
+msgstr ""
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
