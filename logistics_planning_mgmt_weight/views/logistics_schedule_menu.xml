@@ -14,7 +14,7 @@
         />
         <field name="domain">[
             ("type", "=", "input"),
-            ('stock_move_id', '=', False),
+            ('schedule_finished', '=', False),
         ]</field>
         <field name="context">{"logistics_schedule_view": True, "search_default_pending": 1}</field>
     </record>

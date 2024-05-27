@@ -24,7 +24,8 @@ class LogisticsSchedule(models.Model):
 
     @api.onchange("stock_move_id")
     def _onchange_stock_move_id(self):
-        super()._onchange_stock_move_id()
+        self_ctx = self.with_context(sched_finish_input_auto=False)
+        super(LogisticsSchedule, self_ctx)._onchange_stock_move_id()
         upd_values = {}
         sm_sudo = self.sudo().stock_move_id
         if not sm_sudo:
@@ -84,3 +85,7 @@ class LogisticsSchedule(models.Model):
         result["views"] = form_view
 
         return result
+    
+    def action_logistics_schedule_finish(self):
+        # TODO confirm wizard?
+        self._action_sched_finished()

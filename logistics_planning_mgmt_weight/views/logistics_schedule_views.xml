@@ -121,12 +121,21 @@
                 name="action_logistics_schedule_form_view"
                 position="after"
             >
+
                 <button
                     name="action_logistics_schedule_create_input_ticket"
                     icon="fa-ticket"
                     class="p-0"
                     type="object"
                     title="Create ticket"
+                />                
+                <button
+                    name="action_logistics_schedule_finish"
+                    icon="fa-sign-out"
+                    class="p-0"
+                    type="object"
+                    title="Mark schedule as finished"
+                    attrs="{'invisible': [('product_uom_qty', '&lt;=', 0.0)]}"
                 />                
             </button>
             <button
@@ -135,6 +144,12 @@
             >
                 <attribute name="invisible">1</attribute>
             </button>
+            <field
+                name="schedule_finished"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </field>
         </field>
     </record>
 </odoo>

@@ -43,14 +43,11 @@ class LogisticsSchedule(models.Model):
                 to_ready._action_ready()
         return ret
 
-    @api.onchange("stock_move_id")
-    def _onchange_stock_move_id(self):
-        super()._onchange_stock_move_id()
-        if (
-            self.schedule_finished
-            and self.incoterm_id.ls_invoice_disabled
-        ):
-            self.is_finished = True
+    @api.onchange("schedule_finished")
+    def _onchange_schedule_finished(self):
+        self.filtered(
+            lambda x: x.schedule_finished and x.incoterm_id.ls_invoice_disabled
+        ).write({"is_finished": True})
 
     @api.depends("account_move_line_id", "state")
     def _compute_is_invoiceable(self):
@@ -94,6 +91,11 @@ class LogisticsSchedule(models.Model):
                 "is_finished": False
             })
         return to_cancel
+    
+    def _action_sched_finished(self):
+        to_sched_finished = super()._action_sched_finished()
+        to_sched_finished._onchange_schedule_finished()
+        return to_sched_finished
     
     # def is_invoiceable(self):
     #     return not any(

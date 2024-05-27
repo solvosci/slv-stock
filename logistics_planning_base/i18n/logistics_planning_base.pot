@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-22 06:20+0000\n"
-"PO-Revision-Date: 2024-05-22 06:20+0000\n"
+"POT-Creation-Date: 2024-05-27 15:32+0000\n"
+"PO-Revision-Date: 2024-05-27 15:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -335,6 +335,11 @@ msgstr ""
 #: model:ir.actions.server,name:logistics_planning_base.action_logistics_schedule_done
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
 msgid "Mark as Done"
+msgstr ""
+
+#. module: logistics_planning_base
+#: model:ir.actions.server,name:logistics_planning_base.action_logistics_schedule_sched_finished
+msgid "Mark as Finished"
 msgstr ""
 
 #. module: logistics_planning_base
