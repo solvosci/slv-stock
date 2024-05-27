@@ -41,13 +41,36 @@
                     join_operator="OR"
                 >[
                     ('picking_partner_id', '=', partner_id),
-                    ('product_id', '=', product_id),
                     ('state', 'in', ['draft', 'cancel']),
                     ('logistics_schedule_id', '=', False),
                     ('logistics_schedule_disabled', '=', False),
                     ('picking_code', '=', 'incoming'),
                     ('net_weight', '&gt;', 0),
                 ]</attribute>
+            </field>
+        </field>
+    </record>
+    <record id="logistics_schedule_input_view_form" model="ir.ui.view">
+        <field name="name">logistics.schedule.form input (in logistics_planning_mgmt_weight)</field>
+        <field name="model">logistics.schedule</field>
+        <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_input_view_form"/>
+        <field name="arch" type="xml">
+            <field name="stock_move_id" position="after">
+                <field
+                    name="extra_stock_move_ids"
+                    domain="[
+                        ('picking_partner_id', '=', partner_id),
+                        ('state', 'in', ['draft', 'cancel']),
+                        ('logistics_schedule_id', '=', False),
+                        ('logistics_schedule_disabled', '=', False),
+                        ('picking_code', '=', 'incoming'),
+                        ('net_weight', '&gt;', 0),
+                    ]"
+                    context="{'logistics_schedule_view': True}"
+                    attrs="{'readonly': [('stock_move_id', '=', False)]}"
+                    options="{'no_create_edit': True, 'no_create': True}"
+                    widget="many2many_tags"
+                />
             </field>
         </field>
     </record>
@@ -70,7 +93,7 @@
             <field name="stock_move_id" position="attributes">
                 <!--
                         same partner
-                        same product
+                        same product => REMOVED since schedules could be created for a generic product
                         tickets pending to be classified or already classified
                         still unassigned and available
                         only input tickets
@@ -84,7 +107,6 @@
                     join_operator="OR"
                 >[
                     ('picking_partner_id', '=', partner_id),
-                    ('product_id', '=', product_id),
                     ('state', 'in', ['draft', 'cancel']),
                     ('logistics_schedule_id', '=', False),
                     ('logistics_schedule_disabled', '=', False),
@@ -106,6 +128,24 @@
             <xpath expr="//field[@name='stock_move_id']" position="attributes">
                 <attribute name="string">Ticket</attribute>
             </xpath>
+            <field name="stock_move_id" position="after">
+                <field
+                    name="extra_stock_move_ids"
+                    domain="[
+                        ('picking_partner_id', '=', partner_id),
+                        ('state', 'in', ['draft', 'cancel']),
+                        ('logistics_schedule_id', '=', False),
+                        ('logistics_schedule_disabled', '=', False),
+                        ('picking_code', '=', 'incoming'),
+                        ('net_weight', '&gt;', 0),
+                    ]"
+                    context="{'logistics_schedule_view': True}"
+                    attrs="{'readonly': [('stock_move_id', '=', False)]}"
+                    options="{'no_create_edit': True, 'no_create': True}"
+                    widget="many2many_tags"
+                    optional="show"
+                />
+            </field>
         </field>
     </record>
     <record id="logistics_schedule_input_view_tree_mgmt_weight" model="ir.ui.view">

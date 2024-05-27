@@ -56,6 +56,10 @@ class StockMove(models.Model):
         res = super().create(values)
         if res.logistics_schedule_id:
             ls = res.logistics_schedule_id.sudo()
-            ls.stock_move_id = res.id
-            ls._onchange_stock_move_id()
+            if not ls.stock_move_id:
+                ls.stock_move_id = res.id
+                ls._onchange_stock_move_id()
+            else:
+                #ls.extra_stock_move_ids = [(4, res.id)]
+                ls.extra_stock_move_ids += res
         return res

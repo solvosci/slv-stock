@@ -2,6 +2,7 @@
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
 from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 import ast
 
@@ -15,12 +16,23 @@ class LogisticsSchedule(models.Model):
         states={"draft": [("readonly", False)]},
         copy=False,
     )
+    extra_stock_move_ids = fields.Many2many(
+        comodel_name="stock.move",
+        states={
+            "draft": [("readonly", True)],
+            "cancel": [("readonly", True)],
+            "done": [("readonly", True)],
+        },
+        string="Other tickets",
+    )
 
-    @api.depends("stock_move_id.net_weight")
+    @api.depends("stock_move_id.net_weight", "extra_stock_move_ids.net_weight")
     def _compute_product_uom_qty(self):
         super()._compute_product_uom_qty()
         for record in self.filtered(lambda x: x.stock_move_id.net_weight > 0.0):
-            record.product_uom_qty = record.stock_move_id.net_weight
+            record.product_uom_qty = sum(
+                (record.stock_move_id | record.extra_stock_move_ids).mapped("net_weight")
+            )
 
     @api.onchange("stock_move_id")
     def _onchange_stock_move_id(self):
@@ -30,7 +42,12 @@ class LogisticsSchedule(models.Model):
         sm_sudo = self.sudo().stock_move_id
         if not sm_sudo:
             # TODO clean some values?
-            pass
+            if self.extra_stock_move_ids:
+                raise UserError(_(
+                    "Cannot remove ticket from schedule, because it has extra"
+                    " tickets already linked. Please remove them first"
+                )
+            )
         elif self.sale_order_line_id or sm_sudo.picking_code == "internal":
             # Output from a sales order or internal transfer (for manual outputs)
             upd_values.update({
@@ -89,3 +106,36 @@ class LogisticsSchedule(models.Model):
     def action_logistics_schedule_finish(self):
         # TODO confirm wizard?
         self._action_sched_finished()
+
+    def _check_safe_finished(self):
+        super()._check_safe_finished()
+        wrong_finished = self.filtered(
+            lambda x: (
+                x.type == "input" and (
+                    len((x.stock_move_id | x.extra_stock_move_ids).filtered(lambda x: x.net_weight <= 0.0)) > 0
+                )
+            )
+        )
+        if wrong_finished:
+            raise UserError(
+                _(
+                    "One or more of the selected schedules cannot be marked as"
+                    " finished because one of their tickets are still"
+                    " uncomplete (without net weight). Please check them"
+                )
+            )
+
+    def write(self, values):
+        check_extra_moves = ("extra_stock_move_ids" in values)
+        if check_extra_moves:
+            # We assume that only a record is selected, no "expected singleton" should be fired
+            old_extra_stock_move_ids = self.extra_stock_move_ids
+        ret = super().write(values)
+        if check_extra_moves:
+            (self.extra_stock_move_ids - old_extra_stock_move_ids).write({
+                "logistics_schedule_id": self.id,
+            })
+            (old_extra_stock_move_ids - self.extra_stock_move_ids).write({
+                "logistics_schedule_id": False,
+            })
+        return ret
