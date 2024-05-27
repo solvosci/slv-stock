@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 15:35+0000\n"
-"PO-Revision-Date: 2024-05-27 17:35+0200\n"
+"POT-Creation-Date: 2024-05-28 15:18+0000\n"
+"PO-Revision-Date: 2024-05-29 08:50+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -28,7 +28,8 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar "
+"previamente\n"
 "        desde una acción picking_parter_id con el default_.\n"
 "        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
 "        planificación logística como borrador\n"
@@ -45,11 +46,22 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar "
+"previamente\n"
 "        desde una acción picking_vehicle_id con el default_.\n"
 "        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
 "        planificación logística como borrador\n"
 "        "
+
+#. module: logistics_planning_mgmt_weight
+#: code:addons/logistics_planning_mgmt_weight/models/logistics_schedule.py:0
+#, python-format
+msgid ""
+"Cannot remove ticket from schedule, because it has extra tickets already "
+"linked. Please remove them first"
+msgstr ""
+"No se puede eliminar el ticket de la planificación porque tiene tickets "
+"extra ya enlazados. Por favor, elimine estos primero"
 
 #. module: logistics_planning_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree_mgmt_weight
@@ -70,6 +82,23 @@ msgstr "Marcar la planificación como finalizada"
 #: model:ir.model.fields.selection,name:logistics_planning_mgmt_weight.selection__vehicle_type__ls_sale_transport_type__ocean-going
 msgid "Ocean-Going"
 msgstr "Marítimo"
+
+#. module: logistics_planning_mgmt_weight
+#: code:addons/logistics_planning_mgmt_weight/models/logistics_schedule.py:0
+#, python-format
+msgid ""
+"One or more of the selected schedules cannot be marked as finished because "
+"one of their tickets are still uncomplete (without net weight). Please "
+"check them"
+msgstr ""
+"No se puede marcar como finalizada una o más de las planificaciones "
+"seleccionadas porque uno de sus tickets relacionados está todavía "
+"incompleto (sin peso neto). Por favor, revíselos"
+
+#. module: logistics_planning_mgmt_weight
+#: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_logistics_schedule__extra_stock_move_ids
+msgid "Other tickets"
+msgstr "Otros tickets"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.actions.act_window,name:logistics_planning_mgmt_weight.action_logistics_schedule_input_mgmt_weight
@@ -113,7 +142,7 @@ msgstr "Cond. suministro"
 #. module: logistics_planning_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:logistics_planning_mgmt_weight.logistics_schedule_input_view_tree
 msgid "Ticket"
-msgstr ""
+msgstr "Ticket"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
