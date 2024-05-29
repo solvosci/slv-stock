@@ -112,3 +112,30 @@ class PurchaseOrder(models.Model):
             ls_ids = self.env["logistics.schedule"].sudo().create(ls_values)
             ls_ids._action_ready()
         return res
+
+    def write(self, values):
+        ret = super().write(values)
+        self._update_logistics_schedules(values)
+        return ret
+
+    def _update_logistics_schedules(self, values):
+        """
+        We add here those purchase order values that should be hardlinked
+        to logistics schedules
+        """
+        ls_ids = self.sudo().logistics_schedule_ids.filtered(
+            lambda x: x.state not in ["done", "cancel"]
+        )
+        if ls_ids:
+            upd_values = {}
+            if "picking_type_id" in values:
+                upd_values[
+                    "destination_partner_id"
+                ] = self.picking_type_id.warehouse_id.partner_id.id
+            if "incoterm_id" in values:
+                upd_values.update({
+                    "incoterm_id": self.incoterm_id.id,
+                    "transport_type": self.ls_transport_type,
+                })
+            if upd_values:
+                ls_ids.write(upd_values)
