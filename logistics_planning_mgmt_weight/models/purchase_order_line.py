@@ -16,3 +16,10 @@ class PurchaseOrderLine(models.Model):
             "supply_condition_id": self.supply_condition_id.id or False,
         })
         return values
+
+    def _update_logistics_schedules_dict(self):
+        ret = super()._update_logistics_schedules_dict()
+        ret.update({
+            "supply_condition_id": "supply_condition_id",
+        })
+        return ret
