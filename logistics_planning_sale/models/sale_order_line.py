@@ -1,7 +1,7 @@
 # © 2024 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 
 from odoo.addons.logistics_planning_base.models.logistics_schedule import (
     PRICE_UNIT_TYPES,
@@ -92,15 +92,34 @@ class SaleOrderLine(models.Model):
         }
 
     def write(self, values):
+        ret = super().write(values)
+        self._update_logistics_schedules(values)
+        return ret
+
+    def _update_logistics_schedules(self, values):
         """
         We add here those sale line values that should be hardlinked
         to logistics schedules
         """
-        ret = super().write(values)
-        # This value is already added by sale_order_line_date, but this
-        #  code make our addon actually independent on it
-        if "commitment_date" in values:
-            self.sudo().logistics_schedule_ids.filtered(
-                lambda x: x.state not in ["done", "cancel"]
-            ).write({"scheduled_load_date": values["commitment_date"]})
-        return ret
+        ls_ids = self.sudo().logistics_schedule_ids.filtered(
+            lambda x: x.state not in ["done", "cancel"]
+        )
+        if ls_ids:
+            upd_fields = self._update_logistics_schedules_dict()
+            upd_values = {
+                upd_fields[key]: values[key]
+                for key in dict(filter(lambda x: x[0] in values, upd_fields.items()))
+            }
+            if upd_values:
+                ls_ids.write(upd_values)
+
+    @api.model
+    def _update_logistics_schedules_dict(self):        
+        return {
+            "product_id": "product_id",
+            "product_uom": "product_uom",
+            "commitment_date": "scheduled_load_date",
+            "logistics_price_unit_type": "logistics_price_unit_type",
+            "logistics_price_unit": "logistics_price_unit",
+            "ls_transport_type": "transport_type",
+        }
