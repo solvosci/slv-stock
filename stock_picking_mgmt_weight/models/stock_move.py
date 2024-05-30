@@ -291,7 +291,11 @@ class StockMovFrontend(models.Model):
     def capture_weight(self):
         scale = self.env.company.picking_operations_scale_id
         if scale:
-            weight = scale.get_last_weight()
+            if scale.last_weight_error:
+                raise ValidationError(
+                    _("Cannot retrieve weight, an error was obtained. Please try again later")
+                )
+            weight = scale.last_weight
             return scale.uom_id._compute_quantity(weight, self.product_uom)
         else:
             raise ValidationError(

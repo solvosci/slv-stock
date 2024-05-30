@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-27 17:36+0000\n"
-"PO-Revision-Date: 2024-02-27 17:36+0000\n"
+"POT-Creation-Date: 2024-05-30 07:17+0000\n"
+"PO-Revision-Date: 2024-05-30 09:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_internal_notes
@@ -23,7 +25,8 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Obtiene una lista con las notas internas de los pedidos relacionados\n"
+"        Obtiene una lista con las notas internas de los pedidos "
+"relacionados\n"
 "        "
 
 #. module: stock_picking_mgmt_weight
@@ -53,29 +56,40 @@ msgstr ""
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_stock_move__picking_state
 msgid ""
 " * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
-" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting another operation: This transfer is waiting for another "
+"operation before being ready.\n"
 " * Waiting: The transfer is waiting for the availability of some products.\n"
-"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
-"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be "
+"reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the "
+"products could be reserved.\n"
 " * Ready: The transfer is ready to be processed.\n"
-"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
-"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product "
+"has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product "
+"have been reserved.\n"
 " * Done: The transfer has been processed.\n"
 " * Cancelled: The transfer has been cancelled."
 msgstr ""
-" * Borrador: La transferencia no ha sido confirmada. Las Reservaciones no aplican.\n"
-" * Esperando otra operación: La transferencia espera otra operación antes de estar preparada.\n"
-" * Esperando: La transferencia está esperando disponibilidad de algunos productos.\n"
-"(a) La política de envío es \"Tan pronto como sea posible\" ningún producto pudo ser reservado.\n"
-"(b) La política de envío es \"Cuando todos los productos estén listos\": no todos los productos pueden reservarse.\n"
+" * Borrador: La transferencia no ha sido confirmada. Las Reservaciones no "
+"aplican.\n"
+" * Esperando otra operación: La transferencia espera otra operación antes "
+"de estar preparada.\n"
+" * Esperando: La transferencia está esperando disponibilidad de algunos "
+"productos.\n"
+"(a) La política de envío es \"Tan pronto como sea posible\" ningún producto "
+"pudo ser reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": no "
+"todos los productos pueden reservarse.\n"
 " * Preparado: La transferencia está lista para ser procesada.\n"
-"(a) La política de envío es \"Tan pronto como sea posible\": por lo menos un producto se ha reservado.\n"
-"(b) La política de envío es \"Cuando todos los productos estén listos\": todos los productos han sido reservados.\n"
+"(a) La política de envío es \"Tan pronto como sea posible\": por lo menos "
+"un producto se ha reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": "
+"todos los productos han sido reservados.\n"
 " * Hecho: la transferencia ha sido procesada.\n"
 " * Cancelado: la transferencia ha sido cancelada."
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #, python-format
 msgid "%s-%s (%.2f pend.)"
@@ -92,15 +106,20 @@ msgstr "/imagenes_pesadas/%s"
 msgid ""
 "<span name=\"warn_message\">\n"
 "                            Cancelled quantities will be set to 0. Once\n"
-"                            confirmed, please review then if cancel pending\n"
+"                            confirmed, please review then if cancel "
+"pending\n"
 "                            quantities should to be set again\n"
 "                        </span>"
 msgstr ""
 "<span name=\"warn_message\">\n"
-"                            Al confirmar el pedido se borrarán todas las cantidades\n"
-"                            canceladas existentes actualmente, revise si alguna de ellas\n"
-"                            era de restos y debe seguir cancelada una vez confirmado el pedido.\n"
-"                            Si es así, deben ser canceladas de nuevo después de confirmar el pedido\n"
+"                            Al confirmar el pedido se borrarán todas las "
+"cantidades\n"
+"                            canceladas existentes actualmente, revise si "
+"alguna de ellas\n"
+"                            era de restos y debe seguir cancelada una vez "
+"confirmado el pedido.\n"
+"                            Si es así, deben ser canceladas de nuevo "
+"después de confirmar el pedido\n"
 "                        </span>"
 
 #. module: stock_picking_mgmt_weight
@@ -292,6 +311,14 @@ msgstr ""
 msgid "Cannot cancel pending quantities for %s: nothing is pending"
 msgstr ""
 "No se puede cancelar cantidades pendientes para %s: no hay nada pendiente"
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "Cannot retrieve weight, an error was obtained. Please try again later"
+msgstr ""
+"No se puede capturar el peso, se ha obtenido error. Pruebe de nuevo más "
+"tarde"
 
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
@@ -826,7 +853,6 @@ msgstr "Pdte. facturar"
 #. module: stock_picking_mgmt_weight
 #. openerp-web
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
 #, python-format
 msgid "Iot ASM"
 msgstr ""
@@ -834,14 +860,12 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #. openerp-web
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
 #, python-format
 msgid "Iot Camera"
 msgstr "Cámara IoT"
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #, python-format
 msgid "Iot Weight"
@@ -964,7 +988,6 @@ msgstr "Líneas de clasificación"
 
 #. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_picking.py:0
 #, python-format
@@ -1215,7 +1238,7 @@ msgstr "Observaciones internas en pedidos"
 #: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__purchase_order_id
 msgid "Purchase Order"
-msgstr "Orden de Compra"
+msgstr "Pedido de compra"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model,name:stock_picking_mgmt_weight.model_purchase_order_line
@@ -1533,8 +1556,8 @@ msgstr "Cantidad teórica demandada"
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__identification_document_number
 msgid ""
-"This code should be unique for an order and product LER code and should come"
-" from GAIA integration"
+"This code should be unique for an order and product LER code and should "
+"come from GAIA integration"
 msgstr ""
 "Este código debería ser único para un pedido y código LER de producto y "
 "debería venir de la integración con GAIA"
@@ -1542,8 +1565,8 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_invoiced_ext
 msgid ""
-"This field also takes in account invoiced quantities in classification order"
-" lines"
+"This field also takes in account invoiced quantities in classification "
+"order lines"
 msgstr ""
 "Este campo también tiene en cuenta cantidades facturadas en pedidos de "
 "clasificación"
@@ -1551,8 +1574,8 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_purchase_order_line__qty_received_ext
 msgid ""
-"This field also takes in account received quantities in classification order"
-" lines"
+"This field also takes in account received quantities in classification "
+"order lines"
 msgstr ""
 "Este campo tiene también en cuenta las cantidades recibidas en pedidos de "
 "clasificación"
