@@ -181,6 +181,8 @@ class StockMovFrontend(models.Model):
                 values.get("date_gross_weight", False)
                 or
                 values.get("date_tare", False)
+                or
+                fields.Datetime.now()
             )
             new_picking = self.env["stock.picking"].new({
                 "partner_id": values["picking_partner_id"],
