@@ -208,7 +208,7 @@ class LogisticsSchedule(models.Model):
         # action_logistics_schedule_input
         action = self.env.ref(
             "logistics_planning_base.action_logistics_schedule_%s_form"
-            % self.env.context["default_type"]
+            % self.env.context.get("default_type", self.type)
         )
         result = action.read()[0]
         result["res_id"] = self.id
