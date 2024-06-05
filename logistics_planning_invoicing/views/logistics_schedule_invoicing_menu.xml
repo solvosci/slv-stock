@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_logistics_schedule_invoicing" model="ir.actions.act_window">
+        <field name="name">Schedules Invoicing</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logistics.schedule</field>
+        <field name="view_mode">tree</field>
+        <field
+            name="view_id"
+            ref="logistics_planning_invoicing.logistics_schedule_view_tree_invoicing"
+        />
+        <field name="domain">[
+            ("state", "not in", ["draft", "cancel"]),
+            ("schedule_finished", "=", True),
+        ]</field>
+        <field name="context">{
+            "search_default_filter_is_invoiceable": True,
+            "logistics_schedule_view": True,
+        }</field>
+    </record>
+
+    <menuitem
+        id="menu_invoicing"
+        parent="logistics_planning_base.menu_planning"
+        name="Schedules Invoicing"
+        action="action_logistics_schedule_invoicing"
+        sequence="30"
+        groups="account.group_account_invoice"
+    />
+
+</odoo>

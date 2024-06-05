@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 15:13+0000\n"
-"PO-Revision-Date: 2024-04-11 15:13+0000\n"
+"POT-Creation-Date: 2024-06-06 08:01+0000\n"
+"PO-Revision-Date: 2024-06-06 10:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__account_move_line_id
@@ -54,6 +56,7 @@ msgstr "Opciones de Configuración"
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.actions.server,name:logistics_planning_invoicing.action_logistics_schedule_create_invoice
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_tree_invoicing
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_account_move_wizard
 #, python-format
 msgid "Create Invoice"
@@ -128,19 +131,19 @@ msgstr "En factura"
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_tree
 msgid "Inco."
-msgstr "Inco."
+msgstr ""
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__incoterm_id
 #, python-format
 msgid "Incoterm"
-msgstr "Incoterm"
+msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model,name:logistics_planning_invoicing.model_account_incoterms
 msgid "Incoterms"
-msgstr "Incoterms"
+msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_tree
@@ -165,6 +168,11 @@ msgstr "Finalizado (sin fact.)"
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__is_invoiceable
 msgid "Is Invoiceable"
+msgstr "Es facturable"
+
+#. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_search
+msgid "Is invoiceable"
 msgstr "Es facturable"
 
 #. module: logistics_planning_invoicing
@@ -232,6 +240,12 @@ msgid "Ocean-Going"
 msgstr "Marítimo"
 
 #. module: logistics_planning_invoicing
+#: model:ir.actions.act_window,name:logistics_planning_invoicing.action_logistics_schedule_invoicing
+#: model:ir.ui.menu,name:logistics_planning_invoicing.menu_invoicing
+msgid "Schedules Invoicing"
+msgstr "Facturación de planificaciones"
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,help:logistics_planning_invoicing.field_logistics_schedule__account_move_id
 msgid "The move of this entry line."
 msgstr "El apunte de este asiento."
@@ -240,8 +254,7 @@ msgstr "El apunte de este asiento."
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are %d schedule(s) already invoiced, please first unselect them"
-msgstr ""
-"Hay %d planificación(es) ya facturadas, por favor deselecciónelas primero"
+msgstr "Hay %d planificación(es) ya facturadas, por favor deselecciónelas primero"
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
@@ -276,8 +289,7 @@ msgstr "Tipo de transporte"
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "You cannot select multiple schedules with different carriers."
-msgstr ""
-"No se pueden seleccionar planificaciones con distintos transportistas."
+msgstr "No se pueden seleccionar planificaciones con distintos transportistas."
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
