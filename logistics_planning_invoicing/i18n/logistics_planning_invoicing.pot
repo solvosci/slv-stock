@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-11 15:13+0000\n"
-"PO-Revision-Date: 2024-04-11 15:13+0000\n"
+"POT-Creation-Date: 2024-06-06 08:00+0000\n"
+"PO-Revision-Date: 2024-06-06 08:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,7 @@ msgstr ""
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.actions.server,name:logistics_planning_invoicing.action_logistics_schedule_create_invoice
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_tree_invoicing
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_account_move_wizard
 #, python-format
 msgid "Create Invoice"
@@ -168,6 +169,11 @@ msgid "Is Invoiceable"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_search
+msgid "Is invoiceable"
+msgstr ""
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__journal_id
 msgid "Journal"
 msgstr ""
@@ -229,6 +235,12 @@ msgstr ""
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields.selection,name:logistics_planning_invoicing.selection__account_incoterms__ls_sale_transport_type__ocean-going
 msgid "Ocean-Going"
+msgstr ""
+
+#. module: logistics_planning_invoicing
+#: model:ir.actions.act_window,name:logistics_planning_invoicing.action_logistics_schedule_invoicing
+#: model:ir.ui.menu,name:logistics_planning_invoicing.menu_invoicing
+msgid "Schedules Invoicing"
 msgstr ""
 
 #. module: logistics_planning_invoicing
