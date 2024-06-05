@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_distribution_sheets_document_pdf" inherit_id="stock_picking_assigned.report_distribution_sheets_document_pdf">
+    <xpath expr="//span[@t-field='doc.lot_id']" position="after">
+      - <span t-field="doc.secondary_uom_id.name" />
+    </xpath>
+    <xpath expr="//th[@name='demand']" position="after">
+      <th name="secondary_done"><strong>Secondary Done</strong></th>
+      <th name="secondary_demand"><strong>Secondary Demand</strong></th>
+    </xpath>
+    <xpath expr="//td[@name='demand']" position="after">
+      <td name="secondary_done">
+        <span><span t-field="line.secondary_uom_qty_done" /></span>
+      </td>
+      <td name="secondary_demand">
+        <span><span t-field="line.secondary_uom_qty_demand" /></span>
+      </td>
+    </xpath>
+    <xpath expr="//td[@name='td_qty_done']" position="after">
+      <td name="td_qty_done" colspan="2">
+        <span>Box Total: <span t-esc="sum(doc.line_ids.mapped('secondary_uom_qty_done'))" /></span>
+      </td>
+    </xpath>
+  </template>
+
+</odoo>

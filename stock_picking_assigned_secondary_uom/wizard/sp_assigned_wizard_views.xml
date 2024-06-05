@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sp_assigned_wizard_form" model="ir.ui.view">
+        <field name="name">sp.assigned.wizard.form</field>
+        <field name="model">sp.assigned.wizard</field>
+        <field name="inherit_id" ref="stock_picking_assigned.view_sp_assigned_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='variable_weight']" position="after">
+                <field name="secondary_uom_factor" />
+            </xpath>
+
+            <xpath expr="//field[@name='qty_remaining']" position="after">
+                <field name="secondary_uom_qty_remaining"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sp_assigned_line_wizard_tree" model="ir.ui.view">
+        <field name="name">sp.assigned.line.wizard.tree</field>
+        <field name="model">sp.assigned.line.wizard</field>
+        <field name="inherit_id" ref="stock_picking_assigned.view_sp_assigned_line_wizard_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_to_add']" position="after">
+                <field name="secondary_uom_qty_to_add"/>
+            </xpath>
+            <xpath expr="//field[@name='qty_done_demand']" position="after">
+                <field name="secondary_uom_demand_done"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_sp_assigned_line_variable_wizard_tree" model="ir.ui.view">
+        <field name="name">sp.assigned.line.variable.wizard.tree</field>
+        <field name="model">sp.assigned.line.variable.wizard</field>
+        <field name="inherit_id" ref="stock_picking_assigned.view_sp_assigned_line_variable_wizard_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_variable_total']" position="before">
+                <field name="secondary_uom_qty_to_add"/>
+            </xpath>
+            <xpath expr="//field[@name='qty_done_demand']" position="after">
+                <field name="secondary_uom_demand_done"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
