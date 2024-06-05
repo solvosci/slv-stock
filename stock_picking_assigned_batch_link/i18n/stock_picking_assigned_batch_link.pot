@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_assigned_batch_link
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-31 09:17+0000\n"
+"PO-Revision-Date: 2024-05-31 09:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_sp_assigned_wizard__batch_id
+msgid "Batch"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_product_product__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_sp_assigned_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_product_product__id
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_sp_assigned_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_product_product____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_sp_assigned_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model.fields,field_description:stock_picking_assigned_batch_link.field_sp_assigned_wizard__move_batch_ids
+msgid "Move Batch"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_batch_link.view_sp_assigned_wizard_form
+msgid "Pending Operations"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model,name:stock_picking_assigned_batch_link.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: stock_picking_assigned_batch_link
+#: model:ir.model,name:stock_picking_assigned_batch_link.model_sp_assigned_wizard
+msgid "sp.assigned.wizard"
+msgstr ""
