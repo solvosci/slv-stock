@@ -1,0 +1,132 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_assigned_secondary_uom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-31 09:23+0000\n"
+"PO-Revision-Date: 2024-05-31 12:40+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
+msgid "<strong>Secondary Demand</strong>"
+msgstr "<strong>Caja demandada</strong>"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
+msgid "<strong>Secondary Done</strong>"
+msgstr "<strong>Caja hecha</strong>"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
+msgid "Box Total:"
+msgstr "Total de cajas:"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history__id
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line__id
+msgid "ID"
+msgstr "Id."
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__qty_to_add
+msgid "Qty To Add"
+msgstr "Cant. añadir"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard__secondary_uom_id
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history__secondary_uom_id
+msgid "Secondary Uom"
+msgstr "Caja "
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__secondary_uom_demand_done
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__secondary_uom_demand_done
+msgid "Secondary Uom Demand Done"
+msgstr "Caja hecha/demandada"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard__secondary_uom_factor
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history__secondary_uom_factor
+msgid "Secondary Uom Factor"
+msgstr "Tipo de caja"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line__secondary_uom_qty_demand
+msgid "Secondary Uom Qty Demand"
+msgstr "Caja cant. demandada"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__secondary_uom_qty_done
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__secondary_uom_qty_done
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line__secondary_uom_qty_done
+msgid "Secondary Uom Qty Done"
+msgstr "Caja hecha"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_wizard__secondary_uom_qty_remaining
+msgid "Secondary Uom Qty Remaining"
+msgstr "Cajas restantes"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__secondary_uom_qty_to_add
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__secondary_uom_qty_to_add
+#: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line__secondary_uom_qty_to_add
+msgid "Secondary Uom Qty To Add"
+msgstr "Caja añadir"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model,name:stock_picking_assigned_secondary_uom.model_sp_assigned_line_variable_wizard
+msgid "sp.assigned.line.variable.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model,name:stock_picking_assigned_secondary_uom.model_sp_assigned_line_wizard
+msgid "sp.assigned.line.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model,name:stock_picking_assigned_secondary_uom.model_sp_assigned_wizard
+msgid "sp.assigned.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model,name:stock_picking_assigned_secondary_uom.model_stock_picking_assign_history
+msgid "stock.picking.assign.history"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: model:ir.model,name:stock_picking_assigned_secondary_uom.model_stock_picking_assign_history_line
+msgid "stock.picking.assign.history.line"
+msgstr ""

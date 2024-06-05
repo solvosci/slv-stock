@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_picking_assign_history_view_form" model="ir.ui.view">
+        <field name="name">stock.picking.assign.history.view.form</field>
+        <field name="model">stock.picking.assign.history</field>
+        <field name="inherit_id" ref="stock_picking_assigned.stock_picking_assign_history_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="after">
+                <field name="secondary_uom_factor"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_assign_history_line_tree" model="ir.ui.view">
+        <field name="name">stock.picking.assign.history.line.tree</field>
+        <field name="model">stock.picking.assign.history.line</field>
+        <field name="inherit_id" ref="stock_picking_assigned.stock_picking_assign_history_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty_to_add']" position="before">
+                <field name="secondary_uom_qty_to_add"/>
+            </xpath>
+            <xpath expr="//field[@name='qty_demand']" position="after">
+                <field name="secondary_uom_qty_done"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
