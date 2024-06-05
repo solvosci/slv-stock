@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_distribution_sheets_document_pdf">
+    <div class="page">
+        <div class="row" style="font-weight: bold; font-size: 22px; padding-bottom:5px;">
+          <div class="col-9">
+            <span t-field="doc.product_id"/>
+            <span t-field="doc.lot_id" />
+          </div>
+          <div class="col-3">
+            <span t-field="doc.date" t-options="{'widget': 'date'}"/>
+          </div>
+        </div>
+        <table class="table" style="width: 100%;">
+          <thead>
+            <tr>
+              <th name="wms_code"><strong>SGA</strong></th>
+              <th name="wms_code"><strong>SGA (Complete)</strong></th>
+              <th name="city_partner"><strong>City</strong></th>
+              <th name="quantity_done"><strong>Quantity Done</strong></th>
+              <th name="demand"><strong>Demand</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr t-foreach="doc.line_ids" t-as="line" style="border-bottom: 1px solid #ddd">
+                  <td name="wms_code">
+                    <span><span t-field="line.partner_id.wms_code" /></span>
+                  </td>
+                  <td name="wms_code_complete">
+                    <span><span t-field="line.partner_id.wms_code" /></span>
+                  </td>
+                  <td name="city_partner">
+                    <span><span t-field="line.partner_id.city" /></span>
+                  </td>
+                  <td name="quantity_done">
+                    <span><span t-field="line.qty_done" /></span>
+                  </td>
+                  <td name="demand">
+                    <span><span t-field="line.qty_demand" /></span>
+                  </td>
+                </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td name="td_store" colspan="1">
+                  <span>Stores: <span t-esc="len(doc.line_ids)" /></span>
+                </td>
+                <td name="td_qty_done" colspan="2">
+                  <span>Qty Total: <span t-esc="sum(doc.line_ids.mapped('qty_done'))" /></span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+
+      </div>
+  </template>
+
+  <template id="report_distribution_sheets_pdf">
+    <t t-call="web.basic_layout">
+      <h3 class="text-center">DISTRIBUTION SHEETS</h3>
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="stock_picking_assigned.report_distribution_sheets_document_pdf" />
+        </t>
+    </t>
+  </template>
+
+</odoo>

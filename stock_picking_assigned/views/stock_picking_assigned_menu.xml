@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_picking_assign_history_action" model="ir.actions.act_window">
+        <field name="name">Stock Picking Assing History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking.assign.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="stock_picking_assign_history_menu"
+        name="Stock Picking Assing History"
+        action="stock_picking_assign_history_action"
+        parent="stock.menu_warehouse_report"
+        groups="stock.group_stock_manager"
+        sequence="100"
+    />
+
+</odoo>

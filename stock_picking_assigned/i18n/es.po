@@ -1,0 +1,419 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_assigned
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-31 08:44+0000\n"
+"PO-Revision-Date: 2024-05-31 12:32+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.stock_picking_type_kanban
+msgid "<i class=\"fa fa-archive fa-2x\" title=\"Start barcode interface\"/>"
+msgstr "<i class=\"fa fa-archive fa-2x\" title=\"Start barcode interface\"/>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "<strong>City</strong>"
+msgstr "<strong>Ciudad</strong>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "<strong>Demand</strong>"
+msgstr "<strong>Cant. demandada</strong>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "<strong>Quantity Done</strong>"
+msgstr "<strong>Cant. hecha</strong>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "<strong>SGA (Complete)</strong>"
+msgstr "<strong>SGA (Completo)</strong>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "<strong>SGA</strong>"
+msgstr "<strong>SGA</strong>"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Apply variable weight"
+msgstr "Aplicar peso variable"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Assign"
+msgstr "Asignar"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__assign_history_id
+msgid "Assign History"
+msgstr "Asignar historial"
+
+#. module: stock_picking_assigned
+#: code:addons/stock_picking_assigned/models/stock_picking_type.py:0
+#, python-format
+msgid "Assignation Orders"
+msgstr "Órdenes de asignación"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__assigned_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__assigned_id
+msgid "Assigned"
+msgstr "Asignado"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_res_partner
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__partner_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__partner_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__partner_id
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__create_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__create_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__create_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__create_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__create_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__create_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_pdf
+msgid "DISTRIBUTION SHEETS"
+msgstr "HOJAS DE DISTRIBUCIÓN"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__qty_demand
+msgid "Demand"
+msgstr "Demandado"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_type__display_name
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_production_lot__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_picking_assigned
+#: model:ir.actions.report,name:stock_picking_assigned.action_distribution_sheets_pdf
+msgid "Distribution Sheets"
+msgstr "Hojas de distribución"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields.selection,name:stock_picking_assigned.selection__sp_assigned_line_variable_wizard__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_type__id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_production_lot__id
+msgid "ID"
+msgstr "Id."
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_type____last_update
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_production_lot____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__write_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__write_uid
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__write_uid
+msgid "Last Updated by"
+msgstr "Última actualizado por"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__write_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__write_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__write_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__write_date
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__write_date
+msgid "Last Updated on"
+msgstr "Última actualizado el"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__line_ids
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__line_ids
+msgid "Line"
+msgstr "Línea"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__line_variable_ids
+msgid "Line Variable"
+msgstr "Línea variable"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__location_id
+msgid "Location Stock"
+msgstr "Localización de inventario"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__lot_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__lot_id
+msgid "Lot"
+msgstr "Lote"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__lot_qty
+msgid "Lot Qty"
+msgstr "Cant. lote"
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lote/Número de serie"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Mode Autoassignation"
+msgstr "Modo de autoasignación"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Mode Variable Weight"
+msgstr "Modo peso variable"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields.selection,name:stock_picking_assigned.selection__sp_assigned_line_variable_wizard__state__modified
+msgid "Modified"
+msgstr "Modificado"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__move_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__move_id
+msgid "Move"
+msgstr "Mover"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__move_line_id
+msgid "Move Line"
+msgstr "Mover línea"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Operations"
+msgstr "Operaciones"
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_stock_picking_type
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__picking_type_id
+msgid "Picking Type"
+msgstr "Tipo de operación"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__product_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__qty_actual_in_lines
+msgid "Qty Actual In Lines"
+msgstr "Cant. actual en líneas"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__qty_demand
+msgid "Qty Demand"
+msgstr "Cant. demandada"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__qty_done
+msgid "Qty Done"
+msgstr "Cant.hecho"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__qty_done_demand
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__qty_done_demand
+msgid "Qty Done Demand"
+msgstr "Cant. hecha/demandada"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__qty_remaining
+msgid "Qty Remaining"
+msgstr "Cant. restante"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_production_lot__qty_remaining_not_done
+msgid "Qty Remaining Not Done"
+msgstr "Cant. restante no hecha"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__qty_to_add
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__qty_to_add
+msgid "Qty To Add"
+msgstr "Cant. añadir"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_line_variable_wizard_tree
+msgid "Qty Total"
+msgstr "Cant. total"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "Qty Total:"
+msgstr "Cant. total:"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_line_variable_wizard_tree
+msgid "Qty Var"
+msgstr "Cant. var"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__qty_variable
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__qty_variable
+msgid "Qty Variable"
+msgstr "Cant. variable"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__qty_variable_total
+msgid "Qty Variable Total"
+msgstr "Cant. variable total"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__qty_done
+msgid "Quantity Done"
+msgstr "Hecho"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner__wms_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_users__wms_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__wms_partner_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__wms_partner_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__wms_partner_code
+msgid "Wms Code"
+msgstr "Código SGA"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__state
+msgid "State"
+msgstr "Estado"
+
+#. module: stock_picking_assigned
+#: model:ir.actions.act_window,name:stock_picking_assigned.stock_picking_assign_history_action
+#: model:ir.ui.menu,name:stock_picking_assigned.stock_picking_assign_history_menu
+msgid "Stock Picking Assing History"
+msgstr "Histórico de asignaciones"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
+msgid "Stores:"
+msgstr "Tiendas:"
+
+#. module: stock_picking_assigned
+#: code:addons/stock_picking_assigned/wizard/sp_assigned_wizard.py:0
+#, python-format
+msgid "The remaining quantity should be positive."
+msgstr "La cantidad restante debe ser positiva."
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,help:stock_picking_assigned.field_stock_picking_assign_history_line__qty_demand
+msgid ""
+"This is the quantity of products from an inventory point of view. For moves "
+"in the state 'done', this is the quantity of products that were actually "
+"moved. For other moves, this is the quantity of product that is planned to "
+"be moved. Lowering this quantity does not generate a backorder. Changing "
+"this quantity on assigned moves affects the product reservation, and should "
+"be done with care."
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__picking_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__picking_id
+msgid "Transfer"
+msgstr "Transferencia"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__variable_weight
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__variable_weight
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__variable_weight
+msgid "Variable Weight"
+msgstr "Peso variable"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__warehouse_id
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__warehouse_id
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_sp_assigned_line_variable_wizard
+msgid "sp.assigned.line.variable.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_sp_assigned_line_wizard
+msgid "sp.assigned.line.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_sp_assigned_wizard
+msgid "sp.assigned.wizard"
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_stock_picking_assign_history
+msgid "stock.picking.assign.history"
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model:ir.model,name:stock_picking_assigned.model_stock_picking_assign_history_line
+msgid "stock.picking.assign.history.line"
+msgstr ""

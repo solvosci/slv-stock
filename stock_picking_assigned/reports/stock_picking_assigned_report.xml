@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report 
+        id="action_distribution_sheets_pdf"
+        model="stock.picking.assign.history"
+        string="Distribution Sheets"
+        name="stock_picking_assigned.report_distribution_sheets_pdf"
+        file="stock_picking_assigned.report_distribution_sheets_pdf"
+        report_type="qweb-pdf"
+        attachment_use="False"
+        paperformat="stock_picking_assigned.paperformat_stock_picking_assigned"
+    />
+
+</odoo>
