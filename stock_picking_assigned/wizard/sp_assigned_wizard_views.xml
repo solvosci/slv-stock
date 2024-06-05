@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sp_assigned_wizard_form" model="ir.ui.view">
+        <field name="name">sp.assigned.wizard.form</field>
+        <field name="model">sp.assigned.wizard</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="button_change_mode_variable_weight" 
+                        string="Mode Variable Weight"
+                        type="object"
+                        attrs="{'invisible': [('variable_weight', '=', True)]}"
+                        context="{'location_id': location_id}"
+                        />
+                    <button name="button_change_mode_autoassignation" 
+                        string="Mode Autoassignation"
+                        type="object"
+                        attrs="{'invisible': [('variable_weight', '=', False)]}"
+                        context="{'location_id': location_id}"
+                        />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="picking_type_id" readonly="1"/>
+                            <field name="product_id"/>
+                            <field name="location_id" invisible="1"/>
+                            <field name="variable_weight" context="{'location_id': location_id}" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="lot_id" domain="[('product_id', '=', product_id)]" context="{'stock_picking_assigned': True, 'location_id': location_id}"/>
+                            <field name="qty_remaining" attrs="{'invisible': [('variable_weight', '=', True)]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="page_operations" string="Operations">
+                            <field name="line_ids" mode="tree" readonly="0" attrs="{'invisible': [('variable_weight', '=', True)]}"/>
+                            <field name="line_variable_ids" mode="tree" readonly="0" attrs="{'invisible': [('variable_weight', '=', False)]}"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="button_assigned"
+                            string="Assign"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('variable_weight', '=', True)]}"/>
+                        <button name="button_variable_weight_assigned"
+                            string="Apply variable weight"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('variable_weight', '=', False)]}"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sp_assigned_line_wizard_tree" model="ir.ui.view">
+        <field name="name">sp.assigned.line.wizard.tree</field>
+        <field name="model">sp.assigned.line.wizard</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false" editable="bottom" decoration-success="qty_to_add > 0">
+                <field name="picking_id" />
+                <field name="wms_partner_code" />
+                <field name="partner_id" />
+                <field name="move_id" invisible="1" />
+                <field name="qty_to_add" />
+                <field name="qty_done_demand" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_sp_assigned_line_variable_wizard_tree" model="ir.ui.view">
+        <field name="name">sp.assigned.line.variable.wizard.tree</field>
+        <field name="model">sp.assigned.line.variable.wizard</field>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false" editable="bottom" decoration-success="state == 'modified'">
+                <field name="state" invisible="1"/>
+                <field name="picking_id" />
+                <field name="wms_partner_code" />
+                <field name="partner_id" />
+                <field name="move_line_id" invisible="1" />
+                <field name="qty_variable" string="Qty Var"/>
+                <button name="acumulate_qty_variable" icon="fa-plus" class="p-0" type="object"/>
+                <field name="qty_variable_total" string="Qty Total"/>
+                <field name="qty_done_demand" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
