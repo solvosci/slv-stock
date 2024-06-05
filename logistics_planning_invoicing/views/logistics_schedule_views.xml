@@ -80,4 +80,77 @@
         </field>
     </record>
 
+    <record id="logistics_schedule_view_tree_invoicing" model="ir.ui.view">
+        <field name="name">logistics.schedule.tree invoicing</field>
+        <field name="model">logistics.schedule</field>
+        <field
+            name="inherit_id"
+            ref="logistics_planning_invoicing.logistics_schedule_view_tree"
+        />
+        <field name="mode">primary</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <xpath expr="." position="attributes">
+                <attribute name="create">false</attribute>
+                <attribute name="edit">false</attribute>
+                <attribute name="decoration-info">
+                    state=='ready' and type=='input'
+                </attribute>
+                <attribute name="decoration-warning">
+                    state=='ready' and type=='output'
+                </attribute>
+            </xpath>
+            <xpath
+                expr="//button[@name='action_logistics_schedule_form_view']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- TODO new equivalent "Invoice" button -->
+            <xpath
+                expr="//button[@name='action_logistics_schedule_form_view']"
+                position="after"
+            >
+                <!-- TODO unify invisible criteria with button form one -->
+                <button
+                    name="action_create_invoice_wizard"
+                    icon="fa-pencil-square-o"
+                    class="p-0"
+                    type="object"
+                    title="Create Invoice"
+                    attrs="{'invisible': [('is_invoiceable', '=', False)]}"
+                />
+                <field name="type" invisible="1" />
+            </xpath>
+            <xpath
+                expr="//field[@name='schedule_finished']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="logistics_schedule_view_search" model="ir.ui.view">
+        <field name="name">logistics.schedule.search (in logistics_planning_invoicing)</field>
+        <field name="model">logistics.schedule</field>
+        <field
+            name="inherit_id"
+            ref="logistics_planning_base.logistics_schedule_view_search"
+        />
+        <field name="arch" type="xml">
+            <filter
+                name="logistics_price_unit_type_unit"
+                position="after"
+            >
+                <separator groups="account.group_account_invoice"/>
+                <filter
+                    string="Is invoiceable"
+                    name="filter_is_invoiceable"
+                    domain="[('is_invoiceable', '=', True)]"
+                    groups="account.group_account_invoice"
+                />
+            </filter>
+        </field>
+    </record>
 </odoo>

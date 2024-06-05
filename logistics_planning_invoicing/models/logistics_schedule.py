@@ -107,7 +107,8 @@ class LogisticsSchedule(models.Model):
         if not self.env.user.has_group("account.group_account_user") and not self.env.user.has_group("account.group_account_manager"):
             raise ValidationError(_('You need invoice user access to perform this action.'))
 
-        lg_ids = self.browse(self.env.context.get('active_ids')).filtered(lambda x: x.is_invoiceable)
+        lg_ids_list = self.env.context.get("active_ids") or self.id
+        lg_ids = self.browse(lg_ids_list).filtered(lambda x: x.is_invoiceable)
         carrier_id = lg_ids.mapped('carrier_id')
 
         if not lg_ids:
