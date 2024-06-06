@@ -163,7 +163,7 @@ class LogisticsSchedule(models.Model):
                 or self.env.context.get("sched_finish_input_auto", True)
             )
             date_field = "commitment_date" if self.type == 'output' else "effective_date"
-            self.write({
+            self.update({
                 date_field: self.stock_move_id.date,
                 "schedule_finished": sched_finish,
             }) 
