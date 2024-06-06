@@ -66,7 +66,7 @@ class LogisticsSchedule(models.Model):
             })
 
         if upd_values:
-            self.write(upd_values)
+            self.update(upd_values)
 
     def _action_ready_fields_check_req_fields(self):
         fields = super()._action_ready_fields_check_req_fields()
