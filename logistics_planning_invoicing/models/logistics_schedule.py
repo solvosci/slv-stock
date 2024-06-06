@@ -47,7 +47,7 @@ class LogisticsSchedule(models.Model):
     def _onchange_schedule_finished(self):
         self.filtered(
             lambda x: x.schedule_finished and x.incoterm_id.ls_invoice_disabled
-        ).write({"is_finished": True})
+        ).update({"is_finished": True})
 
     @api.depends("account_move_line_id", "state")
     def _compute_is_invoiceable(self):
