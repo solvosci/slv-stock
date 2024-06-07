@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 12:49+0000\n"
-"PO-Revision-Date: 2023-02-17 12:49+0000\n"
+"POT-Creation-Date: 2024-06-21 09:11+0000\n"
+"PO-Revision-Date: 2024-06-21 11:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_average_price__stock_zero
@@ -43,20 +45,8 @@ msgid ""
 "        - internal - internal transfer\n"
 "        - adjustment - Inventory adjustment\n"
 "        - scrap - Scrap\n"
-"        - mrp - comes from a production\n"
-"        - unbuild - comes from an unbuild\n"
 "        "
 msgstr ""
-"\n"
-"        Posibles tipos:\n"
-"        - purchase - compra o devolución de una compra\n"
-"        - sale - venta o devolución de una venta\n"
-"        - internal - transferencia interna\n"
-"        - adjustment - ajuste de inventario\n"
-"        - scrap - desecho\n"
-"        - mrp - Producción\n"
-"        - unbuild - Despiece\n"
-"        "
 
 #. module: stock_valuation
 #: code:addons/stock_valuation/models/product_average_price.py:0
@@ -99,9 +89,30 @@ msgid "Action Needed"
 msgstr "Acción necesaria"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__active
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__product_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: stock_valuation
 #: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__adjustment
 msgid "Adjustment"
 msgstr "Ajuste de inventario"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
+msgid ""
+"Any created or updated warehouse operation that affects products\n"
+"                                whose valuation is calculated by date and warehouse will raise "
+"an error if\n"
+"                                reference date for this operation is prior to this date. Leave "
+"it empty\n"
+"                                if we cannot forbid any operation depending of its date."
+msgstr ""
+"Cualquier operación de almacén de creación o modificación que afecte a\n"
+"\t\t\t\tproductos cuya valoración se calcula por fecha y almacén lanzará un error\n"
+"\t\t\t\tsi la fecha de referencia para la operación es anterior a esta fecha. \n"
+"\t\t\t\tDejar vacía si no se quiere impedir ningún tipo de operación en función de la fecha."
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_attachment_count
@@ -176,12 +187,21 @@ msgstr "Cancelar"
 #. module: stock_valuation
 #: code:addons/stock_valuation/models/stock_move.py:0
 #, python-format
-msgid ""
-"Cannot add a move for %s in an done internal transfer. Please create a new "
-"transfer instead"
+msgid "Cannot add a move for %s in an done internal transfer. Please create a new transfer instead"
 msgstr ""
-"No está permitido añadir el movimiento para %s en una trasferencia interna "
-"completada. Por favor, cree una transferencia interna nueva en su lugar"
+"No está permitido añadir el movimiento para %s en una trasferencia interna completada. Por "
+"favor, cree una transferencia interna nueva en su lugar"
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/models/stock_move.py:0
+#, python-format
+msgid ""
+"Cannot perform this operation because a stock move before current warehouse valuation close date "
+"will be affected. If this operation must be achieved, please contact an Administrator"
+msgstr ""
+"No se puede realizar la operación debido a que afecta a un movimiento de almacén cuya fecha es "
+"anterior a la fecha de cierre de almacenes. Si se necesita realizar la operación, contacte con "
+"un Administrador"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_form_edit
@@ -208,11 +228,26 @@ msgstr ""
 "                            Este proceso podría llevar un tiempo indeterminado."
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
+msgid "Close Date"
+msgstr "Fecha de cierre"
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__company_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__company_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__company_id
 msgid "Company"
 msgstr "Empresa"
+
+#. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
@@ -310,12 +345,12 @@ msgstr "Seguidores (contactos)"
 #: code:addons/stock_valuation/models/stock_move_line.py:0
 #, python-format
 msgid ""
-"For those products with standard warehouse valuation, only purchase, sale & "
-"internal transfers quantities are allowed to be changed when a move is done"
+"For those products with standard warehouse valuation, only purchase, sale & internal transfers "
+"quantities are allowed to be changed when a move is done"
 msgstr ""
-"Para aquellos productos con valoración estándar por almacén, solo se permite"
-" modificar las cantidades de transferencias de compras, ventas o internas "
-"cuando un movimiento está ya completado"
+"Para aquellos productos con valoración estándar por almacén, solo se permite modificar las "
+"cantidades de transferencias de compras, ventas o internas cuando un movimiento está ya "
+"completado"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_search
@@ -364,6 +399,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Cuando está marcado, algunos mensajes tienen error de envío"
 
 #. module: stock_valuation
+#: model:ir.model.fields,help:stock_valuation.field_stock_valuation_layer__product_active
+msgid "If unchecked, it will allow you to hide the product without removing it."
+msgstr ""
+
+#. module: stock_valuation
 #: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__internal
 msgid "Internal"
 msgstr "Transferencia interna"
@@ -372,6 +412,11 @@ msgstr "Transferencia interna"
 #: model:res.groups,name:stock_valuation.group_stock_history_average_price_edit
 msgid "Inventory: can edit history average price"
 msgstr "Inventario: puede editar el precio medio histórico"
+
+#. module: stock_valuation
+#: model:res.groups,name:stock_valuation.group_stock_valuation_close_date_edit
+msgid "Inventory: can edit warehouse valuation close date"
+msgstr "Inventario: puede editar la fecha de cierre de valoración en almacenes"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_is_follower
@@ -600,12 +645,12 @@ msgstr "Precio medio histórico de producto"
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_stock_move_line
 msgid "Product Moves (Stock Move Line)"
-msgstr "Movimientos de Producto (Stock Move Line)"
+msgstr "Movimientos de Producto (Líneas de movimiento)"
 
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr "Producto"
 
 #. module: stock_valuation
 #: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__purchase
@@ -626,7 +671,7 @@ msgstr "Asistente de edición de cantidad"
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_stock_quant
 msgid "Quants"
-msgstr "Cantidades"
+msgstr ""
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__move_reference
@@ -659,6 +704,11 @@ msgid "Selected warehouses"
 msgstr "Almacenes seleccionados"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
+msgid "Set lock date for warehouse valuations"
+msgstr "Asigna fecha de bloqueo para las valoraciones de inventario"
+
+#. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual
 msgid "Shows if last average price was manually set"
 msgstr "Muestra si el último precio medio fue establecido manualmente"
@@ -666,11 +716,11 @@ msgstr "Muestra si el último precio medio fue establecido manualmente"
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__total_quantity_day
 msgid ""
-"Shows the total quantity of this day and warehouse in inputs that modify "
-"average price computation (e.g. purchases, internal incoming transfers)"
+"Shows the total quantity of this day and warehouse in inputs that modify average price "
+"computation (e.g. purchases, internal incoming transfers)"
 msgstr ""
-"Muestra la cantidad total de este día y almacén en entradas que modifican el"
-" cálculo del precio medio (p.ej. compras, entradas en traspasos internos)"
+"Muestra la cantidad total de este día y almacén en entradas que modifican el cálculo del precio "
+"medio (p.ej. compras, entradas en traspasos internos)"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_product__standard_price_warehouse_ids
@@ -722,8 +772,7 @@ msgstr "Existencias para este producto y almacén a esta fecha"
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__stock_valuation
 msgid "Stock valuation for this product and warehouse at this date"
-msgstr ""
-"Valoración de las existencias para este producto y almacén a esta fecha"
+msgstr "Valoración de las existencias para este producto y almacén a esta fecha"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__summary_entry
@@ -802,6 +851,12 @@ msgid "Warehouse"
 msgstr "Almacén"
 
 #. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_res_company__warehouse_valuation_close_date
+#: model:ir.model.fields,field_description:stock_valuation.field_res_config_settings__warehouse_valuation_close_date
+msgid "Warehouse Valuation Close Date"
+msgstr "Fecha de cierre para valoración de almacén"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__website_message_ids
 msgid "Website Messages"
 msgstr "Mensajes del sitio web"
@@ -814,12 +869,9 @@ msgstr "Historial de comunicación del website"
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual_dt
 msgid "When price was manually set, shows the change date"
-msgstr ""
-"Cuando el precio fue establecido manualmente, muestra la fecha de cambio"
+msgstr "Cuando el precio fue establecido manualmente, muestra la fecha de cambio"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual_user
 msgid "When price was manually set, shows the user that made this change"
-msgstr ""
-"Cuando el precio fue establecido manualmente, muestra el usuario que realizó"
-" el cambio"
+msgstr "Cuando el precio fue establecido manualmente, muestra el usuario que realizó el cambio"

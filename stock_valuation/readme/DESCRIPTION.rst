@@ -13,6 +13,8 @@ Features summary:
   and valuations recalculation is provided when a past stock operation is
   marked as done.
 * Prices base are purchase incomings and internal transfer inputs.
+* A Close Date can be set. Operations in every warehouse before this
+  date will raise an error.
 
 This addon can be inherited in order to support other processes such
 as MRP processes.

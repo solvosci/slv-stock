@@ -10,3 +10,6 @@ can be found.
 Also, an Inventory At Date standalone menu is available through
 a date and warehouse selection wizard. This functionality replaces the
 "Inventory at Date" button in Inventory Report.
+
+If a close date want to be set, go to *Settings* > *Inventory* and
+fill it.
