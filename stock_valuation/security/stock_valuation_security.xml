@@ -8,6 +8,14 @@
             eval="[(4, ref('stock.group_stock_manager'))]"
         />
     </record>
+    <record id="group_stock_valuation_close_date_edit" model="res.groups">
+        <field name="name">Inventory: can edit warehouse valuation close date</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+        <field
+            name="implied_ids"
+            eval="[(4, ref('base.group_system'))]"
+        />
+    </record>
     
     <record model="ir.rule" id="product_average_price_comp_rule">
         <field name="name">Product Average Price multi-company</field>
