@@ -192,6 +192,7 @@ class StockMove(models.Model):
             " moves (%d): %s"
             % (len(self), self.ids)
         )
+        self._check_warehouse_valuation_close_date()
         if not phaps:
             phaps = self.sudo().stock_valuation_layer_ids.mapped(
                 "history_average_price_id"
@@ -236,6 +237,35 @@ class StockMove(models.Model):
             )
 
         logger.info("_compute_phaps_and_update_slvs: process finished!")
+
+    def _check_warehouse_valuation_close_date(self):
+        sm_all = self.sudo()
+        companies = sm_all.mapped("company_id")
+        for company in companies.filtered(
+            lambda x: x.warehouse_valuation_close_date
+        ):
+            oldest_date = sm_all.filtered(
+                lambda x: x.company_id == company
+            ).sorted(key=lambda r: r.date)[0].date
+            # TODO Timezone management comparing dates
+            if oldest_date.date() <= company.warehouse_valuation_close_date:
+                logger.warning(
+                    "User %d-%s tried to update an stock move whose date (%s)"
+                    " is before current warehouse valuation close date (%s)"
+                    % (
+                        self.env.user.id,
+                        self.env.user.name,
+                        oldest_date,
+                        company.warehouse_valuation_close_date,
+                    )
+                )
+                raise UserError(_(
+                    "Cannot perform this operation because a stock move before"
+                    " current warehouse valuation close date will be affected."
+                    " If this operation must be achieved, please contact an"
+                    " Administrator"
+                ))
+
 
     # TODO computed field?
     def get_phap_id(self):
