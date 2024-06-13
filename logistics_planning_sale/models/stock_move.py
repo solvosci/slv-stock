@@ -13,9 +13,9 @@ class StockMove(models.Model):
         string="Sale order - logistics schedule generation disabled",
     )
 
-    # TODO make it stored if becomes slow
     rel_sale_order_id = fields.Many2one(
         related="sale_line_id.order_id",
+        store=True,
         string="Related Sale Order",
         help="""
         Technical field used for logistics schedule stock move view domain
