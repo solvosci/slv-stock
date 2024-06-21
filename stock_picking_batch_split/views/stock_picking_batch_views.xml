@@ -17,6 +17,9 @@
                     groups="stock.group_stock_user"
                     type="object" />
             </xpath>
+            <xpath expr="//field[@name='id']" position="before">
+                <button name="action_open_stock_picking_batch_split_wizard" class="btn-primary" type="object" string="Split by product"/>
+            </xpath>
         </field>
     </record>
 
