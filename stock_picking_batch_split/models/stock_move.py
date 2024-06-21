@@ -8,9 +8,10 @@ class StockMove(models.Model):
     _inherit = "stock.move"    
 
     def stock_move_split_picking(self):
-        wizard_id = self.env['stock.split.picking'].create({
-            'mode': 'selection',
-            'picking_ids': [(4, self.picking_id.id)],
-            'move_ids': [(4, self.id)]
-        })
-        wizard_id.action_apply()
+        for record in self:
+            wizard_id = self.env['stock.split.picking'].create({
+                'mode': 'selection',
+                'picking_ids': [(4, record.picking_id.id)],
+                'move_ids': [(4, record.id)]
+            })
+            wizard_id.action_apply()
