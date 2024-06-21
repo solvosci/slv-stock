@@ -50,6 +50,7 @@ class LogisticsSchedule(models.Model):
             ('cancel', 'Cancel'),
         ],
         default='draft',
+        copy=False,
         tracking=True,
     )
     type = fields.Selection(
@@ -61,11 +62,16 @@ class LogisticsSchedule(models.Model):
     )
     origin = fields.Char(
         readonly=True,
+        copy=False,
         help="""
         Origin document (e.g. purchase order for inputs, sales order for outputs,...)
         """,
     )
-    stock_move_id = fields.Many2one('stock.move', states=READONLY2_STATES)
+    stock_move_id = fields.Many2one(
+        'stock.move',
+        states=READONLY2_STATES,
+        copy=False,
+    )
     picking_id = fields.Many2one('stock.picking', related='stock_move_id.picking_id', store=True)
     destination_partner_id = fields.Many2one(
         'res.partner',
@@ -90,12 +96,21 @@ class LogisticsSchedule(models.Model):
         compute="_compute_product_uom_qty",
         store=True,
         readonly=False,
+        copy=False,
         states=READONLY3_STATES,
     )
-    scheduled_load_date = fields.Date(states=READONLY1_STATES)
-    commitment_date = fields.Datetime(states=READONLY2_STATES, string='Load Date')
-    commitment_date_hour = fields.Float(states=READONLY2_STATES)
-    effective_date = fields.Datetime(states=READONLY2_STATES, string='Unloading Date')
+    scheduled_load_date = fields.Date(states=READONLY1_STATES, copy=False)
+    commitment_date = fields.Datetime(
+        states=READONLY2_STATES,
+        string='Load Date',
+        copy=False,
+    )
+    commitment_date_hour = fields.Float(states=READONLY2_STATES, copy=False)
+    effective_date = fields.Datetime(
+        states=READONLY2_STATES,
+        string='Unloading Date',
+        copy=False,
+    )
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
@@ -111,6 +126,7 @@ class LogisticsSchedule(models.Model):
         digits='Product Price',
         string="Price Unit Done",
         states=READONLY2_STATES,
+        copy=False,
     )
     carrier_id = fields.Many2one(
         'res.partner',
@@ -124,8 +140,8 @@ class LogisticsSchedule(models.Model):
     )
     license_plate_1 = fields.Char(states=READONLY3_STATES)
     license_plate_2 = fields.Char(states=READONLY3_STATES)
-    schedule_finished = fields.Boolean(states=READONLY2_STATES)
-    note = fields.Text()
+    schedule_finished = fields.Boolean(states=READONLY2_STATES, copy=False)
+    note = fields.Text(copy=False)
 
     can_set_to_done = fields.Boolean(
         compute="_compute_can_set_to_done",
@@ -222,6 +238,9 @@ class LogisticsSchedule(models.Model):
     def action_logistics_schedule_cancel(self):
         self.browse(self.env.context.get("active_ids", []))._action_cancel()
 
+    def action_logistics_schedule_copy(self):
+        self.browse(self.env.context.get("active_ids", []))._action_copy()
+
     def action_logistics_schedule_finished(self):
         self.browse(self.env.context.get("active_ids", []))._action_sched_finished()
 
@@ -261,6 +280,27 @@ class LogisticsSchedule(models.Model):
             "schedule_finished": False,
         })
         return to_cancel
+    
+    def _action_copy(self):
+        to_copy = self.filtered(lambda x: not x.origin)
+        if not to_copy:
+            raise ValidationError(_(
+                "There are no schedules selected that could be duplicated"
+            ))
+        max_copy_allowed = self.env[
+            "ir.config_parameter"
+        ].sudo().get_param(
+            "logistics_planning_base.schedule_max_copy"
+        ) or ""
+        max_copy_allowed = (
+            max_copy_allowed.isdigit() and int(max_copy_allowed) or 1
+        )
+        if len(to_copy) > max_copy_allowed:
+            raise ValidationError(_(
+                "Cannot duplicate more than %d schedule(s) at the same time!"
+            ) % max_copy_allowed)
+        for sched in to_copy:
+            sched.copy()
 
     def _check_safe_finished(self):
         # TO BE OVERRIDEN by addons that inherit from this one

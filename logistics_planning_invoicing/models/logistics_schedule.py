@@ -15,10 +15,14 @@ class LogisticsSchedule(models.Model):
         readonly=True,
         states={"draft": [("readonly", False)]},
     )
-    account_move_line_id = fields.Many2one('account.move.line', readonly=True)
+    account_move_line_id = fields.Many2one(
+        'account.move.line',
+        readonly=True,
+        copy=False,
+    )
     account_move_id = fields.Many2one('account.move', related='account_move_line_id.move_id', string='Invoice')
     is_invoiceable = fields.Boolean(compute='_compute_is_invoiceable', store=True)
-    is_finished = fields.Boolean()
+    is_finished = fields.Boolean(copy=False)
 
     def write(self, values):
         """
