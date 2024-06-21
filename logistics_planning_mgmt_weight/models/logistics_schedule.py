@@ -14,7 +14,6 @@ class LogisticsSchedule(models.Model):
         comodel_name="supply.condition",
         readonly=True,
         states={"draft": [("readonly", False)]},
-        copy=False,
     )
     extra_stock_move_ids = fields.Many2many(
         comodel_name="stock.move",
@@ -23,6 +22,7 @@ class LogisticsSchedule(models.Model):
             "cancel": [("readonly", True)],
             "done": [("readonly", True)],
         },
+        copy=False,
         string="Other tickets",
     )
 

@@ -41,6 +41,16 @@
             action = model.action_logistics_schedule_cancel()
         </field>
     </record>
+    <record id="action_logistics_schedule_copy" model="ir.actions.server">
+        <field name="name">Duplicate</field>
+        <field name="model_id" ref="model_logistics_schedule" />
+        <field name="binding_model_id" ref="model_logistics_schedule" />
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_logistics_schedule_copy()
+        </field>
+    </record>
 
     <record id="logistics_schedule_view_tree" model="ir.ui.view">
         <field name="name">logistics.schedule.tree</field>
@@ -249,6 +259,14 @@
                         string="Cancel"
                         confirm="Are you sure you want to cancel this record?"
                         attrs="{'invisible': [('state', 'not in', ['draft', 'ready', 'done'])]}"
+                    />
+                    <button
+                        name="%(action_logistics_schedule_copy)d"
+                        type="action"
+                        string="Duplicate"
+                        confirm="Are you sure you want to duplicate this record?"
+                        attrs="{'invisible': [('origin', '!=', False)]}"
+                        icon="fa-paste"
                     />
                     <field name="state" widget="statusbar" statusbar_visible="draft,ready,done,cancel" readonly="1"/>
                 </header>

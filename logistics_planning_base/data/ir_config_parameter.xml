@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <record
+            id="schedule_max_copy"
+            model="ir.config_parameter"
+        >
+            <field name="key">logistics_planning_base.schedule_max_copy</field>
+            <field name="value">10</field>
+        </record>
+    </data>
+</odoo>

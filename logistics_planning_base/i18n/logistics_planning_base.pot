@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 15:32+0000\n"
-"PO-Revision-Date: 2024-05-27 15:32+0000\n"
+"POT-Creation-Date: 2024-06-21 10:14+0000\n"
+"PO-Revision-Date: 2024-06-21 10:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,11 @@ msgid "Are you sure you want to cancel this record?"
 msgstr ""
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
+msgid "Are you sure you want to duplicate this record?"
+msgstr ""
+
+#. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__can_set_to_done
 msgid "Can Set To Done"
 msgstr ""
@@ -62,6 +67,12 @@ msgstr ""
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_search
 msgid "Cancelled"
+msgstr ""
+
+#. module: logistics_planning_base
+#: code:addons/logistics_planning_base/models/logistics_schedule.py:0
+#, python-format
+msgid "Cannot duplicate more than %d schedule(s) at the same time!"
 msgstr ""
 
 #. module: logistics_planning_base
@@ -182,6 +193,12 @@ msgstr ""
 #. module: logistics_planning_base
 #: model:ir.model.fields.selection,name:logistics_planning_base.selection__logistics_schedule__state__draft
 msgid "Draft"
+msgstr ""
+
+#. module: logistics_planning_base
+#: model:ir.actions.server,name:logistics_planning_base.action_logistics_schedule_copy
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
+msgid "Duplicate"
 msgstr ""
 
 #. module: logistics_planning_base
@@ -546,6 +563,12 @@ msgstr ""
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__stock_return_picking_id
 msgid "Stock Return Picking"
+msgstr ""
+
+#. module: logistics_planning_base
+#: code:addons/logistics_planning_base/models/logistics_schedule.py:0
+#, python-format
+msgid "There are no schedules selected that could be duplicated"
 msgstr ""
 
 #. module: logistics_planning_base
