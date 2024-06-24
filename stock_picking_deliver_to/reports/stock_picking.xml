@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_stock_picking" inherit_id="stock.report_delivery_document">
+            <xpath expr="//div[@name='div_sched_date']" position="after">
+                <div class="col-auto" t-if="o.deliver_to != False">
+                    <strong>Deliver to:</strong>
+                    <p t-field="o.deliver_to" />
+                </div>
+            </xpath>
+        </template>       
+    </data>
+</odoo>
