@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="deliver_to" attrs="{'invisible': [('picking_type_code','!=','outgoing')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_tree_view" model="ir.ui.view">
+        <field name="name">stock.picking.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field
+                    name="deliver_to"
+                    optional="hide"
+                    attrs="{'readonly': [('picking_type_code','!=','outgoing')]}"
+                    invisible="not context.get('show_deliver_to', True)"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_search" model="ir.ui.view">
+        <field name="name">stock.picking.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="deliver_to" string="Deliver To"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
