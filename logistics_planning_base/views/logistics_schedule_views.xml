@@ -66,7 +66,12 @@
                 />
                 <field name="origin" optional="show" />
                 <field name="destination_partner_id" optional="show" />                
-                <field name="partner_id" optional="show" />
+                <field name="partner_readonly" invisible="1" />
+                <field
+                    name="partner_id"
+                    optional="show"
+                    attrs="{'readonly': [('partner_readonly', '=', True)]}"
+                />
                 <field
                     name="stock_move_id"
                     domain="[
@@ -290,7 +295,11 @@
                                 context="{'logistics_schedule_view': True}"
                                 options="{'no_create_edit': True, 'no_create': True}"
                             />
-                            <field name="partner_id" />
+                            <field name="partner_readonly" invisible="1" />
+                            <field
+                                name="partner_id"
+                                attrs="{'readonly': [('partner_readonly', '=', True)]}"
+                            />
                             <field name="destination_partner_id" />
                         </group>
                         <group>

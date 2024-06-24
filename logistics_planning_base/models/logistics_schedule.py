@@ -78,7 +78,7 @@ class LogisticsSchedule(models.Model):
         string="Destination",
         states=READONLY3_STATES,
     )
-    partner_id = fields.Many2one('res.partner', states=READONLY1_STATES)
+    partner_id = fields.Many2one('res.partner', states=READONLY3_STATES)
     transport_type = fields.Selection(
         selection=TRANSPORT_TYPE,
         states=READONLY1_STATES,
@@ -143,6 +143,14 @@ class LogisticsSchedule(models.Model):
     schedule_finished = fields.Boolean(states=READONLY2_STATES, copy=False)
     note = fields.Text(copy=False)
 
+    partner_readonly = fields.Boolean(
+        compute="_compute_partner_readonly",
+        string="Is partner readonly",
+        help="""
+        Technical field that helps us determining whether a partner can be
+        modified by users, only for 'ready' state
+        """,
+    )
     can_set_to_done = fields.Boolean(
         compute="_compute_can_set_to_done",
         help="""
@@ -159,6 +167,30 @@ class LogisticsSchedule(models.Model):
         to_done = self.filtered(lambda x: x.state == "ready")
         to_done.write({"can_set_to_done": True})
         (self - to_done).write({"can_set_to_done": False})
+
+    def _compute_partner_readonly(self):
+        """
+        By field definition, when schedule is in 'done' or 'cancel' state
+        partner cannot be editable by users.
+        This method aims to only check 'ready' state exceptions.
+        An instrumental field is defined instead of simply creating a XML
+        domain, so it could be later improved when needed
+        """
+        editable_ls_ids = self.filtered(lambda x: (
+            not x.origin and not x.stock_move_id
+        ))
+        editable_ls_ids.write({"partner_readonly": False})
+        (self - editable_ls_ids).write({"partner_readonly": True})
+
+    @api.onchange("partner_id")
+    def _onchange_partner_id(self):
+        """
+        For corner case when adding stock move for manual schedules,
+        and then trying to remove partner, before saving (after saving
+        partner becomes readonly and that situation is not possible)
+        """
+        if not self.partner_id:
+            self.stock_move_id = False
 
     @api.onchange("product_id")
     def _onchange_product_id(self):

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 10:15+0000\n"
-"PO-Revision-Date: 2024-06-21 12:17+0200\n"
+"POT-Creation-Date: 2024-06-24 15:34+0000\n"
+"PO-Revision-Date: 2024-06-24 17:36+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -41,6 +41,19 @@ msgstr ""
 "        Campo técnico da acceso al contacto asociado al almacén de la ubicación\n"
 "        origen de este movimiento.\n"
 "        Solo se calcula para traspasos internos.\n"
+"        "
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,help:logistics_planning_base.field_logistics_schedule__partner_readonly
+msgid ""
+"\n"
+"        Technical field that helps us determining whether a partner can be\n"
+"        modified by users, only for 'ready' state\n"
+"        "
+msgstr ""
+"\n"
+"        Campo técnico que nos ayuda a determinar cuándo podrán cambiar\n"
+"        modificar, en el estado 'en curso', el contacto los usuarios\n"
 "        "
 
 #. module: logistics_planning_base
@@ -270,6 +283,11 @@ msgstr "Entrada"
 #: model:ir.ui.menu,name:logistics_planning_base.menu_input
 msgid "Inputs"
 msgstr "Entradas"
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__partner_readonly
+msgid "Is partner readonly"
+msgstr "El contacto es de solo lectura"
 
 #. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
