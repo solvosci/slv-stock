@@ -114,7 +114,7 @@ class LogisticsSchedule(models.Model):
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
-        states=READONLY1_STATES,
+        states=READONLY3_STATES,
     )
     currency_id = fields.Many2one('res.currency', default=lambda self: self.env.company.currency_id)
     logistics_price_unit = fields.Float(
