@@ -13,6 +13,20 @@
                 <span t-field="o.partner_id.contact_address"/><br/>
                 <span>VAT:<span t-field="o.partner_id.vat"/></span>
             </xpath>
+            <xpath expr="//span[@t-field='o.name']/.." position="attributes">
+                <attribute name="t-if">False</attribute>
+            </xpath>
+            <xpath expr="//span[@t-field='o.name']/.." position="after">
+                <h4>
+                    <span t-field="o.name"/>
+                </h4>
+            </xpath>
+            <xpath expr="//div[@class='page']" position="attributes">
+                <attribute name="style">font-size: 75%</attribute>
+            </xpath>
+            <xpath expr="//div[@name='div_origin']/.." position="attributes">
+                <attribute name="class">row</attribute>
+            </xpath>
         </template>       
         <template id="report_stock_picking_document_vp_scr_a5">
                 <t t-foreach="docs" t-as="o">
