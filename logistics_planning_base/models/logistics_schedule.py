@@ -145,6 +145,7 @@ class LogisticsSchedule(models.Model):
 
     partner_readonly = fields.Boolean(
         compute="_compute_partner_readonly",
+        compute_sudo=True,
         string="Is partner readonly",
         help="""
         Technical field that helps us determining whether a partner can be
