@@ -237,11 +237,45 @@ class ProductHistoryAveragePrice(models.Model):
                 update_svls |= upd_svls
                 return_phaps |= ret_phaps
 
+            phap._update_dependent_svls_pre(update_svls)
+
             for svl in update_svls:
-                svl.unit_cost = phap.average_price
-                svl.value = svl.unit_cost * svl.quantity
+                # TODO UNBUILD CASE => PHAP self price is no longer correct for produced moves, we should use
+                #      unbuild cost_unit_price instead, that should be updated once
+                #      PHAP consume (product) price is updated as well
+                #      (1) Separate slvs (unbuilt product // produced products)
+                #      (2) First ensure main PHAP (unbuilt product) is updated => it should be already updated at this point
+                #      (3) then update unbuild cost_unit_price => call unbuild._update_wo_extra_total()
+                #          => made thanks to _update_dependent_svls_pre()
+                #      (4) produced products slv.unit_cost = unbuild.cost_unit_price
+                # svl.unit_cost = phap.average_price
+                # svl.value = svl.unit_cost * svl.quantity
+                unit_cost, quantity = phap._update_dependent_svls_get_svl_data(svl)
+                svl.write({
+                    "unit_cost": unit_cost,
+                    "value": unit_cost * quantity
+                })
 
         return return_phaps
+    
+    def _update_dependent_svls_pre(self, update_svls):
+        """
+        Previous actions hook for SVLs just before updating them
+        Add here required logic when needed (e.g. for unbuilds, unit cost
+        recalculation)
+        """
+        pass
+
+    def _update_dependent_svls_get_svl_data(self, svl):
+        """
+        Obtain unit price and quantity that should be applied for this SVL
+        depending on current PHAP.
+        This will usually be PHAP price itself and SVL quantity, but e.g.
+        for SVL produced unbuilds, unbuild cost unit should be selected
+        instead (quantity not, be for now we're prepared)
+        """
+        self.ensure_one()
+        return self.average_price, svl.quantity
 
     def _from_svl_get_upd_svls_and_ret_phaps(self, svl):
         """
