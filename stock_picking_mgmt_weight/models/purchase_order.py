@@ -17,6 +17,7 @@ class PurchaseOrder(models.Model):
     related_order_id = fields.Many2one(
         comodel_name="purchase.order",
         readonly=True,
+        copy=False,
     )
     related_order_ids = fields.Many2many(
         string="Related orders",
@@ -26,6 +27,7 @@ class PurchaseOrder(models.Model):
         column2="related_order_id",
         compute="_compute_related_order_ids",
         store=True,
+        copy=False,
     )
     related_order_count = fields.Integer(
         compute="_compute_related_order_ids",
@@ -39,6 +41,7 @@ class PurchaseOrder(models.Model):
         relation="purchase_order_related",
         column1="related_order_id",
         column2="order_id",
+        copy=False,
     )
     classification = fields.Boolean(
         compute="_compute_classification",
