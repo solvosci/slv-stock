@@ -10,6 +10,7 @@ class PurchaseOrderLine(models.Model):
 
     related_real_order_line_id = fields.Many2one(
         "purchase.order.line",
+        copy=False,
         help="For extra lines created in classification process, this field"
         " indicates the original linked line",
     )
