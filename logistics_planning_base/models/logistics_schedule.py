@@ -159,6 +159,11 @@ class LogisticsSchedule(models.Model):
         Tecnical field indicating whether this record can be set to done state
         """,
     )
+    etd_date = fields.Date(
+        string="ETD Date",
+        states=READONLY3_STATES,
+        copy=False
+    )
 
     # TODO remove when confirm is no longer needed (users want to fill it manually)
     # def _compute_license_plate_3(self):

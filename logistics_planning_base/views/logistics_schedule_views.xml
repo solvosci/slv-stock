@@ -189,6 +189,9 @@
             <field name="partner_id" position="attributes">
                 <attribute name="string">Customer</attribute>
             </field>
+            <field name="commitment_date" position="after">
+                <field name="etd_date" string="ETD" optional="show" attrs="{'invisible': [('transport_type', '!=', 'ocean-going')]}"/>
+            </field>
         </field>
     </record>
 
@@ -405,6 +408,9 @@
             </field>
             <field name="partner_id" position="attributes">
                 <attribute name="string">Customer</attribute>
+            </field>
+            <field name="commitment_date" position="after">
+                <field name="etd_date" string="ETD" attrs="{'invisible': [('transport_type', '!=', 'ocean-going')]}"/>
             </field>
         </field>
     </record>
