@@ -162,6 +162,7 @@
                 <field name="net_weight"/>
                 <field name="picking_vehicle_id"/>
                 <field name="picking_towing_license_plate"/>
+                <field name="picking_container_number"/>
                 <field name="state" invisible="1"/>
                 <!-- TODO classification button --> 
             </tree>
@@ -199,6 +200,10 @@
                 <field name="picking_vehicle_id" />
                 <field
                     name="picking_towing_license_plate"
+                    optional="hide"
+                />
+                <field
+                    name="picking_container_number"
                     optional="hide"
                 />
                 <field name="state" invisible="1" />
@@ -293,6 +298,7 @@
                             <field name="product_id" options="{'no_create': True}"/>
                             <field name="picking_vehicle_id" attrs="{'required': 1}"/>
                             <field name="picking_towing_license_plate" attrs="{'required': ['&amp;',('type_code', '=', 'outgoing'), ('type_mandatory_towing', '=', True)]}"/>
+                            <field name="picking_container_number" />
                             <field name="carrier_id" attrs="{'invisible': [('type_code', '!=', 'incoming')]}"/>
                             <!-- TODO this field should be filled in output operations with net value -->
                             <field name="product_uom_qty" attrs="{'invisible': 1}"/>
