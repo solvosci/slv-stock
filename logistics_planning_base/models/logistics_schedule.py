@@ -140,6 +140,7 @@ class LogisticsSchedule(models.Model):
     )
     license_plate_1 = fields.Char(states=READONLY3_STATES)
     license_plate_2 = fields.Char(states=READONLY3_STATES)
+    license_plate_3 = fields.Char(states=READONLY3_STATES)
     schedule_finished = fields.Boolean(states=READONLY2_STATES, copy=False)
     note = fields.Text(copy=False)
 
@@ -158,6 +159,11 @@ class LogisticsSchedule(models.Model):
         Tecnical field indicating whether this record can be set to done state
         """,
     )
+
+    # TODO remove when confirm is no longer needed (users want to fill it manually)
+    # def _compute_license_plate_3(self):
+    #     for record in self:
+    #         record.license_plate_3 = record.picking_id.container_number if record.type == 'output' else record.stock_move_id.picking_container_number
 
     def _compute_name(self):
         # TODO improve name // move to name_get()
@@ -242,6 +248,10 @@ class LogisticsSchedule(models.Model):
     @api.onchange("license_plate_2")
     def _check_license_plate_2(self):
         self._check_license_plate_valid("license_plate_2")
+
+    @api.onchange("license_plate_3")
+    def _check_license_plate_3(self):
+        self._check_license_plate_valid("license_plate_3")
 
     def _check_license_plate_valid(self, license_plate_field):
         license_plate = self[license_plate_field]

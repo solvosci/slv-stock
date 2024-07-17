@@ -106,6 +106,7 @@
                             <field name="carrier_id" />
                             <field name="license_plate_1" />
                             <field name="license_plate_2" />
+                            <field name="license_plate_3" />
                             <field name="state" />
                             <field name="note" optional="hide" />
                         </tree>

@@ -111,6 +111,7 @@
                 <field name="effective_carrier_id" string="Eff. Carr." optional="show" />  
                 <field name="license_plate_1" string="L.P. 1" optional="show"/>
                 <field name="license_plate_2" string="L.P. 2" optional="show" />
+                <field name="license_plate_3" string="L.P. 3" optional="show" />
                 <field name="state" readonly="1" string="St." optional="show" />
                 <field
                     name="schedule_finished"
@@ -313,6 +314,7 @@
                             <field name="effective_carrier_id" />
                             <field name="license_plate_1" />
                             <field name="license_plate_2" />
+                            <field name="license_plate_3" />
                             <field
                                 name="schedule_finished"
                                 string="Mark as finished"
