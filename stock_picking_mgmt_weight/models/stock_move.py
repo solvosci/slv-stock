@@ -171,6 +171,10 @@ class StockMovFrontend(models.Model):
         related="picking_id.classification_purchase_order_id.related_order_ids",
         string="Origin Orders",
     )
+    picking_container_number = fields.Char(
+        related="picking_id.container_number",
+        readonly=False
+    )
 
     @api.model
     def create(self, values):
