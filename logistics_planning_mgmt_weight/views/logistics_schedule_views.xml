@@ -25,6 +25,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="supply_condition_id" />
+                <field name="vehicle_type_id" />
             </xpath>
         </field>
     </record>
@@ -82,6 +83,11 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_uom_qty']" position="after">
                 <field name="supply_condition_id" string="Supp. Cond." optional="show"/>
+                <field
+                    name="vehicle_type_id"
+                    optional="show"
+                    string="Veh. Type"
+                />
             </xpath>
         </field>
     </record>

@@ -25,6 +25,14 @@ class LogisticsSchedule(models.Model):
         copy=False,
         string="Other tickets",
     )
+    vehicle_type_id = fields.Many2one(
+        'vehicle.type',
+        states={
+            "ready": [("readonly", True)],
+            "cancel": [("readonly", True)],
+            "done": [("readonly", True)]
+        }
+    )
 
     @api.depends("stock_move_id.net_weight", "extra_stock_move_ids.net_weight")
     def _compute_product_uom_qty(self):
@@ -68,10 +76,16 @@ class LogisticsSchedule(models.Model):
         if upd_values:
             self.update(upd_values)
 
+    @api.onchange("vehicle_type_id")
+    def _onchange_vehicle_type_id(self):
+        if self.vehicle_type_id:
+            self.transport_type = self.vehicle_type_id.ls_sale_transport_type
+
     def _action_ready_fields_check_req_fields(self):
         fields = super()._action_ready_fields_check_req_fields()
         fields.update({
             "supply_condition_id": _("Supply Condition"),
+            "vehicle_type_id": _("Vehicle Type"),
         })
         return fields
 

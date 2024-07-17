@@ -16,6 +16,7 @@ class SaleOrderLine(models.Model):
         values = super()._prepare_logistics_schedule()
         values.update({
             "supply_condition_id": self.supply_condition_id.id or False,
+            "vehicle_type_id": self.vehicle_type_id.id or False,
         })
         return values
 
@@ -23,5 +24,6 @@ class SaleOrderLine(models.Model):
         ret = super()._update_logistics_schedules_dict()
         ret.update({
             "supply_condition_id": "supply_condition_id",
+            "vehicle_type_id": "vehicle_type_id",
         })
         return ret
