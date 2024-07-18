@@ -5,8 +5,9 @@
     <div class="page">
         <div class="row" style="font-weight: bold; font-size: 22px; padding-bottom:5px;">
           <div class="col-9">
-            <span t-field="doc.product_id"/>
-            <span t-field="doc.lot_id" />
+            <span t-field="doc.product_id"/> / 
+            <span t-field="doc.lot_id" /> / 
+            <span t-field="doc.partner_id" />
           </div>
           <div class="col-3">
             <span t-field="doc.date" t-options="{'widget': 'date'}"/>
@@ -31,7 +32,7 @@
                     <span><span t-field="line.partner_id.wms_code" /></span>
                   </td>
                   <td name="city_partner">
-                    <span><span t-field="line.partner_id.city" /></span>
+                    <span><span t-field="line.partner_id.name" /></span>
                   </td>
                   <td name="quantity_done">
                     <span><span t-field="line.qty_done" /></span>
@@ -56,11 +57,90 @@
       </div>
   </template>
 
+  <template id="report_distribution_sheets_ticket_document_pdf">
+    <div class="page">
+      <div style="margin-top: 1%;">
+        <div class="row">
+          <div class="col-6">
+            PARTNER:
+          </div>
+          <div class="col-6 font-weight-bold">
+            SGA CODE
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            TEST TEST TEST
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <t t-esc="doc.date"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 font-weight-bold">
+            Document:
+          </div>
+          <div class="col-6">
+            <t t-esc="doc.id"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            PRODUCT:
+          </div>
+          <div class="col-6 font-weight-bold">
+            <t t-esc="doc.product_id.name"/>
+          </div>
+        </div>
+        <div>
+          <div class="row" style="border-bottom: 1px solid black;">
+            <div name="th-center" class="col-4 font-weight-bold text-center">
+              Center
+            </div>
+            <div name="th-unit" class="col-4 font-weight-bold text-center">
+              Units
+            </div>
+          </div>
+          <t t-foreach="doc.line_ids" t-as="line">
+            <div class="row" style="border-bottom: 1px solid black; border-right: 1px solid black; border-left: 1px solid black">
+              <div name="td-center" class="col-4 text-center font-weight-bold">
+                <t t-esc="line.wms_partner_code"/>
+              </div>
+              <div name="td-unit" class="col-4 text-center">
+                <t t-esc="line.qty_to_add"/>
+              </div>
+            </div>
+          </t>
+        </div>
+        <div class="row">
+          <div name="th-total" class="col-6" style="border-bottom: 1px solid black">
+            Receipt/order
+          </div>
+        </div>
+        <div class="row">
+          <div name="td-total" class="col-6">
+            <t t-esc="sum(doc.line_ids.mapped('qty_to_add'))"/> / <t t-esc="sum(doc.line_ids.mapped('qty_to_add'))"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <template id="report_distribution_sheets_pdf">
     <t t-call="web.basic_layout">
       <h3 class="text-center">DISTRIBUTION SHEETS</h3>
         <t t-foreach="docs" t-as="doc">
             <t t-call="stock_picking_assigned.report_distribution_sheets_document_pdf" />
+        </t>
+    </t>
+  </template>
+
+  <template id="report_distribution_sheets_ticket_pdf">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="doc">
+          <t t-call="stock_picking_assigned.report_distribution_sheets_ticket_document_pdf" />
         </t>
     </t>
   </template>

@@ -14,19 +14,20 @@ class StockProductionLot(models.Model):
         context = self.env.context
         for record in self:
             if context.get('location_id', False):
+                location_id = self.env['stock.location'].browse(int(context.get('location_id'))).id
                 qty_not_done = sum(self.env['stock.move.line'].search([
                     ('product_id', '=', record.product_id.id),
                     ('lot_id', '=', record.id),
                     ('qty_done', '>', 0),
                     ('state', 'not in', ['done', 'cancel']),
-                    ('location_id', '=', int(context.get('location_id'))),
+                    ('location_id', '=', location_id),
                     # ('location_dest_id.usage', '!=', 'internal'),
                 ]).mapped('qty_done'))
 
                 qty = sum(self.env['stock.quant'].search([
                     ('product_id', '=', record.product_id.id),
                     ('lot_id', '=', record.id),
-                    ('location_id', '=', int(context.get('location_id'))),
+                    ('location_id', '=', location_id),
                 ]).mapped('quantity'))
                 record.qty_remaining_not_done = qty - qty_not_done
             else:
@@ -57,7 +58,7 @@ class StockProductionLot(models.Model):
         context = self.env.context
         if context.get('stock_picking_assigned', False):
             domain = args or []
-            domain += [("name", operator, name)]
+            domain += [("name", operator, name), ('product_qty', '>', 0)]
             return self.search(domain).sorted(key=lambda x: x.qty_remaining_not_done, reverse=True).name_get()
 
         return super().name_search(name=name, args=args, operator=operator, limit=limit)

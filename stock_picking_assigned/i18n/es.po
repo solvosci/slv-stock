@@ -6,21 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 08:44+0000\n"
-"PO-Revision-Date: 2024-05-31 12:32+0200\n"
+"POT-Creation-Date: 2024-09-20 10:28+0000\n"
+"PO-Revision-Date: 2024-09-20 10:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.3\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: stock_picking_assigned
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.stock_picking_type_kanban
 msgid "<i class=\"fa fa-archive fa-2x\" title=\"Start barcode interface\"/>"
-msgstr "<i class=\"fa fa-archive fa-2x\" title=\"Start barcode interface\"/>"
+msgstr ""
 
 #. module: stock_picking_assigned
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
@@ -45,7 +43,7 @@ msgstr "<strong>SGA (Completo)</strong>"
 #. module: stock_picking_assigned
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
 msgid "<strong>SGA</strong>"
-msgstr "<strong>SGA</strong>"
+msgstr ""
 
 #. module: stock_picking_assigned
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
@@ -63,6 +61,12 @@ msgid "Assign History"
 msgstr "Asignar historial"
 
 #. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
+msgid "Assign and Print"
+msgstr "Asignar e imprimir"
+
+#. module: stock_picking_assigned
+#: code:addons/stock_picking_assigned/models/stock_picking_type.py:0
 #: code:addons/stock_picking_assigned/models/stock_picking_type.py:0
 #, python-format
 msgid "Assignation Orders"
@@ -78,6 +82,11 @@ msgstr "Asignado"
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "Center"
+msgstr "Centro"
 
 #. module: stock_picking_assigned
 #: model:ir.model,name:stock_picking_assigned.model_res_partner
@@ -136,6 +145,16 @@ msgstr "Nombre mostrado"
 #: model:ir.actions.report,name:stock_picking_assigned.action_distribution_sheets_pdf
 msgid "Distribution Sheets"
 msgstr "Hojas de distribución"
+
+#. module: stock_picking_assigned
+#: model:ir.actions.report,name:stock_picking_assigned.action_distribution_sheets_ticket_pdf
+msgid "Distribution Sheets Ticket"
+msgstr "Ticket de distribución"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "Document:"
+msgstr "Documento:"
 
 #. module: stock_picking_assigned
 #: model:ir.model.fields.selection,name:stock_picking_assigned.selection__sp_assigned_line_variable_wizard__state__draft
@@ -197,8 +216,13 @@ msgstr "Línea variable"
 
 #. module: stock_picking_assigned
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__location_id
-msgid "Location Stock"
-msgstr "Localización de inventario"
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__location_domain_ids
+msgid "Location Domain"
+msgstr ""
 
 #. module: stock_picking_assigned
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__lot_id
@@ -215,6 +239,25 @@ msgstr "Cant. lote"
 #: model:ir.model,name:stock_picking_assigned.model_stock_production_lot
 msgid "Lot/Serial"
 msgstr "Lote/Número de serie"
+
+#. module: stock_picking_assigned
+#: code:addons/stock_picking_assigned/wizard/sp_assigned_wizard.py:0
+#: model:ir.model.fields.selection,name:stock_picking_assigned.selection__sp_assigned_wizard__mode_assign__autoassigned
+#, python-format
+msgid "MODE AUTOASSIGNED"
+msgstr "MODO AUTOASIGNACIÓN"
+
+#. module: stock_picking_assigned
+#: code:addons/stock_picking_assigned/wizard/sp_assigned_wizard.py:0
+#: model:ir.model.fields.selection,name:stock_picking_assigned.selection__sp_assigned_wizard__mode_assign__variable
+#, python-format
+msgid "MODE VARIABLE WEIGHT"
+msgstr "MODO PESO VARIABLE"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__mode_assign
+msgid "Mode Assign"
+msgstr "Modo assignacion"
 
 #. module: stock_picking_assigned
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
@@ -251,6 +294,16 @@ msgstr "Nombre"
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.view_sp_assigned_wizard_form
 msgid "Operations"
 msgstr "Operaciones"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "PARTNER:"
+msgstr "CONTACTO:"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "PRODUCT:"
+msgstr "PRODUCTO:"
 
 #. module: stock_picking_assigned
 #: model:ir.model,name:stock_picking_assigned.model_stock_picking_type
@@ -333,13 +386,14 @@ msgid "Quantity Done"
 msgstr "Hecho"
 
 #. module: stock_picking_assigned
-#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner__wms_code
-#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_users__wms_code
-#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__wms_partner_code
-#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__wms_partner_code
-#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__wms_partner_code
-msgid "Wms Code"
-msgstr "Código SGA"
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "Receipt/order"
+msgstr ""
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "SGA CODE"
+msgstr "CÓDIGO SGA"
 
 #. module: stock_picking_assigned
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__state
@@ -356,6 +410,11 @@ msgstr "Histórico de asignaciones"
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_document_pdf
 msgid "Stores:"
 msgstr "Tiendas:"
+
+#. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "TEST TEST TEST"
+msgstr ""
 
 #. module: stock_picking_assigned
 #: code:addons/stock_picking_assigned/wizard/sp_assigned_wizard.py:0
@@ -381,6 +440,11 @@ msgid "Transfer"
 msgstr "Transferencia"
 
 #. module: stock_picking_assigned
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned.report_distribution_sheets_ticket_document_pdf
+msgid "Units"
+msgstr "Unidades"
+
+#. module: stock_picking_assigned
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__variable_weight
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__variable_weight
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_wizard__variable_weight
@@ -392,6 +456,15 @@ msgstr "Peso variable"
 #: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history__warehouse_id
 msgid "Warehouse"
 msgstr "Almacén"
+
+#. module: stock_picking_assigned
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_partner__wms_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_res_users__wms_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_variable_wizard__wms_partner_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_sp_assigned_line_wizard__wms_partner_code
+#: model:ir.model.fields,field_description:stock_picking_assigned.field_stock_picking_assign_history_line__wms_partner_code
+msgid "Wms Code"
+msgstr "Código SGA"
 
 #. module: stock_picking_assigned
 #: model:ir.model,name:stock_picking_assigned.model_sp_assigned_line_variable_wizard

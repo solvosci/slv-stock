@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="distribution_sheets_ticket" model="report.paperformat">
+        <field name="name">Distribution Sheets Ticket</field>
+        <field name="default" eval="True" />
+        <field name="format">custom</field>
+        <field name="page_height">10</field>
+        <field name="page_width">60</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
     <report 
         id="action_distribution_sheets_pdf"
         model="stock.picking.assign.history"
@@ -10,6 +26,17 @@
         report_type="qweb-pdf"
         attachment_use="False"
         paperformat="stock_picking_assigned.paperformat_stock_picking_assigned"
+    />
+
+    <report 
+        id="action_distribution_sheets_ticket_pdf"
+        model="stock.picking.assign.history"
+        string="Distribution Sheets Ticket"
+        name="stock_picking_assigned.report_distribution_sheets_ticket_pdf"
+        file="stock_picking_assigned.report_distribution_sheets_ticket_pdf"
+        report_type="qweb-pdf"
+        attachment_use="False"
+        paperformat="stock_picking_assigned.distribution_sheets_ticket"
     />
 
 </odoo>
