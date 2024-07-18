@@ -11,7 +11,7 @@
     </xpath>
     <xpath expr="//td[@name='demand']" position="after">
       <td name="secondary_done">
-        <span><span t-field="line.secondary_uom_qty_done" /></span>
+        <span><span t-field="line.secondary_uom_qty_to_add" /></span>
       </td>
       <td name="secondary_demand">
         <span><span t-field="line.secondary_uom_qty_demand" /></span>
@@ -19,8 +19,31 @@
     </xpath>
     <xpath expr="//td[@name='td_qty_done']" position="after">
       <td name="td_qty_done" colspan="2">
-        <span>Box Total: <span t-esc="sum(doc.line_ids.mapped('secondary_uom_qty_done'))" /></span>
+        <span>Box Total: <span t-esc="sum(doc.line_ids.mapped('secondary_uom_qty_to_add'))" /></span>
       </td>
+    </xpath>
+  </template>
+
+  <template id="report_distribution_sheets_ticket_document_pdf" inherit_id="stock_picking_assigned.report_distribution_sheets_ticket_document_pdf">
+    <xpath expr="//div[@name='th-center']" position="after">
+      <div class="col-4 font-weight-bold text-center">
+        Boxes
+      </div>
+    </xpath>
+    <xpath expr="//div[@name='td-center']" position="after">
+      <div class="col-4 text-center font-weight-bold">
+        <t t-esc="line.secondary_uom_qty_to_add"/>
+      </div>
+    </xpath>
+    <xpath expr="//div[@name='th-total']" position="after">
+      <div class="col-6" style="border-bottom: 1px solid black">
+        Boxes
+      </div>
+    </xpath>
+    <xpath expr="//div[@name='td-total']" position="after">
+      <div class="col-6">
+        <t t-esc="sum(doc.line_ids.mapped('secondary_uom_qty_to_add'))"/> / <t t-esc="sum(doc.line_ids.mapped('secondary_uom_qty_to_add'))"/>
+      </div>
     </xpath>
   </template>
 
