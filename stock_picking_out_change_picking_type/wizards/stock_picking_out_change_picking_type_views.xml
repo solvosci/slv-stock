@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_return_picking_ls_wizard" model="ir.ui.view">
+        <field name="name">stock.picking.out.change.picking.type.wizard.form</field>
+        <field name="model">stock.picking.out.change.picking.type.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>                        
+                            <field name="old_picking_type_id" />
+                            <field name="picking_id" />
+                        </gruop>
+                        <group>
+                            <field name="company_id" invisible="1" />
+                            <field
+                                name="picking_type_id"
+                                domain="[
+                                    ('company_id', '=', company_id),
+                                    ('id', '!=', old_picking_type_id),
+                                ]"
+                                required="True"
+                            />
+                            <field
+                                name="location_id"
+                                atrrs="{'invisible': [('picking_type_id', '=', False)]}"
+                            />
+                            <field
+                                name="location_dest_id"
+                                atrrs="{'invisible': [('picking_type_id', '=', False)]}"
+                            />
+                        </gruop>
+                    </gruop>
+                    <group attrs="{'invisible': [('picking_type_id', '=', False)]}">
+                        <p>
+                            Operation Type for selected picking will change,
+                            but its number will remain the same within old
+                            Operation Type sequence. Are you sure?
+                        </p>
+                    </group>
+                    <footer>
+                        <button
+                            name="change_picking_type"
+                            id="button_change_picking_type"
+                            string="Apply"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_picking_change_picking_type" model="ir.actions.act_window">
+        <field name="name">Change Picking Operation</field>
+        <field name="res_model">stock.picking.out.change.picking.type.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
