@@ -21,10 +21,7 @@ class StockPickingAssignedLineVariableWizard(models.TransientModel):
     qty_variable = fields.Float()
     qty_variable_total = fields.Float()
     qty_done_demand = fields.Char(compute='_compute_qty', store=True)
-    state = fields.Selection([
-        ("draft", "Draft"),
-        ("modified", "Modified")
-    ], default='draft')
+    recounted = fields.Boolean(related='move_line_id.recounted')
 
     @api.depends('move_line_id', 'move_line_id.qty_done', 'move_line_id.move_id.product_uom_qty')
     def _compute_qty(self):

@@ -11,7 +11,8 @@ class StockPickingAssignedWizard(models.TransientModel):
 
     picking_type_id = fields.Many2one('stock.picking.type')
     warehouse_id = fields.Many2one(related='picking_type_id.warehouse_id')
-    location_id = fields.Many2one(related='picking_type_id.warehouse_id.lot_stock_id')
+    location_domain_ids = fields.Many2many('stock.location', compute='_compute_location_domain_ids', store=True)
+    location_id = fields.Many2one('stock.location', compute='_compute_location_id', store=True, readonly=False)
     product_id = fields.Many2one('product.product')
     lot_id = fields.Many2one('stock.production.lot')
     lot_qty = fields.Float(compute='_compute_lot_qty', store=True)
@@ -21,27 +22,33 @@ class StockPickingAssignedWizard(models.TransientModel):
     line_variable_ids = fields.One2many('sp.assigned.line.variable.wizard', 'assigned_id')
 
     variable_weight = fields.Boolean()
+    mode_assign = fields.Selection([
+        ('autoassigned', _('MODE AUTOASSIGNED')),
+        ('variable', _('MODE VARIABLE WEIGHT'))
+    ], compute='_compute_mode_assign', store=True)
 
     def get_move_pending(self):
-        move_ids = self.env['stock.move'].search([
-            ('product_id', '=', self.product_id.id),
-            ('state', 'not in', ['done', 'cancel']),
-            ('picking_type_id', '=', self.picking_type_id.id)
-        ])
-
-        move_ids = move_ids.filtered(lambda x: x.quantity_done < x.product_uom_qty)
-        # move_ids = sorted(move_ids, key=lambda x: x.partner_id.wms_code)
+        move_ids = self.env['stock.move']
+        if self.lot_id:
+            move_ids = move_ids.search([
+                ('product_id', '=', self.product_id.id),
+                ('state', 'not in', ['done', 'cancel']),
+                ('picking_type_id', '=', self.picking_type_id.id)
+            ])
+            move_ids = move_ids.filtered(lambda x: x.quantity_done < x.product_uom_qty)
         return move_ids
 
     def get_move_line_done(self):
-        move_line_ids = self.env['stock.move.line'].search([
-            ('product_id', '=', self.product_id.id),
-            ('state', 'not in', ['done', 'cancel']),
-            ('move_id.picking_type_id', '=', self.picking_type_id.id),
-            ('qty_done', '>', 0)
-        ])
-
-        move_line_ids = sorted(move_line_ids, key=lambda x: x.partner_id.wms_code)
+        move_line_ids = self.env['stock.move.line']
+        if self.lot_id:
+            move_line_ids = move_line_ids.search([
+                ('product_id', '=', self.product_id.id),
+                ('state', 'not in', ['done', 'cancel']),
+                ('move_id.picking_type_id', '=', self.picking_type_id.id),
+                ('qty_done', '>', 0),
+                ('lot_id', '=', self.lot_id.id)
+            ])
+            move_line_ids = sorted(move_line_ids, key=lambda x: x.partner_id.wms_code)
         return move_line_ids
 
     @api.onchange('product_id')
@@ -67,6 +74,14 @@ class StockPickingAssignedWizard(models.TransientModel):
                 }) for move_line_id in self.get_move_line_done()]
             })
 
+    @api.depends('variable_weight')
+    def _compute_mode_assign(self):
+        for record in self:
+            if record.variable_weight:
+                record.mode_assign = 'variable'
+            else:
+                record.mode_assign = 'autoassigned'
+
     @api.depends('lot_id', 'lot_id.qty_remaining_not_done')
     def _compute_lot_qty(self):
         for record in self:
@@ -85,6 +100,26 @@ class StockPickingAssignedWizard(models.TransientModel):
         })
         for record in self:
             record.qty_remaining = record.lot_id.with_context(ctx).qty_remaining_not_done - sum(record.line_ids.mapped('qty_to_add'))
+
+    @api.depends('picking_type_id') 
+    def _compute_location_domain_ids(self):
+        for record in self:
+            location = record.picking_type_id.warehouse_id.lot_stock_id
+            record.location_domain_ids =[(4, location.id)]
+            for location_id in record.location_domain_ids:
+                child_ids = location_id.child_ids.ids
+                if child_ids:
+                    record.location_domain_ids = [(4, child_id) for child_id in set(child_ids)] 
+
+    @api.onchange('location_id')
+    def _onchange_location_id(self):
+        self.lot_id._compute_qty_not_done()
+
+    @api.depends('picking_type_id') 
+    def _compute_location_id(self):
+        for record in self:
+            if record.picking_type_id:
+                record.location_id = record.picking_type_id.warehouse_id.lot_stock_id
 
     def assigned_all_lines(self):
         for line in self.line_ids:
@@ -138,7 +173,7 @@ class StockPickingAssignedWizard(models.TransientModel):
             'location_dest_id': line_id.move_id.location_dest_id.id,
         }
 
-    def button_assigned(self):
+    def assign(self):
         if self.qty_remaining < 0 or not self.product_id or not self.lot_id:
             raise ValidationError(_("The remaining quantity should be positive."))
 
@@ -146,12 +181,10 @@ class StockPickingAssignedWizard(models.TransientModel):
             self._prepare_assign_history_values()
         )
 
-        for line in self.line_ids:
+        for line in self.line_ids.filtered(lambda x: x.qty_to_add):
             self.env['stock.picking.assign.history.line'].create(
                 self._prepare_assign_history_line_values(line, assign_history_id)
             )
-
-        for line in self.line_ids.filtered(lambda x: x.qty_to_add):
             move_line_id = line.move_id.move_line_ids.filtered(lambda x: x.product_id == line.move_id.product_id and x.lot_id == self.lot_id)
             if move_line_id:
                 self._prepare_exist_stock_move_line(move_line_id[0], line)
@@ -161,14 +194,21 @@ class StockPickingAssignedWizard(models.TransientModel):
                 self.env['stock.move.line'].create(self._prepare_stock_move_line_values(line))
         self._onchange_lot_id()
 
+        return assign_history_id
+
+    def button_assigned(self):
+        self.assign()
+        return self.picking_type_id._assigned_open_wizard(self.id)
+
+    def button_assigned_and_print(self):
+        assign_history_id = self.assign()
         return self.env.ref('stock_picking_assigned.action_distribution_sheets_pdf').report_action(assign_history_id.id)
-        # return self.picking_type_id._assigned_open_wizard(self.id)
 
     def button_variable_weight_assigned(self):
         for line in self.line_variable_ids.filtered(lambda x: x.qty_variable_total):
             line.move_line_id.qty_done = line.qty_variable_total
             line.qty_variable_total = 0
-            line.state = 'modified'
+            line.move_line_id.recounted = True
             line._compute_qty()
 
         return self.picking_type_id._assigned_open_wizard(self.id)

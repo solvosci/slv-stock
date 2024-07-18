@@ -12,6 +12,7 @@ class StockPickingAssignHistory(models.Model):
     warehouse_id = fields.Many2one('stock.warehouse')
     product_id = fields.Many2one('product.product')
     lot_id = fields.Many2one('stock.production.lot')
+    partner_id = fields.Many2one('res.partner', compute='_compute_partner_id')
     date = fields.Datetime()
 
     line_ids = fields.One2many('stock.picking.assign.history.line', 'assign_history_id')
@@ -19,6 +20,13 @@ class StockPickingAssignHistory(models.Model):
     def _compute_name(self):
         for record in self:
             record.name = '%s - %s' % (record.date, record.product_id.name)
+    
+    def _compute_partner_id(self):
+        for record in self:
+            if record.lot_id.purchase_order_ids:
+                record.partner_id = record.lot_id.purchase_order_ids[0].partner_id
+            else:
+                record.partner_id = False
 
 
 class StockPickingAssignHistoryLine(models.Model):
