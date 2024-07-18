@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="stock_picking_assigned.view_sp_assigned_wizard_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='variable_weight']" position="after">
-                <field name="secondary_uom_factor" />
+                <field name="secondary_uom_factor" attrs="{'readonly': [('mode_assign', '=', 'variable')]}"/>
             </xpath>
 
             <xpath expr="//field[@name='qty_remaining']" position="after">

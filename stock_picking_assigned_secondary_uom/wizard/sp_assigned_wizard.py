@@ -20,7 +20,7 @@ class StockPickingAssignedWizard(models.TransientModel):
             self.secondary_uom_id = pol.secondary_uom_id.id
             self.secondary_uom_factor = round(pol.product_qty / pol.secondary_uom_qty)
 
-    @api.depends('line_ids', 'line_ids.secondary_uom_qty_to_add')
+    @api.depends('line_ids', 'line_ids.secondary_uom_qty_to_add', 'line_ids.secondary_uom_qty_done', 'line_ids.qty_to_add')
     def _compute_secondary_uom_remaining(self):
         for record in self.filtered(lambda x: x.secondary_uom_factor):
             record.secondary_uom_qty_remaining = math.floor(record.lot_qty / record.secondary_uom_factor) - sum(record.line_ids.mapped('secondary_uom_qty_to_add'))
@@ -39,7 +39,10 @@ class StockPickingAssignedWizard(models.TransientModel):
 
     def _prepare_exist_stock_move_line(self, line_id, assign_line_id):
         super()._prepare_exist_stock_move_line(line_id, assign_line_id)
-        line_id.secondary_uom_qty += assign_line_id.secondary_uom_qty_to_add
+        if line_id.qty_done == assign_line_id.qty_to_add:
+            line_id.secondary_uom_qty = assign_line_id.secondary_uom_qty_to_add
+        else:
+            line_id.secondary_uom_qty += assign_line_id.secondary_uom_qty_to_add
 
     def _prepare_stock_move_line_values(self, line):
         res = super()._prepare_stock_move_line_values(line)
@@ -61,9 +64,18 @@ class StockPickingAssignedWizard(models.TransientModel):
             missing_qty = line.qty_demand - line.qty_done
             missing_qty_box = math.ceil(missing_qty / self.secondary_uom_factor)
 
-            if self.secondary_uom_qty_remaining >= missing_qty_box:  
+            if self.lot_id.qty_remaining_not_done <= 0:
+                pass
+            elif self.secondary_uom_qty_remaining >= missing_qty_box:  
                 line.secondary_uom_qty_to_add += missing_qty_box
             elif self.secondary_uom_qty_remaining:
                 line.secondary_uom_qty_to_add += self.secondary_uom_qty_remaining
             else:
                 pass
+
+    def button_variable_weight_assigned(self):
+        for line in self.line_variable_ids.filtered(lambda x: x.qty_variable_total):
+            line.move_line_id.secondary_uom_qty = line.secondary_uom_qty_to_add
+            line.secondary_uom_qty_to_add = 0
+
+        return super().button_variable_weight_assigned()
