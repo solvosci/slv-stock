@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-02 15:45+0000\n"
-"PO-Revision-Date: 2024-05-02 15:45+0000\n"
+"POT-Creation-Date: 2024-07-22 11:14+0000\n"
+"PO-Revision-Date: 2024-07-22 11:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,6 @@ msgid ""
 msgstr ""
 
 #. module: logistics_planning_purchase
-#: code:addons/logistics_planning_purchase/models/purchase_order_line.py:0
 #: code:addons/logistics_planning_purchase/models/purchase_order_line.py:0
 #: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.purchase_order_view_form_inherit_all
 #, python-format
@@ -194,7 +193,6 @@ msgid "Picking Type"
 msgstr ""
 
 #. module: logistics_planning_purchase
-#: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #, python-format
 msgid ""
