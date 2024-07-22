@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 15:34+0000\n"
-"PO-Revision-Date: 2024-06-24 17:36+0200\n"
+"POT-Creation-Date: 2024-07-22 11:12+0000\n"
+"PO-Revision-Date: 2024-07-22 13:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -231,6 +231,17 @@ msgid "Duplicate"
 msgstr "Duplicar"
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_output_view_tree
+msgid "ETD"
+msgstr ""
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__etd_date
+msgid "ETD Date"
+msgstr "Fecha ETD"
+
+#. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
 msgid "Edit"
 msgstr "Editar"
@@ -300,6 +311,11 @@ msgid "L.P. 2"
 msgstr "Matr. 2"
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_tree
+msgid "L.P. 3"
+msgstr "Matr. 3"
+
+#. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule____last_update
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard____last_update
 msgid "Last Modified on"
@@ -326,6 +342,11 @@ msgstr "Matrícula 1"
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__license_plate_2
 msgid "License Plate 2"
 msgstr "Matrícula 2"
+
+#. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__license_plate_3
+msgid "License Plate 3"
+msgstr "Matrícula 3"
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__commitment_date
