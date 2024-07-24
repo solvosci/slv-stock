@@ -13,6 +13,13 @@ class LogisticsScheduleAccountMove(models.TransientModel):
     carrier_id = fields.Many2one('res.partner', readonly=True)
     journal_id = fields.Many2one('account.journal', default=lambda self: self.env.user.company_id.logistics_schedule_default_journal_id.id)
     ref = fields.Char(string="Bill Reference")
+    group_lines = fields.Boolean(
+        default=True,
+        help=
+        """
+        When checked, created invoice lines will be made in aggregated mode
+        """,
+    )
 
     def create_invoice(self):
         action = self.env.ref('account.action_move_in_invoice_type')
@@ -23,12 +30,12 @@ class LogisticsScheduleAccountMove(models.TransientModel):
             "default_journal_id": self.journal_id.id,
             "default_company_id": self.company_id.id,
             "default_ref": self.ref,
+            "group_lines": self.group_lines,
         })
         res = self.env.ref('account.view_move_form', False)
         form_view = [(res and res.id or False, 'form')]
         result['views'] = form_view
 
-        # TODO why this line?
         result['context']['logistics_schedule_ids'] = self.logistics_schedule_ids.ids
 
         return result

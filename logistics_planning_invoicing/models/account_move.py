@@ -16,11 +16,11 @@ class AccountMove(models.Model):
 
     @api.onchange('logistics_schedule_ids')
     def _onchange_logistics_schedule_auto_complete(self):
-        # TODO invoice origin
         self.fiscal_position_id = self.partner_id.property_account_position_id
         new_lines = self.env['account.move.line']
-        for logistic_schedule in self.logistics_schedule_ids:
-            new_line = new_lines.new(logistic_schedule._prepare_ls_account_move_line(self))
+        aml_dict_list = self.logistics_schedule_ids._prepare_ls_account_move_lines(self)
+        for aml_dict in aml_dict_list:
+            new_line = new_lines.new(aml_dict)
             new_line.account_id = new_line._get_computed_account()
             taxes = new_line._get_computed_taxes()
             if taxes and self.fiscal_position_id:
@@ -48,11 +48,13 @@ class AccountMove(models.Model):
         return super().unlink()
 
     def _ls_secure_unlink(self):
-        aml_ids = self.invoice_line_ids.sudo().filtered(
-            lambda x: x.logistics_schedule_id
-        )
-        if aml_ids:
-            ls_ids = aml_ids.logistics_schedule_id
-            aml_ids.write({"logistics_schedule_id": False})
-            # TODO implement done->ready action method?
-            ls_ids.write({"state": "ready"})
+        ls_ids = self.invoice_line_ids.sudo()._get_all_logistics_schedule_ids()
+        if ls_ids:
+            ls_ids.account_move_line_id.write({
+                "logistics_schedule_id": False,
+                "agg_logistics_schedule_ids": False,
+            })
+            ls_ids.write({
+                "account_move_line_id": False,
+                "state": "ready",
+            })
