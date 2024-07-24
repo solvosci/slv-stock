@@ -154,6 +154,65 @@ class LogisticsSchedule(models.Model):
             'default_logistics_schedule_ids': self.ids,
         }
 
+    def _prepare_ls_account_move_lines(self, move_id):
+        def make_key(ls):
+            prut = ls["logistics_price_unit_type"]
+            list_key = [
+                ls["product_id"],
+                ls.get("analytic_account_id", 0),
+                ls["product_uom_id"],
+                prut,
+                0.0 if prut == "trip" else ls["price_unit"],
+            ]
+            return tuple(list_key)
+
+        # Original prepare list that enable us to create one invoice line
+        #  per selected logistics schedule + extra useful information for
+        #  the case we need to group them
+        prepare_ls_list = [
+            ls._prepare_ls_account_move_line(move_id)
+            for ls in self
+        ]
+        if (
+            self.env.context.get("group_lines", False)
+            and len(prepare_ls_list) > 1
+        ):
+            """
+            Grouping criteria by:
+            - product (replacing account, that is not available at this point)
+            - analytic account
+            - product unit of measure
+            - price unit type
+            - (OPT) price unit
+
+            When aggregating,
+            - If product unit of mesure is 'trip' => adding to price unit
+            - If product unit of mesure is 'unit' => adding to price qty
+            """
+            prepare_ls_list_agg = {}
+            for prepare_ls in prepare_ls_list:
+                prepare_ls_agg = prepare_ls_list_agg.setdefault(make_key(prepare_ls), {})
+                if not prepare_ls_agg:
+                    prepare_ls_agg.update(prepare_ls)
+                else:
+                    if prepare_ls_agg["logistics_price_unit_type"] == "trip":
+                        prepare_ls_agg["price_unit"] += prepare_ls["price_unit"]
+                    else:
+                        prepare_ls_agg["quantity"] += prepare_ls["quantity"]
+                    # Second LS for this line, so we have to remove "Many2many", if existed
+                    old_ls_id = prepare_ls_agg.pop("logistics_schedule_id", False)
+                    ls_ids = prepare_ls_agg.setdefault("agg_logistics_schedule_ids", [])
+                    if old_ls_id:
+                        ls_ids.append((4, old_ls_id))
+                    ls_ids.append((4, prepare_ls["logistics_schedule_id"]))
+            prepare_ls_list = list(prepare_ls_list_agg.values())
+
+        # Before returning list, we should extract those values that won't
+        #  belong to an invoice line
+        for prepare_ls in prepare_ls_list:
+            prepare_ls.pop("logistics_price_unit_type")
+        return prepare_ls_list
+
     def _prepare_ls_account_move_line(self, move_id):
         self.ensure_one()
         ls_id = self.browse(self.id.origin)
@@ -173,6 +232,7 @@ class LogisticsSchedule(models.Model):
             'price_unit': ls_id.logistics_price_unit_done,
             'quantity': qty,
             'partner_id': ls_id.partner_id.id,
+            "logistics_price_unit_type": ls_id.logistics_price_unit_type,
         }
 
     def _get_invoice_product(self):

@@ -25,9 +25,18 @@
             </xpath>
             <xpath expr="//field[@name='line_ids']/tree/field[@name='name']" position="after">
                 <field name="logistics_schedule_id" optional="hide"/>
+                <field
+                    name="agg_logistics_schedule_ids"
+                    optional="hide"
+                    widget="many2many_tags"
+                />
             </xpath>
             <xpath expr="//field[@name='invoice_line_ids']/form/sheet/group/field[@name='analytic_account_id']" position="after">
                 <field name="logistics_schedule_id" />
+                <field
+                    name="agg_logistics_schedule_ids"
+                    widget="many2many_tags"
+                />
             </xpath>
         </field>
     </record>

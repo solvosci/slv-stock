@@ -14,6 +14,7 @@
                         </group>
                         <group>
                             <field name="journal_id" />
+                            <field name="group_lines" />
                         </group>
                         <group colspan="2">
                             <field name="logistics_schedule_ids" nolabel="1">
