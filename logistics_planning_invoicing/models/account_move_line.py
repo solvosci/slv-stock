@@ -8,14 +8,27 @@ class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
     logistics_schedule_id = fields.Many2one('logistics.schedule')
+    agg_logistics_schedule_ids = fields.Many2many(
+        comodel_name="logistics.schedule",
+        string="Aggregated logistics schedules",
+    )
+
+    def _get_all_logistics_schedule_ids(self):
+        return (
+            self.logistics_schedule_id
+            | self.agg_logistics_schedule_ids
+        )
 
     @api.model_create_multi
     def create(self, vals_list):
         lines = super().create(vals_list)
-        lines_w_ls = lines.filtered(lambda x: x.logistics_schedule_id) 
-        for line in lines_w_ls:
-            line.logistics_schedule_id.account_move_line_id = line.id
-        lines_w_ls.logistics_schedule_id._action_done()
+        for line in lines:
+            all_ls_ids = line._get_all_logistics_schedule_ids().sudo()
+            if all_ls_ids:
+                all_ls_ids.write({
+                    "account_move_line_id": line.id,
+                })
+                all_ls_ids._action_done()
         return lines
 
     def write(self, values):
