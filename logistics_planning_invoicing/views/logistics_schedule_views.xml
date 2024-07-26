@@ -18,7 +18,12 @@
         <field name="inherit_id" ref="logistics_planning_base.logistics_schedule_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button name="action_create_invoice_wizard" type="object" string="Create Invoice" attrs="{'invisible': ['|', ('is_invoiceable', '=', False), '|', ('account_move_line_id', '!=', False), ('state', '=', 'done')]}"/>
+                <button
+                    name="action_create_invoice_wizard"
+                    type="object" string="Create Invoice"
+                    attrs="{'invisible': ['|', ('is_invoiceable', '=', False), '|', ('account_move_line_id', '!=', False), ('state', '=', 'done')]}"
+                    icon="fa-pencil-square-o"
+                />
             </xpath>
             <xpath expr="//field[@name='transport_type']" position="before">
                 <field
