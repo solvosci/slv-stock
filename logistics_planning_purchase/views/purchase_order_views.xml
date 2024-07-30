@@ -31,6 +31,19 @@
                     string="Disable log. sched."
                     attrs="{'invisible': [('logistics_schedule_skip','=',True)]}"
                 />
+                <field
+                    name="logistics_schedule_one_line"
+                    widget="boolean_toggle"
+                    string="Only sched. for 1 line"
+                    attrs="{
+                        'invisible': [
+                            '|',
+                            ('logistics_schedule_disabled','=',True),
+                            ('logistics_schedule_skip','=',True),
+                        ],
+                        'readonly': [('state', 'in', ['purchase','done','cancel'])],
+                    }"
+                />
             </xpath>            
             <xpath
                 expr="//field[@name='order_line']/tree/field[@name='sequence']"
