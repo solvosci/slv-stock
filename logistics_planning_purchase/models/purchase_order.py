@@ -33,6 +33,12 @@ class PurchaseOrder(models.Model):
         },
         tracking=True,
     )
+    logistics_schedule_one_line = fields.Boolean(
+        string="Only schedule one line",
+        default=False,
+        copy=False,
+        tracking=True,
+    )
     logistics_account_move_ids = fields.Many2many(
         comodel_name="account.move",
         compute="_compute_logistics_account_moves",
@@ -52,6 +58,14 @@ class PurchaseOrder(models.Model):
             self.logistics_schedule_disabled = (
                 self.picking_type_id.ls_po_create_disable_default
             )
+
+    @api.onchange("logistics_schedule_disabled")
+    def _onchange_logistics_schedule_disabled(self):
+        if (
+            self.logistics_schedule_disabled
+            and self.logistics_schedule_one_line
+        ):
+            self.logistics_schedule_one_line = False
 
     def _compute_logistics_account_moves(self):
         for po in self:
@@ -90,24 +104,28 @@ class PurchaseOrder(models.Model):
         return result        
 
     def button_approve(self):
-        bad_order_lines = self.order_line.filtered(
-            lambda x: x.ls_schedule_allowed and x.logistics_schedule_init <= 0
-        )
-        if bad_order_lines:
-            bad_orders = bad_order_lines.order_id.mapped("name")
-            raise ValidationError(
-                _(
-                    "Please fill a valid Initial required schedules (>=0)"
-                    " for every order line for the following orders: %s"
-                ) % ", ".join(bad_orders)
-            )
-        res = super().button_approve()
+        res = {}
         ls_values = []
-        for line in self.order_line.filtered(lambda x: x.ls_schedule_allowed):
-            ls_values += [
-                line._prepare_logistics_schedule()
-                for i in range(0, line.logistics_schedule_init)
-            ]
+        for order in self:
+            ls_line_ids = order.order_line.filtered(lambda x: x.ls_schedule_allowed)
+            if ls_line_ids and order.logistics_schedule_one_line:
+                ls_line_ids = ls_line_ids[0]
+            bad_order_lines = order.order_line.filtered(
+                lambda x: x.ls_schedule_allowed and x.logistics_schedule_init <= 0
+            )
+            if bad_order_lines and (ls_line_ids & bad_order_lines):
+                raise ValidationError(
+                    _(
+                        "Please fill a valid Initial required schedules (>=0)"
+                        " for line(s) of %s order"
+                    ) % order.name
+                )
+            res = super(PurchaseOrder, order).button_approve()
+            for line in ls_line_ids:
+                ls_values += [
+                    line._prepare_logistics_schedule()
+                    for i in range(0, line.logistics_schedule_init)
+                ]
         if ls_values:
             ls_ids = self.env["logistics.schedule"].sudo().create(ls_values)
             ls_ids._action_ready()

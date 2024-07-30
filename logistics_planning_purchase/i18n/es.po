@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 11:15+0000\n"
-"PO-Revision-Date: 2024-07-22 11:15+0000\n"
+"POT-Creation-Date: 2024-08-27 09:15+0000\n"
+"PO-Revision-Date: 2024-08-27 09:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -196,6 +196,16 @@ msgid "New schedules to be added"
 msgstr "Nuevas planificaciones a añadir"
 
 #. module: logistics_planning_purchase
+#: model_terms:ir.ui.view,arch_db:logistics_planning_purchase.purchase_order_view_form_inherit_all
+msgid "Only sched. for 1 line"
+msgstr "Solo planif. para 1 línea"
+
+#. module: logistics_planning_purchase
+#: model:ir.model.fields,field_description:logistics_planning_purchase.field_purchase_order__logistics_schedule_one_line
+msgid "Only schedule one line"
+msgstr "Solo planificación para una línea"
+
+#. module: logistics_planning_purchase
 #: model:ir.model.fields,field_description:logistics_planning_purchase.field_logistics_schedule__purchase_order_id
 msgid "Order Reference"
 msgstr "Ref. pedido"
@@ -209,11 +219,8 @@ msgstr "Tipo de Albarán"
 #: code:addons/logistics_planning_purchase/models/purchase_order.py:0
 #, python-format
 msgid ""
-"Please fill a valid Initial required schedules (>=0) for every order line "
-"for the following orders: %s"
-msgstr ""
-"Por favor cubra un Nº inicial de planif. requeridas válido (>0) para cada "
-"línea para los siguientes pedidos: %s"
+"Please fill a valid Initial required schedules (>=0) for line(s) of %s order"
+msgstr "Por favor cubra un Nº inicial de planif. requeridas válido (>0) para las lineas del pedido %s"
 
 #. module: logistics_planning_purchase
 #: code:addons/logistics_planning_purchase/wizards/logistics_schedule_purchase_add_wizard.py:0
