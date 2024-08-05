@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_stock_quant_inventory_edit" model="res.groups">
+        <field name="name">Inventory: can make inventory adjustments</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field
+            name="implied_ids"
+            eval="[(4, ref('stock.group_stock_manager'))]"
+        />
+        <field name="users" eval="[
+            (4, ref('base.user_root')),
+            (4, ref('base.user_admin')),
+        ]"/>
+    </record>
+</odoo>
