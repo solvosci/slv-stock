@@ -7,6 +7,8 @@ from odoo import models, fields, api
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
+    # TODO rename this field, as strictly reflects "initially linked logistic
+    #      schedules", only used during invoice creation
     logistics_schedule_ids = fields.Many2many(
         'logistics.schedule',
         'account_move_id',
@@ -35,7 +37,10 @@ class AccountMove(models.Model):
 
     def _compute_logistics_schedule_count(self):
         for record in self:
-            record.logistics_schedule_count = len(record.logistics_schedule_ids)
+            record.logistics_schedule_count = sum(
+                len(aml._get_all_logistics_schedule_ids())
+                for aml in record.invoice_line_ids
+            )
 
     def button_cancel(self):
         # TODO prevent user with warning?
@@ -48,13 +53,4 @@ class AccountMove(models.Model):
         return super().unlink()
 
     def _ls_secure_unlink(self):
-        ls_ids = self.invoice_line_ids.sudo()._get_all_logistics_schedule_ids()
-        if ls_ids:
-            ls_ids.account_move_line_id.write({
-                "logistics_schedule_id": False,
-                "agg_logistics_schedule_ids": False,
-            })
-            ls_ids.write({
-                "account_move_line_id": False,
-                "state": "ready",
-            })
+        self.invoice_line_ids._ls_secure_unlink()
