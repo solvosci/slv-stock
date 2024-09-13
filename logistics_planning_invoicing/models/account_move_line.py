@@ -7,9 +7,10 @@ from odoo import models, fields, api
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    logistics_schedule_id = fields.Many2one('logistics.schedule')
+    logistics_schedule_id = fields.Many2one('logistics.schedule', copy=False)
     agg_logistics_schedule_ids = fields.Many2many(
         comodel_name="logistics.schedule",
+        copy=False,
         string="Aggregated logistics schedules",
     )
 
@@ -43,3 +44,20 @@ class AccountMoveLine(models.Model):
             else:
                 self.logistics_schedule_id.account_move_line_id = False
         return super().write(values)
+
+    def unlink(self):
+        # TODO prevent user with warning?
+        self._ls_secure_unlink()
+        return super().unlink()
+
+    def _ls_secure_unlink(self):
+        ls_ids = self.sudo()._get_all_logistics_schedule_ids()
+        if ls_ids:
+            ls_ids.account_move_line_id.write({
+                "logistics_schedule_id": False,
+                "agg_logistics_schedule_ids": False,
+            })
+            ls_ids.write({
+                "account_move_line_id": False,
+                "state": "ready",
+            })
