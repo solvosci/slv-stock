@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="action_logistics_schedule_draft" model="ir.actions.server">
+        <field name="name">Mark as Draft</field>
+        <field name="model_id" ref="model_logistics_schedule" />
+        <field name="binding_model_id" ref="model_logistics_schedule" />
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_logistics_schedule_draft()
+        </field>
+    </record>
     <record id="action_logistics_schedule_ready" model="ir.actions.server">
         <field name="name">Mark as Ready</field>
         <field name="model_id" ref="model_logistics_schedule" />
@@ -249,10 +259,17 @@
             <form>
                 <header>
                     <button
+                        name="%(action_logistics_schedule_draft)d"
+                        type="action"
+                        string="Mark as Draft"
+                        attrs="{'invisible': [('state', '!=', 'cancel')]}"
+                        icon="fa-pencil"
+                    />
+                    <button
                         name="%(action_logistics_schedule_ready)d"
                         type="action"
                         string="Mark as Ready"
-                        attrs="{'invisible': [('state', 'not in', ['draft', 'cancel'])]}"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"
                         context="{'ls_check_req_fields': True}"
                     />
                     <field name="can_set_to_done" invisible="1" />
