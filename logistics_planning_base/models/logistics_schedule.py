@@ -278,6 +278,9 @@ class LogisticsSchedule(models.Model):
         result["res_id"] = self.id
         return result
 
+    def action_logistics_schedule_draft(self):
+        self.browse(self.env.context.get("active_ids", []))._action_draft()
+
     def action_logistics_schedule_ready(self):
         self.browse(self.env.context.get("active_ids", [])).with_context(
             ls_check_req_fields=True
@@ -294,6 +297,13 @@ class LogisticsSchedule(models.Model):
 
     def action_logistics_schedule_done(self):
         self.browse(self.env.context.get("active_ids", []))._action_done()
+
+    def _action_draft(self):
+        to_draft = self.filtered(lambda x: x.state == 'cancel')
+        to_draft.write({
+            "state": "draft",
+        })
+        return to_draft
 
     def _action_ready(self):
         to_ready = self.filtered(lambda x: x.state in ["draft", "cancel"])
