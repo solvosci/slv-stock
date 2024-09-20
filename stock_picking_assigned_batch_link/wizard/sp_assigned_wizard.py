@@ -26,6 +26,7 @@ class StockPickingAssignedWizard(models.TransientModel):
 
     @api.onchange('batch_id')
     def _onchange_batch_id(self):
+        self.product_id = False
         super()._onchange_lot_id()
 
     @api.depends('batch_id')
@@ -46,6 +47,10 @@ class StockPickingAssignedWizard(models.TransientModel):
     def button_assigned(self):
         self.refresh_move_batch_ids()
         return super(StockPickingAssignedWizard, self).button_assigned()
+
+    def button_assigned_and_print(self):
+        self.refresh_move_batch_ids()
+        return super(StockPickingAssignedWizard, self).button_assigned_and_print()
 
     def button_variable_weight_assigned(self):
         self.refresh_move_batch_ids()
