@@ -11,7 +11,7 @@
             </xpath>
             
             <xpath expr="//field[@name='lot_id']" position="before">
-                <field name="batch_id" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <field name="batch_id" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]" attrs="{'readonly': [('mode_assign', '=', 'variable')]}"/>
             </xpath>
 
             <xpath expr="//page[@name='page_operations']" position="after">
