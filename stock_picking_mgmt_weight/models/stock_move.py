@@ -100,6 +100,13 @@ class StockMoveBackend(models.Model):
         uom_kg = self.env.ref("uom.product_uom_kgm")
         return self.product_uom._compute_quantity(weight_value, uom_kg)
 
+    def unlink(self):
+        if self.filtered(lambda x: x.picking_type_id.scale and x.net_weight):
+            move_ids = ', '.join(map(lambda x: x.picking_id.name, self.filtered(lambda x: x.picking_type_id.scale)))
+            raise ValidationError(
+                _("The following weigh-in tickets are not allowed to be removed: %s") % move_ids
+            )
+        return super(StockMoveBackend, self).unlink()
 
 class StockMovFrontend(models.Model):
     # This section only applies to frontend additions (custom move views)
