@@ -61,6 +61,17 @@ class StockValuationLayer(models.Model):
         string="Partner",
     )
 
+    orig_currency_id = fields.Many2one(
+        comodel_name="res.currency",
+        readonly=True,
+        string="Original Currency",
+    )
+    orig_currency_unit_cost = fields.Monetary(
+        currency_field="orig_currency_id",
+        readonly=True,
+        string="Unit Cost - In original currency",
+    )
+
     @api.model
     def create(self, vals):
         if vals.get("stock_move_id"):
@@ -122,8 +133,8 @@ class StockValuationLayer(models.Model):
                     # Purchase order (original or "2*N return")
                     # if not move_id.origin_returned_move_id:
                     if move_id.purchase_line_id:
-                        # vals["unit_cost"] = move_id.price_unit
-                        vals["unit_cost"] = move_id.purchase_line_id.price_unit
+                        # vals["unit_cost"] = move_id.purchase_line_id.price_unit
+                        vals.update(self._get_unit_cost_dict(move_id.purchase_line_id))
                         vals["value"] = vals.get("unit_cost") * vals.get("quantity")
                         vals["accumulated"] = True
                     # Sale return "2*N + 1"
@@ -133,8 +144,8 @@ class StockValuationLayer(models.Model):
                         #  sale move valuation, not order line
                         # Anyway, this will recalculated later (in 
                         #  phap._update_dependent_svls ??)
-                        # vals["unit_cost"] = orig_move.sale_line_id.price_unit
-                        vals["unit_cost"] = move_id.sale_line_id.price_unit
+                        # vals["unit_cost"] = move_id.sale_line_id.price_unit
+                        vals.update(self._get_unit_cost_dict(move_id.sale_line_id))
                         vals["value"] = vals.get("unit_cost") * vals.get("quantity")
                         # TODO this should be return always a value,
                         #  but False is possible!!!
@@ -153,8 +164,8 @@ class StockValuationLayer(models.Model):
                     # Purchase return "2*N + 1"
                     else:
                         # orig_move = move_id.origin_returned_move_id
-                        # vals["unit_cost"] = orig_move.price_unit
-                        vals["unit_cost"] = move_id.purchase_line_id.price_unit
+                        # vals["unit_cost"] = move_id.purchase_line_id.price_unit
+                        vals.update(self._get_unit_cost_dict(move_id.purchase_line_id))
                         quantity = -quantity
                         vals["value"] = vals.get("unit_cost") * quantity
                         vals["accumulated"] = True
@@ -285,3 +296,22 @@ class StockValuationLayer(models.Model):
             #     subsequent_records.recalculation_average_price(quantity, average_price, value, history_average)
 
         return history_average.id
+    
+    def _get_unit_cost_dict(self, object):
+        """
+        Obtains unit costs and currency values for purchase or sales lines
+        """
+        uc_dict = {"unit_cost": object.price_unit}
+        if object.order_id.currency_id != object.order_id.company_id.currency_id:
+            uc_dict.update({
+                "orig_currency_id": object.order_id.currency_id.id,
+                "orig_currency_unit_cost": object.price_unit,
+                "unit_cost": object.order_id.currency_id._convert(
+                    object.price_unit,
+                    object.order_id.company_id.currency_id,
+                    object.order_id.company_id,
+                    object.date_order or fields.Date.today(),
+                    round=False,
+                )
+            })
+        return uc_dict
