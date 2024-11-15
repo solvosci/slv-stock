@@ -3,6 +3,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools import float_is_zero
 
 
 class SaleOrder(models.Model):
@@ -86,14 +87,30 @@ class SaleOrder(models.Model):
             bad_order_lines = self.order_line.filtered(
                 lambda x: x.ls_schedule_allowed and x.logistics_schedule_init <= 0
             )
+            pd = self.env["decimal.precision"].precision_get("Product Price")
+            zero_price_order_lines = self.order_line.filtered(
+                lambda x: x.ls_schedule_allowed and float_is_zero(x.logistics_price_unit, precision_rounding=pd)
+            )
+            error_msgs = []
             if bad_order_lines:
                 bad_orders = bad_order_lines.order_id.mapped("name")
-                raise ValidationError(
+                error_msgs.append(
                     _(
                         "Please fill a valid Initial required schedules (>=0)"
                         " for every order line for the following orders: %s"
                     ) % ", ".join(bad_orders)
                 )
+            if zero_price_order_lines:
+                zero_price_orders = zero_price_order_lines.order_id.mapped("name")
+                error_msgs.append(
+                    _(
+                        "Please fill a valid Logistics Price Unit (>0)"
+                        " for every order line for the following orders: %s"
+                    ) % ", ".join(zero_price_orders)
+                )
+            if error_msgs:
+                raise ValidationError("\n\n".join(error_msgs))
+
         res = super().action_confirm()
         if not skip_ls_process:
             ls_values = []

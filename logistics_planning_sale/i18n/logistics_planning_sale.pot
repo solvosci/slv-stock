@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 11:13+0000\n"
-"PO-Revision-Date: 2024-07-22 11:13+0000\n"
+"POT-Creation-Date: 2024-11-15 08:41+0000\n"
+"PO-Revision-Date: 2024-11-15 08:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -195,6 +195,14 @@ msgstr ""
 msgid ""
 "Please fill a valid Initial required schedules (>=0) for every order line "
 "for the following orders: %s"
+msgstr ""
+
+#. module: logistics_planning_sale
+#: code:addons/logistics_planning_sale/models/sale_order.py:0
+#, python-format
+msgid ""
+"Please fill a valid Logistics Price Unit (>0) for every order line for the "
+"following orders: %s"
 msgstr ""
 
 #. module: logistics_planning_sale
