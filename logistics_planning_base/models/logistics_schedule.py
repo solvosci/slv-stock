@@ -86,7 +86,7 @@ class LogisticsSchedule(models.Model):
     product_id = fields.Many2one(
         'product.product',
         domain="[('type', 'in', ['product', 'consu'])]",
-        states=READONLY1_STATES,
+        states=READONLY3_STATES,
     )
     # TODO set as related? Default value?
     product_uom = fields.Many2one('uom.uom', readonly=True)
