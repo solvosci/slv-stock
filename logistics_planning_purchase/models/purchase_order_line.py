@@ -49,13 +49,15 @@ class PurchaseOrderLine(models.Model):
 
     def _prepare_logistics_schedule(self):
         self.ensure_one()
+        product_id = self.company_id.ls_default_one_line_product_id if self.order_id.logistics_schedule_one_line and self.company_id.ls_default_one_line_product_id else self.product_id
+
         return {
             "type": "input",
             "origin": self.order_id.name,
             "company_id": self.company_id.id,
             "destination_partner_id": self.order_id.picking_type_id.warehouse_id.partner_id.id,
             "partner_id": self.partner_id.id,
-            "product_id": self.product_id.id,
+            "product_id": product_id.id,
             "product_uom": self.product_uom.id,
             # TODO confirm this field
             "scheduled_load_date": self.date_planned,
