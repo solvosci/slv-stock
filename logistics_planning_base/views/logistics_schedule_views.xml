@@ -113,6 +113,7 @@
                     optional="show"
                 />
                 <field name="effective_date" optional="show"/>
+                <field name="rescheduled_date" optional="show"/>
                 <field name="currency_id" invisible="1"/>
                 <field name="logistics_price_unit_type" string="Pr. T." optional="show" />
                 <field name="logistics_price_unit" widget="monetary" string="Ord. Pr." optional="show"/>
@@ -232,6 +233,7 @@
                 <filter string="Scheduled Load Date" name="scheduled_load_date" date="scheduled_load_date"/>
                 <filter string="Commitment Date" name="commitment_date" date="commitment_date"/>
                 <filter string="Effective Date" name="scheduled_load_date" date="effective_date"/>
+                <filter string="Rescheduled Date" name="rescheduled_date" date="rescheduled_date"/>
                 <separator/>
                 <filter string="Ground" name="transport_type_ground" domain="[('transport_type', '=', 'ground')]"/>
                 <filter string="Ocean-Going" name="transport_type_ocean" domain="[('transport_type', '=', 'ocean-going')]"/>
@@ -248,8 +250,9 @@
                     <filter string="Effective Carrier" name="group_effective_carrier_id" context="{'group_by': 'effective_carrier_id'}"/>
                     <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
                     <filter string="Scheduled Load Date" name="group_scheduled_load_date" context="{'group_by': 'scheduled_load_date'}"/>
+                    <filter string="Rescheduled Date" name="group_rescheduled_date" context="{'group_by': 'rescheduled_date'}"/>
                 </group>
-           </search>
+            </search>
         </field>
     </record>
 
@@ -331,6 +334,7 @@
                             <field name="scheduled_load_date" string="Sched. Date"/>
                             <field name="commitment_date" />
                             <field name="effective_date" />
+                            <field name="rescheduled_date" />
                         </group>
                         <group>
                             <field name="transport_type" />

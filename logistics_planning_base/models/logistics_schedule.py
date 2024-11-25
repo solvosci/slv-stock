@@ -111,6 +111,7 @@ class LogisticsSchedule(models.Model):
         string='Unloading Date',
         copy=False,
     )
+    rescheduled_date = fields.Date(states=READONLY3_STATES, copy=False)
     logistics_price_unit_type = fields.Selection(
         selection=PRICE_UNIT_TYPES,
         string="Price Type",
