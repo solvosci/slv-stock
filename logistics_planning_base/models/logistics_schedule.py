@@ -101,7 +101,7 @@ class LogisticsSchedule(models.Model):
     )
     scheduled_load_date = fields.Date(states=READONLY1_STATES, copy=False)
     commitment_date = fields.Datetime(
-        states=READONLY2_STATES,
+        states=READONLY3_STATES,
         string='Load Date',
         copy=False,
     )
@@ -125,7 +125,7 @@ class LogisticsSchedule(models.Model):
     logistics_price_unit_done = fields.Float(
         digits='Product Price',
         string="Price Unit Done",
-        states=READONLY2_STATES,
+        states=READONLY3_STATES,
         copy=False,
     )
     carrier_id = fields.Many2one(
