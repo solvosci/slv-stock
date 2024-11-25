@@ -28,7 +28,6 @@ class LogisticsSchedule(models.Model):
     vehicle_type_id = fields.Many2one(
         'vehicle.type',
         states={
-            "ready": [("readonly", True)],
             "cancel": [("readonly", True)],
             "done": [("readonly", True)]
         }
