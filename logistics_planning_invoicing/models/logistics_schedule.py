@@ -147,6 +147,35 @@ class LogisticsSchedule(models.Model):
             'type': 'ir.actions.act_window',
         }
 
+    def action_add_existing_invoice_wizard(self):
+        ls_ids = self.browse(self._context['active_ids'])
+        if ls_ids.filtered(lambda x: not x.is_invoiceable) or ls_ids.filtered(lambda x: x.account_move_id):
+            raise ValidationError(_('There are at least one schedule already invoiced.'))
+        if ls_ids.filtered(lambda x: not x.carrier_id) or len(ls_ids.mapped('carrier_id')) > 1:
+            raise ValidationError(_('There are different carriers on the selected schedules or there is no carrier.'))
+        if ls_ids.filtered(lambda x: not x.stock_move_id):
+            raise ValidationError(_("There are at least one schedule without stock move selected"))
+        if ls_ids.filtered(lambda x: not x.schedule_finished):
+            raise ValidationError(_("There are at least one schedule unmarked as finished"))
+        if ls_ids.filtered(lambda x: (
+            float_is_zero(x.product_uom_qty, precision_rounding=x.product_uom.rounding)
+        )):
+            raise ValidationError(_("There are at least one schedule with quantity unset"))
+        Wizard = self.env['logistics.schedule.existing.account.move.wizard']
+        new = Wizard.create({
+            'logistics_schedule_ids': [(6, False, self._context['active_ids'])],
+            'carrier_id': ls_ids[0].carrier_id.id
+        })
+        return {
+            'name': _('Add to Existing Invoice'),
+            'res_model': 'logistics.schedule.existing.account.move.wizard',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_id': new.id,
+            'target': 'new',
+            'type': 'ir.actions.act_window',
+        }
+
     def _prepare_ls_account_move(self):
         return {
             'default_type': 'in_invoice',

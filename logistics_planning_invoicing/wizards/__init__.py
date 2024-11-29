@@ -1,1 +1,2 @@
 from . import logistics_schedule_account_move_wizard
+from . import logistics_schedule_existing_account_move_wizard

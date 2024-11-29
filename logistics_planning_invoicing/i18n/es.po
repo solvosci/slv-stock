@@ -6,16 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 12:23+0000\n"
-"PO-Revision-Date: 2024-07-26 14:25+0200\n"
+"POT-Creation-Date: 2025-01-27 07:25+0000\n"
+"PO-Revision-Date: 2025-01-27 07:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,help:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__group_lines
@@ -34,6 +32,15 @@ msgid "Account Move Line"
 msgstr "Lineas de factura"
 
 #. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#: model:ir.actions.server,name:logistics_planning_invoicing.action_add_existing_invoice
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_existing_account_move_wizard
+#, python-format
+msgid "Add to Existing Invoice"
+msgstr "Añadir a factura existente"
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move_line__agg_logistics_schedule_ids
 msgid "Aggregated logistics schedules"
 msgstr "Planificaciones logísticas agrupadas"
@@ -45,11 +52,13 @@ msgstr "Ref. proveedor"
 
 #. module: logistics_planning_invoicing
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_account_move_wizard
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_existing_account_move_wizard
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__carrier_id
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__carrier_id
 msgid "Carrier"
 msgstr "Transportista"
 
@@ -80,11 +89,13 @@ msgstr "Crear factura"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__create_uid
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__create_date
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -125,8 +136,14 @@ msgstr "Deshabilitar facturas de planificaciones"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__display_name
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
+
+#. module: logistics_planning_invoicing
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__domain_invoice_ids
+msgid "Domain Invoice"
+msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields.selection,name:logistics_planning_invoicing.selection__account_incoterms__ls_sale_transport_type__ground
@@ -140,6 +157,7 @@ msgstr "Agrupar líneas"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__id
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__id
 msgid "ID"
 msgstr "Id."
 
@@ -173,8 +191,14 @@ msgstr "Fact."
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__account_move_id
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__invoice_id
 msgid "Invoice"
 msgstr "Factura"
+
+#. module: logistics_planning_invoicing
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__invoice_line_id
+msgid "Invoice Line"
+msgstr "Linea de facturación"
 
 #. module: logistics_planning_invoicing
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.res_config_settings_view_form
@@ -197,7 +221,14 @@ msgid "Is invoiceable"
 msgstr "Es facturable"
 
 #. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/wizards/logistics_schedule_existing_account_move_wizard.py:0
+#, python-format
+msgid "It is necessary to configure the default journal of the logistics planning"
+msgstr "Es necesario configurar el diario por defecto de la planificación logística"
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__journal_id
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__journal_id
 msgid "Journal"
 msgstr "Diario"
 
@@ -213,16 +244,19 @@ msgstr "Apunte contable"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard____last_update
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__write_uid
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__write_date
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__write_date
 msgid "Last Updated on"
 msgstr "Última Actualización en"
 
@@ -236,8 +270,14 @@ msgstr "Planificación logística"
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move_line__logistics_schedule_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__logistics_schedule_ids
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__logistics_schedule_ids
 msgid "Logistics Schedule"
 msgstr "Planificaciones logísticas"
+
+#. module: logistics_planning_invoicing
+#: model:ir.model,name:logistics_planning_invoicing.model_logistics_schedule_existing_account_move_wizard
+msgid "Logistics Schedule Add to Existing Invoice wizard"
+msgstr "Asistente para añadir linea de factura a la planificacione logística"
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move__logistics_schedule_count
@@ -261,6 +301,16 @@ msgid "Ocean-Going"
 msgstr "Marítimo"
 
 #. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_existing_account_move_wizard
+msgid "Ord. Pr."
+msgstr "Pr. Ped."
+
+#. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_existing_account_move_wizard
+msgid "Qty"
+msgstr "Cant."
+
+#. module: logistics_planning_invoicing
 #: model:ir.actions.act_window,name:logistics_planning_invoicing.action_logistics_schedule_invoicing
 #: model:ir.ui.menu,name:logistics_planning_invoicing.menu_invoicing
 msgid "Schedules Invoicing"
@@ -280,10 +330,18 @@ msgstr "Hay %d planificación(es) ya facturadas, por favor deselecciónelas prim
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
+msgid "There are at least one schedule already invoiced."
+msgstr "Hay al menos una planificación ya facturada."
+
+#. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#, python-format
 msgid "There are at least one schedule unmarked as finished"
 msgstr "Hay al menos una planificación no marcada como finalizada"
 
 #. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are at least one schedule with quantity unset"
@@ -297,14 +355,26 @@ msgstr "Hay al menos una planificación sin transportista seleccionado"
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are at least one schedule without stock move selected"
 msgstr "Hay al menos una planificación sin mov. de existencias seleccionado"
 
 #. module: logistics_planning_invoicing
+#: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
+#, python-format
+msgid "There are different carriers on the selected schedules or there is no carrier."
+msgstr "Hay diferentes transportistas en los horarios seleccionados o no hay ningún transportista."
+
+#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_incoterms__ls_sale_transport_type
 msgid "Transport Type"
 msgstr "Tipo de transporte"
+
+#. module: logistics_planning_invoicing
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.view_logistics_schedule_existing_account_move_wizard
+msgid "Type"
+msgstr "Tipo"
 
 #. module: logistics_planning_invoicing
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0

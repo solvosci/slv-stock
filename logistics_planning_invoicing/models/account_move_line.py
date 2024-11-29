@@ -61,3 +61,23 @@ class AccountMoveLine(models.Model):
                 "account_move_line_id": False,
                 "state": "ready",
             })
+
+    @api.model
+    def name_search(self, name="", args=None, operator="ilike", limit=100):
+        context = self.env.context
+        if context.get('logistics_planning_invoicing_existing', False):
+            domain = args or []
+            domain += [("name", operator, name)]
+            return self.search(domain).name_get()
+
+        return super().name_search(name=name, args=args, operator=operator, limit=limit)
+
+    def name_get(self):
+        res = []
+        context = self.env.context
+        if context.get('logistics_planning_invoicing_existing', False):
+            for record in self:
+                name = f"[{record.product_id.name}] {record.move_id.name}({record.name}) - {record.price_unit} {record.company_currency_id.symbol} ({record.quantity} {record.product_uom_id.name})"
+                res.append((record.id, name))
+            return res
+        return super().name_get()
