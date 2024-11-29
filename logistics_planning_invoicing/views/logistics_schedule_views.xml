@@ -12,6 +12,17 @@
         </field>
     </record>
 
+    <record id="action_add_existing_invoice" model="ir.actions.server">
+        <field name="name">Add to Existing Invoice</field>
+        <field name="model_id" ref="model_logistics_schedule" />
+        <field name="binding_model_id" ref="model_logistics_schedule"/>
+        <field name="groups_id" eval="[(4, ref('account.group_account_user'))]"/>
+        <field name="state">code</field>
+        <field name="code">
+            action=model.action_add_existing_invoice_wizard()
+        </field>
+    </record>
+
     <record id="logistics_schedule_view_form" model="ir.ui.view">
         <field name="name">logistics.schedule.form</field>
         <field name="model">logistics.schedule</field>
@@ -23,6 +34,13 @@
                     type="object" string="Create Invoice"
                     attrs="{'invisible': ['|', ('is_invoiceable', '=', False), '|', ('account_move_line_id', '!=', False), ('state', '=', 'done')]}"
                     icon="fa-pencil-square-o"
+                />
+                <button
+                    name="action_add_existing_invoice_wizard"
+                    type="object" string="Add to Existing Invoice"
+                    attrs="{'invisible': ['|', ('is_invoiceable', '=', False), '|', ('account_move_line_id', '!=', False), ('state', '=', 'done')]}"
+                    icon="fa-pencil-square-o"
+                    groups="account.group_account_user"
                 />
             </xpath>
             <xpath expr="//field[@name='transport_type']" position="before">

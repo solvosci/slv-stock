@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_logistics_schedule_existing_account_move_wizard" model="ir.ui.view">
+        <field name="name">logistics.schedule.existing.account.move.wizard.tree</field>
+        <field name="model">logistics.schedule.existing.account.move.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="carrier_id"/>
+                        <field name="journal_id" required="1"/>
+                        <field name="logistics_schedule_ids" mode="tree">
+                            <tree string="">
+                                <field name="state" invisible="1"/>
+                                <field name="origin" />
+                                <field name="partner_id" />
+                                <field name="transport_type" string="Type"/>
+                                <field name="product_id" />
+                                <field name="product_uom_qty" string="Qty"/>
+                                <field name="logistics_price_unit" string="Ord. Pr."/>
+                            </tree>
+                        </field>
+                        <field name="invoice_id" 
+                            domain="[('partner_id', '=', carrier_id), ('journal_id', '=', journal_id), ('type', '=', 'in_invoice')]"
+                            required="1"
+                            options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="invoice_line_id" 
+                            context="{'logistics_planning_invoicing_existing': True}" 
+                            domain="[('move_id', '=', invoice_id), ('exclude_from_invoice_tab', '=', False)]"
+                            attrs="{'invisible': [('invoice_id', '=', False)]}"
+                            required="1"
+                            options="{'no_create': True, 'no_create_edit':True}"/>
+                    </group>
+                    <footer>
+                        <button name="add_invoice" string="Add to Existing Invoice" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
