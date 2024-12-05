@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record
+        id="view_stock_move_line_add_sn_wizard_form"
+        model="ir.ui.view"
+    >
+        <field name="name">stock.move.line.add.sn.wizard.form</field>
+        <field name="model">stock.move.line.add.sn.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <span name="warn_message">
+                            <p>Please select a S/N that will be used to create
+                            a new move line, and press "Confirm".</p>
+                            <p>Once done, new lot will be released (if it was
+                            already in use) and then, reserved for this move.</p>
+                            <p>If selected lot was previously reserved in a
+                            document that is not locked, a warning will be
+                            shown in that document; otherwise, an error will
+                            be raised here indicating that lot is actually
+                            unavailable.</p>
+                        </span>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="location_id" string="Move Location"/>
+                        </group>
+                        <group>
+                            <field
+                                name="new_lot_id"
+                                required="1"
+                                domain="[('id', 'in', new_lot_available_ids)]"
+                            />
+                            <field
+                                name="new_lot_available_ids"
+                                widget="many2many_tags"
+                                groups="base.group_no_one"
+                            />
+                        </group>
+                    </group>
+                    <footer>
+                        <button
+                            name="action_confirm"
+                            string="Confirm"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                        <button
+                            string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"
+                        />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
