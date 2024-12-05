@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_move_line_add_sn_wizard_all,stock.move.line.add.sn.wizard all,model_stock_move_line_add_sn_wizard,stock.group_stock_user,1,1,1,1
+access_stock_move_line_exchange_sn_wizard_all,stock.move.line.exchange.sn.wizard all,model_stock_move_line_exchange_sn_wizard,stock.group_stock_user,1,1,1,1
