@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_logistics_schedule_cancel_wizard" model="ir.ui.view">
+        <field name="name">logistics.schedule.cancel.wizard.form</field>
+        <field name="model">logistics.schedule.cancel.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <p>
+                            Are you sure you want to cancel the selected scheduled logistics?
+                        </p>
+                    </group>
+                    <footer>
+                        <button
+                            name="button_cancel"
+                            id="button_cancel"
+                            string="YES"
+                            type="object"
+                            class="oe_highlight"
+                            context="{'logistic_schedule_cancel_skip_confirm': True}"
+                        />
+                        <button string="NO" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
