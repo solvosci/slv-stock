@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-25 11:18+0000\n"
-"PO-Revision-Date: 2024-11-25 11:18+0000\n"
+"POT-Creation-Date: 2024-12-19 12:58+0000\n"
+"PO-Revision-Date: 2024-12-19 12:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -51,6 +51,11 @@ msgid ""
 msgstr ""
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_logistics_schedule_cancel_wizard
+msgid "Are you sure you want to cancel the selected scheduled logistics?"
+msgstr ""
+
+#. module: logistics_planning_base
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
 msgid "Are you sure you want to cancel this record?"
 msgstr ""
@@ -69,8 +74,15 @@ msgstr ""
 #: model:ir.actions.server,name:logistics_planning_base.action_logistics_schedule_cancel
 #: model:ir.model.fields.selection,name:logistics_planning_base.selection__logistics_schedule__state__cancel
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.logistics_schedule_view_form
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_logistics_schedule_cancel_wizard
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_stock_return_picking_ls_wizard
 msgid "Cancel"
+msgstr ""
+
+#. module: logistics_planning_base
+#: code:addons/logistics_planning_base/models/logistics_schedule.py:0
+#, python-format
+msgid "Cancel logistic scheduled"
 msgstr ""
 
 #. module: logistics_planning_base
@@ -149,12 +161,14 @@ msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__create_uid
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__create_uid
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__create_date
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__create_date
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__create_date
 msgid "Created on"
 msgstr ""
@@ -184,6 +198,7 @@ msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__display_name
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__display_name
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__display_name
 msgid "Display Name"
 msgstr ""
@@ -260,6 +275,7 @@ msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__id
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__id
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__id
 msgid "ID"
 msgstr ""
@@ -297,18 +313,21 @@ msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule____last_update
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard____last_update
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__write_uid
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__write_uid
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: logistics_planning_base
 #: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule__write_date
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__write_date
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_return_picking_ls_wizard__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -363,9 +382,15 @@ msgid "Logistics Planning"
 msgstr ""
 
 #. module: logistics_planning_base
+#: model:ir.model.fields,field_description:logistics_planning_base.field_logistics_schedule_cancel_wizard__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_move__logistics_schedule_id
 #: model:ir.model.fields,field_description:logistics_planning_base.field_stock_picking__logistics_schedule_ids
 msgid "Logistics Schedule"
+msgstr ""
+
+#. module: logistics_planning_base
+#: model:ir.model,name:logistics_planning_base.model_logistics_schedule_cancel_wizard
+msgid "Logistics Schedule Cancel wizard"
 msgstr ""
 
 #. module: logistics_planning_base
@@ -707,6 +732,7 @@ msgid "Wrong license plate: [%s] (only alphanumeric characters are valid)"
 msgstr ""
 
 #. module: logistics_planning_base
+#: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_logistics_schedule_cancel_wizard
 #: model_terms:ir.ui.view,arch_db:logistics_planning_base.view_stock_return_picking_ls_wizard
 msgid "YES"
 msgstr ""

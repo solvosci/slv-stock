@@ -288,7 +288,26 @@ class LogisticsSchedule(models.Model):
         )._action_ready()
 
     def action_logistics_schedule_cancel(self):
-        self.browse(self.env.context.get("active_ids", []))._action_cancel()
+        logistic_ids = self.browse(self.env.context.get("active_ids", []))
+        if self.env.context.get('logistic_schedule_cancel_skip_confirm'):
+            logistic_ids._action_cancel()
+        else:
+            to_cancel = logistic_ids.filtered(lambda x: x.state in ['draft', 'ready', 'done'])
+            if not to_cancel:
+                raise ValidationError(_('Only records can be cancelled if they are in Draft, Ready or Done status.'))
+            new = self.env['logistics.schedule.cancel.wizard'].create({
+                'logistics_schedule_ids': to_cancel.ids,
+            })
+            return {
+                'name': _('Cancel logistic scheduled'),
+                'res_model': 'logistics.schedule.cancel.wizard',
+                'view_mode': 'form',
+                'view_type': 'form',
+                'res_id': new.id,
+                'target': 'new',
+                'type': 'ir.actions.act_window',
+            }
+
 
     def action_logistics_schedule_copy(self):
         self.browse(self.env.context.get("active_ids", []))._action_copy()
