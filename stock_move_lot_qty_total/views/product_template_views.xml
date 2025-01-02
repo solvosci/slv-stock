@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_template_property_form" model="ir.ui.view">
+        <field name="name">product.template.stock.property.form.inherit (in stock_move_line_lot_qty_total)</field>
+        <field name="model">product.template</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_template_property_form"
+        />
+        <field name="arch" type="xml">
+            <field name="tracking" position="after">
+                <field
+                    name="lot_stock_total_quantities"
+                    attrs="{'invisible': [('tracking', '!=', 'lot')]}"
+                    force_save="1"
+                    string="Force available quantity in deliveries"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

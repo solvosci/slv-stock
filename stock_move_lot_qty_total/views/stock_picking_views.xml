@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_move_line_lot_qty_total)</field>
+        <field name="model">stock.picking</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_picking_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='move_ids_without_package']/tree/field[@name='quantity_done']"
+                position="after"
+            >
+                <field name="button_complete_lot_qty_invisible" invisible="1" />
+                <button
+                    name="button_complete_lot_qty"
+                    type="object"
+                    icon="fa-bolt"
+                    attrs="{
+                        'invisible': [('button_complete_lot_qty_invisible', '=', True)],
+                    }"
+                    string="Automatically fill done quantity for each selected lot with current available stock"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
