@@ -2,6 +2,7 @@
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 from odoo import _, models
 from odoo.exceptions import ValidationError
+from odoo.tools.float_utils import float_compare
 
 
 class StockMoveLine(models.Model):
@@ -23,9 +24,12 @@ class StockMoveLine(models.Model):
             and x.product_id.lot_stock_total_quantities
         )
         for sml in sml_to_check_ids:
-            # TODO float compare?
             available_qty = sml._get_available_quantity_complete_lot()
-            if sml.qty_done != available_qty:
+            if float_compare(
+                sml.qty_done,
+                available_qty,
+                precision_rounding=sml.product_id.uom_id.rounding or 0.001
+            ) != 0:
                 raise ValidationError(_(
                     "Done quantity for %s with lot %s doesn't match available"
                     " stock (%.3f != %.3f), please check"
