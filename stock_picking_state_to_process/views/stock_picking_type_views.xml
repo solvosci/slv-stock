@@ -1,0 +1,76 @@
+<odoo>
+
+    <record id="action_picking_tree_to_process" model="ir.actions.act_window">
+        <field name="name">To Process</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="context">{'contact_display': 'partner_address'}</field> 
+        <field name="domain">[("state", "in", ["assigned", "confirmed"])]</field>
+        <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No transfer found. Let's create one!
+            </p><p>
+                Transfers allow you to move products from one location to another.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_picking_tree_very_late" model="ir.actions.act_window">
+        <field name="name">very late</field>
+        <field name="res_model">stock.picking</field>
+        <field name="view_mode">tree,kanban,form,calendar</field>
+        <field name="context">{'contact_display': 'partner_address'}</field> 
+        <field name="domain">['&amp;', ('scheduled_date_very_late','&lt;', time.strftime('%Y-%m-%d %H:%M:%S')), ('state', 'in', ('assigned', 'waiting', 'confirmed'))]</field>
+        <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No transfer found. Let's create one!
+            </p><p>
+                Transfers allow you to move products from one location to another.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_picking_type_form" model="ir.ui.view">
+        <field name="name">stock.picking.type.form (in stock_picking_to_process)</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='warehouse_id']" position="after">
+                <field name="days_very_late" string="Days to mark as late"></field>
+            </xpath>
+        </field>
+    </record>
+    <record id="stock_picking_type_kanban" model="ir.ui.view">
+        <field name="name">stock.picking.type.kanban (in stock_picking_state_to_process)</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.stock_picking_type_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@t-if='record.count_picking_late.raw_value > 0']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@class='col-6 o_kanban_primary_right']" position="inside">
+                <div t-if="record.count_picking_very_late.raw_value > 0" class="row">
+                    <div class="col-12">
+                        <a class="oe_kanban_stock_picking_type_list" name="get_action_picking_tree_very_late" type="object">
+                            <field name="count_picking_very_late"/>
+                            Very Late
+                        </a>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='col-6 o_kanban_primary_right']" position="inside">
+                <div t-if="record.count_picking_to_process.raw_value > 0" class="row">
+                    <div class="col-12">
+                        <a class="oe_kanban_stock_picking_type_list" name="get_action_picking_tree_to_process" type="object">
+                            <field name="count_picking_to_process"/>
+                            To Process Extended
+                        </a>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
