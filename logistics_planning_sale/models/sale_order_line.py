@@ -25,7 +25,6 @@ class SaleOrderLine(models.Model):
     logistics_price_unit = fields.Float(digits="Product Price")
     logistics_schedule_init = fields.Integer(
         string="Initial required schedules",
-        copy=False,
     )
     ls_transport_type = fields.Selection(
         selection=TRANSPORT_TYPE,
