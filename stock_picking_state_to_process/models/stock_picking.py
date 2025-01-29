@@ -10,6 +10,14 @@ class Picking(models.Model):
     _inherit = "stock.picking"
 
     scheduled_date_very_late = fields.Datetime(compute='_compute_scheduled_date_very_late', store=True)
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('waiting', 'Waiting Another Operation'),
+        ('confirmed', 'Waiting'),
+        ('assigned', 'Ready'),
+        ('done', 'Done'),
+        ('cancel', 'Cancelled'),
+    ])
 
     @api.depends('scheduled_date', 'picking_type_id.days_very_late')
     def _compute_scheduled_date_very_late(self):
@@ -22,7 +30,7 @@ class PickingType(models.Model):
     days_very_late = fields.Integer(help="Number of days to mark as very late", default=100)
     count_picking_to_process = fields.Integer(compute='_compute_count_picking_process_late')
     count_picking_very_late = fields.Integer(compute='_compute_count_picking_process_late')
-
+    
     def _compute_count_picking_process_late(self):
         domains = {
                 'count_picking_to_process': [('state','in',('assigned','confirmed'))],
