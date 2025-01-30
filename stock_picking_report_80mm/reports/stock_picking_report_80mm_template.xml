@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_picking" inherit_id="stock.report_picking" primary="True">
+        <xpath expr="//t[@t-call='web.external_layout']" position="attributes">
+            <attribute name="t-call">web.basic_layout</attribute>
+        </xpath>
+        <xpath expr="//div[@name='div_outgoing_address']/.." position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-field='o.name']/../.." position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+
+        <xpath expr="//h1" position="attributes">
+            <attribute name="style">font-size: 20px</attribute>
+        </xpath>
+        <xpath expr="//table/.." position="attributes">
+            <attribute name="style">padding-top: 20px; font-size: 10px</attribute>
+        </xpath>
+
+        <xpath expr="//table[1]" position="attributes">
+            <attribute name="style">table-layout: fixed; width: 100%;</attribute>
+        </xpath>
+        <xpath expr="//table[2]" position="attributes">
+            <attribute name="style">table-layout: fixed; width: 100%;</attribute>
+        </xpath>
+        <xpath expr="//table[1]/thead" position="attributes">
+            <attribute name="style">display: table-row-group;</attribute>
+        </xpath>
+        <xpath expr="//table[2]/thead" position="attributes">
+            <attribute name="style">display: table-row-group;</attribute>
+        </xpath>
+    </template>
+
+</odoo>
