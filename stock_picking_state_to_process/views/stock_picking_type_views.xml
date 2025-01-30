@@ -42,6 +42,7 @@
             </xpath>
         </field>
     </record>
+
     <record id="stock_picking_type_kanban" model="ir.ui.view">
         <field name="name">stock.picking.type.kanban (in stock_picking_state_to_process)</field>
         <field name="model">stock.picking.type</field>
@@ -72,5 +73,5 @@
             </xpath>
         </field>
     </record>
-    
+
 </odoo>

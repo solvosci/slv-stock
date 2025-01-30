@@ -51,4 +51,3 @@ class PickingType(models.Model):
 
     def get_action_picking_tree_very_late(self):
         return self._get_action('stock_picking_state_to_process.action_picking_tree_very_late')
-    

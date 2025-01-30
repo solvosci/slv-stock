@@ -2,13 +2,12 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Stock Picking State To Process",
-    "summary": """Changes the state of the picking to 'To process (Stock Pending)' when is 'waiting' and 'To process' when is 'assigned' or 'confirmed'.
-The button in 'Delivery Orders' shows all 'To Process' pickings.""",
+    "summary": """Add a link to show orders in "assigned" or "confirmed" status in "to process". Add a days field in stock.picking.type, so that when the delay is greater than that, it appears as "very late".""",
     "version": "17.0.1.0.0",
     "author": "Solvos",
     "category": "stock",
     "license": "LGPL-3",
-    "website": "https://github.com/solvosci/slv-sale",
+    "website": "https://github.com/solvosci/slv-stock",
     "depends": ["stock"],
     "data": [
         "views/stock_picking_type_views.xml",
