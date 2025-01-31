@@ -27,7 +27,7 @@ class PurchaseOrderLine(models.Model):
         compute="_compute_classification_order_line_ids",
         store=True,
     )
-    classified = fields.Boolean(default=False)
+    classified = fields.Boolean(default=False, copy=False)
     pending_qty = fields.Float(
         compute='_compute_pending_qty',
         digits='Product Unit of Measure',
@@ -85,7 +85,8 @@ class PurchaseOrderLine(models.Model):
     )
     qty_classified = fields.Float(
         digits='Product Unit of Measure',
-        readonly=True
+        readonly=True,
+        copy=False,
     )
 
     date_planned_search = fields.Date(
@@ -97,6 +98,7 @@ class PurchaseOrderLine(models.Model):
     identification_document_number = fields.Char(
         help="This code should be unique for an order and product LER code"
         " and should come from GAIA integration",
+        copy=False,
     )
 
     order_user_id = fields.Many2one(related="order_id.user_id")
