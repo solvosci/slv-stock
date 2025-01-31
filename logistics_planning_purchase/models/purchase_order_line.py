@@ -27,7 +27,6 @@ class PurchaseOrderLine(models.Model):
     )
     logistics_schedule_init = fields.Integer(
         string="Initial required schedules",
-        copy=False,
     )
     ls_schedule_allowed = fields.Boolean(
         compute="_compute_ls_schedule_allowed",
