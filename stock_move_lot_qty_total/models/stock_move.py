@@ -44,6 +44,19 @@ class StockMove(models.Model):
                 "There are at least one stock move line without lot selected,"
                 " please check"
             ))
+        # Check that every move line lot is unique and find which are duplicated
+        lot_list = self.move_line_ids.mapped("lot_id")
+        if len(lot_list) < len(self.move_line_ids):
+            repeated_lots = []
+            for lot in lot_list:
+                if len(self.move_line_ids.filtered(lambda x: x.lot_id == lot)) > 1:
+                    repeated_lots.append(lot.name)
+            raise ValidationError(
+                _(
+                    "There are lot(s) duplicated, please remove duplicated.\n\n"
+                    "Repeated lots: %s"
+                ) % ", ".join(repeated_lots)
+            )
         # TODO ensure right unit of measure
         for ml in self.move_line_ids:
             available_qty = ml._get_available_quantity_complete_lot()
