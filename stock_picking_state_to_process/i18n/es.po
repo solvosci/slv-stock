@@ -79,7 +79,7 @@ msgstr "Borrador"
 #: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_to_process
 #: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_very_late
 msgid "No transfer found. Let's create one!"
-msgstr "Sin traslados encontrados. ¡Creemos uno!"
+msgstr "No se encontraron traslados. ¡Creemos uno!"
 
 #. module: stock_picking_state_to_process
 #: model:ir.model.fields,help:stock_picking_state_to_process.field_stock_picking_type__days_very_late
@@ -125,7 +125,7 @@ msgstr "Traslado"
 #: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_to_process
 #: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_very_late
 msgid "Transfers allow you to move products from one location to another."
-msgstr "Traslados permiten mover productos de una ubicación a otra."
+msgstr "Los traslados le permiten mover productos de una ubicación a otra."
 
 #. module: stock_picking_state_to_process
 #: model_terms:ir.ui.view,arch_db:stock_picking_state_to_process.stock_picking_type_kanban
