@@ -71,7 +71,7 @@
         id="menu_root"
         name="Scale / Classification"
         web_icon="stock_picking_mgmt_weight,static/description/icon.png"
-        groups="stock_picking_mgmt_weight.group_sc_user"
+        groups="stock_picking_mgmt_weight.group_sc_user_readonly"
     />
 		
     <menuitem
@@ -102,6 +102,7 @@
         id="menu_mgmt_weight_classifs"
         parent="menu_root"
         name="Clasification"
+        groups="stock_picking_mgmt_weight.group_sc_user"
         sequence="20"/>
 
     <menuitem
