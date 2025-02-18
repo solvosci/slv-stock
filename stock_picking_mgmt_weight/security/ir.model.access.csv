@@ -7,12 +7,18 @@ access_supply_condition_manager,supply.condition manager,model_supply_condition,
 access_supply_condition_user,supply.condition user,model_supply_condition,,1,0,0,0
 access_vehicle_type_manager,vehicle.type manager,model_vehicle_type,stock.group_stock_manager,1,1,1,1
 access_vehicle_type_user,vehicle.type user,model_vehicle_type,,1,0,0,0
-access_stock_picking_type_sc_user,stock.picking.type sc user,stock.model_stock_picking_type,stock_picking_mgmt_weight.group_sc_user,1,0,0,0
+access_stock_picking_type_sc_user_readonly,stock.picking.type sc user readonly,stock.model_stock_picking_type,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
+access_stock_picking_sc_user_readonly,stock.picking sc user readonly,stock.model_stock_picking,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_stock_picking_sc_user,stock.picking sc user,stock.model_stock_picking,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
+access_stock_move_sc_user_readonly,stock.move sc user readonly,stock.model_stock_move,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_stock_move_sc_user,stock.move sc user,stock.model_stock_move,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
+access_stock_picking_classification_sc_user_readonly,stock.picking.classification sc user readonly,model_stock_picking_classification,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_stock_picking_classification_sc_user,stock.picking.classification sc user,model_stock_picking_classification,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
+access_vehicle_vehicle_sc_user_readonly,vehicle.vehicle sc user readonly,vehicle.model_vehicle_vehicle,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_vehicle_vehicle_sc_user,vehicle.vehicle sc user,vehicle.model_vehicle_vehicle,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
+access_camera_camera_sc_user_readonly,camera.camera sc user readonly,camera.model_camera_camera,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_camera_camera_sc_user,camera.camera sc user,camera.model_camera_camera,stock_picking_mgmt_weight.group_sc_user,1,1,0,0
+access_scale_scale_sc_user_readonly,scale.scale sc user readonly,scale.model_scale_scale,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
 access_scale_scale_sc_user,scale.scale sc user,scale.model_scale_scale,stock_picking_mgmt_weight.group_sc_user,1,1,0,0
 access_purchase_order_sc_user,purchase.order sc user,purchase.model_purchase_order,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
 access_purchase_order_line_sc_user,purchase.order.line sc user,purchase.model_purchase_order_line,stock_picking_mgmt_weight.group_sc_user,1,1,1,0

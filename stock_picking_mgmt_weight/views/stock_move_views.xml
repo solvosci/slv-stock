@@ -145,7 +145,7 @@
         <field name="model">stock.move</field>
         <field eval="100" name="priority"/>
         <field name="arch" type="xml">
-            <tree decoration-success="date_gross_weight != False" default_order="date desc">
+            <tree create="false" edit="false" delete="false" decoration-success="date_gross_weight != False" default_order="date desc">
                 <field name="reference" string="Ticket"/>
                 <!-- TODO what is the proper date? -->
                 <field name="date"/>
@@ -180,6 +180,20 @@
         <field name="arch" type="xml">
             <xpath expr="//tree" position="attributes">
                 <attribute name="create">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_move_mgmt_weight_frontend_weight_tree_view_user" model="ir.ui.view">
+        <field name="name">stock.move.tree Scale User (weight frontend)</field>
+        <field name="inherit_id" ref="stock_move_mgmt_weight_frontend_weight_tree_view"/>
+        <field name="model">stock.move</field>
+        <field name="groups_id" eval="[(4,ref('stock_picking_mgmt_weight.group_sc_user'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="create">1</attribute>
+                <attribute name="edit">1</attribute>
+                <attribute name="delete">1</attribute>
             </xpath>
         </field>
     </record>
@@ -258,8 +272,8 @@
         <field name="model">stock.move</field>
         <field eval="100" name="priority"/>
         <field name="arch" type="xml">
-            <form string="Weight">
-                <header>
+            <form string="Weight" create="false" edit="false" delete="false">
+                <header groups="stock_picking_mgmt_weight.group_sc_user">
                     <field name="type_code" invisible="1"/>
                     <field name="type_mandatory_towing" invisible="1" />
                     <field name="picking_state" invisible="1"/>
@@ -330,6 +344,20 @@
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="stock_move_mgmt_weight_frontend_weight_form_view_user" model="ir.ui.view">
+        <field name="name">stock.move.tree Scale User (weight frontend)</field>
+        <field name="inherit_id" ref="stock_move_mgmt_weight_frontend_weight_form_view"/>
+        <field name="model">stock.move</field>
+        <field name="groups_id" eval="[(4,ref('stock_picking_mgmt_weight.group_sc_user'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="create">1</attribute>
+                <attribute name="edit">1</attribute>
+                <attribute name="delete">1</attribute>
+            </xpath>
         </field>
     </record>
 
