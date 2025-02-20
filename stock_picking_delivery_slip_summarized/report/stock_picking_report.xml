@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        string="Delivery Slip Summarized"
+        id="action_report_delivery_summarized"
+        model="stock.picking"
+        report_type="qweb-pdf"
+        name="stock_picking_delivery_slip_summarized.report_deliveryslip_summarized"
+        file="stock_picking_delivery_slip_summarized.report_deliveryslip_summarized"
+        print_report_name="'Delivery Slip Summarized - %s - %s' % (object.partner_id.name or '', object.name)"
+    />
+</odoo>
