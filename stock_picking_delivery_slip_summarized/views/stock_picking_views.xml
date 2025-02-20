@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_picking_delivery_slip_summarized)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"></field>
+        <field name="arch" type="xml">
+            <button name="do_print_picking" position="after">
+                <button
+                    name="%(action_report_delivery_summarized)d"
+                    string="Print (summarized)"
+                    icon="fa-compress"
+                    attrs="{'invisible': ['|', ('state', '!=', 'done'), ('is_locked', '=', False)]}"
+                    type="action"
+                    groups="base.group_user"
+                />
+            </button>
+        </field>
+    </record>    
+</odoo>
