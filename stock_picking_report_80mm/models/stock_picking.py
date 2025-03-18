@@ -11,6 +11,5 @@ class StockPicking(models.Model):
         self.ensure_one()
         paper_format = self.env.ref("stock_picking_report_80mm.stock_picking_ticket")
         items = self.move_line_ids_without_package
-        if len(items) > 1:
-            paper_format.page_height = 85 + (len(items) * 10)
+        paper_format.page_height = 90 + (len(items) * 10)
         return self.env.ref("stock_picking_report_80mm.action_stock_picking_pdf").report_action(self)

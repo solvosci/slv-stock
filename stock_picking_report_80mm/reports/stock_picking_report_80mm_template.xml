@@ -14,7 +14,17 @@
         </xpath>
 
         <xpath expr="//h1" position="attributes">
-            <attribute name="style">font-size: 20px</attribute>
+            <attribute name="style">font-size: 16px; display: block; margin-bottom: 0px;</attribute>
+        </xpath>
+        <xpath expr="//h1" position="after">
+            <div class="d-block mt-4">
+                <span>NIF: <span t-field="o.partner_id.vat"/></span><br/>
+                <span><span t-field="o.partner_id.name"/></span><br/>
+                <span><span t-field="o.partner_id.street"/> / <span t-field="o.partner_id.city"/> / <span t-field="o.partner_id.zip"/></span>
+            </div>
+        </xpath>
+        <xpath expr="//div[@name='div_origin']/.." position="attributes">
+            <attribute name="class">row mt16 mb16</attribute>
         </xpath>
         <xpath expr="//table/.." position="attributes">
             <attribute name="style">padding-top: 20px; font-size: 10px</attribute>
