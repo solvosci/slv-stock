@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//span[@t-field='move.product_id']/parent::td" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//span[@t-field='move.product_id']/parent::td" position="before">
+            <td>
+                <span t-field="move.description_picking"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>
