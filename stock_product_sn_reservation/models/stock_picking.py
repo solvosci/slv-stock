@@ -11,7 +11,7 @@ class StockPicking(models.Model):
     def _compute_sn_locked_invisible(self):
         super()._compute_sn_locked_invisible()
         locked_inv_pick_ids = self.filtered(
-            lambda x: x.state != "assigned" or x.picking_type_id.code != "outgoing"
+            lambda x: x.state != "assigned" or x.picking_type_id.code not in ["outgoing", "internal"]
         )
         locked_inv_pick_ids.update({"sn_locked_invisible": True})
         (self - locked_inv_pick_ids).update({"sn_locked_invisible": False})
