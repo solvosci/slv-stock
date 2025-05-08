@@ -27,7 +27,7 @@ class StockMove(models.Model):
         """
         Original attrs in form view:
         attrs="{'readonly': ['|', ('state', '=', 'cancel'), '&amp;', ('state', '=', 'done'), ('is_locked', '=', True)]}"
-        We only add OR for S/N products in an outgoing move
+        We only add OR for S/N products in an outgoing or internal move
         """        
         for move in self:
             move.move_line_ids_readonly = (
@@ -43,7 +43,7 @@ class StockMove(models.Model):
         self.ensure_one()
         return (
             self.picking_type_id
-            and self.picking_type_id.code == "outgoing"
+            and self.picking_type_id.code in ["outgoing", "internal"]
             or False
         )
 
