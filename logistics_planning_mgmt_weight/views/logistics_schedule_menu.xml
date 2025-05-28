@@ -23,6 +23,7 @@
         id="menu_mgmt_weight_schedules"
         parent="stock_picking_mgmt_weight.menu_mgmt_weight"
         name="Schedules"
+        groups="stock_picking_mgmt_weight.group_sc_user"
         sequence="21"
     />
     <menuitem
