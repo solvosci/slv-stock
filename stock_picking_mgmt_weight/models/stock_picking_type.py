@@ -9,3 +9,6 @@ class StockPickingType(models.Model):
 
     scale = fields.Boolean(string="Scales")
     mandatory_towing = fields.Boolean()
+    picking_operations_scale_ids = fields.Many2many(
+        comodel_name='scale.scale',
+    )

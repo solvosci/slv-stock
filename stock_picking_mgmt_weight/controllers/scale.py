@@ -22,9 +22,10 @@ class ScaleController(http.Controller):
         #     "value": "----",
         #     "err": _("Undefined scale for current company")
         # }
-        scale_id = request.env['res.users'].search([
-            ('id', '=', request.session.uid)
-        ]).company_id.sudo().picking_operations_scale_id
+        scale_name = dict(request.jsonrequest)['scale_name'] or False
+        scale_id = request.env['scale.scale'].sudo().search([
+            ('name', '=', scale_name)
+        ])
         if not scale_id:
             return {
                 "value": "----",
