@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.27.0",
+    "version": "13.0.1.28.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -61,7 +61,6 @@
         "static/src/xml/iot_weight.xml",
         # "static/src/xml/iot_asm_field.xml",
         "static/src/xml/iot_camera_field.xml",
-        "static/src/xml/iot_weight_viewer.xml",
     ],
     "post_init_hook": "post_init_hook",
     'installable': True,

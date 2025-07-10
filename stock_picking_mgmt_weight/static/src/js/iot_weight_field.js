@@ -22,8 +22,7 @@ odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
 
         start: function() {
             console.log("START FieldIotWeight");
-            this.$span = this.$("span");            
-
+            this.$span = this.$("span");
             var self = this;
             // this._showErrorMessage(_t("This is a test for start()."));
             //self.getWeight();
@@ -42,8 +41,20 @@ odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
         getWeight: function() {
             var self = this;
             var last_weight;
-            // if ( !self.$span.is(":visible") ) {
-            //     // TODO JS thread is still running, but we still need it 
+            var scale = false;
+            var scale_container = document.querySelector('div[name="picking_operations_scale_id"]');
+            if (scale_container) {
+                var scaleInput = scale_container.querySelector('input');
+                if (!scaleInput || !scaleInput.value) {
+                    console.log("No scale selected, skipping weight fetch");
+                    return;
+                }
+                scale = scaleInput.value;
+            } else if (document.querySelector('a[name="picking_operations_scale_id"]')){
+                scale = document.querySelector('a[name="picking_operations_scale_id"] span').textContent;
+            }
+
+            // TODO JS thread is still running, but we still need it 
             //     //  active if user turns back from form view.
             //     // It should overload browser engine
             //     console.log("NOT VISIBLE!!! FieldIotWeigth");
@@ -54,7 +65,9 @@ odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
                 url: "/stock_picking_mgmt_weight/scale/read",
                 type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify({})
+                data: JSON.stringify({
+                    'scale_name': scale
+                })
             }).done(data => {
                 data = (data || {});
                 data.result = (data.result || {"err": "Undefined error", "value": "---"});

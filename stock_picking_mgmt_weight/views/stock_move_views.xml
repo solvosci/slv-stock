@@ -308,6 +308,8 @@
                             <field name="company_id" invisible="1"/>
                             <field name="picking_id" string="Ticket" attrs="{'readonly': 1}"/>
                             <field name="picking_type_id" domain="[('scale','=',True)]" attrs="{'required': 1}" options="{'no_create': True}"/>
+                            <field name="allow_picking_operations_scale_ids" invisible="1"/>
+                            <field name="picking_operations_scale_id" attrs="{'invisible': [('picking_type_id', '=', False)]}" options="{'no_create': True}" string="Active scale"/>
                             <field name="picking_partner_id" string="Contact" attrs="{'required': 1}" options="{'no_create': True}"/>
                             <field name="product_id" options="{'no_create': True}"/>
                             <field name="picking_vehicle_id" attrs="{'required': 1}"/>
@@ -321,12 +323,14 @@
                         </group>
                         <group class="mb0">
                             <group>
-                                <field name="current_weight" widget="iot_weight"/>
+                                <field name="current_weight" widget="iot_weight" attrs="{'invisible': [('picking_operations_scale_id', '=', False)]}"/>
                                 <field name="exclude_tare" attrs="{'invisible': [('type_code', '!=', 'incoming')]}"/>
                                 <field name="tare"/>
                                 <field name="date_tare"/>
+                                <field name="capture_tare_scale_id" attrs="{'invisible': [('tare','=',0.0)]}" groups="base.group_no_one"/>
                                 <field name="gross_weight"/>
                                 <field name="date_gross_weight"/>
+                                <field name="capture_gross_scale_id" attrs="{'invisible': [('gross_weight','=',0.0)]}" groups="base.group_no_one"/>
                             </group>
                             <group>
                                 <!-- <field name="asm" widget="iot_asm_field" nolabel="1" colspan="2"/> -->

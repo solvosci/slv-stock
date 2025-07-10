@@ -114,6 +114,14 @@ class StockMovFrontend(models.Model):
 
     type_code = fields.Selection(related="picking_type_id.code")
     type_mandatory_towing = fields.Boolean(related="picking_type_id.mandatory_towing")
+    allow_picking_operations_scale_ids = fields.Many2many(related='picking_type_id.picking_operations_scale_ids')
+    picking_operations_scale_id = fields.Many2one(
+        comodel_name='scale.scale',
+        string='IN / OUT Picking Operations for Scale',
+        domain="[('id', 'in', allow_picking_operations_scale_ids)]",
+    )
+    capture_gross_scale_id = fields.Many2one('scale.scale', string="Gross Scale", readonly=True)
+    capture_tare_scale_id = fields.Many2one('scale.scale', string="Tare Scale", readonly=True)
     picking_state = fields.Selection(related="picking_id.state")
     picking_vehicle_id = fields.Many2one(
         comodel_name="vehicle.vehicle",
@@ -183,6 +191,27 @@ class StockMovFrontend(models.Model):
         readonly=False
     )
 
+    @api.onchange('allow_picking_operations_scale_ids')
+    def _onchange_picking_operations_scale_id(self):
+        if len(self.picking_type_id.picking_operations_scale_ids) == 1:
+            self.picking_operations_scale_id = self.picking_type_id.picking_operations_scale_ids
+        else:
+            self.picking_operations_scale_id = False
+
+    @api.onchange('gross_weight')
+    def _onchange_capture_gross_scale_id(self):
+        if self.gross_weight > 0.0 or self.picking_operations_scale_id:
+            self.capture_gross_scale_id = self.picking_operations_scale_id
+        else:
+            self.capture_gross_scale_id = False
+
+    @api.onchange('tare')
+    def _onchange_capture_tare_scale_id(self):
+        if self.tare > 0.0 or self.picking_operations_scale_id:
+            self.capture_tare_scale_id = self.picking_operations_scale_id
+        else:
+            self.capture_tare_scale_id = False
+
     @api.model
     def create(self, values):
         if self.env.context.get("weight_mgmt", False):
@@ -218,7 +247,7 @@ class StockMovFrontend(models.Model):
             # TODO custom name
         return super().create(values)
 
-    @api.depends("product_id", "picking_type_id", "tare", "gross_weight", "type_code")
+    @api.depends("product_id", "picking_type_id", "tare", "gross_weight", "type_code", "picking_operations_scale_id")
     def _compute_capture_gross_enabled(self):
         for rec in self:
             rec.capture_gross_enabled = (
@@ -233,11 +262,13 @@ class StockMovFrontend(models.Model):
                 ) or (
                     rec.type_code == "outgoing" and rec.tare > 0.0
                 )
+            ) and (
+                rec.picking_operations_scale_id
             )
 
     @api.depends(
         "product_id", "picking_type_id", "tare", "gross_weight",
-        "exclude_tare", "type_code"
+        "exclude_tare", "type_code", "picking_operations_scale_id"
     )
     def _compute_capture_tare_enabled(self):
         for rec in self:
@@ -253,6 +284,8 @@ class StockMovFrontend(models.Model):
                 ) or (
                     rec.type_code == "outgoing"
                 )
+            ) and (
+                rec.picking_operations_scale_id
             )
 
     @api.constrains("tare", "gross_weight")
@@ -300,9 +333,9 @@ class StockMovFrontend(models.Model):
             )
 
     def capture_weight(self):
-        scale = self.env.company.picking_operations_scale_id
+        scale = self.picking_operations_scale_id
         if scale:
-            if scale.last_weight_error:
+            if scale.last_weight_error or not scale.get_weight_mode:
                 raise ValidationError(
                     _("Cannot retrieve weight, an error was obtained. Please try again later")
                 )
@@ -314,10 +347,12 @@ class StockMovFrontend(models.Model):
             )
 
     def capture_tare(self):
+        self.capture_tare_scale_id = self.picking_operations_scale_id if self.picking_operations_scale_id else False
         self.tare = self.capture_weight()
         self._onchange_tare()
 
     def capture_gross(self):
+        self.capture_gross_scale_id = self.picking_operations_scale_id if self.picking_operations_scale_id else False
         self.gross_weight = self.capture_weight()
         self._onchange_gross_weight()
 
