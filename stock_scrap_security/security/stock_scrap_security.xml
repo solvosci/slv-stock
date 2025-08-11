@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
 
@@ -28,6 +27,10 @@
             <field name="name">Manager</field>
             <field name="implied_ids" eval="[(4, ref('stock_scrap_security.group_stock_scrap_user'))]"/>
             <field name="category_id" ref="module_category_stock_scrap"/>
+            <field name="users" eval="[
+                (4, ref('base.user_root')),
+                (4, ref('base.user_admin'))
+            ]"/>
         </record>
     </data>
 </odoo>
