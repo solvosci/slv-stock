@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inspired on Invoice Document partner VAT implementation -->
     <template id="partner_vat">
         <div t-if="o.partner_vat" class="mt16">
             <t
                 t-if="o.company_id.country_id.vat_label"
-                t-esc="o.company_id.country_id.vat_label"
+                t-out="o.company_id.country_id.vat_label"
                 id="inv_tax_id_label"
             />
             <t t-else="">Tax ID</t>: <span t-field="o.partner_vat"/>
-        </div>    
+        </div>
     </template>
 
     <template
