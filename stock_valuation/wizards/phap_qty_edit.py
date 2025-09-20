@@ -1,7 +1,7 @@
 # © 2023 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3 - See https://www.gnu.org/licenses/lgpl-3.0.html
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class PhapQtyEditWizard(models.TransientModel):
@@ -22,6 +22,6 @@ class PhapQtyEditWizard(models.TransientModel):
 
     def action_confirm(self):
         self.ensure_one()
-        self.phap_id._update_quantity(
+        self.phap_id.sudo()._update_quantity(
             self.location_id, self.stock_quantity_new
         )

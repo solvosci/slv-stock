@@ -73,9 +73,9 @@ class StockMove(models.Model):
 
         for move in internal_moves:
             # Internal SVLs stuff, only if there's a warehouse movement
-            origin = move.picking_id.location_id.get_warehouse()
-            destination = move.picking_id.location_dest_id.get_warehouse()
-            if origin != destination and move.quantity_done > 0.0:
+            origin = move.picking_id.location_id.warehouse_id
+            destination = move.picking_id.location_dest_id.warehouse_id
+            if origin != destination and move.quantity > 0.0:
                 # Since internal move could be at date, we retrieve the proper price
                 # TODO remove sudo() when well defined security access
                 unit_cost = self.env[
@@ -91,9 +91,9 @@ class StockMove(models.Model):
                     'product_id': move.product_id.id,
                     'value': 0.0,
                     'unit_cost': unit_cost,
-                    'quantity': -move.quantity_done,
+                    'quantity': -move.quantity,
                     'stock_move_id': move.id,
-                    'warehouse_id': origin.id,
+                    'phap_warehouse_id': origin.id,
                     'company_id': self.env.user.company_id.id,
                     'description': ('%s - %s') % (move.reference, move.name)
                 })
@@ -101,9 +101,9 @@ class StockMove(models.Model):
                     'product_id': move.product_id.id,
                     'value': 0.0,
                     'unit_cost': unit_cost,
-                    'quantity': move.quantity_done,
+                    'quantity': move.quantity,
                     'stock_move_id': move.id,
-                    'warehouse_id': destination.id,
+                    'phap_warehouse_id': destination.id,
                     'company_id': self.env.user.company_id.id,
                     'description': ('%s - %s') % (move.reference, move.name)
                 })

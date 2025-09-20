@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <record id="action_product_history_average_price" model="ir.actions.act_window">
@@ -6,7 +5,6 @@
         <field name="res_model">product.history.average.price</field>
         <field name="view_mode">tree,pivot,form</field>
         <field name="target">current</field>
-        <!-- <field name="search_view_id" ref="view_inventory_valuation_search"/> -->
         <field name="context">{
             'search_default_filter_date': 1,
             'search_default_groupby_product': 1,
@@ -117,12 +115,12 @@
                                 <field
                                     name="average_price_manual_dt"
                                     string="Last manually changed on"
-                                    attrs="{'invisible': [('average_price_manual', '=', False)]}"
+                                    invisible="not average_price_manual"
                                 />
                                 <field
                                     name="average_price_manual_user"
                                     string="Changed by"
-                                    attrs="{'invisible': [('average_price_manual', '=', False)]}"
+                                    invisible="not average_price_manual"
                                 />
                             </group>
                         </page>
@@ -164,10 +162,6 @@
             name="inherit_id"
             ref="stock_valuation.view_product_history_average_price_form"
         />
-        <field
-            name="groups_id"
-            eval="[(4, ref('stock_valuation.group_stock_history_average_price_edit'))]"
-        />
         <field name="arch" type="xml">
             <header position="inside">
                 <button
@@ -175,6 +169,7 @@
                     type="object"
                     string="Change average price"
                     icon="fa-dollar"
+                    groups="stock_valuation.group_stock_history_average_price_edit"
                 />
             </header>
         </field>
@@ -189,13 +184,13 @@
                 decoration-bf="average_price_manual == True"
                 decoration-danger="average_price_manual == True"
             >
-                <field name="currency_id" invisible="1" />
-                <field name="average_price_manual" invisible="1" />
+                <field name="currency_id" column_invisible="1" />
+                <field name="average_price_manual" column_invisible="1" />
                 <field name="date" />
                 <field name="product_id" />
                 <field
                     name="warehouse_id"
-                    invisible="context.get('phap_warehouse_invisible', False)"
+                    column_invisible="context.get('phap_warehouse_invisible', False)"
                 />
                 <field name="average_price" />
                 <field name="total_quantity_day" groups="base.group_no_one" />

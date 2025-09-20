@@ -12,6 +12,7 @@ class ProductProduct(models.Model):
         compute="_compute_standard_price_warehouse_ids",
     )
 
+    # TODO - MIG: add api.depends
     def _compute_standard_price_warehouse_ids(self):
         for product in self:
             product.standard_price_warehouse_count = len(

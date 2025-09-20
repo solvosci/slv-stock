@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_phap_price_edit_wizard_form" model="ir.ui.view">
         <field name="name">phap.price.edit.wizard form</field>
@@ -8,7 +7,7 @@
                 <sheet>
                     <field name="currency_id" invisible="1" />
                     <group>
-                        <span name="warn_message">
+                        <span name="warn_message" colspan="2">
                             Changing price will fire later prices recalculation.
                             This process could take unexpected time execution.
                         </span>

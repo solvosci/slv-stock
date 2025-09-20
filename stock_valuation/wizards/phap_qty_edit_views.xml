@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_phap_qty_edit_wizard_form" model="ir.ui.view">
         <field name="name">phap.qty.edit.wizard form</field>
@@ -7,7 +6,7 @@
             <form>
                 <sheet>
                     <group>
-                        <span name="warn_message">
+                        <span name="warn_message" colspan="2">
                             Changing quantity will fire later stock valuation recalculation.
                             This process could take unexpected time execution.
                             <p/>

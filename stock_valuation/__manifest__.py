@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.3.4.0",
+    "version": "17.0.1.0.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -18,7 +18,6 @@
     "data": [
         "security/ir.model.access.csv",
         "security/stock_valuation_security.xml",
-        "views/stock_valuation_template.xml",
         "views/product_category_views.xml",
         "views/stock_valuation_layer_views.xml",
         "views/product_history_average_price_views.xml",

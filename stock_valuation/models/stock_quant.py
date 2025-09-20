@@ -13,6 +13,7 @@ class StockQuant(models.Model):
         groups="stock.group_stock_manager",
     )
 
+    # TODO - MIG add new api.depends values???
     def _compute_value(self):
         """
         For those products with the special flag of standard price
@@ -36,7 +37,7 @@ class StockQuant(models.Model):
 
             # TODO check speed process (warehouse detection is poor implemented)
             for quant in average_quants:
-                warehouse = quant.location_id.get_warehouse()
+                warehouse = quant.location_id.warehouse_id
                 quant.average_price = (
                     dict_ap.get(quant.product_id.id, False)
                     and dict_ap[quant.product_id.id].get(warehouse.id, 0.0)

@@ -81,30 +81,25 @@ class ProductHistoryAveragePrice(models.Model):
         store=True,
     )
 
-    def name_get(self):
+    @api.depends("product_id.display_name", "warehouse_id.name", "date")
+    def _compute_display_name(self):
         # TODO better date formatting, depending on language context
-        # TODO display_name instead of name_get()?
-        return [
-            (
-                phap.id,
-                _("%s in %s at %s")
-                %
-                (phap.product_id.display_name, phap.warehouse_id.name, phap.date),
+        for phap in self:
+            phap.display_name = _("%s in %s at %s") % (
+                phap.product_id.display_name, phap.warehouse_id.name, phap.date
             )
-            for phap in self
-        ]
 
+    # TODO - MIG: add api.depends
     def _compute_average_price_edit(self):
         for phap in self:
             phap.average_price_edit = phap.average_price
 
     def _inverse_average_price_edit(self):
-        # This method should actually be called as sudo()
         self.ensure_one()
         # TODO float_compare
         if self.average_price_edit < 0.0:
             raise ValidationError(_("Average price cannot be negative!"))
-        self.write({
+        self.sudo().write({
             "average_price": self.average_price_edit,
             "stock_valuation": self.stock_quantity * self.average_price_edit,
             "average_price_manual": True,
@@ -187,7 +182,7 @@ class ProductHistoryAveragePrice(models.Model):
                 +
                 sum(
                     record.svl_ids.filtered(
-                        lambda x: x.warehouse_id.id == record.warehouse_id.id
+                        lambda x: x.phap_warehouse_id.id == record.warehouse_id.id
                     ).mapped("quantity")
                 )
             )
@@ -353,6 +348,7 @@ class ProductHistoryAveragePrice(models.Model):
             "type": "ir.actions.act_window",
         }
 
+    # TODO - MIG: confirm remove
     # TODO remove as unnecessary (replaced by stkco_move.py later recalculation "in the future")
     def recalculation_average_price(self, last_quantity, last_average_price, last_value, last_day_id):
         last_day_id.total_quantity_day += last_quantity
@@ -413,16 +409,18 @@ class ProductHistoryAveragePrice(models.Model):
             quantity_adj = quant.quantity + quant_diff
             quant.with_context(
                 inventory_mode=True,
-                stock_move_custom_date=stock_move_custom_date
             ).inventory_quantity = quantity_adj
         else:
             # It's supposed to call create method in this case, because
             #  _today_ has no stock quant entries yet
+            # TODO - MIG: confirm permission access from v13 to v17
             quant_obj.with_context(
                 inventory_mode=True,
-                stock_move_custom_date=stock_move_custom_date
             ).create({
                 "product_id": self.product_id.id,
                 "location_id": location_id.id,
                 "inventory_quantity": quant_diff,
             })
+        quant.with_context(
+            stock_move_custom_date=stock_move_custom_date
+        ).action_apply_inventory()
