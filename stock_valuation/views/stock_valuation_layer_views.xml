@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <record
-        id="stock_account.action_stock_inventory_valuation"
+        id="stock_account.stock_valuation_layer_action"
         model="ir.actions.act_window"
     >
+        <!--
+            TODO MIG - this has no uninstall hook 
+            Original context: e="context">{'search_default_group_by_product': True}
+            (https://github.com/odoo/odoo/blob/ab6c5578c4136baf9bb366ea67ee4f7a67fd20f0/addons/stock_account/views/stock_valuation_layer_views.xml#L116)
+        -->
         <field name="context">{
             'search_default_group_by_product_id': 1,
             'hide_origin_partner_id': True,
@@ -16,16 +20,23 @@
         <field name="model">stock.valuation.layer</field>
         <field name="inherit_id" ref="stock_account.stock_valuation_layer_tree"/>
         <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_valuation_at_date']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//field[@name='create_date']" position="after">
-                <field name="product_active" invisible="1" />
+                <field name="product_active" column_invisible="1" />
                 <field
-                    name="warehouse_id"
+                    name="phap_warehouse_id"
                     optional="hide"
                 />
                 <field name="origin_type"
                     optional="hide"
                 />
                 <field name="document_origin" />
+                <!-- TODO MIG - remove? Look for new reference field here -->
                 <field name="move_reference" />                
                 <!-- This field is computed non-stored, by default (tree general
                      action) is not shown -->
@@ -70,10 +81,11 @@
             <xpath expr="//field[@name='product_tmpl_id']" position="after">
                 <field name="origin_type" />
                 <field name="document_origin" />
+                <!-- TODO MIG - remove? Look for new reference field here -->
                 <field name="move_reference" />
             </xpath>
             <xpath expr="//filter[@name='group_by_product_id']" position="after">
-                <filter string="Warehouse" name="group_by_warehouse_id" context="{'group_by': 'warehouse_id'}"/>
+                <filter string="PHAP Warehouse" name="group_by_phap_warehouse_id" context="{'group_by': 'phap_warehouse_id'}"/>
                 <filter string="Type" name="group_by_origin_type" context="{'group_by': 'origin_type'}"/>
             </xpath>
         </field>
@@ -92,11 +104,11 @@
                 <page
                     name="valuation_extra"
                     string="Valuation - extra"
-                    attrs="{'invisible': [('warehouse_valuation','=',False)]}"
+                    invisible="not warehouse_valuation"
                 >
                     <group>
                         <group>
-                            <field name="warehouse_id" />
+                            <field name="phap_warehouse_id" />
                             <field name="origin_type" />
                             <field name="document_origin" />
                             <field name="move_reference" />

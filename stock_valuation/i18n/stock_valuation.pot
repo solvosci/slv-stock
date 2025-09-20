@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 09:11+0000\n"
-"PO-Revision-Date: 2024-06-21 09:11+0000\n"
+"POT-Creation-Date: 2025-09-26 07:59+0000\n"
+"PO-Revision-Date: 2025-09-26 07:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,12 +41,14 @@ msgid ""
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/product_average_price.py:0
 #, python-format
 msgid "%s in %s"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/product_history_average_price.py:0
 #, python-format
 msgid "%s in %s at %s"
@@ -60,7 +62,7 @@ msgstr ""
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_price_edit_wizard_form
 msgid ""
-"<span name=\"warn_message\">\n"
+"<span name=\"warn_message\" colspan=\"2\">\n"
 "                            Changing price will fire later prices recalculation.\n"
 "                            This process could take unexpected time execution.\n"
 "                        </span>"
@@ -78,7 +80,6 @@ msgstr ""
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__active
-#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__product_active
 msgid "Active"
 msgstr ""
 
@@ -90,10 +91,11 @@ msgstr ""
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
 msgid ""
-"Any created or updated warehouse operation that affects products\n"
-"                                whose valuation is calculated by date and warehouse will raise an error if\n"
-"                                reference date for this operation is prior to this date. Leave it empty\n"
-"                                if we cannot forbid any operation depending of its date."
+"Any created or updated warehouse operation that affects products"
+"                         whose valuation is calculated by date and warehouse"
+" will raise an error if                         reference date for this "
+"operation is prior to this date. Leave it empty                         if "
+"we cannot forbid any operation depending of its date."
 msgstr ""
 
 #. module: stock_valuation
@@ -109,6 +111,7 @@ msgid "Average Price"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/product_history_average_price.py:0
 #, python-format
 msgid "Average Price Edit Wizard"
@@ -135,6 +138,7 @@ msgid "Average price at date Wizard"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/product_history_average_price.py:0
 #, python-format
 msgid "Average price cannot be negative!"
@@ -165,6 +169,7 @@ msgid "Cancel"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/stock_move.py:0
 #, python-format
 msgid ""
@@ -173,6 +178,7 @@ msgid ""
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/stock_move.py:0
 #, python-format
 msgid ""
@@ -201,11 +207,6 @@ msgstr ""
 msgid ""
 "Changing quantity will fire later stock valuation recalculation.\n"
 "                            This process could take unexpected time execution."
-msgstr ""
-
-#. module: stock_valuation
-#: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
-msgid "Close Date"
 msgstr ""
 
 #. module: stock_valuation
@@ -308,16 +309,12 @@ msgid "Followers"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/stock_move_line.py:0
 #, python-format
 msgid ""
@@ -330,6 +327,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
 msgid "Group By"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__has_message
+msgid "Has Message"
 msgstr ""
 
 #. module: stock_valuation
@@ -361,7 +363,6 @@ msgstr ""
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_needaction
-#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -403,16 +404,6 @@ msgid "Is Return"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard____last_update
-#: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard____last_update
-#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price____last_update
-#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date____last_update
-#: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard____last_update
-#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_price_edit_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__write_uid
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__write_uid
@@ -448,11 +439,6 @@ msgid "Location Stock"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_main_attachment_id
-msgid "Main Attachment"
-msgstr ""
-
-#. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_phap_qty_edit_wizard_form
 msgid ""
 "Making this action will add/remove to selected location the stock\n"
@@ -478,6 +464,11 @@ msgstr ""
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__move_reference
+msgid "Move Reference"
 msgstr ""
 
 #. module: stock_valuation
@@ -515,17 +506,12 @@ msgstr ""
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr ""
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: stock_valuation
-#: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__message_unread_counter
-msgid "Number of unread messages"
 msgstr ""
 
 #. module: stock_valuation
@@ -536,6 +522,12 @@ msgstr ""
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_phap_qty_edit_wizard
 msgid "PHAP Quantity Edit Wizard"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__phap_warehouse_id
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
+msgid "PHAP Warehouse"
 msgstr ""
 
 #. module: stock_valuation
@@ -556,7 +548,7 @@ msgid "Price"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model,name:stock_valuation.model_product_product
+#: model:ir.model,name:stock_valuation.model_product_template
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__product_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__product_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__product_id
@@ -597,6 +589,7 @@ msgid "Product Average Price by Warehouse and Date"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/report/product_average_price_date_wizard.py:0
 #, python-format
 msgid "Product Average Prices at %s"
@@ -620,8 +613,13 @@ msgid "Product Moves (Stock Move Line)"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model,name:stock_valuation.model_product_template
-msgid "Product Template"
+#: model:ir.model,name:stock_valuation.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__product_active
+msgid "Product is Active"
 msgstr ""
 
 #. module: stock_valuation
@@ -635,6 +633,7 @@ msgid "Purchase Order Line"
 msgstr ""
 
 #. module: stock_valuation
+#. odoo-python
 #: code:addons/stock_valuation/models/product_history_average_price.py:0
 #, python-format
 msgid "Quantity Edit Wizard"
@@ -643,11 +642,6 @@ msgstr ""
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_stock_quant
 msgid "Quants"
-msgstr ""
-
-#. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__move_reference
-msgid "Reference"
 msgstr ""
 
 #. module: stock_valuation
@@ -673,11 +667,6 @@ msgstr ""
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
 msgid "Selected warehouses"
-msgstr ""
-
-#. module: stock_valuation
-#: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
-msgid "Set lock date for warehouse valuations"
 msgstr ""
 
 #. module: stock_valuation
@@ -781,16 +770,6 @@ msgid "Type"
 msgstr ""
 
 #. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: stock_valuation
-#: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
-
-#. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_form_inherit
 msgid "Valuation - extra"
 msgstr ""
@@ -812,11 +791,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price__warehouse_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__warehouse_id
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__warehouse_id
-#: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__warehouse_id
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_average_price_search
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_average_price_search
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_product_history_price_date_search
-#: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
 msgid "Warehouse"
 msgstr ""
 

@@ -10,7 +10,7 @@
     </record>
     <record id="group_stock_valuation_close_date_edit" model="res.groups">
         <field name="name">Inventory: can edit warehouse valuation close date</field>
-        <field name="category_id" ref="base.module_category_hidden" />
+        <field name="category_id" ref="base.module_category_usability" />
         <field
             name="implied_ids"
             eval="[(4, ref('base.group_system'))]"

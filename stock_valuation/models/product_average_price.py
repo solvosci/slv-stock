@@ -35,17 +35,13 @@ class ProductAveragePrice(models.Model):
         """,
     )
 
-    def name_get(self):
-        # TODO display_name instead of name_get()?
-        return [
-            (
-                pap.id,
-                _("%s in %s")
-                %
-                (pap.product_id.display_name, pap.warehouse_id.name),
+    @api.depends("product_id.display_name", "warehouse_id.name")
+    def _compute_display_name(self):
+        for pap in self:
+            pap.display_name = _("%s in %s") % (
+                pap.product_id.display_name, pap.warehouse_id.name
             )
-            for pap in self
-        ]
+
 
     @api.depends(
         "history_average_price_ids.average_price",

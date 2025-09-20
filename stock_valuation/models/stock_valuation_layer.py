@@ -8,17 +8,15 @@ import pdb
 class StockValuationLayer(models.Model):
     _inherit = "stock.valuation.layer"
 
-    # Original code at stock_account forces it to product_id.active,
-    #  we remove it, as active should be always be to True
-    # Anyway, we preserve original active flag, and use it in views
-    active = fields.Boolean(related="", default=True)
-    product_active = fields.Boolean(related="product_id.active")
+    # TODO MIG - this field is now a standalone one, ensure that is properly migrated
+    active = fields.Boolean(default=True)
+    product_active = fields.Boolean(related="product_id.active", string="Product is Active")
 
     create_date_valuation = fields.Datetime(
         default=lambda self: fields.Datetime.now(),
         readonly=True,
     )
-    warehouse_id = fields.Many2one('stock.warehouse')
+    phap_warehouse_id = fields.Many2one('stock.warehouse', string="PHAP Warehouse")
     average_price = fields.Monetary(string="Average price on creation")
 
     history_average_price_id = fields.Many2one('product.history.average.price')
@@ -27,9 +25,11 @@ class StockValuationLayer(models.Model):
     is_return = fields.Boolean(default=False)
 
     document_origin = fields.Char()
+    # TODO - MIG this should be unnecessary and replaced by native "reference", that is the same one (but not stored)
     move_reference = fields.Char(
         related="stock_move_id.reference",
         store=True,
+        string="Move Reference",
     )
 
     warehouse_valuation = fields.Boolean(
@@ -57,14 +57,20 @@ class StockValuationLayer(models.Model):
         """,
     )
     origin_partner_id = fields.Many2one(
-        related="stock_move_id.picking_partner_id",
+        related="stock_move_id.picking_id.partner_id",
         string="Partner",
     )
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            self._create_prepare_vals(vals)
+        return super().create(vals_list)
+
     @api.model
-    def create(self, vals):
+    def _create_prepare_vals(self, vals):        
         if vals.get("stock_move_id"):
-            picking_types = ['incoming', 'outgoing', 'internal']
+            picking_types = ['incoming', 'outgoing', 'internal']            
             product_id = self.env['product.product'].browse(vals.get("product_id"))
             move_id = self.env["stock.move"].browse(vals["stock_move_id"])
             locations = (move_id.location_id + move_id.location_dest_id)
@@ -80,15 +86,15 @@ class StockValuationLayer(models.Model):
                     or len(inv_location) > 0
                 )
             ):
-                if not vals.get("warehouse_id"):
+                if not vals.get("phap_warehouse_id"):
                     if move_id.picking_id:
                         # FIXME this is wrong: for a certain picking from/to location could be manually changed
-                        vals["warehouse_id"] = move_id.picking_type_id.warehouse_id.id
+                        vals["phap_warehouse_id"] = move_id.picking_type_id.warehouse_id.id
                     else:
                         # Inventory adjustment
-                        vals["warehouse_id"] = (
+                        vals["phap_warehouse_id"] = (
                             locations - inv_location
-                        ).get_warehouse().id
+                        ).warehouse_id.id
 
                 vals["accumulated"] = False
                 vals["document_origin"] = (
@@ -109,9 +115,9 @@ class StockValuationLayer(models.Model):
                 # if not move_id.picking_id:
                 #     date = fields.Datetime.now()
 
-                quantity = move_id.quantity_done
+                quantity = move_id.quantity
 
-                history_last_day, history_today = self.get_history_values(vals.get("product_id"), vals.get("warehouse_id"), date)
+                history_last_day, history_today = self.get_history_values(vals.get("product_id"), vals.get("phap_warehouse_id"), date)
 
                 average_price_last = history_last_day.average_price
                 if history_today:
@@ -177,7 +183,7 @@ class StockValuationLayer(models.Model):
                     ].sudo().get_price(
                         move_id.product_id,
                         self.env["stock.warehouse"].browse(
-                            vals["warehouse_id"]
+                            vals["phap_warehouse_id"]
                         ),
                         dt=date
                     )
@@ -200,10 +206,7 @@ class StockValuationLayer(models.Model):
                 #  to original PHAP related move. If get_phap_id() does not
                 #  locate  it, this if will be the "default" value
                 if not vals.get("history_average_price_id", False):
-                    vals["history_average_price_id"] = self.product_history_link(vals.get("product_id"), vals.get("warehouse_id"), vals.get("average_price"), vals.get("quantity"), vals.get("value"), vals.get("accumulated"), history_today, date)
-
-        # TODO update date by cr call, is it needed?
-        return super(StockValuationLayer, self).create(vals)
+                    vals["history_average_price_id"] = self.product_history_link(vals.get("product_id"), vals.get("phap_warehouse_id"), vals.get("average_price"), vals.get("quantity"), vals.get("value"), vals.get("accumulated"), history_today, date)
 
     @api.depends("stock_move_id")
     def _compute_origin_type(self):

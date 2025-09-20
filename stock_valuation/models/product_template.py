@@ -18,6 +18,7 @@ class ProductTemplate(models.Model):
         related="categ_id.warehouse_valuation",
     )
 
+    # TODO - MIG: add api.depends
     def _compute_standard_price_warehouse_ids(self):
         for product_tmpl in self:
             product_tmpl.standard_price_warehouse_ids = (
