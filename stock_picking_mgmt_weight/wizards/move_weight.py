@@ -8,6 +8,7 @@ from odoo.tools import float_is_zero
 
 class MoveWeight(models.TransientModel):
     _name = 'stock.move.weight.wizard'
+    _description = 'Stock Move Weight Wizard'
 
     name = fields.Char('Description')
     company_id = fields.Many2one('res.company', 'Company',
@@ -53,7 +54,7 @@ class MoveWeight(models.TransientModel):
         'product.product',
         related="move_id.product_id")
 
-    note = fields.Text(
+    note = fields.Html(
         string='Notes',
         related="picking_id.note")
     internal_note = fields.Text(string='Internal Notes')
@@ -122,13 +123,12 @@ class MoveWeight(models.TransientModel):
         """ This function should be overidden if other addons
             add new purchase data
         """
-        purchase_order = self.env['purchase.order']
+        purchase_order = self.env['purchase.order'].sudo()
         order_new = purchase_order.new({
             'partner_id': self.partner_id.id,
             'carrier_id': self.carrier_id.id
         })
         order_new.onchange_partner_id()
-        order_new.onchange_partner_user_id()
 
         # TODO stock_picking_mgmt_weight_pp: future addon to link with purchase_pricelist
         # order_new.onchange_partner()
@@ -136,7 +136,7 @@ class MoveWeight(models.TransientModel):
 
     def purchase_order_line_update_prices(self, pol):
         pol._product_id_change()
-        pol._onchange_quantity()
+        # pol._onchange_quantity() _compute_price_unit_and_date_planned_and_name Sustituye
         # purchase_pricelist_slv new onchange method
         pol.product_id_change()
 
@@ -187,7 +187,7 @@ class MoveWeight(models.TransientModel):
         if not float_is_zero(self.weight_classified, precision_rounding=self.product_id.uom_id.rounding):
             raise ValidationError(_("Weight pending classification must be zero"))
 
-        purchase_order = self.env['purchase.order']
+        purchase_order = self.env['purchase.order'].sudo()
         order_new = self.purchase_order_new()
         order_new.origin = self.purchase_order_get_origin()
         purchase_order |= purchase_order.create(

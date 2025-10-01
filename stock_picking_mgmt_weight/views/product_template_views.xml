@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_product_template_weight_form_inherit" model="ir.ui.view">
         <field name="name">product.template.form (weight)</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
         <field name="arch" type="xml">
-            <xpath expr="//div/button[@name='action_product_tmpl_forecast_report']" position="attributes">
+            <xpath expr="//button[@name='action_product_tmpl_forecast_report']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
             <!-- TODO temporary disabled until speed issue with expected_qty is solved -->

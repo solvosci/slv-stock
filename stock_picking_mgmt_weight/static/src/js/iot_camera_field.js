@@ -1,68 +1,58 @@
-odoo.define("stock_picking_mgmt_weight.FieldIotCamera", function(require) {
-    "use strict";
+/** @odoo-module **/
 
-    const core = require("web.core");
-    const Dialog = require("web.Dialog");
-    const AbstractField = require("web.AbstractField");
-    const field_registry = require("web.field_registry");
+import { registry } from "@web/core/registry";
+import { Component, onMounted, onWillUnmount, useRef} from "@odoo/owl";
+import { standardFieldProps } from "@web/views/fields/standard_field_props";
+import { Dialog } from "@web/core/dialog/dialog";
 
-    const _t = core._t;
-    const _lt = core._lt;
+export class FieldIotCamera extends Component {
+    setup() {
+        this.weightImg = useRef("weightCamera");
+        this.getCameraInterval = null;
 
-    const FieldIotCamera = AbstractField.extend({
-        description: _lt("Iot Camera"),
-        supportedFieldTypes: ["binary"],
-        template: "stock_picking_mgmt_weight.FieldIotCamera",
-        // TODO custom_events
+        onMounted(() => {
+            console.log("✅ FieldIotCamera mounted", this.weightImg);
+            if (!this.weightImg.el) {
+                console.error("❌ Img element not found!");
+                return;
+            }
+            this.getImage();
+        });
 
-        init: function(parent, name, record, options) {
-            this._super.apply(this, arguments);
-            console.log("INIT FieldIotCamera");
-        },
-
-        start: function() {
-            console.log("START FieldIotCamera");
-            this.$img = this.$("img");
-        
-            var self = this;
-            self.getImage();
-
-            return this._super.apply(this, arguments);
-        },
-
-        destroy: function () {
-            console.log("DESTROYING...");
+        onWillUnmount(() => {
+            console.log("DESTROYING FieldIotCamera...");
             clearInterval(this.getCameraInterval);
-        },
-        
-        getImage: function() {
-            var self = this;
+        });
+    }
 
-            $.ajax({
-                url: "/stock_picking_mgmt_weight/camera/read",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify({})
-            }).done(data => {
-                var url_image = data.result.url_image;
-                var refresh_time = data.result.refresh_time;
+    getImage() {
+        if (!this.weightImg.el) return;
 
-                this.getCameraInterval = setInterval(() => {
-                    var timestamp = new Date().getTime();
-                    self.$img.attr("src", url_image + "&t=" + timestamp);
-                }, refresh_time);
-            });
-        },
+        fetch("/stock_picking_mgmt_weight/camera/read", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({}),
+        })
+        .then(r => r.json())
+        .then(data => {
+            const url_image = data.result?.url_image || "";
+            const refresh_time = data.result?.refresh_time || 5000;
 
-        _showErrorMessage: function(error) {
-            Dialog.alert(this, error, {
-                title: _t("Iot Camera"),
-            });
-        },
-    });
+            this.getCameraInterval = setInterval(() => {
+                const timestamp = new Date().getTime();
+                this.weightImg.el.setAttribute("src", url_image + "?t=" + timestamp);
+            }, refresh_time);
+        })
+        .catch(err => {
+            Dialog.alert(this, err, { title: "Iot Camera" });
+        });
+    }
+}
 
-    field_registry.add("iot_camera_field", FieldIotCamera);
+FieldIotCamera.props = { ...standardFieldProps };
 
-    return FieldIotCamera;
+FieldIotCamera.template = "stock_picking_mgmt_weight.FieldIotCamera";
 
+registry.category("fields").add("iot_camera", {
+    component: FieldIotCamera,
 });

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_order_form" model="ir.ui.view">
         <field name="name">sale.order.form (in stock_picking_mgmt_weight)</field>
@@ -10,11 +9,7 @@
                 <button name="action_cancel_pending"
                     type="object"
                     string="Cancel pending"
-                    attrs="{'invisible': [
-                        '|',
-                        ('state','not in',['sale','done','cancel']),
-                        ('has_pending_qty','=',False)
-                    ]}"
+                    invisible="not has_pending_qty or state not in ('sale','done','cancel')"
                 />
             </xpath>
             <xpath expr="//group[@name='sale_shipping']" position="inside">
@@ -78,14 +73,14 @@
                     name="action_cancel_pending_line"
                     icon="fa-ban"
                     type="object"
-                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    invisible="not is_cancellable"
                     title="Cancel pending quantities for this line"
                 />
                 <button
                     name="action_decancel_pending_line"
                     icon="fa-eraser"
                     type="object"
-                    attrs="{'invisible': [('is_decancellable', '=', False)]}"
+                    invisible="not is_decancellable"
                     title="Restore cancelled pending quantities for this line"
                 />
             </xpath>

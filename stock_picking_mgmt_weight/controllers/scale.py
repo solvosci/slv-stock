@@ -12,7 +12,7 @@ class ScaleController(http.Controller):
         type="json",
         auth="none",
     )
-    def read(self):
+    def read(self, **kwargs):
         # TODO test it in a multi-company environment and user
         # scale_id = request.env['res.users'].search([
         #     ('id', '=', request.session.uid)
@@ -22,7 +22,8 @@ class ScaleController(http.Controller):
         #     "value": "----",
         #     "err": _("Undefined scale for current company")
         # }
-        scale_name = dict(request.jsonrequest)['scale_name'] or False
+        data = request.httprequest.get_json(force=True) or {}
+        scale_name = data.get("scale_name")
         scale_id = request.env['scale.scale'].sudo().search([
             ('name', '=', scale_name)
         ])

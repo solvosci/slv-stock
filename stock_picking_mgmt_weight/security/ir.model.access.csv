@@ -22,3 +22,8 @@ access_scale_scale_sc_user_readonly,scale.scale sc user readonly,scale.model_sca
 access_scale_scale_sc_user,scale.scale sc user,scale.model_scale_scale,stock_picking_mgmt_weight.group_sc_user,1,1,0,0
 access_purchase_order_sc_user,purchase.order sc user,purchase.model_purchase_order,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
 access_purchase_order_line_sc_user,purchase.order.line sc user,purchase.model_purchase_order_line,stock_picking_mgmt_weight.group_sc_user,1,1,1,0
+access_stock_move_weight_wizard_sc_user_readonly,stock.move.weight.wizard sc user readonly,model_stock_move_weight_wizard,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
+access_stock_move_weight_wizard_sc_user,stock.move.weight.wizard sc user,model_stock_move_weight_wizard,stock_picking_mgmt_weight.group_sc_user,1,1,1,1
+access_stock_move_line_weight_wizard_sc_user_readonly,stock.move.line.weight.wizard sc user readonly,model_stock_move_line_weight_wizard,stock_picking_mgmt_weight.group_sc_user_readonly,1,0,0,0
+access_stock_move_line_weight_wizard_sc_user,stock.move.line.weight.wizard sc user,model_stock_move_line_weight_wizard,stock_picking_mgmt_weight.group_sc_user,1,1,1,1
+access_sale_order_confirm_wizard,sale.order.confirm.wizard,model_sale_order_confirm_wizard,,1,1,1,1

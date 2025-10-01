@@ -6,6 +6,7 @@ from odoo import models, fields
 
 class StockPickingClassification(models.Model):
     _name = 'stock.picking.classification'
+    _description = 'Stock Picking Classification'
 
     order_line_id = fields.Many2one('purchase.order.line')
     picking_id = fields.Many2one('stock.picking')

@@ -16,6 +16,7 @@ class PurchaseOrderLine(models.Model):
     )
     related_real_order_id = fields.Many2one(
         related="related_real_order_line_id.order_id",
+        string="Real Order Reference",
         store=True,
     )
     classification_order_line_ids = fields.Many2many(
@@ -107,29 +108,21 @@ class PurchaseOrderLine(models.Model):
     supply_condition_id = fields.Many2one(comodel_name="supply.condition")
     order_shipping_resource_id = fields.Many2one(related="order_id.shipping_resource_id")
 
-    def name_get(self):
-        context = self.env.context
-        if context.get('stock_move_line_weight', False):
-            result = []
-            for pol in self:
-                # TODO add order line description, when is different to product name
-                name = _("%s-%s (%.2f pend.)") % (
-                    pol.order_id.name, pol.product_id.name, pol.pending_qty
-                )
-                result.append((pol.id, name))
-            return result
-        else:
-            return super().name_get()
+    def _name_get(self):
+        return [
+            (
+                rec.id,
+                "%s-%s (%.2f pend.)" % (rec.order_id.name, rec.product_id.name, rec.pending_qty)
+            )
+            for rec in self.sudo()
+        ]
 
     @api.model
-    def _name_search(self, name, args=None, operator="ilike", limit=100, name_get_uid=None):
-        """
-        Custom search from classification wizard
-        We only add order number search. Partner name is unnecessary,
-        because lines are previously filtered by picking partner
-        """
-        if self.env.context.get('stock_move_line_weight', False):
+    def name_search(self, name, args=None, operator="ilike", limit=100): 
+        if self.env.context.get("stock_move_line_weight", False):
             args = args or []
+            recs = self.browse()
+            # TODO expression.AND instead of "+" operator
             domain = []
             if name:
                 domain = [
@@ -137,16 +130,18 @@ class PurchaseOrderLine(models.Model):
                     ("name", operator, name),
                     ("order_id.name", operator, name),
                 ]
-            rec = self._search(
-                expression.AND([domain, args]), limit=limit,
-                access_rights_uid=name_get_uid,
-            )
-            product_id = self.env.context.get('product_id')
-            return models.lazy_name_get(
-                self.browse(rec).with_user(name_get_uid).sorted(key=lambda x: (x.product_id.id != product_id, x.date_order))
-            )
+            recs = self.search(expression.AND([domain, args]), limit=limit)
+            product_id = self.env.context.get("product_id")
+            recs = recs.sorted(key=lambda x: (x.product_id.id != product_id, x.date_order))
+            return recs._name_get()
         else:
-            return super()._name_search(name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)
+            return super().name_search(name, args=args, operator=operator, limit=limit)
+        
+    def _compute_display_name(self):
+        super()._compute_display_name()
+        if self.env.context.get("stock_move_line_weight", False):
+            for record in self:
+                record.display_name = record._name_get()[0][1]
 
     @api.depends(
         "order_id.classification_order_ids.order_line.related_real_order_line_id"

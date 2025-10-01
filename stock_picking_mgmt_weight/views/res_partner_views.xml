@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_res_partner_vehicle_form_inherit" model="ir.ui.view">
         <field name="name">res.partner.form (vehicle)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="stock.view_partner_stock_form"/>
-        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='category_id']" position="after">
-                <field name="vehicle_ids" widget="many2many_tags" string="Vehicles"/>
+                <field name="vehicle_ids" widget="many2many_tags" string="Vehicles" groups="vehicle.group_vehicle_user"/>
             </xpath>
         </field>
     </record>
@@ -16,18 +14,16 @@
         <field name="name">res.partner.search (vehicle)</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
-        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//search/group[@name='group_by']" position="before">
-                <filter string="With associated vehicles" name="inactive" domain="[('vehicle_ids', '!=', False)]"/>
-                <filter string="Without associated vehicles" name="inactive" domain="[('vehicle_ids', '=', False)]"/>
-                <separator/>
+                <filter string="With associated vehicles" name="inactive" domain="[('vehicle_ids', '!=', False)]" groups="vehicle.group_vehicle_user"/>
+                <filter string="Without associated vehicles" name="inactive" domain="[('vehicle_ids', '=', False)]" groups="vehicle.group_vehicle_user"/>
+                <separator groups="vehicle.group_vehicle_user"/>
             </xpath>
             <xpath expr="//search/field[@name='user_id']" position="after">
-                <field name="vehicle_ids"/>
+                <field name="vehicle_ids" groups="vehicle.group_vehicle_user"/>
             </xpath>
         </field>
     </record>
 
-    
 </odoo>

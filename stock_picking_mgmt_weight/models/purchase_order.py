@@ -36,7 +36,7 @@ class PurchaseOrder(models.Model):
     )
 
     classification_order_ids = fields.Many2many(
-        string="Related orders",
+        string="Classification orders",
         comodel_name="purchase.order",
         relation="purchase_order_related",
         column1="related_order_id",
@@ -119,6 +119,7 @@ class PurchaseOrder(models.Model):
     )
 
     classification_invoice_ids = fields.Many2many(
+        comodel_name="account.move",
         compute="_compute_classification_invoice_ids"
     )
     classification_invoice_count = fields.Integer(
@@ -225,7 +226,7 @@ class PurchaseOrder(models.Model):
 
     def _compute_scale_stock_move_ids(self):
         for record in self:
-            record.scale_stock_move_ids = record.classification_stock_picking_ids.move_lines
+            record.scale_stock_move_ids = record.classification_stock_picking_ids.move_ids
 
     def _compute_scale_stock_move_count(self):
         for record in self:
@@ -437,8 +438,8 @@ class PurchaseOrder(models.Model):
         action['domain'] = [('id', 'in', self.classification_invoice_ids.ids)]
         return action
 
-    def action_view_invoice(self):
-        result = super().action_view_invoice()
+    def action_view_invoice(self, invoices=False):
+        result = super().action_view_invoice(invoices)
         # TODO Datetime to Date (according timezone)
         pt_base_date = False
         # if self.classification:
@@ -453,6 +454,6 @@ class PurchaseOrder(models.Model):
         # if pt_base_date:
         #     result["context"]["default_invoice_pt_base_date"] = pt_base_date
         # TODO default base date unset by default
-        result["context"]["default_invoice_pt_base_date"] = pt_base_date
+        result["default_invoice_pt_base_date"] = pt_base_date
 
         return result
