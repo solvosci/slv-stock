@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="stock_move_weights_in_progress" model="ir.actions.act_window">
         <field name="name">Weights</field>

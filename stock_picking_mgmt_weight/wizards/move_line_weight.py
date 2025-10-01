@@ -7,6 +7,7 @@ from odoo.exceptions import ValidationError
 
 class MoveLineWeight(models.TransientModel):
     _name = 'stock.move.line.weight.wizard'
+    _description = 'Stock Move Line Weight Wizard'
 
     company_id = fields.Many2one('res.company', 'Company',
                                  default=lambda self: self.env.company,
@@ -29,7 +30,7 @@ class MoveLineWeight(models.TransientModel):
 
     product_uom_qty = fields.Float('Qty', default=0.0, digits='Product Unit of Measure', required=True)
     move_id = fields.Many2one('stock.move', 'Stock Move')
-    move_weight_id = fields.Many2one('stock.move.weight.wizard', 'Stock Move')
+    move_weight_id = fields.Many2one('stock.move.weight.wizard', 'Weight Move')
     partner_id = fields.Many2one(
         'res.partner',
         related='move_weight_id.picking_id.partner_id')

@@ -14,7 +14,7 @@ class CameraController(http.Controller):
     )
     def read(self):
         # TODO test it in a multi-company environment and user
-        camera_id = request.env['res.users'].search([
+        camera_id = request.env['res.users'].sudo().search([
             ('id', '=', request.session.uid)
         ]).company_id.picking_operations_camera_id
 

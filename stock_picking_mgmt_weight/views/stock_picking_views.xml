@@ -1,51 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_stock_picking_weight_form_inherit" model="ir.ui.view">
         <field name="name">stock.picking.form (weight)</field>
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form"/>
-        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//group/field[@name='backorder_id']" position="after">
                 <field name="type_scale" invisible="1"/>
-                <field name="type_code" invisible="1"/>
-                <field name="outgoing_info_enabled" invisible="1"/>            
-                <field name="vehicle_id" attrs="{'invisible': [('type_scale', '=', False)]}"/>
-                <field name="towing_license_plate" attrs="{'invisible': [('type_scale', '=', False)]}"/>
+                <field name="picking_type_code" invisible="1"/>
+                <field name="outgoing_info_enabled" invisible="1"/>
+                <field name="vehicle_id" invisible="not type_scale" groups="vehicle.group_vehicle_user"/>
+                <field name="towing_license_plate" invisible="not type_scale" groups="vehicle.group_vehicle_user"/>
             </xpath>
             <xpath expr="//field[@name='origin']" position="after">
                 <field
                     name="classification_picking_id"
-                    attrs="{'invisible': [('classification_picking_id', '=', False)]}"
+                    invisible="not classification_picking_id"
+                    groups="vehicle.group_vehicle_user"
                 />
                 <field
                     name="related_picking_id"
-                    attrs="{'invisible': [('related_picking_id', '=', False)]}"
+                    invisible="not related_picking_id"
+                    groups="vehicle.group_vehicle_user"
                 />
             </xpath>
             <xpath expr="//tree/field[@name='product_uom']" position="after">
-                <field name="theoretical_qty" attrs="{'column_invisible': ['|',('parent.type_scale','=', False), ('parent.type_code', '!=', 'incoming')]}"/>
-                <field name="exclude_tare" attrs="{'column_invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
-                <field name="tare" force_save="1" attrs="{'readonly': [('exclude_tare', '=', True)], 'column_invisible':[('parent.type_scale','=', False)]}"/>
-                <field name="date_tare" invisible="1"/>
-                <field name="gross_weight" attrs="{'column_invisible': [('parent.type_scale', '=', False)]}"/>
-                <field name="date_gross_weight" invisible="1"/>
-                <field name="net_weight" readonly="0" attrs="{'column_invisible': [('parent.type_scale', '=', False)]}"/>
-            </xpath>
-            <xpath expr="//form/group/field[@name='description_picking']" position="after">
-                <field name="theoretical_qty" attrs="{'invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
-                <field name="exclude_tare" attrs="{'invisible': ['|', ('parent.type_scale', '=', False), ('parent.type_code', '!=', 'incoming')]}"/>
-                <field name="tare" force_save="1" attrs="{'readonly': [('exclude_tare', '=', True)], 'invisible': [('parent.type_scale','=', False)]}"/>
-                <field name="date_tare" invisible="1"/>
-                <field name="gross_weight" attrs="{'invisible': [('parent.type_scale', '=', False)]}"/>
-                <field name="date_gross_weight" invisible="1"/>
-                <field name="net_weight" readonly="0" attrs="{'invisible': [('parent.type_scale', '=', False)]}"/>
+                <field name="theoretical_qty" column_invisible="not parent.type_scale or parent.picking_type_code != 'incoming'" groups="vehicle.group_vehicle_user"/>
+                <field name="exclude_tare" column_invisible="not parent.type_scale or parent.picking_type_code != 'incoming'" groups="vehicle.group_vehicle_user"/>
+                <field name="tare" force_save="1" readonly="exclude_tare" column_invisible="not parent.type_scale" groups="vehicle.group_vehicle_user"/>
+                <field name="date_tare" invisible="1" groups="vehicle.group_vehicle_user"/>
+                <field name="gross_weight" column_invisible="not parent.type_scale" groups="vehicle.group_vehicle_user"/>
+                <field name="date_gross_weight" invisible="1" groups="vehicle.group_vehicle_user"/>
+                <field name="net_weight" readonly="0" column_invisible="not parent.type_scale" groups="vehicle.group_vehicle_user"/>
             </xpath>
             <xpath expr="//page[@name='extra']" position="before">
                 <page
                     string="Outgoing Info"
                     name="outgoing_info"
-                    attrs="{'invisible': [('outgoing_info_enabled','=',False)]}"
+                    invisible="not outgoing_info_enabled"
+                    groups="vehicle.group_vehicle_user"
                 >
                     <group name="outgoing_info_gr_main">
                         <group name="outgoing_info_gr_1" string="Container">
@@ -72,13 +64,13 @@
         <field name="name">stock.picking.tree (weight)</field>
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.vpicktree"/>
-        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//tree/field[@name='activity_exception_decoration']" position="after">
                 <field
                     name="vehicle_id"
                     optional="show"
                     invisible="context.get('hide_vehicle_id', False)"
+                    groups="vehicle.group_vehicle_user"
                 />
             </xpath>
         </field>
@@ -88,11 +80,10 @@
         <field name="name">stock.picking.search (weight)</field>
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_internal_search"/>
-        <field name="groups_id" eval="[(4,ref('vehicle.group_vehicle_user'))]" />
         <field name="arch" type="xml">
             <xpath expr="//search/field[@name='picking_type_id']" position="after">
-                <field name="vehicle_id"/>
-                <field name="towing_license_plate"/>
+                <field name="vehicle_id" groups="vehicle.group_vehicle_user"/>
+                <field name="towing_license_plate" groups="vehicle.group_vehicle_user"/>
             </xpath>
         </field>
     </record>
@@ -107,12 +98,12 @@
                     name="move_weight"
                     class="btn-primary"
                     type="object"
-                    attrs="{'invisible': ['|', ('state', 'in', ('done', 'cancel')), ('type_scale', '=', False)]}"/>
+                    invisible="state in ('done', 'cancel') or not type_scale"/>
                 <button name="%(action_report_picking_tag)d" 
                     string="Print Ticket (PDF)" 
                     type="action" 
                     groups="base.group_user" 
-                    attrs="{'invisible': [('type_scale', '=', False)]}"/>
+                    invisible="not type_scale"/>
             </xpath>
         </field>
     </record>

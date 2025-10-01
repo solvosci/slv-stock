@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_stock_move_weight_wizard_form_weight" model="ir.ui.view">
         <field name="name">stock.move.weight.wizard.form</field>
@@ -16,13 +15,12 @@
                         class="btn-primary"
                         type="object" 
                         string="Autofill"
-                        attrs="{'invisible': [('check_move_line_ids', '=', False)]}"/>
+                        invisible="not check_move_line_ids"/>
                     <button  
                         name="move_weight_autofill_difference" 
                         type="object" 
                         string="Add rest"
-                        attrs="{'invisible': ['|', ('weight_classified', '=', 0), ('check_move_line_ids', '!=', False)]}"/>
-                    />
+                        invisible="weight_classified == 0 or check_move_line_ids"/>
                 </header>
                 <sheet>
                     <group>
@@ -34,17 +32,17 @@
                             <group class="m-0" colspan="5">
                                 <field name="weight_selection" 
                                     widget="radio"
-                                    attrs="{'readonly': [('theoretical_qty', '=', 0)]}"/>
+                                    readonly="theoretical_qty == 0"/>
                             </group>
                             <group class="m-0" colspan="1">
-                                <field name="theoretical_qty" attrs="{'invisible': [('theoretical_qty', '=', 0)]}" readonly="1" colspan="2" nolabel="1"/>
+                                <field name="theoretical_qty" invisible="theoretical_qty == 0" readonly="1" colspan="2" nolabel="1"/>
                                 <field name="net_weight" readonly="1" colspan="2" nolabel="1"/>
                             </group>
                         </group>
                         <group
                             class="m-0"
                             colspan="2"
-                            attrs="{'invisible': [('purchase_internal_notes','=',False)]}"
+                            invisible="not purchase_internal_notes"
                         >
                             <label for="purchase_internal_notes"/>
                             <field
@@ -62,19 +60,15 @@
                                 <field name="weight_classified"/>
                             </group>
                         </group>
-                        <group class="m-0" colspan="2">
-                            <field name="move_line_weight_ids" mode="tree" nolabel="1"/>
-                        </group>
-                        <group class="m-0" colspan="2">
-                            <notebook>
-                                <page string="Notes" autofocus="autofocus">
-                                    <field name="note" readonly="1" nolabel="1"/>
-                                </page>
-                                <page string="Internal Notes">
-                                    <field name="internal_note" nolabel="1"/>
-                                </page>
-                            </notebook>
-                        </group>
+                        <field name="move_line_weight_ids" mode="tree" nolabel="1"/>
+                        <notebook>
+                            <page string="Notes" autofocus="autofocus">
+                                <field name="note" readonly="1" nolabel="1"/>
+                            </page>
+                            <page string="Internal Notes">
+                                <field name="internal_note" nolabel="1"/>
+                            </page>
+                        </notebook>
                     </group>
                     <footer>
                         <button name="write_operations"

@@ -7,13 +7,6 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
-    picking_operations_scale_id = fields.Many2one(
-        comodel_name='scale.scale',
-        related='company_id.picking_operations_scale_id',
-        string='IN / OUT Picking Operations for Scale',
-        readonly=False,
-        required=True
-    )
     picking_operations_weight_max = fields.Float(
         related='company_id.picking_operations_weight_max',
         readonly=False,
@@ -37,10 +30,6 @@ class ResConfigSettings(models.TransientModel):
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    picking_operations_scale_id = fields.Many2one(
-        comodel_name='scale.scale',
-        string='IN / OUT Picking Operations for Scale'
-    )
     picking_operations_weight_max = fields.Float(
         string="Max. weight for scale operations",
     )

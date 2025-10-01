@@ -1,115 +1,94 @@
-odoo.define("stock_picking_mgmt_weight.FieldIotWeight", function(require) {
-    "use strict";
+/** @odoo-module **/
 
-    const core = require("web.core");
-    const Dialog = require("web.Dialog");
-    const AbstractField = require("web.AbstractField");
-    const field_registry = require("web.field_registry");
+import { registry } from "@web/core/registry";
+import { Component, onMounted, onWillUnmount, useRef} from "@odoo/owl";
+import { standardFieldProps } from "@web/views/fields/standard_field_props";
+import { Dialog } from "@web/core/dialog/dialog";
 
-    const _t = core._t;
-    const _lt = core._lt;
+export class FieldIotWeight extends Component {
+    setup() {
+        this.weightSpan = useRef("weightSpan");
+        this.getWeightInterval = null;
 
-    const FieldIotWeight = AbstractField.extend({
-        description: _lt("Iot Weight"),
-        supportedFieldTypes: ["integer"],
-        template: "stock_picking_mgmt_weight.FieldIotWeight",
-        // TODO custom_events
+        onMounted(() => {
+            console.log("✅ FieldIotWeight mounted");
+            console.log("Ref:", this.weightSpan);
 
-        init: function(parent, name, record, options) {
-            this._super.apply(this, arguments);
-            console.log("INIT FieldIotWeight");
-        },
-
-        start: function() {
-            console.log("START FieldIotWeight");
-            this.$span = this.$("span");
-            var self = this;
-            // this._showErrorMessage(_t("This is a test for start()."));
-            //self.getWeight();
-            this.getWeightInterval = setInterval(() => {
-                self.getWeight();
-            }, 1000);
-
-            return this._super.apply(this, arguments);
-        },
-
-        destroy: function () {
-            console.log("DESTROYING...");
-            clearInterval(this.getWeightInterval);
-        },
-
-        getWeight: function() {
-            var self = this;
-            var last_weight;
-            var scale = false;
-            var scale_container = document.querySelector('div[name="picking_operations_scale_id"]');
-            if (scale_container) {
-                var scaleInput = scale_container.querySelector('input');
-                if (!scaleInput || !scaleInput.value) {
-                    console.log("No scale selected, skipping weight fetch");
-                    return;
-                }
-                scale = scaleInput.value;
-            } else if (document.querySelector('a[name="picking_operations_scale_id"]')){
-                scale = document.querySelector('a[name="picking_operations_scale_id"] span').textContent;
+            if (!this.weightSpan.el) {
+                console.error("❌ Not found Span in template");
+                return;
             }
 
-            // TODO JS thread is still running, but we still need it 
-            //     //  active if user turns back from form view.
-            //     // It should overload browser engine
-            //     console.log("NOT VISIBLE!!! FieldIotWeigth");
-            //     // clearInterval(self.getWeightInterval);
-            //     return;
-            // }
-            $.ajax({
-                url: "/stock_picking_mgmt_weight/scale/read",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify({
-                    'scale_name': scale
-                })
-            }).done(data => {
-                data = (data || {});
-                data.result = (data.result || {"err": "Undefined error", "value": "---"});
-                console.log("Error: " + data.result.err);
-                console.log("Value: " + data.result.value);
-                self.$span.parent().removeClass("o_field_empty");
-                if ( data.result.err ) {
-                    self.$span.text(data.result.value);
-                    self.$span.attr("title", data.result.err);
-                    self.$span.addClass("bg-danger");
+            this.getWeightInterval = setInterval(() => {
+                this.getWeight(this.weightSpan.el);
+            }, 1000);
+        });
+
+        onWillUnmount(() => {
+            console.log("DESTROYING...");
+            clearInterval(this.getWeightInterval);
+        });
+    }
+
+    getWeight(spanEl) {
+        if (!spanEl) return;
+
+        let scale = null;
+        const scaleContainer = document.querySelector('div[name="picking_operations_scale_id"]');
+        if (scaleContainer) {
+            const scaleInput = scaleContainer.querySelector('input');
+            if (!scaleInput || !scaleInput.value) {
+                console.log("No scale selected, skipping weight fetch");
+                return;
+            }
+            scale = scaleInput.value;
+        } else {
+            const aScale = document.querySelector('a[name="picking_operations_scale_id"] span');
+            if (aScale) scale = aScale.textContent;
+        }
+
+        if (!scale) return;
+
+        fetch("/stock_picking_mgmt_weight/scale/read", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ scale_name: scale }),
+        })
+            .then(r => r.json())
+            .then(data => {
+                const result = (data?.result) || { err: "Undefined error", value: "---" };
+                console.log("Error: " + result.err);
+                console.log("Value: " + result.value);
+
+                spanEl.parentElement.classList.remove("o_field_empty");
+
+                if (result.err) {
+                    spanEl.textContent = result.value;
+                    spanEl.setAttribute("title", result.err);
+                    spanEl.classList.add("bg-danger");
+                } else {
+                    spanEl.classList.remove("bg-danger");
+                    spanEl.removeAttribute("title");
+                    spanEl.textContent = result.value;
                 }
-                else {
-                    self.$span.removeClass("bg-danger");
-                    self.$span.removeAttr("title");
-                    self.$span.text(data.result.value);
-                    last_weight = data.result.value;
-                }
-            }).fail(() => {
+            })
+            .catch(() => {
                 console.log("FAILED");
-                self.$span.text("---");
-                self.$span.attr("title", "Server is not responding");
-                self.$span.addClass("bg-danger");
-        }).always(() => {
-                console.log("FINISHED AbstractField");
-                // TODO time between updates make optional
-                /*
-                window.setTimeout(() => {
-                    self.getWeight();
-                }, 1000);
-                */
+                spanEl.textContent = "---";
+                spanEl.setAttribute("title", "Server is not responding");
+                spanEl.classList.add("bg-danger");
             });
-        },
+    }
 
-        _showErrorMessage: function(error) {
-            Dialog.alert(this, error, {
-                title: _t("Iot Weight"),
-            });
-        },
-    });
+    _showErrorMessage(error) {
+        Dialog.alert(this, error, { title: "Iot Weight" });
+    }
+}
 
-    field_registry.add("iot_weight", FieldIotWeight);
+FieldIotWeight.props = { ...standardFieldProps };
 
-    return FieldIotWeight;
+FieldIotWeight.template = "stock_picking_mgmt_weight.FieldIotWeight";
 
+registry.category("fields").add("iot_weight", {
+    component: FieldIotWeight,
 });

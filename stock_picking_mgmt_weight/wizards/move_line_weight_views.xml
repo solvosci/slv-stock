@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_stock_move_line_weight_wizard_tree_weight" model="ir.ui.view">
         <field name="name">stock.move.line.weight.wizard.tree</field>
         <field name="model">stock.move.line.weight.wizard</field>
         <field name="arch" type="xml"> 
             <tree string="Stock Move Lines" editable="bottom">
-                <field name="company_id" invisible="1"/>
-                <field name="move_weight_id" invisible="1"/>
-                <field name="partner_id" invisible="1"/>
+                <field name="company_id" column_invisible="1"/>
+                <field name="move_weight_id" column_invisible="1"/>
+                <field name="partner_id" column_invisible="1"/>
                 <!-- <field name="check_move" invisible="1"/> -->
                 <!-- TODO pending_qty filter not working (it should be stored) -->
                 <field name="order_line_id" 

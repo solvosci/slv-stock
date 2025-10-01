@@ -112,7 +112,6 @@ class StockMovFrontend(models.Model):
     # This section only applies to frontend additions (custom move views)
     _inherit = "stock.move"
 
-    type_code = fields.Selection(related="picking_type_id.code")
     type_mandatory_towing = fields.Boolean(related="picking_type_id.mandatory_towing")
     allow_picking_operations_scale_ids = fields.Many2many(related='picking_type_id.picking_operations_scale_ids')
     picking_operations_scale_id = fields.Many2one(
@@ -122,12 +121,11 @@ class StockMovFrontend(models.Model):
     )
     capture_gross_scale_id = fields.Many2one('scale.scale', string="Gross Scale", readonly=True)
     capture_tare_scale_id = fields.Many2one('scale.scale', string="Tare Scale", readonly=True)
-    picking_state = fields.Selection(related="picking_id.state")
     picking_vehicle_id = fields.Many2one(
         comodel_name="vehicle.vehicle",
         related="picking_id.vehicle_id",
         readonly=False,
-        stored=True,
+        store=True,
     )
     picking_towing_license_plate = fields.Char(
         related="picking_id.towing_license_plate",
@@ -161,7 +159,7 @@ class StockMovFrontend(models.Model):
         compute="_compute_capture_tare_enabled",
         store=True,
     )
-    picking_note = fields.Text(
+    picking_note = fields.Html(
         related='picking_id.note',
         readonly=False,
     )
@@ -190,6 +188,11 @@ class StockMovFrontend(models.Model):
         related="picking_id.container_number",
         readonly=False
     )
+    has_group_sc_user = fields.Boolean(compute="_compute_has_group_sc_user")
+
+    def _compute_has_group_sc_user(self):
+        for record in self:
+            record.has_group_sc_user = record.env.user.has_group('stock_picking_mgmt_weight.group_sc_user')
 
     @api.onchange('allow_picking_operations_scale_ids')
     def _onchange_picking_operations_scale_id(self):
@@ -212,8 +215,14 @@ class StockMovFrontend(models.Model):
         else:
             self.capture_tare_scale_id = False
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            self._create_prepare_vals(vals)
+        return super().create(vals_list)
+
     @api.model
-    def create(self, values):
+    def _create_prepare_vals(self, values):
         if self.env.context.get("weight_mgmt", False):
             # Ensure that other year's ticket name is properly obtained
             # It also needs "use_date_range" configuration for the ticket sequence
@@ -225,12 +234,12 @@ class StockMovFrontend(models.Model):
                 fields.Datetime.now()
             )
             new_picking = self.env["stock.picking"].new({
-                "partner_id": values["picking_partner_id"],
+                "partner_id": values["partner_id"],
                 "vehicle_id": values.get("picking_vehicle_id", False),
                 "picking_type_id": values["picking_type_id"],
                 "towing_license_plate": values["picking_towing_license_plate"]
             })
-            new_picking.onchange_picking_type()
+            new_picking._onchange_picking_type()
             picking = self.env["stock.picking"].with_context(
                 ir_sequence_date=ir_sequence_date
             ).create(
@@ -244,10 +253,8 @@ class StockMovFrontend(models.Model):
             picking.vehicle_id.sudo().write({
                 "license_plate_last_towing": values["picking_towing_license_plate"]
             })
-            # TODO custom name
-        return super().create(values)
 
-    @api.depends("product_id", "picking_type_id", "tare", "gross_weight", "type_code", "picking_operations_scale_id")
+    @api.depends("product_id", "picking_type_id", "tare", "gross_weight", "picking_code", "picking_operations_scale_id")
     def _compute_capture_gross_enabled(self):
         for rec in self:
             rec.capture_gross_enabled = (
@@ -258,9 +265,9 @@ class StockMovFrontend(models.Model):
                 rec.gross_weight == 0.0
             ) and (
                 (
-                    rec.type_code == "incoming"
+                    rec.picking_code == "incoming"
                 ) or (
-                    rec.type_code == "outgoing" and rec.tare > 0.0
+                    rec.picking_code == "outgoing" and rec.tare > 0.0
                 )
             ) and (
                 rec.picking_operations_scale_id
@@ -268,7 +275,7 @@ class StockMovFrontend(models.Model):
 
     @api.depends(
         "product_id", "picking_type_id", "tare", "gross_weight",
-        "exclude_tare", "type_code", "picking_operations_scale_id"
+        "exclude_tare", "picking_code", "picking_operations_scale_id"
     )
     def _compute_capture_tare_enabled(self):
         for rec in self:
@@ -280,9 +287,9 @@ class StockMovFrontend(models.Model):
                 rec.tare == 0.0
             ) and (
                 (
-                    rec.type_code == "incoming" and not rec.exclude_tare and rec.gross_weight > 0.0
+                    rec.picking_code == "incoming" and not rec.exclude_tare and rec.gross_weight > 0.0
                 ) or (
-                    rec.type_code == "outgoing"
+                    rec.picking_code == "outgoing"
                 )
             ) and (
                 rec.picking_operations_scale_id
@@ -339,7 +346,7 @@ class StockMovFrontend(models.Model):
                 raise ValidationError(
                     _("Cannot retrieve weight, an error was obtained. Please try again later")
                 )
-            weight = scale.last_weight
+            weight = scale.get_last_weight()
             return scale.uom_id._compute_quantity(weight, self.product_uom)
         else:
             raise ValidationError(

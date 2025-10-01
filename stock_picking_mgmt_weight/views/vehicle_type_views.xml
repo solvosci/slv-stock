@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_vehicle_type_tree" model="ir.ui.view">
         <field name="name">vehicle.type.tree</field>

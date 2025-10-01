@@ -2,7 +2,6 @@
 # License LGPL-3.0 (http://www.gnu.org/licenses/lgpl-3.0.html)
 
 from odoo import _, fields, models
-from odoo.exceptions import Warning
 
 
 class SaleOrder(models.Model):

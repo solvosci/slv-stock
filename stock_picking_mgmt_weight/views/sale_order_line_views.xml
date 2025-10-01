@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_order_line_tree" model="ir.ui.view">
         <field name="name">sale.order.line.tree (in stock_picking_mgmt_weight)</field>
@@ -30,14 +29,14 @@
                     name="action_cancel_pending_line"
                     icon="fa-ban"
                     type="object"
-                    attrs="{'invisible': [('is_cancellable', '=', False)]}"
+                    invisible="not is_cancellable"
                     title="Cancel pending quantities for this line"
                 />
                 <button
                     name="action_decancel_pending_line"
                     icon="fa-eraser"
                     type="object"
-                    attrs="{'invisible': [('is_decancellable', '=', False)]}"
+                    invisible="not is_decancellable"
                     title="Restore cancelled pending quantities for this line"
                 />
                 <field
