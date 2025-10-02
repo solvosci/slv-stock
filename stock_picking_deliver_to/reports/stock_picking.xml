@@ -2,12 +2,14 @@
 <odoo>
     <data>
         <template id="report_stock_picking" inherit_id="stock.report_delivery_document">
-            <xpath expr="//div[@name='div_sched_date']" position="after">
-                <div class="col-auto" t-if="o.deliver_to != False">
-                    <strong>Deliver to:</strong>
-                    <p t-field="o.deliver_to" />
+            <xpath expr="//div[@name='div_sched_date']/.." position="after">
+                <div>
+                    <div class="col-auto" t-if="o.deliver_to != False">
+                        <strong>Deliver to:</strong>
+                        <p style="display:inline; margin-left:1px;" t-field="o.deliver_to"/>
+                    </div>
                 </div>
             </xpath>
-        </template>       
+        </template>
     </data>
 </odoo>
