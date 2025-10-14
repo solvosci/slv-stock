@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_picking_type_tree" model="ir.ui.view">
         <field name="name">stock.picking.type.tree (stock_picking_mgmt_weight_pot)</field>
@@ -25,7 +24,7 @@
             <xpath expr="//field[@name='scale']" position="after">
                 <field
                     name="classification_pot_id"
-                    attrs="{'invisible': [('scale','=',False)]}"
+                    invisible="not scale"
                 />
             </xpath>
         </field>
