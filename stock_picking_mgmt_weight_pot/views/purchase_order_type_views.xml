@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_purchase_order_type_tree" model="ir.ui.view">
         <field name="name">purchase.order.type.tree (in purchase_order_type_dashboard) (weight)</field>
@@ -6,7 +5,7 @@
         <field name="inherit_id" ref="purchase_order_type_dashboard.view_purchase_order_type_tree"/>
         <field name="arch" type="xml">
             <field name="invoice_status_ti_po_count" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="column_invisible">1</attribute>
             </field>
             <field name="invoice_status_ti_po_count" position="after">
                 <field name="isext_no_po_count" />
@@ -36,7 +35,7 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        <t t-esc="record.isext_no_po_count.value"/>
+                        <t t-out="record.isext_no_po_count.value"/>
                     </div>
                     <div class="col-9">
                         <a name="%(purchase_order_type_dashboard.action_purchase_order_from_dashboard)d" type="action" context="{'search_default_isext_not_invoiced': 1}">
@@ -44,7 +43,7 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        <t t-esc="record.isext_ti_po_count.value"/>
+                        <t t-out="record.isext_ti_po_count.value"/>
                     </div>
                     <div class="col-9">
                         <a name="%(purchase_order_type_dashboard.action_purchase_order_from_dashboard)d" type="action" context="{'search_default_isext_not_invoiced_classif': 1}">
@@ -52,7 +51,7 @@
                         </a>
                     </div>
                     <div class="col-3">
-                        <t t-esc="record.isext_tic_po_count.value"/>
+                        <t t-out="record.isext_tic_po_count.value"/>
                     </div>
                 </div>
             </xpath>
