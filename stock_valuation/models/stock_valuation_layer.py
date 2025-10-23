@@ -144,10 +144,10 @@ class StockValuationLayer(models.Model):
                         )
 
                 elif move_id.picking_type_id.code == 'outgoing':
-                    # Sale order (original or "2*N return")
+                    # Sale order (original or "2*N return") OR independent outgoing (direct from warehouse)
                     # TODO remove it? It should be later recalculated
                     # if not move_id.origin_returned_move_id:
-                    if move_id.sale_line_id:
+                    if move_id.sale_line_id or (not move_id.sale_line_id and not move_id.purchase_line_id):
                         vals["unit_cost"] = move_id.product_id.standard_price_warehouse_ids.filtered(lambda x: x.warehouse_id.id == move_id.picking_type_id.warehouse_id.id).average_price
                         vals["value"] = vals.get("unit_cost") * vals.get("quantity")
                     # Purchase return "2*N + 1"
