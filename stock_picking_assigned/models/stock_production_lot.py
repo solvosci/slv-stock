@@ -2,11 +2,13 @@
 # License AGPL-3.0 (http://www.gnu.org/licenses/agpl-3.0.html)
 
 from odoo import models, fields, api
+from datetime import datetime, timedelta
 
 
 class StockProductionLot(models.Model):
     _inherit = "stock.production.lot"
 
+    exclude_in_assignments = fields.Boolean()
     qty_remaining_not_done = fields.Float(compute='_compute_qty_not_done')
 
     # TODO: Revisar tema cantidades reservadas
@@ -45,10 +47,11 @@ class StockProductionLot(models.Model):
         if context.get('stock_picking_assigned', False):
             result = []
             for lot in self:
-                name = "%s (%.2f %s)" % (
-                    lot.name, lot.qty_remaining_not_done, lot.product_uom_id.name
-                )
-                result.append((lot.id, name))
+                if lot.qty_remaining_not_done > 0:
+                    name = "%s (%.2f %s)" % (
+                        lot.name, lot.qty_remaining_not_done, lot.product_uom_id.name
+                    )
+                    result.append((lot.id, name))
             return result
         else:
             return super().name_get()
@@ -58,7 +61,11 @@ class StockProductionLot(models.Model):
         context = self.env.context
         if context.get('stock_picking_assigned', False):
             domain = args or []
-            domain += [("name", operator, name), ('product_qty', '>', 0)]
+            domain += ['&', ("name", operator, name), ('exclude_in_assignments', '=', False)]
             return self.search(domain).sorted(key=lambda x: x.qty_remaining_not_done, reverse=True).name_get()
-
         return super().name_search(name=name, args=args, operator=operator, limit=limit)
+
+    @api.model
+    def cron_exclude_old_records(self):
+        lot_ids = self.search([('exclude_in_assignments', '=', False)])
+        lot_ids.filtered(lambda x: x.qty_remaining_not_done <= 0).write({'exclude_in_assignments': True})
