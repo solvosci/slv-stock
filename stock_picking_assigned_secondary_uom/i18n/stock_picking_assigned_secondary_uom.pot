@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 09:23+0000\n"
-"PO-Revision-Date: 2024-05-31 09:23+0000\n"
+"POT-Creation-Date: 2025-11-12 12:00+0000\n"
+"PO-Revision-Date: 2025-11-12 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,11 @@ msgstr ""
 #. module: stock_picking_assigned_secondary_uom
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
 msgid "Box Total:"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_ticket_document_pdf
+msgid "Boxes"
 msgstr ""
 
 #. module: stock_picking_assigned_secondary_uom
@@ -55,6 +60,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history____last_update
 #: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line____last_update
 msgid "Last Modified on"
+msgstr ""
+
+#. module: stock_picking_assigned_secondary_uom
+#: code:addons/stock_picking_assigned_secondary_uom/wizard/sp_assigned_wizard.py:0
+#, python-format
+msgid ""
+"Line order %s does not have a secondary unit of measure assigned, please "
+"review the line and correct it to continue."
 msgstr ""
 
 #. module: stock_picking_assigned_secondary_uom

@@ -6,16 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-31 09:23+0000\n"
-"PO-Revision-Date: 2024-05-31 12:40+0200\n"
+"POT-Creation-Date: 2025-11-12 12:00+0000\n"
+"PO-Revision-Date: 2025-11-12 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.3\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: stock_picking_assigned_secondary_uom
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
@@ -31,6 +29,11 @@ msgstr "<strong>Caja hecha</strong>"
 #: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_document_pdf
 msgid "Box Total:"
 msgstr "Total de cajas:"
+
+#. module: stock_picking_assigned_secondary_uom
+#: model_terms:ir.ui.view,arch_db:stock_picking_assigned_secondary_uom.report_distribution_sheets_ticket_document_pdf
+msgid "Boxes"
+msgstr "Cajas"
 
 #. module: stock_picking_assigned_secondary_uom
 #: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_variable_wizard__display_name
@@ -58,6 +61,16 @@ msgstr "Id."
 #: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_stock_picking_assign_history_line____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
+
+#. module: stock_picking_assigned_secondary_uom
+#: code:addons/stock_picking_assigned_secondary_uom/wizard/sp_assigned_wizard.py:0
+#, python-format
+msgid ""
+"Line order %s does not have a secondary unit of measure assigned, please "
+"review the line and correct it to continue."
+msgstr ""
+"La línea del pedido %s no tiene asignada una unidad de medida secundaria."
+"Por favor, revise la línea y corríjala para continuar."
 
 #. module: stock_picking_assigned_secondary_uom
 #: model:ir.model.fields,field_description:stock_picking_assigned_secondary_uom.field_sp_assigned_line_wizard__qty_to_add

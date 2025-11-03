@@ -17,6 +17,8 @@ class StockPickingAssignedWizard(models.TransientModel):
     def _onchange_lot_id_secondary_uom(self):
         if self.lot_id:
             pol = self.env['purchase.order.line'].search([('fcd_lot_id', '=', self.lot_id.id)])
+            if not pol.secondary_uom_id:
+                raise ValidationError(_('Line order %s does not have a secondary unit of measure assigned, please review the line and correct it to continue.') % (pol.order_id.name))
             self.secondary_uom_id = pol.secondary_uom_id.id
             self.secondary_uom_factor = round(pol.product_qty / pol.secondary_uom_qty)
 
@@ -66,7 +68,7 @@ class StockPickingAssignedWizard(models.TransientModel):
 
             if self.lot_id.qty_remaining_not_done <= 0:
                 pass
-            elif self.secondary_uom_qty_remaining >= missing_qty_box:  
+            elif self.secondary_uom_qty_remaining >= missing_qty_box:
                 line.secondary_uom_qty_to_add += missing_qty_box
             elif self.secondary_uom_qty_remaining:
                 line.secondary_uom_qty_to_add += self.secondary_uom_qty_remaining
