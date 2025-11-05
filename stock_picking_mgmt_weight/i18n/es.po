@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 10:28+0000\n"
-"PO-Revision-Date: 2025-07-17 10:28+0000\n"
+"POT-Creation-Date: 2025-11-05 08:12+0000\n"
+"PO-Revision-Date: 2025-11-05 08:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -318,6 +318,12 @@ msgid "Cannot retrieve weight, an error was obtained. Please try again later"
 msgstr ""
 "No se puede capturar el peso, se ha obtenido error. Pruebe de nuevo más "
 "tarde"
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid "Cannot retrieve weight, it's tool old (%d, more than %d s ago)"
+msgstr "No se puede obtener el peso, es demasiado antiguo (%d, máximo %d segundos)."
 
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.stock_move_mgmt_weight_frontend_weight_form_view
@@ -1408,6 +1414,7 @@ msgid "Save"
 msgstr "Guardar"
 
 #. module: stock_picking_mgmt_weight
+#: model:ir.model,name:stock_picking_mgmt_weight.model_scale_scale
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.res_config_settings_scale_view_form
 msgid "Scale"
 msgstr "Báscula"
@@ -1796,6 +1803,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_stock_picking_weight_form_inherit
 msgid "VGM"
 msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_scale_scale__valid_weight_max_age_secs
+msgid "Valid Weight Max Age Secs"
+msgstr "Tiempo máx. válido del peso (s)"
 
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move__weight_image_mini

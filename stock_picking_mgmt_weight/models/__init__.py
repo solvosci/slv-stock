@@ -15,3 +15,4 @@ from . import sale_order
 from . import sale_order_line
 from . import supply_condition
 from . import vehicle_type
+from . import scale_scale
