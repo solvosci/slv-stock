@@ -112,6 +112,8 @@ class StockMovFrontend(models.Model):
     # This section only applies to frontend additions (custom move views)
     _inherit = "stock.move"
 
+    capture_scale_json_gross = fields.Char()
+    capture_scale_json_tare = fields.Char()
     type_code = fields.Selection(related="picking_type_id.code")
     type_mandatory_towing = fields.Boolean(related="picking_type_id.mandatory_towing")
     allow_picking_operations_scale_ids = fields.Many2many(related='picking_type_id.picking_operations_scale_ids')
@@ -337,7 +339,9 @@ class StockMovFrontend(models.Model):
         if scale:
             if scale.last_weight_error or not scale.get_weight_mode:
                 raise ValidationError(
-                    _("Cannot retrieve weight, an error was obtained. Please try again later")
+                    _("""Cannot retrieve weight, an error was obtained. Please try again later
+                        %s
+                    """) % (scale.last_weight_error)
                 )
             diff_seconds = (fields.Datetime.now() - scale.last_weight_dt).total_seconds()
             if diff_seconds > scale.valid_weight_max_age_secs:
@@ -345,7 +349,9 @@ class StockMovFrontend(models.Model):
                     _("Cannot retrieve weight, it's tool old (%d, more than %d s ago)") % (int(diff_seconds), scale.valid_weight_max_age_secs)
                 )
             weight = scale.last_weight
-            return scale.uom_id._compute_quantity(weight, self.product_uom)
+            scale_json = scale.last_scale_json
+            compute_weight = scale.uom_id._compute_quantity(weight, self.product_uom)
+            return compute_weight, scale_json
         else:
             raise ValidationError(
                 _("It is necessary to assign a scale to perform this operation.")
@@ -353,12 +359,16 @@ class StockMovFrontend(models.Model):
 
     def capture_tare(self):
         self.capture_tare_scale_id = self.picking_operations_scale_id if self.picking_operations_scale_id else False
-        self.tare = self.capture_weight()
+        compute_weight, scale_json = self.capture_weight()
+        self.tare = compute_weight
+        self.capture_scale_json_tare = scale_json
         self._onchange_tare()
 
     def capture_gross(self):
         self.capture_gross_scale_id = self.picking_operations_scale_id if self.picking_operations_scale_id else False
-        self.gross_weight = self.capture_weight()
+        compute_weight, scale_json = self.capture_weight()
+        self.gross_weight = compute_weight
+        self.capture_scale_json_gross = scale_json
         self._onchange_gross_weight()
 
     def _move_weight_open_wizard(self, move_id):

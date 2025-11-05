@@ -328,9 +328,11 @@
                                 <field name="tare"/>
                                 <field name="date_tare"/>
                                 <field name="capture_tare_scale_id" attrs="{'invisible': [('tare','=',0.0)]}" groups="base.group_no_one"/>
+                                <field name="capture_scale_json_tare" attrs="{'invisible': [('tare','=',0.0)]}" groups="base.group_no_one"/>
                                 <field name="gross_weight"/>
                                 <field name="date_gross_weight"/>
                                 <field name="capture_gross_scale_id" attrs="{'invisible': [('gross_weight','=',0.0)]}" groups="base.group_no_one"/>
+                                <field name="capture_scale_json_gross" attrs="{'invisible': [('gross_weight','=',0.0)]}" groups="base.group_no_one"/>
                             </group>
                             <group>
                                 <!-- <field name="asm" widget="iot_asm_field" nolabel="1" colspan="2"/> -->
