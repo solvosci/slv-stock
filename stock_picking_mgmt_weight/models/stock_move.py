@@ -339,6 +339,11 @@ class StockMovFrontend(models.Model):
                 raise ValidationError(
                     _("Cannot retrieve weight, an error was obtained. Please try again later")
                 )
+            diff_seconds = (fields.Datetime.now() - scale.last_weight_dt).total_seconds()
+            if diff_seconds > scale.valid_weight_max_age_secs:
+                raise ValidationError(
+                    _("Cannot retrieve weight, it's tool old (%d, more than %d s ago)") % (int(diff_seconds), scale.valid_weight_max_age_secs)
+                )
             weight = scale.last_weight
             return scale.uom_id._compute_quantity(weight, self.product_uom)
         else:
