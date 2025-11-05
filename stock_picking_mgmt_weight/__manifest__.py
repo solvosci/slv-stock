@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.1.28.0",
+    "version": "13.0.1.29.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -53,6 +53,7 @@
         # "report/report_stock_expected_quantity.xml",
         "views/sale_order_views.xml",
         "views/sale_order_line_views.xml",
+        "views/scale_scale_views.xml",
         "views/shipping_resource_views.xml",
         "views/supply_condition_views.xml",
         "views/vehicle_type_views.xml",
