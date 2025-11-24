@@ -1,0 +1,1 @@
+Allows tracking in the chatter of changes made to the tracking field on products
