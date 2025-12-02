@@ -5,14 +5,14 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='picking_type_id']" position="after">
-                <field name="package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
-                <field name="packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
-                <field name="adr_package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
-                <field name="adr_packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="package_qty" invisible="picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="packages_weight" invisible="picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="adr_package_qty" invisible="picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="adr_packages_weight" invisible="picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
             </xpath>
             <xpath expr="//tree/field[@name='quantity']" position="after">
-                <field name="package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
-                <field name="packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="package_qty" column_invisible="parent.picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="packages_weight" column_invisible="parent.picking_type_code == 'incoming'" readonly="state in ('draft', 'done', 'cancel')"/>
             </xpath>
         </field>
     </record>

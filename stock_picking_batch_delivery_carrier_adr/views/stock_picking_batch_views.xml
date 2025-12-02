@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='scheduled_date']/.." position="after">
-                <group name="package_info" string="Package Info">
+                <group name="package_info" invisible="picking_type_code == 'incoming'" string="Package Info">
                     <field name="package_qty"/>
                     <field name="packages_weight"/>
                     <field name="adr_package_qty"/>
@@ -13,7 +13,7 @@
                 </group>
             </xpath>
             <xpath expr="//button[@name='action_cancel']" position="after">
-                <button string="Consignment Note" name="action_consignment_note_report_pdf" type="object"/>
+                <button string="Consignment Note" name="action_consignment_note_report_pdf" invisible="picking_type_code == 'incoming'" type="object"/>
             </xpath>
         </field>
     </record>
