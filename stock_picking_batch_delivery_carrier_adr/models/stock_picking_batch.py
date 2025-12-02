@@ -1,6 +1,6 @@
 # © 2025 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError, UserError
 from odoo import models, fields, api, _
 
 
@@ -48,5 +48,29 @@ class StockPickingBatch(models.Model):
             batch.packages_weight = total_weight
             batch.adr_packages_weight = adr_weight
 
+    def action_done(self):
+        self.ensure_one()
+        has_non_receipts = any(
+            picking.picking_type_code != 'incoming' for picking in self.picking_ids
+        )
+        if self.package_qty <= 0 and has_non_receipts:
+            raise ValidationError(_("You cannot validate a batch without packages."))
+        return super(StockPickingBatch, self).action_done()
+
+    def _check_consignment_note_carrier(self):
+        batches_without_carrier = self.filtered(lambda b: not b.carrier_id)
+        if batches_without_carrier:
+            raise UserError(_(
+                "The following batches have no delivery method assigned: %s.\n"
+                "Please assign a delivery method to print the consignment note."
+            ) % ", ".join(batches_without_carrier.mapped("name")))
+        invalid_batches = self.filtered(lambda b: not b.carrier_id.partner_id)
+        if invalid_batches:
+            raise UserError(_(
+                "The following batches have a delivery method with no associated carrier (partner): %s.\n"
+                "Please configure the carrier in the corresponding delivery method."
+            ) % ", ".join(invalid_batches.mapped("name")))
+
     def action_consignment_note_report_pdf(self):
+        self._check_consignment_note_carrier()
         return self.env.ref('stock_picking_batch_delivery_carrier_adr.action_consignment_note_report_pdf').report_action(self)
