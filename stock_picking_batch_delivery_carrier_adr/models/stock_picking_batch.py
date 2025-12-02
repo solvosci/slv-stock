@@ -1,6 +1,6 @@
 # © 2025 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 from odoo import models, fields, api, _
 
 
@@ -47,6 +47,12 @@ class StockPickingBatch(models.Model):
                     adr_weight += picking.adr_packages_weight
             batch.packages_weight = total_weight
             batch.adr_packages_weight = adr_weight
+
+    def action_done(self):
+        self.ensure_one()
+        if self.package_qty <= 0:
+            raise ValidationError(_("You cannot validate a batch without packages."))
+        return super(StockPickingBatch, self).action_done()
 
     def action_consignment_note_report_pdf(self):
         return self.env.ref('stock_picking_batch_delivery_carrier_adr.action_consignment_note_report_pdf').report_action(self)
