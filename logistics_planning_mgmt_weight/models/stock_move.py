@@ -1,7 +1,8 @@
 # © 2023 Solvos Consultoría Informática (<http://www.solvos.es>)
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html)
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class StockMove(models.Model):
@@ -63,3 +64,13 @@ class StockMove(models.Model):
                 #ls.extra_stock_move_ids = [(4, res.id)]
                 ls.extra_stock_move_ids += res
         return res
+
+    def unlink(self):
+        logisted_move_ids = self.filtered(lambda x: x.logistics_schedule_id)
+        if logisted_move_ids:
+            move_ids = ', '.join(map(lambda x: x.picking_id.name, logisted_move_ids))
+            raise ValidationError(
+                _("You cannot delete the following weigh-in tickets because they have an assigned logistic schedule: %s") % move_ids
+            )
+
+        return super(StockMove, self).unlink()
