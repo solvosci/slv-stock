@@ -1,0 +1,10 @@
+<odoo>
+    <template
+        id="report_delivery_document_header"
+        inherit_id="stock.report_delivery_document"
+    >
+        <xpath expr="//span[@t-field='o.name']" position="before">
+            <span>Delivery Note</span>
+        </xpath>
+    </template>
+</odoo>
