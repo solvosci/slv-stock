@@ -101,12 +101,19 @@ class StockMoveBackend(models.Model):
         return self.product_uom._compute_quantity(weight_value, uom_kg)
 
     def unlink(self):
-        if self.filtered(lambda x: x.picking_type_id.scale and x.net_weight):
-            move_ids = ', '.join(map(lambda x: x.picking_id.name, self.filtered(lambda x: x.picking_type_id.scale)))
+        scale_moves = self.filtered(lambda x: x.picking_type_id.scale and x.net_weight)
+
+        if scale_moves and not self.env.user.has_group("stock_picking_mgmt_weight.group_sc_delete_ticket"):
+            move_ids = ", ".join(scale_moves.mapped("picking_id.name"))
             raise ValidationError(
-                _("The following weigh-in tickets are not allowed to be removed: %s") % move_ids
+                _("You do not have sufficient permissions to delete the following weigh-in tickets: %s") % move_ids
             )
-        return super(StockMoveBackend, self).unlink()
+        pickings_to_unlink = scale_moves.mapped("picking_id")
+        res = super(StockMoveBackend, self).unlink()
+        if pickings_to_unlink:
+            pickings_to_unlink.unlink()
+
+        return res
 
 class StockMovFrontend(models.Model):
     # This section only applies to frontend additions (custom move views)
@@ -479,3 +486,13 @@ class StockMovFrontend(models.Model):
             or
             pick.purchase_id.propagate_custom_date
         )
+
+    def unlink(self):
+        classified_move_ids = self.filtered(lambda x: x.classification_purchase_order_id)
+        if classified_move_ids:
+            move_ids = ', '.join(map(lambda x: x.picking_id.name, classified_move_ids))
+            raise ValidationError(
+                _("You cannot delete the following weigh-in tickets because they have an assigned classification: %s") % move_ids
+            )
+
+        return super(StockMovFrontend, self).unlink()
