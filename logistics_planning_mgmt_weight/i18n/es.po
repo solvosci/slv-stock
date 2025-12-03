@@ -6,16 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-22 11:16+0000\n"
-"PO-Revision-Date: 2024-07-22 13:21+0200\n"
+"POT-Creation-Date: 2025-12-03 09:14+0000\n"
+"PO-Revision-Date: 2025-12-03 09:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,help:logistics_planning_mgmt_weight.field_stock_move__aux_picking_partner_id
@@ -28,8 +26,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Campo técnico usado como workaround cuando se necesita rellenar "
-"previamente\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
 "        desde una acción picking_parter_id con el default_.\n"
 "        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
 "        planificación logística como borrador\n"
@@ -46,8 +43,7 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"        Campo técnico usado como workaround cuando se necesita rellenar "
-"previamente\n"
+"        Campo técnico usado como workaround cuando se necesita rellenar previamente\n"
 "        desde una acción picking_vehicle_id con el default_.\n"
 "        Esto ocurre cuando queremos crear un nuevo ticket desde una\n"
 "        planificación logística como borrador\n"
@@ -88,12 +84,12 @@ msgstr "Marítimo"
 #, python-format
 msgid ""
 "One or more of the selected schedules cannot be marked as finished because "
-"one of their tickets are still uncomplete (without net weight). Please "
-"check them"
+"one of their tickets are still uncomplete (without net weight). Please check"
+" them"
 msgstr ""
 "No se puede marcar como finalizada una o más de las planificaciones "
-"seleccionadas porque uno de sus tickets relacionados está todavía "
-"incompleto (sin peso neto). Por favor, revíselos"
+"seleccionadas porque uno de sus tickets relacionados está todavía incompleto"
+" (sin peso neto). Por favor, revíselos"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model.fields,field_description:logistics_planning_mgmt_weight.field_logistics_schedule__extra_stock_move_ids
@@ -176,6 +172,16 @@ msgstr "Tip. veh."
 #, python-format
 msgid "Vehicle Type"
 msgstr "Tipo de vehículo"
+
+#. module: logistics_planning_mgmt_weight
+#: code:addons/logistics_planning_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid ""
+"You cannot delete the following weigh-in tickets because they have an "
+"assigned logistic schedule: %s"
+msgstr ""
+"No puede eliminar los siguientes tickets de pesada porque tienen una "
+"planificación logística asignada: %s"
 
 #. module: logistics_planning_mgmt_weight
 #: model:ir.model,name:logistics_planning_mgmt_weight.model_logistics_schedule
