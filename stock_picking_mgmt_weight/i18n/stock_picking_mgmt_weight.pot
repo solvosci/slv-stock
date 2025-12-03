@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-05 08:12+0000\n"
-"PO-Revision-Date: 2025-11-05 08:12+0000\n"
+"POT-Creation-Date: 2025-12-03 09:03+0000\n"
+"PO-Revision-Date: 2025-12-03 09:03+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -57,14 +57,12 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order_line.py:0
 #, python-format
 msgid "%s-%s (%.2f pend.)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "/weight_images/%s"
@@ -136,7 +134,6 @@ msgid "Announced"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight.field_stock_move_weight_wizard__theoretical_qty
 #: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__stock_move_weight_wizard__weight_selection__theoretical_qty
@@ -249,14 +246,12 @@ msgid "Cancelled Quantity"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #, python-format
 msgid "Cannot cancel pending quantities for %s: it's a classification order"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #, python-format
 msgid ""
@@ -265,21 +260,18 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #, python-format
 msgid "Cannot cancel pending quantities for %s: it's not an order yet"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #, python-format
 msgid "Cannot cancel pending quantities for %s: nothing is pending"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "Cannot retrieve weight, an error was obtained. Please try again later"
@@ -402,7 +394,6 @@ msgid "Classification User"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid ""
@@ -411,7 +402,6 @@ msgid ""
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Classification modification not allowed for you"
@@ -558,7 +548,6 @@ msgid "Created on"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #, python-format
 msgid "Created when cancelling pending quantities of %s"
@@ -694,7 +683,6 @@ msgid "Gross weight date"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "Gross weight too high (max. value=%.2f)"
@@ -822,8 +810,6 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_asm_field.js:0
 #, python-format
@@ -832,8 +818,6 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_camera_field.js:0
 #, python-format
@@ -842,8 +826,6 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #: code:addons/stock_picking_mgmt_weight/static/src/js/iot_weight_field.js:0
 #, python-format
@@ -869,14 +851,12 @@ msgid "Is Default"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a scale to perform this operation."
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "It is necessary to assign a vehicle to perform this operation."
@@ -968,10 +948,6 @@ msgid "Move Line Weight"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/purchase_order.py:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_picking.py:0
 #: code:addons/stock_picking_mgmt_weight/models/purchase_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
@@ -1010,7 +986,6 @@ msgstr ""
 
 #. module: stock_picking_mgmt_weight
 #. openerp-web
-#: code:addons/slv-stock/stock_picking_mgmt_weight/static/src/xml/iot_camera_field.xml:0
 #: code:addons/stock_picking_mgmt_weight/static/src/xml/iot_camera_field.xml:0
 #, python-format
 msgid "No Image"
@@ -1378,14 +1353,17 @@ msgid "Scale / Classification"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_warehouse.py:0
+#: model:res.groups,name:stock_picking_mgmt_weight.group_sc_delete_ticket
+msgid "Scale / Classification: can delete ticket"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
 #: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #, python-format
 msgid "Scale Delivery Orders"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #, python-format
 msgid "Scale Receipts"
@@ -1402,7 +1380,6 @@ msgid "Scale Stock Move Count"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: model:ir.model.fields.selection,name:stock_picking_mgmt_weight.selection__stock_move_weight_wizard__weight_selection__net_weight
 #, python-format
@@ -1422,14 +1399,12 @@ msgid "Scales"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #, python-format
 msgid "Sequence Scale in"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_warehouse.py:0
 #, python-format
 msgid "Sequence Scale out"
@@ -1523,7 +1498,6 @@ msgid "Tare date"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
 #: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
 #, python-format
 msgid "Tare too high (max. value=%.2f)"
@@ -1547,13 +1521,6 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model:ir.model.fields,help:stock_picking_mgmt_weight.field_sale_order_line__has_pending_qty
 msgid "Technical field for sale order has pending quantity computation"
-msgstr ""
-
-#. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/stock_move.py:0
-#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
-#, python-format
-msgid "The following weigh-in tickets are not allowed to be removed: %s"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
@@ -1710,7 +1677,6 @@ msgid "Type of Operation"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/controllers/scale.py:0
 #: code:addons/stock_picking_mgmt_weight/controllers/scale.py:0
 #, python-format
 msgid "Undefined scale for current company"
@@ -1827,7 +1793,6 @@ msgid "Warehouse"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/models/sale_order.py:0
 #: code:addons/stock_picking_mgmt_weight/models/sale_order.py:0
 #, python-format
 msgid "Warning"
@@ -1868,7 +1833,6 @@ msgid "Weight Selection"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
-#: code:addons/slv-stock/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #: code:addons/stock_picking_mgmt_weight/wizards/move_weight.py:0
 #, python-format
 msgid "Weight pending classification must be zero"
@@ -1889,6 +1853,22 @@ msgstr ""
 #. module: stock_picking_mgmt_weight
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight.view_res_partner_vehicle_search_inherit
 msgid "Without associated vehicles"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid ""
+"You cannot delete the following weigh-in tickets because they have an "
+"assigned classification: %s"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight
+#: code:addons/stock_picking_mgmt_weight/models/stock_move.py:0
+#, python-format
+msgid ""
+"You do not have sufficient permissions to delete the following weigh-in "
+"tickets: %s"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight
