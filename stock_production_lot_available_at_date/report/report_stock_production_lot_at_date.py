@@ -47,13 +47,13 @@ class ReportStockProductionLotDate(models.TransientModel):
                 sml.company_id,
                 SUM(
                     CASE
-                        WHEN sl_src.usage = 'production' THEN sml.qty_done
+                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
                         ELSE 0
                     END
                 ) -
                 SUM(
                     CASE
-                        WHEN sl_dest.usage = 'customer' THEN sml.qty_done
+                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
                         ELSE 0
                     END
                 ) AS net_qty
@@ -66,19 +66,20 @@ class ReportStockProductionLotDate(models.TransientModel):
             JOIN product_template pt ON pt.id = pp.product_tmpl_id
             WHERE {where_clause}
             GROUP BY sml.lot_id, pp.id, sml.company_id, sml.product_uom_id
-            HAVING
+            HAVING ABS(
                 SUM(
                     CASE
-                        WHEN sl_src.usage = 'production' THEN sml.qty_done
+                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
                         ELSE 0
                     END
                 ) -
                 SUM(
                     CASE
-                        WHEN sl_dest.usage = 'customer' THEN sml.qty_done
+                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
                         ELSE 0
                     END
-                ) > 0
+                )
+            ) >= 0.001
         """
 
         self.env.cr.execute(sql_query)
