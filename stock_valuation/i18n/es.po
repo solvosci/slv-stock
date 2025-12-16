@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-21 09:11+0000\n"
-"PO-Revision-Date: 2024-06-21 11:12+0200\n"
+"POT-Creation-Date: 2025-12-17 09:08+0000\n"
+"PO-Revision-Date: 2025-12-17 10:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_average_price__stock_zero
@@ -45,8 +45,20 @@ msgid ""
 "        - internal - internal transfer\n"
 "        - adjustment - Inventory adjustment\n"
 "        - scrap - Scrap\n"
+"        - mrp - comes from a production\n"
+"        - unbuild - comes from an unbuild\n"
 "        "
 msgstr ""
+"\n"
+"        Posibles tipos:\n"
+"        - purchase - compra o devolución de una compra\n"
+"        - sale - venta o devolución de una venta\n"
+"        - internal - transferencia interna\n"
+"        - adjustment - ajuste de inventario\n"
+"        - scrap - desecho\n"
+"        - mrp - Producción\n"
+"        - unbuild - Despiece\n"
+"        "
 
 #. module: stock_valuation
 #: code:addons/stock_valuation/models/product_average_price.py:0
@@ -297,6 +309,14 @@ msgstr "Precio medio actual"
 #: model:ir.model.fields,field_description:stock_valuation.field_phap_qty_edit_wizard__stock_quantity
 msgid "Current stock quantity"
 msgstr "Cantidad en stock actual"
+
+#. module: stock_valuation
+#: code:addons/stock_valuation/models/stock_picking.py:0
+#, python-format
+msgid "Customer return date for %s cannot be prior than original returned %s date"
+msgstr ""
+"La fecha personalizada de devolución para %s no puede ser anterior a la fecha del %s que se "
+"retorna"
 
 #. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date__date
@@ -650,7 +670,7 @@ msgstr "Movimientos de Producto (Líneas de movimiento)"
 #. module: stock_valuation
 #: model:ir.model,name:stock_valuation.model_product_template
 msgid "Product Template"
-msgstr "Producto"
+msgstr "Plantilla de producto"
 
 #. module: stock_valuation
 #: model:ir.model.fields.selection,name:stock_valuation.selection__stock_valuation_layer__origin_type__purchase
@@ -679,6 +699,11 @@ msgid "Reference"
 msgstr "Referencia"
 
 #. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_picking_form
+msgid "Return Date"
+msgstr "Fecha de devolución"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Error de envío de SMS"
@@ -702,6 +727,11 @@ msgstr "Buscar"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_average_price_date_wizard__warehouse_ids
 msgid "Selected warehouses"
 msgstr "Almacenes seleccionados"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_picking_form
+msgid "Set Cust. Ret. Date"
+msgstr "Asig. fec. devol. pers."
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.res_config_settings_view_form
@@ -805,6 +835,11 @@ msgid "Total inputs"
 msgstr "Total entradas"
 
 #. module: stock_valuation
+#: model:ir.model,name:stock_valuation.model_stock_picking
+msgid "Transfer"
+msgstr "Albarán"
+
+#. module: stock_valuation
 #: model:ir.model.fields,field_description:stock_valuation.field_stock_valuation_layer__origin_type
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_search_inherit
 msgid "Type"
@@ -819,6 +854,26 @@ msgstr "Mensajes no leídos"
 #: model:ir.model.fields,field_description:stock_valuation.field_product_history_average_price__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Contador de mensajes no leídos"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_picking__val_cust_ret_date
+msgid "Valuation - Customer Return Date"
+msgstr "Valoración - Fecha personalizada de devolución"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_picking__has_val_cust_ret_date_enabled
+msgid "Valuation - Customer Return Date Enabled"
+msgstr "Valoración - Fecha personalizada de devolución habilitada"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_picking__has_val_cust_ret_date_visible
+msgid "Valuation - Customer Return Date Visible"
+msgstr "Valoración - Fecha personalizada de devolución visible"
+
+#. module: stock_valuation
+#: model:ir.model.fields,field_description:stock_valuation.field_stock_picking__has_val_cust_ret_date
+msgid "Valuation - Has Customer Return Date"
+msgstr "Valoración - Tiene fecha personalizada de devolución"
 
 #. module: stock_valuation
 #: model_terms:ir.ui.view,arch_db:stock_valuation.view_stock_valuation_layer_form_inherit
@@ -865,6 +920,16 @@ msgstr "Mensajes del sitio web"
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__website_message_ids
 msgid "Website communication history"
 msgstr "Historial de comunicación del website"
+
+#. module: stock_valuation
+#: model_terms:ir.ui.view,arch_db:stock_valuation.view_picking_form
+msgid ""
+"When enabled, for valuation purposes a custom return                         date can be set; "
+"otherwise, original incoming date will be used"
+msgstr ""
+"Cuando está establecido, para temas de valoración se puede establecer "
+"una                         fecha personalizada; de no establecerse se aplicará la fecha de la "
+"entrada original"
 
 #. module: stock_valuation
 #: model:ir.model.fields,help:stock_valuation.field_product_history_average_price__average_price_manual_dt
