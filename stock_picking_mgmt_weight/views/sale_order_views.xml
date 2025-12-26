@@ -67,8 +67,8 @@
             >
                 <field name="qty_cancelled" optional="show" string="Cancelled" />
                 <field name="pending_qty" optional="hide" string="Pending" />
-                <field name="is_cancellable" invisible="1"/>
-                <field name="is_decancellable" invisible="1"/>
+                <field name="is_cancellable" column_invisible="1"/>
+                <field name="is_decancellable" column_invisible="1"/>
                 <button
                     name="action_cancel_pending_line"
                     icon="fa-ban"

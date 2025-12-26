@@ -23,8 +23,8 @@
                     name="pending_qty"
                     sum="Total pending quantity"
                 />
-                <field name="is_cancellable" invisible="1"/>
-                <field name="is_decancellable" invisible="1"/>
+                <field name="is_cancellable" column_invisible="1"/>
+                <field name="is_decancellable" column_invisible="1"/>
                 <button
                     name="action_cancel_pending_line"
                     icon="fa-ban"
