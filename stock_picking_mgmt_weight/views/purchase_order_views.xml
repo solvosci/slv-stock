@@ -213,11 +213,15 @@
                 />
             </field>
             <field name="invoice_status" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="column_invisible">1</attribute>
             </field>
             <field name="invoice_status" position="after">
                 <field
                     name="invoice_status_ext"
+                    widget="badge"
+                    decoration-success="invoice_status_ext == 'invoiced'"
+                    decoration-warning="invoice_status_ext == 'to invoice classif'"
+                    decoration-info="invoice_status_ext == 'to invoice'"
                     optional="show"
                 />
             </field>
