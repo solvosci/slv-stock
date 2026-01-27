@@ -271,13 +271,10 @@ class LogisticsSchedule(models.Model):
     def action_logistics_schedule_form_view(self):
         # action = self.env.ref('logistics_planning_base.action_logistics_schedule_form')
         # action_logistics_schedule_input
-        action = self.env.ref(
-            "logistics_planning_base.action_logistics_schedule_%s_form"
-            % self.env.context.get("default_type", self.type)
-        )
-        result = action.read()[0]
-        result["res_id"] = self.id
-        return result
+        xmlid = "logistics_planning_base.action_logistics_schedule_%s_form" % self.env.context.get("default_type", self.type)
+        action = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
+        action["res_id"] = self.id
+        return action
 
     def action_logistics_schedule_draft(self):
         self.browse(self.env.context.get("active_ids", []))._action_draft()

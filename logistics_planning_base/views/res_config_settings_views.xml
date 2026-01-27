@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="name">res.config.settings</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="Logistics Planning" string="Logistics Planning" data-key="logistics_planning_base" groups="logistics_planning_base.group_lp_manager">
-                </div>
-           </xpath>
+            <xpath expr="//form" position="inside">
+                <app string="Logistics Planning" groups="logistics_planning_base.group_lp_manager" name="logistics_planning_base">
+                    <block title="General">
+                        <setting string="Placeholder">
+                            <div class="text-muted">
+                                Future configuration
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
         </field>
     </record>
 

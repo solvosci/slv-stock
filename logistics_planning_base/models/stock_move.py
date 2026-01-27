@@ -59,7 +59,7 @@ class StockMove(models.Model):
             return super().name_get()
 
     @api.model
-    def _name_search(self, name, args=None, operator="ilike", limit=100, name_get_uid=None):
+    def _name_search(self, name, domain=None, operator="ilike", limit=None, order=None):
         """
         If we comes from logistics schedule, we add picking and product search,
         and sorted by picking
@@ -75,11 +75,9 @@ class StockMove(models.Model):
             ]
             rec = self._search(
                 expression.AND([domain, args]), limit=limit,
-                access_rights_uid=name_get_uid,
             )
             return models.lazy_name_get(
-                self.browse(rec).with_user(name_get_uid).sorted(key=lambda x: (x.picking_id.name))
+                self.browse(rec).sorted(key=lambda x: (x.picking_id.name))
             )
         else:
-            return super()._name_search(name=name, args=args, operator=operator, limit=limit, name_get_uid=name_get_uid)
-    
+            return super()._name_search(name=name, domain=domain, operator=operator, limit=limit, order=order)
