@@ -66,4 +66,4 @@ class StockMove(models.Model):
                     "There's no quantity available for lot %s,"
                     " please remove it or select another one"                    
                 ) % ml.lot_id.name)
-            ml.qty_done = available_qty
+            ml.quantity = available_qty
