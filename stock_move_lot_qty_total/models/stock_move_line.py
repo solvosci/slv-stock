@@ -26,7 +26,7 @@ class StockMoveLine(models.Model):
         for sml in sml_to_check_ids:
             available_qty = sml._get_available_quantity_complete_lot()
             if float_compare(
-                sml.qty_done,
+                sml.quantity,
                 available_qty,
                 precision_rounding=sml.product_id.uom_id.rounding or 0.001
             ) != 0:
@@ -36,7 +36,7 @@ class StockMoveLine(models.Model):
                 ) % (
                     sml.product_id.display_name,
                     sml.lot_id.name,
-                    sml.qty_done,
+                    sml.quantity,
                     available_qty,
                 ))
         super()._action_done()
