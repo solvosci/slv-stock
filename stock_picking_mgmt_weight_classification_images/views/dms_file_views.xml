@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_dms_file_weight_form_inherit" model="ir.ui.view">
         <field name="name">dms.file.form (Weight Classification Images)</field>

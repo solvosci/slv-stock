@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_stock_move_weight_wizard_form_weight" model="ir.ui.view">
         <field name="name">stock.move.weight.wizard.form</field>

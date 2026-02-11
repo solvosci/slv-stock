@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-27 09:16+0000\n"
-"PO-Revision-Date: 2023-01-27 09:16+0000\n"
+"POT-Creation-Date: 2026-02-11 08:33+0000\n"
+"PO-Revision-Date: 2026-02-11 08:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_move_weight_wizard__dms_file_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_picking__dms_file_ids
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_stock_picking_classification__dms_file_ids
-#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.res_config_settings_scale_view_form
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.res_config_settings_classification_images_view_form
 #: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.view_stock_move_weight_wizard_form_weight
 msgid "Classification Images"
 msgstr ""
@@ -57,22 +57,36 @@ msgstr ""
 #. module: stock_picking_mgmt_weight_classification_images
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_company__picking_operations_imagen_max_resolution
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_config_settings__picking_operations_imagen_max_resolution
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.res_config_settings_classification_images_view_form
 msgid "Max resolution (Px)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight_classification_images
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_company__picking_operations_imagen_quality
 #: model:ir.model.fields,field_description:stock_picking_mgmt_weight_classification_images.field_res_config_settings__picking_operations_imagen_quality
+#: model_terms:ir.ui.view,arch_db:stock_picking_mgmt_weight_classification_images.res_config_settings_classification_images_view_form
 msgid "Quatily (1 - 100)"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_move_weight_wizard
+msgid "Stock Move Weight Wizard"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight_classification_images
+#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_picking_classification
+msgid "Stock Picking Classification"
+msgstr ""
+
+#. module: stock_picking_mgmt_weight_classification_images
+#. odoo-python
 #: code:addons/stock_picking_mgmt_weight_classification_images/wizards/move_weight.py:0
 #, python-format
 msgid "The file is not an image"
 msgstr ""
 
 #. module: stock_picking_mgmt_weight_classification_images
+#. odoo-python
 #: code:addons/stock_picking_mgmt_weight_classification_images/wizards/move_weight.py:0
 #, python-format
 msgid "The image must be in jpg or jpeg format."
@@ -81,14 +95,4 @@ msgstr ""
 #. module: stock_picking_mgmt_weight_classification_images
 #: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_picking
 msgid "Transfer"
-msgstr ""
-
-#. module: stock_picking_mgmt_weight_classification_images
-#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_move_weight_wizard
-msgid "stock.move.weight.wizard"
-msgstr ""
-
-#. module: stock_picking_mgmt_weight_classification_images
-#: model:ir.model,name:stock_picking_mgmt_weight_classification_images.model_stock_picking_classification
-msgid "stock.picking.classification"
 msgstr ""
