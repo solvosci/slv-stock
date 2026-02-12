@@ -4,12 +4,12 @@
 from odoo import api, models, fields
 from datetime import timedelta
 
-class ReportStockProductionLotDate(models.TransientModel):
-    _name = 'report.stock.production.lot.date'
-    _description = 'Stock Production Lot Date Report'
+class ReportStockLotDate(models.TransientModel):
+    _name = 'report.stock.lot.date'
+    _description = 'Stock Lot Date Report'
     _order = 'lot_id'
 
-    lot_id = fields.Many2one(comodel_name='stock.production.lot')
+    lot_id = fields.Many2one(comodel_name='stock.lot')
     product_id = fields.Many2one(comodel_name='product.product')
     qty = fields.Float(digits='Product Unit of Measure')
     uom_id = fields.Many2one(comodel_name='uom.uom', string='Unit of Measure')
@@ -47,13 +47,13 @@ class ReportStockProductionLotDate(models.TransientModel):
                 sml.company_id,
                 SUM(
                     CASE
-                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
+                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.quantity
                         ELSE 0
                     END
                 ) -
                 SUM(
                     CASE
-                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
+                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.quantity
                         ELSE 0
                     END
                 ) AS net_qty
@@ -61,7 +61,7 @@ class ReportStockProductionLotDate(models.TransientModel):
             JOIN stock_move sm ON sm.id = sml.move_id
             JOIN stock_location sl_src ON sl_src.id = sml.location_id
             JOIN stock_location sl_dest ON sl_dest.id = sml.location_dest_id
-            JOIN stock_production_lot pl ON pl.id = sml.lot_id
+            JOIN stock_lot pl ON pl.id = sml.lot_id
             JOIN product_product pp ON pp.id = sml.product_id
             JOIN product_template pt ON pt.id = pp.product_tmpl_id
             WHERE {where_clause}
@@ -69,13 +69,13 @@ class ReportStockProductionLotDate(models.TransientModel):
             HAVING ABS(
                 SUM(
                     CASE
-                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
+                        WHEN sl_src.usage IN ('customer', 'production', 'inventory') THEN sml.quantity
                         ELSE 0
                     END
                 ) -
                 SUM(
                     CASE
-                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.qty_done
+                        WHEN sl_dest.usage IN ('customer', 'production', 'inventory') THEN sml.quantity
                         ELSE 0
                     END
                 )

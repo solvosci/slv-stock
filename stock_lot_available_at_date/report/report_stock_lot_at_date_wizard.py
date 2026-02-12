@@ -4,9 +4,9 @@
 from odoo import _, fields, models, tools
 
 
-class ReportStockProductionLotAtDateWizard(models.TransientModel):
-    _name = "report.stock.production.lot.date.wizard"
-    _description = "Stock Production Lot At Date Wizard"
+class ReportStockLotAtDateWizard(models.TransientModel):
+    _name = "report.stock.lot.date.wizard"
+    _description = "Stock Lot At Date Wizard"
 
     name = fields.Char(compute='_compute_name')
     date = fields.Date()
@@ -20,11 +20,11 @@ class ReportStockProductionLotAtDateWizard(models.TransientModel):
             record.name = _('%s') % (record.date)
 
     def open_lot_at_date_report(self):
-        res = self.env["report.stock.production.lot.date"]._from_data_create(self.date, self.product_id)
+        res = self.env["report.stock.lot.date"]._from_data_create(self.date, self.product_id)
 
         action = {
-            "name": _("Stock Production Lots At %s") % str(self.date),
-            "res_model": "report.stock.production.lot.date",
+            "name": _("Stock Lots At %s") % str(self.date),
+            "res_model": "report.stock.lot.date",
             "view_mode": "tree",
             "target": "current",
             "type": "ir.actions.act_window",
@@ -35,10 +35,10 @@ class ReportStockProductionLotAtDateWizard(models.TransientModel):
         if not self.product_id:
             action["context"]["search_default_group_by_product_id"] = True
         else:
-            action["name"] = _("Stock Production Lots %s At %s") % (self.product_id.name, str(self.date))
+            action["name"] = _("Stock Lots %s At %s") % (self.product_id.name, str(self.date))
             action["views"] = [
                 [
-                    self.env.ref("stock_production_lot_available_at_date.report_stock_production_lot_date_view_tree_without_product").id,
+                    self.env.ref("stock_lot_available_at_date.report_stock_lot_date_view_tree_without_product").id,
                     "tree",
                 ]
             ]

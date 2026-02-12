@@ -4,18 +4,18 @@
 from odoo import models, fields, _
 
 
-class StockProductionLot(models.Model):
-    _inherit = "stock.production.lot"
+class StockLot(models.Model):
+    _inherit = "stock.lot"
 
-    def open_stock_production_lot_available_at_date_wizard(self):
-        wizard = self.env["report.stock.production.lot.date.wizard"].create({
+    def open_stock_lot_available_at_date_wizard(self):
+        wizard = self.env["report.stock.lot.date.wizard"].create({
             "date": fields.Date.today()
         })
         return {
             "name": _("Lots at Date"),
             "type": "ir.actions.act_window",
             "view_mode": "form",
-            "res_model": "report.stock.production.lot.date.wizard",
+            "res_model": "report.stock.lot.date.wizard",
             "res_id": wizard.id,
             "target": "new",
         }

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="report_stock_production_lot_date_view_search" model="ir.ui.view">
-        <field name="name">report.stock.production.lot.date.search</field>
-        <field name="model">report.stock.production.lot.date</field>
+    <record id="report_stock_lot_date_view_search" model="ir.ui.view">
+        <field name="name">report.stock.lot.date.search</field>
+        <field name="model">report.stock.lot.date</field>
         <field name="arch" type="xml">
             <search>
                 <field name="lot_id" />
@@ -15,9 +14,9 @@
         </field>
     </record>
 
-    <record id="report_stock_production_lot_date_view_tree" model="ir.ui.view">
-        <field name="name">report.stock.production.lot.date.view.tree</field>
-        <field name="model">report.stock.production.lot.date</field>
+    <record id="report_stock_lot_date_view_tree" model="ir.ui.view">
+        <field name="name">report.stock.lot.date.view.tree</field>
+        <field name="model">report.stock.lot.date</field>
         <field name="arch" type="xml">
             <tree create="false">
                 <field name="product_id" widget="many2onebutton" />
@@ -29,14 +28,14 @@
         </field>
     </record>
 
-    <record id="report_stock_production_lot_date_view_tree_without_product" model="ir.ui.view">
-        <field name="name">report.stock.production.lot.date.view.tree</field>
-        <field name="model">report.stock.production.lot.date</field>
-        <field name="inherit_id" ref="stock_production_lot_available_at_date.report_stock_production_lot_date_view_tree"/>
+    <record id="report_stock_lot_date_view_tree_without_product" model="ir.ui.view">
+        <field name="name">report.stock.lot.date.view.tree</field>
+        <field name="model">report.stock.lot.date</field>
+        <field name="inherit_id" ref="stock_lot_available_at_date.report_stock_lot_date_view_tree"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_id']" position="attributes">
-                <attribute name="invisible">1</attribute>
+                <attribute name="column_invisible">1</attribute>
             </xpath>
         </field>
     </record>
