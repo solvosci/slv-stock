@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <record id="action_logistics_schedule_invoicing" model="ir.actions.act_window">
         <field name="name">Schedules Invoicing</field>
         <field name="type">ir.actions.act_window</field>

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-27 07:24+0000\n"
-"PO-Revision-Date: 2025-01-27 07:24+0000\n"
+"POT-Creation-Date: 2026-01-28 11:59+0000\n"
+"PO-Revision-Date: 2026-01-28 11:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,7 @@ msgid "Account Move Line"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.actions.server,name:logistics_planning_invoicing.action_add_existing_invoice
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
@@ -75,6 +76,7 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.actions.server,name:logistics_planning_invoicing.action_logistics_schedule_create_invoice
 #: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.logistics_schedule_view_form
@@ -99,24 +101,28 @@ msgstr ""
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_company__logistics_schedule_default_journal_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_config_settings__logistics_schedule_default_journal_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.res_config_settings_view_form
 msgid "Default Journal in Logistics Schedule"
 msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_company__ls_default_inv_i_g_product_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_config_settings__ls_default_inv_i_g_product_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.res_config_settings_view_form
 msgid "Default product in invoices for ground inputs"
 msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_company__ls_default_inv_o_g_product_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_config_settings__ls_default_inv_o_g_product_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.res_config_settings_view_form
 msgid "Default product in invoices for ground outputs"
 msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_company__ls_default_inv_i_og_product_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_res_config_settings__ls_default_inv_i_og_product_id
+#: model_terms:ir.ui.view,arch_db:logistics_planning_invoicing.res_config_settings_view_form
 msgid "Default product in invoices for ocean-going inputs"
 msgstr ""
 
@@ -135,11 +141,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__display_name
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: logistics_planning_invoicing
-#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__domain_invoice_ids
-msgid "Domain Invoice"
 msgstr ""
 
 #. module: logistics_planning_invoicing
@@ -170,6 +171,7 @@ msgid "Inco."
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule__incoterm_id
 #, python-format
@@ -218,12 +220,6 @@ msgid "Is invoiceable"
 msgstr ""
 
 #. module: logistics_planning_invoicing
-#: code:addons/logistics_planning_invoicing/wizards/logistics_schedule_existing_account_move_wizard.py:0
-#, python-format
-msgid "It is necessary to configure the default journal of the logistics planning"
-msgstr ""
-
-#. module: logistics_planning_invoicing
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__journal_id
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__journal_id
 msgid "Journal"
@@ -231,18 +227,12 @@ msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model,name:logistics_planning_invoicing.model_account_move
-msgid "Journal Entries"
+msgid "Journal Entry"
 msgstr ""
 
 #. module: logistics_planning_invoicing
 #: model:ir.model,name:logistics_planning_invoicing.model_account_move_line
 msgid "Journal Item"
-msgstr ""
-
-#. module: logistics_planning_invoicing
-#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard____last_update
-#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: logistics_planning_invoicing
@@ -264,8 +254,10 @@ msgid "Logistic Schedule"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_bank_statement_line__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move_line__logistics_schedule_id
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_payment__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_account_move_wizard__logistics_schedule_ids
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_logistics_schedule_existing_account_move_wizard__logistics_schedule_ids
 msgid "Logistics Schedule"
@@ -277,7 +269,9 @@ msgid "Logistics Schedule Add to Existing Invoice wizard"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_bank_statement_line__logistics_schedule_count
 #: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_move__logistics_schedule_count
+#: model:ir.model.fields,field_description:logistics_planning_invoicing.field_account_payment__logistics_schedule_count
 msgid "Logistics Schedule Count"
 msgstr ""
 
@@ -287,6 +281,7 @@ msgid "Logistics Schedule Create Invoice wizard"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "No invoiceable schedules were selected."
@@ -314,23 +309,21 @@ msgid "Schedules Invoicing"
 msgstr ""
 
 #. module: logistics_planning_invoicing
-#: model:ir.model.fields,help:logistics_planning_invoicing.field_logistics_schedule__account_move_id
-msgid "The move of this entry line."
-msgstr ""
-
-#. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are %d schedule(s) already invoiced, please first unselect them"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are at least one schedule already invoiced."
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
@@ -338,6 +331,7 @@ msgid "There are at least one schedule unmarked as finished"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
@@ -345,12 +339,14 @@ msgid "There are at least one schedule with quantity unset"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are at least one schedule without carrier selected"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
@@ -358,6 +354,7 @@ msgid "There are at least one schedule without stock move selected"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "There are different carriers on the selected schedules or there is no carrier."
@@ -374,12 +371,14 @@ msgid "Type"
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "You cannot select multiple schedules with different carriers."
 msgstr ""
 
 #. module: logistics_planning_invoicing
+#. odoo-python
 #: code:addons/logistics_planning_invoicing/models/logistics_schedule.py:0
 #, python-format
 msgid "You need invoice user access to perform this action."
