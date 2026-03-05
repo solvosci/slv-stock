@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_move_line_unrestricted_location_dest)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="location_dest_id" position="before">
+                <field name="warehouse_view_location_dest_id" invisible="1"/>
+                <field name="warehouse_view_location_src_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
