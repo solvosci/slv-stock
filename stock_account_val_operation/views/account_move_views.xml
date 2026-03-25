@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_move_line_tree" model="ir.ui.view">
+        <field name="name">account.move.line.tree (in stock_account_val_operation)</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                <field name="val_operation" optional="show"/>
+                <field name="val_operation_origin" optional="show"/>
+                <field name="val_operation_origin_invisible" attrs="{'column_invisible': True}"/>
+                <button name="action_val_operation_origin" type="object" attrs="{'invisible': [('val_operation_origin_invisible', '=', True)]}" icon="fa-external-link"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_tree_grouped" model="ir.ui.view">
+        <field name="name">account.move.line.tree.grouped (in stock_account_val_operation)</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                <field name="val_operation" optional="show"/>
+                <field name="val_operation_origin" optional="show"/>
+                <field name="val_operation_origin_invisible" attrs="{'column_invisible': True}"/>
+                <button name="action_val_operation_origin" type="object" attrs="{'invisible': [('val_operation_origin_invisible', '=', True)]}" icon="fa-external-link"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">account.move.line.search (in stock_account_val_operation)</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                <field name="val_operation"/>
+                <field name="val_operation_origin"/>
+            </xpath>
+            <xpath expr="//filter[@name='journal']" position="after">
+                <filter string="Operation" name="group_by_val_operation" domain="[]" context="{'group_by': 'val_operation'}" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_move_line_form" model="ir.ui.view">
+        <field name="name">account.move.line.form (in stock_account_val_operation)</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="val_operation" attrs="{'invisible': [('val_operation', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
