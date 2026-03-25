@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_account_val_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-13 09:25+0000\n"
+"PO-Revision-Date: 2026-04-13 09:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__in_return
+msgid "In Return"
+msgstr "Devolución de entrada"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__incoming
+msgid "Incoming"
+msgstr "Entrada"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__inv_adjust
+msgid "Inventory Adjustment"
+msgstr "Ajuste de inventario"
+
+#. module: stock_account_val_operation
+#: model:ir.model,name:stock_account_val_operation.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: stock_account_val_operation
+#: model_terms:ir.ui.view,arch_db:stock_account_val_operation.view_account_move_line_filter
+msgid "Operation"
+msgstr "Operación"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__out_return
+msgid "Out Return"
+msgstr "Devolución de salida"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__outgoing
+msgid "Outgoing"
+msgstr "Salida"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__price_update
+msgid "Price Update"
+msgstr "Actualización de precio"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields.selection,name:stock_account_val_operation.selection__account_move_line__val_operation__scrap
+msgid "Scrap"
+msgstr "Desecho"
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields,field_description:stock_account_val_operation.field_account_move_line__val_operation
+msgid "Val Operation"
+msgstr "Operación val."
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields,field_description:stock_account_val_operation.field_account_move_line__val_operation_origin
+msgid "Val Operation Origin"
+msgstr "Origen op. val."
+
+#. module: stock_account_val_operation
+#: model:ir.model.fields,field_description:stock_account_val_operation.field_account_move_line__val_operation_origin_invisible
+msgid "Val Operation Origin Invisible"
+msgstr ""
+
+#. module: stock_account_val_operation
+#: code:addons/stock_account_val_operation/models/account_move.py:0
+#, python-format
+msgid "Valuation Operation Origin"
+msgstr "Origen de la operación de valoración"
