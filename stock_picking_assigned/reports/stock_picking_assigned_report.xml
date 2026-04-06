@@ -5,8 +5,8 @@
         <field name="name">Distribution Sheets Ticket</field>
         <field name="default" eval="True" />
         <field name="format">custom</field>
-        <field name="page_height">10</field>
-        <field name="page_width">60</field>
+        <field name="page_height">52</field>
+        <field name="page_width">78</field>
         <field name="orientation">Portrait</field>
         <field name="margin_top">0</field>
         <field name="margin_bottom">0</field>

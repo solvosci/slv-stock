@@ -20,13 +20,20 @@ class StockPickingAssignHistory(models.Model):
     def _compute_name(self):
         for record in self:
             record.name = '%s - %s' % (record.date, record.product_id.name)
-    
+
     def _compute_partner_id(self):
         for record in self:
             if record.lot_id.purchase_order_ids:
                 record.partner_id = record.lot_id.purchase_order_ids[0].partner_id
             else:
                 record.partner_id = False
+
+    def print_distribution_sheets_ticket(self):
+        self.ensure_one()
+        paper_format = self.env.ref("stock_picking_assigned.distribution_sheets_ticket")
+        items = self.line_ids
+        paper_format.page_height = 48 + (len(items) * 5)
+        return self.env.ref("stock_picking_assigned.action_distribution_sheets_ticket_pdf").report_action(self)
 
 
 class StockPickingAssignHistoryLine(models.Model):
