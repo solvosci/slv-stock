@@ -6,6 +6,9 @@
         <field name="model">stock.picking.assign.history</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="print_distribution_sheets_ticket" type="object" string="Print Distribution Sheets Ticket" class="btn-primary" />
+                </header>
                 <sheet>
                     <group>
                         <group>
