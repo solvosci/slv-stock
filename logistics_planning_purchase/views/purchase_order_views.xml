@@ -76,6 +76,14 @@
                     name="logistics_price_unit" widget="monetary"
                     attrs="{'invisible': [('logistics_schedule_skip', '=', True)]}"
                 />
+                <field
+                    name="logistics_schedule_init"
+                    attrs="{'invisible': [
+                        '|',
+                        ('logistics_schedule_skip', '=', True),
+                        ('state', 'in', ['purchase', 'done', 'cancel']),
+                    ]}"
+                />
             </xpath>
             <xpath
                 expr="//field[@name='order_line']/tree/field[@name='taxes_id']"
