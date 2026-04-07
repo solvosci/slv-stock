@@ -154,7 +154,12 @@ class StockMove(models.Model):
                 )
                 # We're in a single picking, so first move is enough
                 #  for getting this information
-                out_date = out_moves[0].origin_returned_move_id.date
+                # Custom date, if filled, is mandatory anyway
+                out_date = (
+                    pick.has_val_cust_ret_date
+                    and pick.val_cust_ret_date
+                    or out_moves[0].origin_returned_move_id.date
+                )
                 out_moves = out_moves.with_context(
                     stock_move_custom_date=out_date
                 )
