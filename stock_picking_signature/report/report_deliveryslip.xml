@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template
+        id="report_delivery_document"
+        inherit_id="stock.report_delivery_document"
+        priority="999"
+    >
+        <xpath expr="//div[@class='page']/p[last()]" position="after">
+            <div t-if="not o.picking_signature" class="oe_structure" />
+            <div t-else="" class="mt32 ml64 mr4" name="signature">
+                <div class="offset-8">
+                    <strong>Signature</strong>
+                </div>
+                <div class="offset-8">
+                    <img
+                        class="image"
+                        t-att-src="'data:image/png;base64,%s' % to_text(o.picking_signature)"
+                        style="max-height: 4cm; max-width: 8cm;"
+                    />
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
