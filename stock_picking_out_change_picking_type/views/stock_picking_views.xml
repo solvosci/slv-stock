@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_picking_out_change_picking_type)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <field name="change_picking_type_enabled" invisible="1" />
+                <button
+                    name="%(action_stock_picking_change_picking_type)d"
+                    type="action"
+                    string="Change Picking Operation"
+                    groups="stock.group_stock_manager"
+                    attrs="{'invisible': [('change_picking_type_enabled', '=', False)]}"
+                >
+                </button>
+            </header>        
+        </field>
+    </record>
+</odoo>
