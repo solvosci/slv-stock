@@ -37,6 +37,16 @@
             </xpath>
             <xpath expr="//field[@name='uom_id']" position="after">
                 <field name="unit_cost" />
+                <field name="orig_currency_id" invisible="1" />
+                <field
+                    name="orig_currency_unit_cost"
+                    widget="monetary"
+                    optional="hide"
+                    attrs="{
+                        'invisible': [('orig_currency_id', '=', False)],
+                    }"
+                    string="In Currency"
+                />
             </xpath>
             <xpath expr="//field[@name='value']" position="after">
                 <field name="average_price" groups="base.group_no_one" />
@@ -72,6 +82,14 @@
                 <field name="document_origin" />
                 <field name="move_reference" />
             </xpath>
+            <xpath expr="//filter[@name='inactive']" position="before">
+                <filter
+                    string="Original in other currency"
+                    name="with_orig_currency"
+                    domain="[('orig_currency_id','!=', False)]"
+                />
+                <separator/>
+            </xpath>
             <xpath expr="//filter[@name='group_by_product_id']" position="after">
                 <filter string="Warehouse" name="group_by_warehouse_id" context="{'group_by': 'warehouse_id'}"/>
                 <filter string="Type" name="group_by_origin_type" context="{'group_by': 'origin_type'}"/>
@@ -87,6 +105,17 @@
             <xpath expr="//field[@name='stock_move_id']" position="after">
                 <field name="create_date_valuation" />
                 <field name="warehouse_valuation" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='unit_cost']" position="after">
+                <field name="orig_currency_id" invisible="1" />
+                <field
+                    name="orig_currency_unit_cost"
+                    widget="monetary"
+                    attrs="{
+                        'invisible': [('orig_currency_id', '=', False)],
+                    }"
+                    string="In Currency"
+                />
             </xpath>
             <xpath expr="//notebook/page[1]" position="after">
                 <page
