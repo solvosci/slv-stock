@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+stock_product_label.access_product_label_lot_wizard,access_product_label_lot_wizard,stock_product_label.model_product_label_lot_wizard,,1,1,1,1
+stock_product_label.access_product_label_template_manager,access_product_label_template,stock_product_label.model_product_label_template,stock.group_stock_manager,1,1,1,1
+stock_product_label.access_product_label_template_user,access_product_label_template,stock_product_label.model_product_label_template,stock.group_stock_user,1,0,0,0

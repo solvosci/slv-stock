@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_label_product" model="report.paperformat">
+        <field name="name">Product Label</field>
+        <field name="default" eval="True" />
+        <field name="format">custom</field>
+        <field name="page_height">51</field>
+        <field name="page_width">25</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+    </record>
+
+    <!-- Productos/Variantes -->
+    <record id="product_label_with_lot_report" model="ir.actions.report">
+        <field name="name">Product Label With Lot/SN</field>
+        <field name="model">product.label.lot.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_product_label.product_label_with_lot</field>
+        <field name="report_file">stock_product_label.product_label_with_lot</field>
+        <field name="paperformat_id" ref="stock_product_label.paperformat_label_product"/>
+        <field name="print_report_name">'Product Label - %s' % (object.product_id.name)</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <record id="product_template_label_wo_lot_report" model="ir.actions.report">
+        <field name="name">Product Label Without Lot/SN</field>
+        <field name="model">product.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_product_label.product_template_label_wo_lot</field>
+        <field name="report_file">stock_product_label.product_template_label_wo_lot</field>
+        <field name="paperformat_id" ref="stock_product_label.paperformat_label_product"/>
+        <field name="print_report_name">'Product Label - %s' % (object.name)</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <!-- Variantes -->
+    <record id="product_product_label_wo_lot_report" model="ir.actions.report">
+        <field name="name">Product Product Label Without Lot/SN</field>
+        <field name="model">product.product</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_product_label.product_product_label_wo_lot</field>
+        <field name="report_file">stock_product_label.product_product_label_wo_lot</field>
+        <field name="paperformat_id" ref="stock_product_label.paperformat_label_product"/>
+        <field name="print_report_name">'Product Label - %s' % (object.name)</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <!-- Albaran -->
+    <record id="stock_picking_label_report" model="ir.actions.report">
+        <field name="name">Stock Picking Label</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_product_label.stock_picking_label</field>
+        <field name="report_file">stock_product_label.stock_picking_label</field>
+        <field name="paperformat_id" ref="stock_product_label.paperformat_label_product"/>
+        <field name="print_report_name">'Product Label - %s' % (object.name)</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <!-- Informe de inventario -->
+    <record id="stock_quant_label_report" model="ir.actions.report">
+        <field name="name">Stock Quant Label</field>
+        <field name="model">stock.quant</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stock_product_label.stock_quant_label</field>
+        <field name="report_file">stock_product_label.stock_quant_label</field>
+        <field name="paperformat_id" ref="stock_product_label.paperformat_label_product"/>
+        <field name="print_report_name">'Product Label'</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+</odoo>
