@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_product_label_form" model="ir.actions.act_window">
+        <field name="name">Product Label Template</field>
+        <field name="res_model">product.label.template</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="action_product_label_form" id="menu_action_product_label"
+        parent="stock.menu_product_in_config_stock" sequence="2" />
+
+    <record id="view_product_label_tree" model="ir.ui.view">
+        <field name="name">product.label.template.tree (stock_product_label)</field>
+        <field name="model">product.label.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="qweb_template"/>
+                <field name="active" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_label_form" model="ir.ui.view">
+        <field name="name">product.label.template.form (stock_product_label)</field>
+        <field name="model">product.label.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="qweb_template" domain="[('type','=','qweb')]"/>
+                        <field name="active" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

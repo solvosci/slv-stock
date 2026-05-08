@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- test cliente -->
+    <template id="label_generic_layout">
+        <div class="page" style="page-break-after: always;">
+            <div style="display:inline-block; width:50%; font-size:13px; margin-top:5px; word-wrap:break-word;vertical-align:top;">
+                <div name="barcode" t-if="barcode">
+                    <span>Ref:</span>
+                    <strong><span t-out="barcode"/></strong>
+                </div>
+                <div name="lot" t-if="lot">
+                    <span>Lot/SN:</span>
+                    <strong><span t-out="lot.name"/></strong>
+                </div>
+            </div>
+            <div style="display:inline-block; width:45%; margin-top:10px;vertical-align:top; margin-left: 5px;" name="qr">
+                <img
+                    t-att-src="'data:image/png;base64,%s' % o.mh10_data_encoded.decode()"
+                    style="width:90px; height:90px;"/>
+            </div>
+        </div>
+    </template>
+
+    <!-- entorno local -->
+    <!-- <template id="label_generic_layout">
+        <div class="page" style="page-break-after: always;">
+            <div style="display:flex; width:40%;">
+                <div style="width:60%; font-size: 20px">
+                    <div name="barcode" t-if="barcode">
+                        <span>Ref:</span>
+                        <strong><span t-out="barcode"/></strong>
+                    </div>
+                    <div name="lot" t-if="lot">
+                        <span>Lot/SN:</span>
+                        <strong><span t-out="lot.name"/></strong>
+                    </div>
+                </div>
+                <div style="text-align:center; width:50%;" name="qr">
+                    <div>
+                        <img
+                            t-att-src="'data:image/png;base64,%s' % o.mh10_data_encoded.decode()"
+                            style="margin-top: 20px; width: 150px; height: 150px;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template> -->
+
+    <template id="dynamic_label_renderer">
+        <t t-set="template_xmlid"
+            t-value="product.get_label_template_xml_id()"/>
+
+        <t t-call="{{ template_xmlid }}"/>
+    </template>
+
+    <template id="product_template_label_wo_lot">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="product" t-value="o"/>
+                <t t-set="barcode" t-value="o.barcode"/>
+                <t t-set="lot" t-value="False"/>
+
+                <t t-call="stock_product_label.dynamic_label_renderer"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="product_product_label_wo_lot">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="product" t-value="o"/>
+                <t t-set="barcode" t-value="o.barcode"/>
+                <t t-set="lot" t-value="False"/>
+
+                <t t-call="stock_product_label.dynamic_label_renderer"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="product_label_with_lot">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="product" t-value="o.product_id"/>
+                <t t-set="barcode" t-value="o.product_id.barcode"/>
+                <t t-set="lot" t-value="o.lot_id"/>
+
+                <t t-call="stock_product_label.dynamic_label_renderer"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="stock_picking_label">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="picking">
+
+                <t t-foreach="picking.move_ids_without_package" t-as="move">
+                    <t t-set="product" t-value="move.product_id"/>
+                    <t t-set="barcode" t-value="move.product_id.barcode"/>
+
+                    <!-- si un producto lo piden con varios lotes sale un ticket por cada lote -->
+                    <t t-if="move.move_line_ids.filtered(lambda l: l.lot_id)">
+                        <t t-foreach="move.move_line_ids.filtered(lambda l: l.lot_id)" t-as="line">
+                            <t t-set="o" t-value="line"/>
+                            <t t-set="lot" t-value="line.lot_id"/>
+                            <t t-call="stock_product_label.dynamic_label_renderer"/>
+                        </t>
+                    </t>
+
+                    <t t-else="">
+                        <t t-set="o" t-value="move"/>
+                        <t t-set="lot" t-value="False"/>
+                        <t t-call="stock_product_label.dynamic_label_renderer"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="stock_quant_label">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="product" t-value="o.product_id"/>
+                <t t-set="barcode" t-value="o.product_id.barcode"/>
+                <t t-set="lot" t-value="o.lot_id"/>
+
+                <t t-call="stock_product_label.dynamic_label_renderer"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>
