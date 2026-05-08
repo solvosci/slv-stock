@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="label_generic_layout_manufacturer_pref" inherit_id="stock_product_label.label_generic_layout">
+        <xpath expr="//div[@name='lot']" position="after">
+            <div name="manufacturer_pref">
+                <span>P/N:</span>
+                <strong><span t-out="product.manufacturer_pref"/></strong>
+            </div>
+        </xpath>
+    </template>
+</odoo>
