@@ -202,7 +202,7 @@ class StockPickingAssignedWizard(models.TransientModel):
 
     def button_assigned_and_print(self):
         assign_history_id = self.assign()
-        return self.env.ref('stock_picking_assigned.action_distribution_sheets_pdf').report_action(assign_history_id.id)
+        return assign_history_id.print_distribution_sheets_ticket()
 
     def button_variable_weight_assigned(self):
         for line in self.line_variable_ids.filtered(lambda x: x.qty_variable_total):

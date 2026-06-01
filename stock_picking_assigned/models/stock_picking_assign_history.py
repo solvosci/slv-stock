@@ -32,7 +32,7 @@ class StockPickingAssignHistory(models.Model):
         self.ensure_one()
         paper_format = self.env.ref("stock_picking_assigned.distribution_sheets_ticket")
         items = self.line_ids
-        paper_format.page_height = 48 + (len(items) * 5)
+        paper_format.page_height = 48 + (len(items) * 8)
         return self.env.ref("stock_picking_assigned.action_distribution_sheets_ticket_pdf").report_action(self)
 
 
