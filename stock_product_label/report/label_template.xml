@@ -4,9 +4,9 @@
     <!-- test cliente -->
     <template id="label_generic_layout">
         <div class="page" style="page-break-after: always;">
-            <div style="display:inline-block; width:50%; font-size:13px; margin-top:5px; word-wrap:break-word;vertical-align:top;">
+            <div style="display:inline-block; width:53%; font-size:13px; margin-top:5px; word-wrap:break-word;vertical-align:top;">
                 <div name="barcode" t-if="barcode">
-                    <span>Ref:</span>
+                    <!-- <span>Ref:</span> -->
                     <strong><span t-out="barcode"/></strong>
                 </div>
                 <div name="lot" t-if="lot">
@@ -14,10 +14,8 @@
                     <strong><span t-out="lot.name"/></strong>
                 </div>
             </div>
-            <div style="display:inline-block; width:45%; margin-top:10px;vertical-align:top; margin-left: 5px;" name="qr">
-                <img
-                    t-att-src="'data:image/png;base64,%s' % o.mh10_data_encoded.decode()"
-                    style="width:90px; height:90px;"/>
+            <div style="display:inline-block; width:42%; margin-top:10px;vertical-align:top; margin-left: 5px;" name="qr">
+                <img t-att-src="'data:image/png;base64,%s' % o.mh10_data_encoded.decode()" style="width:80px; height:80px;"/>
             </div>
         </div>
     </template>
@@ -94,7 +92,7 @@
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="picking">
 
-                <t t-foreach="picking.move_ids_without_package" t-as="move">
+                <t t-foreach="picking.move_ids_without_package.filtered(lambda x: x.state == 'done')" t-as="move">
                     <t t-set="product" t-value="move.product_id"/>
                     <t t-set="barcode" t-value="move.product_id.barcode"/>
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-01 11:38+0000\n"
-"PO-Revision-Date: 2026-06-01 11:38+0000\n"
+"POT-Creation-Date: 2026-06-02 11:52+0000\n"
+"PO-Revision-Date: 2026-06-02 11:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,7 @@ msgstr "'Etiqueta de producto'"
 #. module: stock_product_label
 #: model_terms:ir.ui.view,arch_db:stock_product_label.label_generic_layout
 msgid "<span>Lot/SN:</span>"
-msgstr "<span>Lot/SN:</span>"
-
-#. module: stock_product_label
-#: model_terms:ir.ui.view,arch_db:stock_product_label.label_generic_layout
-msgid "<span>Ref:</span>"
-msgstr "<span>Ref:</span>"
+msgstr "<span>Lote/SN:</span>"
 
 #. module: stock_product_label
 #: model:ir.model.fields,field_description:stock_product_label.field_product_label_template__active
@@ -70,31 +65,24 @@ msgstr ""
 #, python-format
 msgid ""
 "Error, if the product has more than one variant, print from variants product"
-msgstr "Error, si el producto tiene mas de una variante, imprimir desde las variantes"
+msgstr ""
+"Error, si el producto tiene mas de una variante, imprimir desde las "
+"variantes"
 
 #. module: stock_product_label
 #: code:addons/stock_product_label/models/stock_picking.py:0
-#, python-format
-msgid "'Error, the product %s must have to a barcode' % (line.product_id.name)"
-msgstr "'Error, el producto %s debe tener un codigo de barras' % (line.product_id.name)"
-
 #: code:addons/stock_product_label/models/stock_quant.py:0
 #, python-format
-msgid "Error, the product %s must have to a barcode"
-msgstr "Error, el producto %s debe tener un codigo de barras"
-
-#. module: stock_product_label
-#: code:addons/stock_product_label/models/product_template.py:0
-#: code:addons/stock_product_label/wizard/product_label_wizard.py:0
-#, python-format
-msgid "Error, the product must have to a barcode"
-msgstr "Error, el producto debe tener un codigo de barras"
+msgid "Error, the product %s must have a barcode"
+msgstr "Error, el producto %s debe tener un código de barras"
 
 #. module: stock_product_label
 #: code:addons/stock_product_label/models/product_product.py:0
+#: code:addons/stock_product_label/models/product_template.py:0
+#: code:addons/stock_product_label/wizard/product_label_wizard.py:0
 #, python-format
-msgid "Error, the product must to have a barcode"
-msgstr "Error, el producto debe tener un codigo de barras"
+msgid "Error, the product must have a barcode"
+msgstr "Error, el producto debe tener un código de barras"
 
 #. module: stock_product_label
 #: model:ir.model.fields,field_description:stock_product_label.field_product_label_lot_wizard__id

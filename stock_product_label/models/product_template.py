@@ -13,7 +13,7 @@ class ProductTemplate(models.Model):
         if len(self.product_variant_ids) > 1:
             raise UserError(_("Error, if the product has more than one variant, print from variants product"))
         if not self.barcode:
-            raise UserError(_("Error, the product must have to a barcode"))
+            raise UserError(_("Error, the product must have a barcode"))
         if self.tracking != 'none':
             return {
                 'type': 'ir.actions.act_window',

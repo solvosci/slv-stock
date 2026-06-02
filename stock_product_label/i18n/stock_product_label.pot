@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-01 11:38+0000\n"
-"PO-Revision-Date: 2026-06-01 11:38+0000\n"
+"POT-Creation-Date: 2026-06-02 11:52+0000\n"
+"PO-Revision-Date: 2026-06-02 11:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,11 +35,6 @@ msgstr ""
 #. module: stock_product_label
 #: model_terms:ir.ui.view,arch_db:stock_product_label.label_generic_layout
 msgid "<span>Lot/SN:</span>"
-msgstr ""
-
-#. module: stock_product_label
-#: model_terms:ir.ui.view,arch_db:stock_product_label.label_generic_layout
-msgid "<span>Ref:</span>"
 msgstr ""
 
 #. module: stock_product_label
@@ -74,28 +69,17 @@ msgstr ""
 
 #. module: stock_product_label
 #: code:addons/stock_product_label/models/stock_picking.py:0
-#, python-format
-msgid "'Error, the product %s must have to a barcode' % (line.product_id.name)"
-msgstr ""
-
-#. module: stock_product_label
-#: code:addons/stock_product_label/models/stock_picking.py:0
 #: code:addons/stock_product_label/models/stock_quant.py:0
 #, python-format
-msgid "Error, the product %s must have to a barcode"
-msgstr ""
-
-#. module: stock_product_label
-#: code:addons/stock_product_label/models/product_template.py:0
-#: code:addons/stock_product_label/wizard/product_label_wizard.py:0
-#, python-format
-msgid "Error, the product must have to a barcode"
+msgid "Error, the product %s must have a barcode"
 msgstr ""
 
 #. module: stock_product_label
 #: code:addons/stock_product_label/models/product_product.py:0
+#: code:addons/stock_product_label/models/product_template.py:0
+#: code:addons/stock_product_label/wizard/product_label_wizard.py:0
 #, python-format
-msgid "Error, the product must to have a barcode"
+msgid "Error, the product must have a barcode"
 msgstr ""
 
 #. module: stock_product_label

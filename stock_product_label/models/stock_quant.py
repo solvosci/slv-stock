@@ -11,5 +11,5 @@ class StockQuant(models.Model):
 
     def action_open_label_qr(self):
         for record in self.filtered(lambda x: not x.product_id.barcode):
-            raise UserError(_("Error, the product %s must have to a barcode") % (record.product_id.name))
+            raise UserError(_("Error, the product %s must have a barcode") % (record.product_id.name))
         return self.env.ref('stock_product_label.stock_quant_label_report').report_action(self)
