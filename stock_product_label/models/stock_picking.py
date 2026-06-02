@@ -11,5 +11,5 @@ class StockPicking(models.Model):
 
     def action_open_label_qr(self):
         for line in self.move_ids_without_package.filtered(lambda x: not x.product_id.barcode):
-            raise UserError(_("Error, the product %s must have to a barcode" % (line.product_id.name)))
+            raise UserError(_("Error, the product %s must have a barcode" % (line.product_id.name)))
         return self.env.ref('stock_product_label.stock_picking_label_report').report_action(self)

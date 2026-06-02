@@ -11,7 +11,7 @@ class ProductProduct(models.Model):
 
     def action_open_label_qr(self):
         if not self.barcode:
-            raise UserError(_("Error, the product must to have a barcode"))
+            raise UserError(_("Error, the product must have a barcode"))
         if self.tracking != 'none':
             return {
                 'type': 'ir.actions.act_window',

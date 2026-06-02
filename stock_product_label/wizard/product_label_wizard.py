@@ -14,5 +14,5 @@ class ProductLabelLotWizard(models.TransientModel):
 
     def print_label_by_lot(self):
         if not self.product_id.barcode:
-            raise UserError(_("Error, the product must have to a barcode"))
+            raise UserError(_("Error, the product must have a barcode"))
         return self.env.ref('stock_product_label.product_label_with_lot_report').report_action(self)
