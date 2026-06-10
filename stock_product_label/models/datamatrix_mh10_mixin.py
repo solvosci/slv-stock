@@ -4,8 +4,8 @@
 from odoo import models, fields
 import io
 import base64
-import treepoem
-
+from pylibdmtx.pylibdmtx import encode
+from PIL import Image
 
 class DatamatrixMh10Mixin(models.AbstractModel):
     _name = "datamatrix.mh10.mixin"
@@ -43,16 +43,12 @@ class DatamatrixMh10Mixin(models.AbstractModel):
             else:
                 data = header + barcode_data + lot_data + end_data
 
-            barcode_img = treepoem.generate_barcode(
-                barcode_type='datamatrix',
-                data=data,
-                options={'format': 'square', "version": "26x26"},
-            )
+            encoded = encode(data.encode('utf-8'))
+            img = Image.frombytes('RGB', (encoded.width, encoded.height), encoded.pixels)
 
             buffer = io.BytesIO()
-            barcode_img.save(buffer, format='PNG')
+            img.save(buffer, format='PNG')
             buffer.seek(0)
-
             record.mh10_data_encoded = base64.b64encode(buffer.getvalue())
 
     def get_label_template_xml_id(self):

@@ -9,11 +9,11 @@
 
         This report can be printed from the products and their variants, the delivery note, and the inventory report.
 
-        To install this addon, the dependency 'ghostscript' is required.
+        To install this addon, the python dependency 'pylibdmtx' is required.
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "15.0.1.0.1",
+    "version": "15.0.1.1.0",
     "category": "Inventory/Inventory",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": ["stock"],
@@ -30,5 +30,5 @@
         "report/label_template.xml"
     ],
     'installable': True,
-    "external_dependencies": {"python": ["treepoem"]},
+    "external_dependencies": {"python": ["pylibdmtx"]},
 }
