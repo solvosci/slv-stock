@@ -7,7 +7,43 @@ import re
 class WizStockBarcodesReadMH10(models.AbstractModel):
     _inherit = "wiz.stock.barcodes.read"
 
+    def _process_lot_generic(self, lot_name):
+        """Generic method to process the lot (avoids code duplication)"""
+        if not lot_name:
+            return False
+
+        lot_id = self.env['stock.production.lot'].search([
+            ('name', '=', lot_name),
+            ('product_id', '=', self.product_id.id)
+        ], limit=1)
+
+        if not lot_id:
+            lot_id = self.env['stock.production.lot'].create({
+                'name': lot_name,
+                'product_id': self.product_id.id
+            })
+
+        self.action_lot_scaned_post(lot_id)
+        self.write({'lot_id': lot_id.id})
+        return True
+
+    def _process_ai_9D(self, mh10_list):
+        """Process Quantity (9D)"""
+        lot_name = next((x['value'] for x in mh10_list if x['ai'] == '9D'), None)
+        return self._process_lot_generic(lot_name)
+
+    def _process_ai_10D(self, mh10_list):
+        """Process Quantity (10D)"""
+        lot_name = next((x['value'] for x in mh10_list if x['ai'] == '10D'), None)
+        return self._process_lot_generic(lot_name)
+
+    def _process_ai_1T(self, mh10_list):
+        """Process Quantity (1T)"""
+        lot_name = next((x['value'] for x in mh10_list if x['ai'] == '1T'), None)
+        return self._process_lot_generic(lot_name)
+
     def _process_ai_1P(self, mh10_list):
+        """Process Quantity (1P)"""
         product_code = next((x['value'] for x in mh10_list if x['ai']=='1P'), None)
         if not product_code:
             return False
@@ -20,22 +56,6 @@ class WizStockBarcodesReadMH10(models.AbstractModel):
         self.action_product_scaned_post(product)
         return True
 
-    def _process_ai_1T(self, mh10_list):
-        """Process Lot Code (1T)"""
-        lot_name = next((x['value'] for x in mh10_list if x['ai']=='1T'), None)
-        lot_id = self.env['stock.production.lot'].search([
-            ('name','=', lot_name),
-            ('product_id','=', self.product_id.id)
-        ], limit=1)
-        if not lot_id:
-            lot_id = self.env['stock.production.lot'].create({
-                'name': lot_name,
-                'product_id': self.product_id.id
-            })
-        self.action_lot_scaned_post(lot_id)
-        self.write({'lot_id': lot_id.id})
-        return True
-
     def _process_ai_Q(self, mh10_list):
         """Process Quantity (Q)"""
         quantity = next((x['value'] for x in mh10_list if x['ai']=='Q'), None)
@@ -45,6 +65,8 @@ class WizStockBarcodesReadMH10(models.AbstractModel):
     def _get_enabled_mh10_ai(self):
         ai_map = {
             '1P': self.option_group_id.option_ids.filtered(lambda x: x.ansi_datamatrix_mh10 == '1P' and x.to_scan),
+            '9D': self.option_group_id.option_ids.filtered(lambda x: x.ansi_datamatrix_mh10 == '1T' and x.to_scan),
+            '10D': self.option_group_id.option_ids.filtered(lambda x: x.ansi_datamatrix_mh10 == '1T' and x.to_scan),
             '1T': self.option_group_id.option_ids.filtered(lambda x: x.ansi_datamatrix_mh10 == '1T' and x.to_scan),
             'Q': self.option_group_id.option_ids.filtered(lambda x: x.ansi_datamatrix_mh10 == 'Q' and x.to_scan),
         }
@@ -62,6 +84,21 @@ class WizStockBarcodesReadMH10(models.AbstractModel):
                 match = re.search(rf'{ai}(?P<value>.*?)(?:{separator}|$)', barcode)
                 if match:
                     mh10_list.append({'ai': ai, 'value': match.group('value').strip()})
+
+            present_lot_ais = [item['ai'] for item in mh10_list if item['ai'] in ['9D', '10D', '1T']]
+
+            winning_lot_ai = None
+            if '9D' in present_lot_ais:
+                winning_lot_ai = '9D'
+            elif '10D' in present_lot_ais:
+                winning_lot_ai = '10D'
+            elif '1T' in present_lot_ais:
+                winning_lot_ai = '1T'
+
+            mh10_list = [
+                item for item in mh10_list
+                if item['ai'] not in ['9D', '10D', '1T'] or item['ai'] == winning_lot_ai
+            ]
 
             warning_msg_list = []
             self.message = False

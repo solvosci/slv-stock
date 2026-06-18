@@ -87,7 +87,7 @@ msgstr ""
 
 #. module: stock_barcodes_datamatrix_mh10
 #: model:ir.model.fields,field_description:stock_barcodes_datamatrix_mh10.field_res_config_settings__datamatrix_mh10_1T
-msgid "Lot Code (1T)"
+msgid "Lot Code (9D,10D,1T)"
 msgstr ""
 
 #. module: stock_barcodes_datamatrix_mh10
