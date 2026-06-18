@@ -10,5 +10,5 @@ class StockBarcodesOption(models.Model):
     ansi_datamatrix_mh10 = fields.Selection([
         ('Q', 'Quantity (Q)'),
         ('1P', 'Product Code (1P)'),
-        ('1T', 'Lot Code (1T)'),
+        ('1T', 'Lot Code (9D,10D,1T)'),
     ], string="ANSI MH10", help="Configure this field to enable processing of the corresponding AI in ANSI MH10 Datamatrix barcodes.")
