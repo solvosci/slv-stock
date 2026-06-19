@@ -16,15 +16,12 @@ class WizStockBarcodesReadMH10(models.AbstractModel):
             ('name', '=', lot_name),
             ('product_id', '=', self.product_id.id)
         ], limit=1)
+        if self.picking_type_code == 'incoming':
+            self.write({'lot_name': lot_name})
+        elif lot_id:
+            self.action_lot_scaned_post(lot_id)
+            self.write({'lot_id': lot_id.id})
 
-        if not lot_id:
-            lot_id = self.env['stock.production.lot'].create({
-                'name': lot_name,
-                'product_id': self.product_id.id
-            })
-
-        self.action_lot_scaned_post(lot_id)
-        self.write({'lot_id': lot_id.id})
         return True
 
     def _process_ai_9D(self, mh10_list):
