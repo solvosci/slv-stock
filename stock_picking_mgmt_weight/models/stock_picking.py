@@ -122,7 +122,7 @@ class StockPicking(models.Model):
                 picking.picking_type_code == "outgoing"
                 or (
                     picking.picking_type_code == "internal"
-                    and picking.location_id.get_warehouse() != picking.location_dest_id.get_warehouse()
+                    and picking.location_id.warehouse_id != picking.location_dest_id.warehouse_id
                 )
             )
 
