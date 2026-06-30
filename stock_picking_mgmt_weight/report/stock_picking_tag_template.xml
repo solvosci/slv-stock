@@ -92,7 +92,7 @@
     <template id="report_stock_picking_tag">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="picking">
-                <t t-foreach="picking.move_lines" t-as="doc">
+                <t t-foreach="picking.move_ids" t-as="doc">
                     <t t-call="stock_picking_mgmt_weight.label_transfer_template_view_pdf" t-lang="doc.partner_id.lang"/>
                 </t>
             </t>
