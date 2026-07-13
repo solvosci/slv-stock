@@ -20,14 +20,35 @@
         <field name="model">stock.move</field>
         <field name="inherit_id" ref="stock.view_move_kandan" />
         <field name="arch" type="xml">
-            <xpath expr="//kanban[hasclass('o_kanban_mobile')]" position="inside">
-                <field name="description_picking"/>
-             </xpath>
-            <xpath expr="//div[hasclass('o_kanban_record_body')]" position="before">
-                <div attrs="{'invisible': [('description_picking', '=', False)]}">
-                    <span> Description: <field name="description_picking"/></span><br/>
+             <xpath expr="//strong[hasclass('o_kanban_record_title')]" position="attributes">
+               <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_show_details']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_kanban_record_headings')]" position="inside">
+                <div style="background-color:#F2F2F2; border-radius: 5px; padding:5px; padding-left:10px">
+                     <strong> <field name="product_id"/> </strong>
+                    <button  name="action_show_details" string="Register lots, packs, location"
+                        class="o_icon_button fa fa-list" type="object"
+                        attrs="{'invisible': [('show_details_visible', '=', False)]}" options='{"warn": true}'/>
+                </div>  
+            </xpath>
+             <xpath expr="//div[hasclass('o_kanban_record_body')]" position="attributes">
+               <attribute name="invisible">1</attribute>
+            </xpath> 
+            <xpath expr="//div[hasclass('o_kanban_record_top')]" position="after">
+                <div attrs="{'invisible': [('quantity_done', '=', False)]}" style="padding-left:10px">
+                    <span> Initial Demand: <field name="product_uom_qty"/></span><br/>
+                    <span> Quantity: <field name="quantity_done"/></span><br/>
                 </div>
             </xpath>
+            <xpath expr="//div[hasclass('o_kanban_record_top')]" position="after">
+                <div attrs="{'invisible': [('description_picking', '=', False)]}" style="padding-left:10px">
+                   <strong> <field name="description_picking" /> </strong>
+                </div>
+            </xpath> 
         </field>
     </record>
 </odoo>
