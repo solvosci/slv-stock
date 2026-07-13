@@ -1,2 +1,3 @@
 stock-logistics-warehouse
 stock-logistics-barcode
+https://github.com/solvosci/stock-logistics-workflow 15.0-mig-stock_restrict_lot_update
