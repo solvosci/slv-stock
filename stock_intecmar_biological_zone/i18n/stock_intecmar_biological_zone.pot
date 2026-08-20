@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_intecmar_biological_zone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-02 12:52+0000\n"
+"PO-Revision-Date: 2026-09-02 12:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.ui.menu,name:stock_intecmar_biological_zone.menu_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.res_config_settings_view_form_biological_zone
+msgid "Biological Classification"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_capture_zone__biological_zone_line_ids
+msgid "Biological Classifications"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.view_biological_zone_form
+msgid "Biological Zone"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_intecmar_biological_zone
+msgid "Biological Zone (Xunta de Galicia)"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_company__biological_zone_api_url
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_config_settings__biological_zone_api_url
+msgid "Biological Zone Classification API URL"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_intecmar_biological_zone_line
+msgid "Biological Zone Line (Xunta de Galicia)"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.actions.act_window,name:stock_intecmar_biological_zone.action_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.view_biological_zone_list
+msgid "Biological Zones"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__capture_zone_id
+msgid "Capture Zone"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_intecmar_capture_zone
+msgid "Capture Zone (INTECMAR)"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__state
+msgid "Classification"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__biological_zone_id
+msgid "Classification Zone"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,help:stock_intecmar_biological_zone.field_intecmar_biological_zone__code
+msgid "Classification zone code as published by the Xunta."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,help:stock_intecmar_biological_zone.field_intecmar_biological_zone__name
+msgid "Classification zone name as published by the Xunta."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__code
+msgid "Code"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__create_uid
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__create_date
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_capture_zone__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_sync__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_company__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.res_config_settings_view_form_biological_zone
+msgid "Endpoint the biological classification sync downloads"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,help:stock_intecmar_biological_zone.field_res_config_settings__biological_zone_api_url
+msgid "Endpoint the biological classification sync downloads from."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__id
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__id
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_capture_zone__id
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_sync__id
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_company__id
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model,name:stock_intecmar_biological_zone.model_intecmar_sync
+msgid "INTECMAR Bulletin Sync"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,help:stock_intecmar_biological_zone.field_res_company__biological_zone_last_update_date
+msgid "Informational only, from the last successful sync."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_res_company__biological_zone_last_update_date
+msgid "Last Synced Biological Dataset Timestamp"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__write_uid
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__write_date
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__line_ids
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.view_biological_zone_form
+msgid "Lines"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone__name
+msgid "Name"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,field_description:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__product_type_id
+msgid "Product Type"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.view_capture_zone_form_biological
+msgid "Sanitary Classifications"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.ui.menu,name:stock_intecmar_biological_zone.menu_sanitary_control_config_root
+msgid "Sanitary Control"
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.fields,help:stock_intecmar_biological_zone.field_intecmar_biological_zone_line__state
+msgid ""
+"Sanitary classification (e.g. 'A', 'B', 'C') as returned by the API, kept "
+"verbatim rather than as a closed list -- the full set of possible values is "
+"not documented."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model:ir.model.constraint,message:stock_intecmar_biological_zone.constraint_intecmar_biological_zone_code_unique
+msgid "This classification zone code is already registered."
+msgstr ""
+
+#. module: stock_intecmar_biological_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_biological_zone.res_config_settings_view_form_biological_zone
+msgid ""
+"https://www.intecmar.gal/Api/EstadoZonasProducion/ClasificacionMicrobioloxicaZonas"
+msgstr ""

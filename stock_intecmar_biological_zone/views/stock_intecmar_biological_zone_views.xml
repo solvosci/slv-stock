@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_sanitary_control_config_root"
+        name="Sanitary Control"
+        parent="stock.menu_stock_config_settings"
+        sequence="25"/>
+
+    <menuitem id="menu_biological_zone"
+        name="Biological Classification"
+        parent="menu_sanitary_control_config_root"
+        action="action_biological_zone"
+        sequence="10"/>
+
+</odoo>

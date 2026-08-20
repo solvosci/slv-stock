@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_move_line_detailed_operation_tree_toxin_zone" model="ir.ui.view">
+        <field name="name">stock.move.line.detailed.operation.tree.toxin.zone</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+        <field name="arch" type="xml">
+            <field name="lot_id" position="after">
+                <field name="product_subject_to_zone_control" column_invisible="1"/>
+                <field name="product_intecmar_categ_ids" column_invisible="1"/>
+                <field name="capture_zone_id" optional="show"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"
+                    domain="[('status_ids.product_type_id', 'in', product_intecmar_categ_ids)]"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_move_operations_toxin_zone" model="ir.ui.view">
+        <field name="name">stock.move.operations.toxin.zone</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+        <field name="arch" type="xml">
+            <field name="lot_id" position="after">
+                <field name="product_subject_to_zone_control" column_invisible="1"/>
+                <field name="product_intecmar_categ_ids" column_invisible="1"/>
+                <field name="capture_zone_id" optional="show"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"
+                    domain="[('status_ids.product_type_id', 'in', product_intecmar_categ_ids)]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

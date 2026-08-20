@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lot_capture_zone_origin_user,lot.capture.zone.origin.user,model_lot_capture_zone_origin,stock.group_stock_user,1,0,0,0
+access_lot_capture_zone_origin_manager,lot.capture.zone.origin.manager,model_lot_capture_zone_origin,stock_lot_quarantine.group_purification_manager,1,1,1,1
