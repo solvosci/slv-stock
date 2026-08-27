@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in Stock Picking Update Resposible)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='extra']//field[@name='user_id']" position="after">
+                <field name="is_user_id_editable" invisible="1"/>
+            </xpath>
+            <xpath expr="//page[@name='extra']//field[@name='user_id']" position="attributes">
+                <attribute name="readonly">not is_user_id_editable</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">stock.picking.tree (in Stock Picking Update Resposible)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="is_user_id_editable" column_invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="readonly">not is_user_id_editable</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
