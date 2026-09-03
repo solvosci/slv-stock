@@ -1,0 +1,48 @@
+<odoo>
+    <record id="stock_picking_batch_form" model="ir.ui.view">
+        <field name="name">stock.picking.batch.form (in stock_picking_batch_delivery_carrier)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']" position="after">
+                <field name="carrier_id" required="1" readonly="state != 'draft'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_filter" model="ir.ui.view">
+        <field name="name">stock.picking.batch.filter (in stock_picking_batch_delivery_carrier)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="carrier_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='state']" position="after">
+                <filter name="carrier_id" string="Carrier" domain="[]" context="{'group_by': 'carrier_id'}" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_tree" model="ir.ui.view">
+        <field name="name">stock.picking.batch.tree (in stock_picking_batch_delivery_carrier)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+        <field name="arch" type="xml">
+            <field name="picking_type_id" position="after">
+                <field name="carrier_id" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_kanban" model="ir.ui.view">
+        <field name="name">stock.picking.batch.kanban (in stock_picking_batch_delivery_carrier)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_kanban_record_bottom')]" position="before">
+                <field name="carrier_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
