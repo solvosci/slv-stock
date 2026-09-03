@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_picking_batch_delivery_carrier_adr)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="adr_package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="adr_packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
+            </xpath>
+            <xpath expr="//tree/field[@name='quantity']" position="after">
+                <field name="package_qty" readonly="state in ('draft', 'done', 'cancel')"/>
+                <field name="packages_weight" readonly="state in ('draft', 'done', 'cancel')"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="vpicktree" model="ir.ui.view">
+        <field name="name">stock.picking.delivery.tree.inherit.delivery (in stock_picking_batch_delivery_carrier_adr)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_delivery.vpicktree_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="carrier_id" position="after">
+                <field name="package_qty" optional="show"/>
+                <field name="packages_weight" optional="hide"/>
+                <field name="adr_package_qty" optional="show"/>
+                <field name="adr_packages_weight" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>
