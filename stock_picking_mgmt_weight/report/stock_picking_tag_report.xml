@@ -26,15 +26,6 @@
             <field name="paperformat_id" ref="stock_picking_mgmt_weight.paperformat_picking_tag"/>
         </record>
 
-        <report id="action_report_move_tag_old"
-            model="stock.move"
-            string="Print Ticket (PDF)"
-            name="stock_picking_mgmt_weight.report_stock_move_tag"
-            file="stock_picking_mgmt_weight.report_stock_move_tag"
-            report_type="qweb-pdf"
-            paperformat="stock_picking_mgmt_weight.paperformat_picking_tag"
-        />
-
         <record id="action_report_picking_tag" model="ir.actions.report">
             <field name="name">Print Ticket (PDF)</field>
             <field name="model">stock.picking</field>
@@ -43,15 +34,6 @@
             <field name="print_report_name">'Ticket'</field>
             <field name="paperformat_id" ref="stock_picking_mgmt_weight.paperformat_picking_tag"/>
         </record>
-
-        <report id="action_report_picking_tag_old"
-            model="stock.picking"
-            string="Print Ticket (PDF)"
-            name="stock_picking_mgmt_weight.report_stock_picking_tag"
-            file="stock_picking_mgmt_weight.report_stock_picking_tag"
-            report_type="qweb-pdf"
-            paperformat="stock_picking_mgmt_weight.paperformat_picking_tag"
-        />
 
     </data>
 </odoo>
