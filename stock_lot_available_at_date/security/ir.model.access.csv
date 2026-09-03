@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_report_stock_lot_date_user,report.stock.lot.date user,stock_lot_available_at_date.model_report_stock_lot_date,stock.group_production_lot,1,1,1,1
+access_report_stock_lot_date_wizard_user,report.stock.lot.date.wizard user,stock_lot_available_at_date.model_report_stock_lot_date_wizard,stock.group_production_lot,1,1,1,1
