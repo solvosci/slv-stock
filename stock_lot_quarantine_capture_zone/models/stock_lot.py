@@ -103,10 +103,17 @@ class StockLot(models.Model):
             ("lot_id", "=", self.id),
             ("location_id.is_purification_location", "=", True),
             ("quantity", ">", 0),
-        ]):
+        ]).filtered(lambda q: q.available_quantity > 0):
             self._create_purification_transfer(
-                quant.quantity,
+                quant.available_quantity,
                 quant.location_id,
                 quant.location_id._get_purification_origin(),
                 "Toxin block release",
             )
+
+    @api.model
+    def _cron_release_purified_lots(self):
+        res = super()._cron_release_purified_lots()
+        for lot in self.search([("toxin_block_state", "=", "blocked")]):
+            lot._send_stock_to_quarantine()
+        return res

@@ -78,6 +78,21 @@ class StockMove(models.Model):
                 move_line.lot_id._mark_exempt()
             else:
                 move_line.lot_id._start_quarantine(self.product_id.purification_hours)
+                self._redirect_chained_move_to_quarantine(move_line)
+
+    def _redirect_chained_move_to_quarantine(self, move_line):
+        chained_moves = self.move_dest_ids.filtered(
+            lambda m: m.state not in ("done", "cancel")
+        )
+        if not chained_moves:
+            return
+        mirror = move_line.location_dest_id._get_or_create_quarantine_mirror()
+        if not mirror:
+            return
+        chained_moves.location_dest_id = mirror.id
+        chained_moves.move_line_ids.filtered(
+            lambda l: l.lot_id == move_line.lot_id
+        ).location_dest_id = mirror.id
 
     def _settle_blocked_lots_in_stock(self):
         for lot in self.mapped("move_line_ids").filtered(

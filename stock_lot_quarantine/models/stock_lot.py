@@ -171,7 +171,7 @@ class StockLot(models.Model):
                 ("quantity", ">", 0),
             ]
         ).filtered(
-            lambda q: q.location_id._is_within(q.location_id.warehouse_id.lot_stock_id)
+            lambda q: q.location_id._is_within(q.location_id.warehouse_id.view_location_id)
             and q.available_quantity > 0
         ):
             mirror_location = quant.location_id._get_or_create_quarantine_mirror()

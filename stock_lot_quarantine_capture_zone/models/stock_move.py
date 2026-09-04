@@ -61,6 +61,7 @@ class StockMove(models.Model):
     def _process_incoming_toxin_zone_control(self):
         new_origin_vals = []
         blocked_lots = self.env["stock.lot"]
+        move_lines_by_lot = {}
 
         for move in self:
             capture_date = move.date.date() if move.date else fields.Date.today()
@@ -83,10 +84,19 @@ class StockMove(models.Model):
                     for product_type in move_line.product_id.intecmar_categ
                 ]
                 blocked_lots |= move_line.lot_id
+                move_lines_by_lot.setdefault(move_line.lot_id.id, []).append(move_line)
 
         if new_origin_vals:
             self.env["lot.capture.zone.origin"].sudo().create(new_origin_vals)
         blocked_lots._evaluate_toxin_block()
+
+        # Same reservation-race risk as the plain purification block: in a
+        # multi-step warehouse, the next leg of the route already reserved
+        # this quant by now, so redirect it instead of leaving the lot
+        # stranded outside quarantine with nothing free left to move.
+        for lot in blocked_lots.filtered(lambda l: l.toxin_block_state == "blocked"):
+            for move_line in move_lines_by_lot.get(lot.id, []):
+                move_line.move_id._redirect_chained_move_to_quarantine(move_line)
 
     def _prepare_capture_origin_vals(self, move_line, product_type, capture_date):
         return {
