@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_lot_purification_list" model="ir.ui.view">
+        <field name="name">stock.lot.purification.list</field>
+        <field name="model">stock.lot</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <list string="Purification Tracking" default_order="purification_release_date asc">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="location_id" readonly="1"/>
+                <field name="purification_state" widget="badge"
+                    decoration-warning="purification_state == 'blocked'"
+                    decoration-success="purification_state == 'released'"
+                    decoration-muted="purification_state == 'not_applicable'"/>
+                <field name="purification_start_date"/>
+                <field name="purification_release_date"/>
+                <field name="purification_time_remaining"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_purification_kanban" model="ir.ui.view">
+        <field name="name">stock.lot.purification.kanban</field>
+        <field name="model">stock.lot</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="purification_state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <field name="purification_state"/>
+                <field name="purification_release_date"/>
+                <field name="purification_time_remaining"/>
+                <templates>
+                    <t t-name="card" t-attf-class="#{record.purification_state.raw_value == 'blocked' ? 'border-warning' :
+                        record.purification_state.raw_value == 'released' ? 'border-success' : ''}">
+                        <div class="o_kanban_record_top">
+                            <strong><field name="name"/></strong>
+                        </div>
+                        <div class="o_kanban_record_body">
+                            <field name="product_id"/>
+                            <br/>
+                            <field name="location_id" class="text-muted small"/>
+                            <br/>
+                            <span t-if="record.purification_state.raw_value == 'blocked'">
+                                <field name="purification_time_remaining"/>
+                            </span>
+                            <span t-if="record.purification_state.raw_value == 'released'">
+                                Released
+                            </span>
+                            <span t-if="record.purification_state.raw_value == 'not_applicable'">
+                                Not applicable
+                            </span>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_purification_search" model="ir.ui.view">
+        <field name="name">stock.lot.purification.search</field>
+        <field name="model">stock.lot</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <search string="Purification Tracking">
+                <field name="name"/>
+                <field name="product_id"/>
+                <filter string="Blocked" name="filter_blocked"
+                    domain="[('purification_state', '=', 'blocked')]"/>
+                <filter string="Released" name="filter_released"
+                    domain="[('purification_state', '=', 'released')]"/>
+                <filter string="Not Applicable / Exempt" name="filter_not_applicable"
+                    domain="[('purification_state', '=', 'not_applicable')]"/>
+                <filter string="Pending Release (overdue)" name="filter_overdue"
+                    domain="[('purification_state', '=', 'blocked'),
+                    ('purification_release_date', '&lt;=', context_today().strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <group>
+                    <filter string="Status" name="group_state"
+                        context="{'group_by': 'purification_state'}"/>
+                    <filter string="Product" name="group_product"
+                        context="{'group_by': 'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_production_lot_form_purification" model="ir.ui.view">
+        <field name="name">stock.production.lot.form.purification</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <group name="inventory_group" position="after">
+                <group string="Purification" name="purification_group"
+                    invisible="not product_id.purifiable">
+                    <field name="purification_state"/>
+                    <field name="purification_start_date"
+                        invisible="purification_state == 'not_applicable'"/>
+                    <field name="purification_release_date"
+                        invisible="purification_state == 'not_applicable'"/>
+                    <field name="purification_time_remaining"
+                        invisible="purification_state == 'not_applicable'"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="action_stock_lot_purification" model="ir.actions.act_window">
+        <field name="name">Purification Tracking</field>
+        <field name="res_model">stock.lot</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_stock_lot_purification_kanban')}),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_stock_lot_purification_list')}),
+            ]"/>
+        <field name="domain">[('product_id.purifiable', '=', True)]</field>
+        <field name="context">{'search_default_filter_blocked': 1}</field>
+        <field name="search_view_id" ref="view_stock_lot_purification_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No purifiable lots tracked yet.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>
