@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 1. Form view: "Locked" ribbon badge, same style as sale.order -->
+    <record id="view_picking_form_lock_indicator" model="ir.ui.view">
+        <field name="name">stock.picking.form.lock.indicator</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <widget name="web_ribbon"
+                        title="Locked"
+                        bg_color="text-bg-info"
+                        invisible="not is_locked"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 2. Search view: filter to select locked transfers -->
+    <record id="view_picking_internal_search_lock_indicator" model="ir.ui.view">
+        <field name="name">stock.picking.search.lock.indicator</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="locked"
+                        string="Locked"
+                        domain="[('is_locked', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 3. List view: padlock icon to the left of the reference (name) -->
+    <record id="view_picking_tree_lock_indicator" model="ir.ui.view">
+        <field name="name">stock.picking.tree.lock.indicator</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="is_locked" widget="lock_indicator" nolabel="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
