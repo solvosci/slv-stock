@@ -7,12 +7,17 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//sheet" position="inside">
+            <!-- xpath expr="//sheet" position="inside">
                 <widget name="web_ribbon"
                         title="Locked"
                         bg_color="text-bg-info"
-                        invisible="not is_locked"/>
-            </xpath>
+                        invisible="not is_locked"/ -->
+            <div name="button_box" position="after">
+                <div class="badge rounded-pill text-bg-secondary float-end fs-6 border-0" invisible="not is_locked">
+                    <i class="fa fa-lock"/>
+                    Locked
+                </div>
+            </div>
         </field>
     </record>
 
@@ -22,11 +27,17 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_internal_search"/>
         <field name="arch" type="xml">
-            <xpath expr="//search" position="inside">
+            <filter name="reception" position="before">
+                <filter name="unlocked"
+                        string="Unlocked"
+                        domain="[('is_locked', '=', False)]"
+                />
                 <filter name="locked"
                         string="Locked"
-                        domain="[('is_locked', '=', True)]"/>
-            </xpath>
+                        domain="[('is_locked', '=', True)]"
+                />
+                <separator />
+            </filter>
         </field>
     </record>
 
@@ -37,7 +48,16 @@
         <field name="inherit_id" ref="stock.vpicktree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="before">
-                <field name="is_locked" widget="lock_indicator" nolabel="1"/>
+                <!-- field name="is_locked" widget="lock_indicator" nolabel="1"/ -->
+                <field name="is_locked" column_invisible="1"/>
+                <button
+                    name="action_toggle_is_locked"
+                    type="object"
+                    title="Locked"
+                    invisible="not is_locked"
+                    icon="fa-lock"
+                    confirm="This will unlock the picking. Are you sure?"
+                />
             </xpath>
         </field>
     </record>
