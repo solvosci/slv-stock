@@ -121,7 +121,7 @@
         </div>
         <div class="row">
           <div name="td-total" class="col-6">
-            <t t-esc="sum(doc.line_ids.mapped('qty_to_add'))"/> / <t t-esc="sum(doc.line_ids.mapped('qty_to_add'))"/>
+            <t t-esc="sum(doc.line_ids.mapped('qty_to_add'))"/> / <t t-esc="sum(doc.line_ids.mapped('qty_demand'))"/>
           </div>
         </div>
       </div>
