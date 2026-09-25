@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lot_capture_zone_origin_comp_rule" model="ir.rule">
+        <field name="name">Lot Capture Origin multi-company</field>
+        <field name="model_id" ref="model_lot_capture_zone_origin"/>
+        <field name="domain_force">[('company_id', 'in', company_ids + [False])]</field>
+    </record>
+
+</odoo>

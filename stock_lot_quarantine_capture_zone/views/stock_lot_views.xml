@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_production_lot_form_toxin_zone" model="ir.ui.view">
+        <field name="name">stock.production.lot.form.toxin.zone</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock_lot_quarantine.view_production_lot_form_purification"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='description']" position="after">
+                <notebook invisible="not product_id.intecmar_categ">
+                    <page string="Toxin Zone Control" name="toxin_zone_page">
+                        <group>
+                            <field name="toxin_block_state"/>
+                        </group>
+                        <field name="capture_origin_ids" readonly="1"
+                            invisible="not capture_origin_ids">
+                            <list>
+                                <field name="capture_zone_id"/>
+                                <field name="product_type_id"/>
+                                <field name="capture_date"/>
+                                <field name="status_external_label" string="INTECMAR Status"
+                                    widget="badge"
+                                    decoration-danger="status_blocks_extraction"
+                                    decoration-success="not status_blocks_extraction"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_toxin_pending_list" model="ir.ui.view">
+        <field name="name">stock.lot.toxin.pending.list</field>
+        <field name="model">stock.lot</field>
+        <field name="arch" type="xml">
+            <list string="Toxin Block - Pending Review">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="toxin_block_reason"/>
+                <field name="toxin_block_state" widget="badge"/>
+                <button name="action_manual_release_toxin_block"
+                    type="object" string="Release"
+                    confirm="Confirm this lot's capture zone has been reopened and this lot may be released?"
+                    class="btn-warning"
+                    groups="stock_lot_quarantine.group_purification_manager"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_toxin_pending_search" model="ir.ui.view">
+        <field name="name">stock.lot.toxin.pending.search</field>
+        <field name="model">stock.lot</field>
+        <field name="arch" type="xml">
+            <search string="Toxin Block - Pending Review">
+                <field name="name"/>
+                <field name="product_id"/>
+                <filter string="Blocked" name="filter_blocked"
+                    domain="[('toxin_block_state', '=', 'blocked')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_lot_toxin_pending" model="ir.actions.act_window">
+        <field name="name">Toxin Block - Pending Review</field>
+        <field name="res_model">stock.lot</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[('toxin_block_state', '=', 'blocked')]</field>
+        <field name="context">{'search_default_filter_blocked': 1}</field>
+        <field name="search_view_id" ref="view_stock_lot_toxin_pending_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No lots currently blocked by a capture zone closure.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_stock_lot_purification_list_toxin_zone" model="ir.ui.view">
+        <field name="name">stock.lot.purification.list.toxin.zone</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock_lot_quarantine.view_stock_lot_purification_list"/>
+        <field name="arch" type="xml">
+            <field name="purification_state" position="after">
+                <field name="toxin_block_state" widget="badge"
+                    decoration-warning="toxin_block_state == 'blocked'"
+                    decoration-success="toxin_block_state == 'released'"
+                    decoration-muted="toxin_block_state == 'not_applicable'"/>
+                <field name="is_ready_for_sale" widget="boolean_toggle" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="stock_lot_quarantine.action_stock_lot_purification" model="ir.actions.act_window">
+        <field name="domain">['|', ('purification_state', '!=', 'not_applicable'),
+                                   ('toxin_block_state', '!=', 'not_applicable')]</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_capture_zone_state_mapping_list" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.state.mapping.list</field>
+        <field name="model">intecmar.capture.zone.state.mapping</field>
+        <field name="arch" type="xml">
+            <list string="INTECMAR State Mapping" editable="bottom">
+                <field name="external_label"/>
+                <field name="blocks_extraction" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_capture_zone_state_mapping" model="ir.actions.act_window">
+        <field name="name">INTECMAR State Mapping</field>
+        <field name="res_model">intecmar.capture.zone.state.mapping</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No INTECMAR wording mapped yet. New wording is registered
+                automatically the first time the sync encounters it.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_location_form_purification" model="ir.ui.view">
+        <field name="name">stock.location.form.purification</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <group name="additional_info" position="after">
+                <group string="Purification" name="purification" invisible="usage != 'internal'"
+                    groups="stock_lot_quarantine.group_purification_manager">
+                    <field name="is_purification_location"/>
+                    <field name="purification_mirror_location_id" invisible="is_purification_location"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_location_list_purification" model="ir.ui.view">
+        <field name="name">stock.location.list.purification</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_tree2"/>
+        <field name="arch" type="xml">
+            <field name="usage" position="after">
+                <field name="is_purification_location" optional="show"
+                    groups="stock_lot_quarantine.group_purification_manager"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_location_search_purification" model="ir.ui.view">
+        <field name="name">stock.location.search.purification</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_search"/>
+        <field name="arch" type="xml">
+            <filter name="empty_location" position="after">
+                <filter name="quarantine_purification_location" string="Quarantine"
+                        domain="[('is_purification_location', '=', True)]"
+                        groups="stock_lot_quarantine.group_purification_manager"/>
+                <filter name="not_quarantine_purification_location" string="Not Quarantine"
+                        domain="[('is_purification_location', '=', False)]"
+                        groups="stock_lot_quarantine.group_purification_manager"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

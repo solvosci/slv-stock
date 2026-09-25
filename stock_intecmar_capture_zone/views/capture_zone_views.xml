@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_capture_zone_list" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.list</field>
+        <field name="model">intecmar.capture.zone</field>
+        <field name="arch" type="xml">
+            <list string="Capture Zones">
+                <field name="code" readonly="id"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_capture_zone_form" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.form</field>
+        <field name="model">intecmar.capture.zone</field>
+        <field name="arch" type="xml">
+            <form string="Capture Zone">
+                <sheet>
+                    <group>
+                        <field name="code" readonly="id"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Administrative Status History">
+                            <field name="status_ids" context="{'default_zone_id': id}">
+                                <list editable="bottom" default_order="date_from desc">
+                                    <field name="product_type_id"/>
+                                    <field name="state_id" widget="badge"
+                                        decoration-danger="blocks_extraction"
+                                        decoration-success="not blocks_extraction"/>
+                                    <field name="date_from"/>
+                                    <field name="date_to"/>
+                                    <field name="report_type"/>
+                                    <field name="source"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_capture_zone" model="ir.actions.act_window">
+        <field name="name">Capture Zones</field>
+        <field name="res_model">intecmar.capture.zone</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+</odoo>

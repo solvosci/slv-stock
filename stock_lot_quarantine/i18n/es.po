@@ -1,0 +1,365 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_lot_quarantine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-31 07:29+0000\n"
+"PO-Revision-Date: 2026-08-31 07:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_location.py:0
+msgid ""
+"%(location)s is a quarantine location and cannot have its own quarantine "
+"twin."
+msgstr ""
+"%(location)s es una ubicación de cuarentena y no puede tener su propio "
+"gemelo de cuarentena."
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_location.py:0
+msgid "%(target)s is already the quarantine twin of %(other)s."
+msgstr "%(target)s ya es el gemelo de cuarentena de %(other)s."
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_location.py:0
+msgid ""
+"%(target)s is set as the quarantine twin of %(location)s but is not a "
+"Purification/Quarantine Location."
+msgstr ""
+"%(target)s está configurada como gemelo de cuarentena de %(location)s pero "
+"no está marcada como Ubicación de Depuración/Cuarentena."
+
+#. module: stock_lot_quarantine
+#: model:res.groups,name:stock_lot_quarantine.group_purification_manager
+msgid "Admin"
+msgstr "Administrador"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_picking_type__purification_allows_blocked_transit
+msgid "Allows Blocked Lots (Purification)"
+msgstr "Permite lotes bloqueados (Depuración)"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields.selection,name:stock_lot_quarantine.selection__stock_lot__purification_state__blocked
+msgid "Blocked (in quarantine)"
+msgstr "Bloqueado (en cuarentena)"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_move_line__received_purified
+msgid "Check if this lot/line arrives ALREADY purified from origin."
+msgstr "Marca si este lote/línea llega YA depurado de origen."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_lot__purification_state
+msgid "Current purification status of this lot."
+msgstr "Estado actual de depuración de este lote."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_lot__purification_release_date
+msgid "Date when the lot is automatically released."
+msgstr "Fecha en la que el lote se libera automáticamente."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_template__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_location__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_picking_type__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__purification_release_date
+msgid "Expected Release"
+msgstr "Liberación prevista"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_template__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_location__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move_line__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_picking_type__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_warehouse__id
+msgid "ID"
+msgstr "ID"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_picking_type__purification_allows_blocked_transit
+msgid ""
+"If checked, this operation type may move a blocked (in-quarantine) lot "
+"outside the quarantine area, e.g. Manufacturing. Leave unchecked on Delivery"
+" Orders unless you intend blocked lots to reach customers."
+msgstr ""
+"Si se marca, este tipo de operación puede mover un lote bloqueado (en "
+"cuarentena) fuera del área de cuarentena, p. ej. Fabricación. Déjalo "
+"desmarcado en Entregas salvo que quieras que los lotes bloqueados lleguen a "
+"clientes."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_product_product__purifiable
+#: model:ir.model.fields,help:stock_lot_quarantine.field_product_template__purifiable
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_move_line__product_purifiable
+msgid ""
+"Indicates whether this product may require purification (quarantine) before "
+"it can be sold."
+msgstr ""
+"Indica si este producto puede requerir depuración (cuarentena) antes de "
+"poder venderse."
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_move.py:0
+msgid ""
+"Lot %(lot)s is not in quarantine and cannot enter a quarantine location."
+msgstr ""
+"El lote %(lot)s no está en cuarentena y no puede entrar en una ubicación de "
+"cuarentena."
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_move.py:0
+msgid ""
+"Lot %(lot)s is still in quarantine and cannot leave the quarantine area "
+"until released."
+msgstr ""
+"El lote %(lot)s sigue en cuarentena y no puede salir del área de cuarentena "
+"hasta que se libere."
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Lote/serie"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_location__is_purification_location
+msgid ""
+"Marks this location as quarantine-side (a bin twin, or a warehouse's "
+"quarantine root)."
+msgstr ""
+"Marca esta ubicación como parte de cuarentena (el gemelo de una bin, o la "
+"raíz de cuarentena de un almacén)."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_product_product__purification_hours
+#: model:ir.model.fields,help:stock_lot_quarantine.field_product_template__purification_hours
+msgid ""
+"Minimum time (in hours) that a lot of this product must remain in quarantine"
+" when received NOT purified."
+msgstr ""
+"Tiempo mínimo (en horas) que un lote de este producto debe permanecer en "
+"cuarentena cuando se recibe SIN depurar."
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.actions.act_window,help:stock_lot_quarantine.action_stock_lot_purification
+msgid "No purifiable lots tracked yet."
+msgstr "Todavía no hay lotes depurables registrados."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields.selection,name:stock_lot_quarantine.selection__stock_lot__purification_state__not_applicable
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Not Applicable / Exempt"
+msgstr "No aplicable / Exento"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_product_template_search_purification
+msgid "Not Purifiable"
+msgstr "No depurable"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_location_search_purification
+msgid "Not Quarantine"
+msgstr "Sin cuarentena"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_kanban
+msgid "Not applicable"
+msgstr "No aplicable"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Pending Release (overdue)"
+msgstr "Pendiente de liberar (vencido)"
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Tipo de albarán"
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_product_template
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de producto (línea de movimiento de stock)"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_product__purifiable
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_template__purifiable
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move_line__product_purifiable
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_product_template_search_purification
+msgid "Purifiable"
+msgstr "Depurable"
+
+#. module: stock_lot_quarantine
+#. odoo-python
+#: code:addons/stock_lot_quarantine/models/stock_move.py:0
+msgid ""
+"Purifiable product received but this warehouse has no Quarantine Location "
+"configured."
+msgstr ""
+"Se ha recibido producto depurable pero este almacén no tiene configurada una"
+" Ubicación de Cuarentena."
+
+#. module: stock_lot_quarantine
+#: model:ir.ui.menu,name:stock_lot_quarantine.menu_purification_root
+#: model:res.groups.privilege,name:stock_lot_quarantine.purification_privilege
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_location_form_purification
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_production_lot_form_purification
+msgid "Purification"
+msgstr "Depuración"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_product__purification_hours
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_product_template__purification_hours
+msgid "Purification Hours"
+msgstr "Horas de depuración"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__purification_state
+msgid "Purification State"
+msgstr "Estado de depuración"
+
+#. module: stock_lot_quarantine
+#: model:ir.actions.act_window,name:stock_lot_quarantine.action_stock_lot_purification
+#: model:ir.ui.menu,name:stock_lot_quarantine.menu_stock_lot_purification
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_list
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Purification Tracking"
+msgstr "Seguimiento de depuración"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_location__is_purification_location
+msgid "Purification/Quarantine Location"
+msgstr "Ubicación de Depuración"
+
+#. module: stock_lot_quarantine
+#: model:ir.actions.server,name:stock_lot_quarantine.ir_cron_release_purified_lots_ir_actions_server
+msgid "Purification: release lots whose quarantine has ended"
+msgstr "Depuración: liberar lotes cuya cuarentena ha terminado"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_location_search_purification
+msgid "Quarantine"
+msgstr "Cuarentena"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__purification_hours
+msgid "Quarantine Hours Applied"
+msgstr "Horas de cuarentena aplicadas"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_warehouse__quarantine_location_id
+msgid "Quarantine Location (Purification)"
+msgstr "Ubicación de Cuarentena (Depuración)"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__purification_start_date
+msgid "Quarantine Start"
+msgstr "Inicio de cuarentena"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_location__purification_mirror_location_id
+msgid "Quarantine Twin"
+msgstr "Gemelo de cuarentena"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_lot__purification_hours
+msgid ""
+"Quarantine hours applied to this lot, copied from the product at reception."
+msgstr ""
+"Horas de cuarentena aplicadas a este lote, copiadas del producto en el "
+"momento de la recepción."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_location__purification_mirror_location_id
+msgid ""
+"Quarantine twin of this location, where blocked lots are held. Created "
+"automatically if left empty."
+msgstr ""
+"Gemelo de cuarentena de esta ubicación, donde se guardan los lotes "
+"bloqueados. Se crea automáticamente si se deja vacío."
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_move_line__received_purified
+msgid "Received Already Purified?"
+msgstr "¿Recibido ya depurado?"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields.selection,name:stock_lot_quarantine.selection__stock_lot__purification_state__released
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_kanban
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Released"
+msgstr "Liberado"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,help:stock_lot_quarantine.field_stock_warehouse__quarantine_location_id
+msgid ""
+"Root of the quarantine subtree for this warehouse. Must be excluded from "
+"delivery routes."
+msgstr ""
+"Raíz del subárbol de cuarentena de este almacén. Debe excluirse de las rutas"
+" de entrega."
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_lot_purification_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: stock_lot_quarantine
+#: model:ir.model.fields,field_description:stock_lot_quarantine.field_stock_lot__purification_time_remaining
+msgid "Time Remaining"
+msgstr "Tiempo restante"
+
+#. module: stock_lot_quarantine
+#: model:res.groups,name:stock_lot_quarantine.group_purification_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: stock_lot_quarantine
+#: model:ir.model,name:stock_lot_quarantine.model_stock_warehouse
+msgid "Warehouse"
+msgstr "Almacén"

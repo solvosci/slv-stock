@@ -1,0 +1,267 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_lot_quarantine_capture_zone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-02 12:51+0000\n"
+"PO-Revision-Date: 2026-09-02 12:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_id
+msgid "Applicable Status Record"
+msgstr "Registro de estado aplicable"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_lot_toxin_pending_search
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields.selection,name:stock_lot_quarantine_capture_zone.selection__stock_lot__toxin_block_state__blocked
+msgid "Blocked (capture zone closed)"
+msgstr "Bloqueado (zona de captura cerrada)"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_blocks_extraction
+msgid "Blocks Extraction"
+msgstr "Bloquea la extracción"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__capture_date
+msgid "Capture Date"
+msgstr "Fecha de captura"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__capture_origin_ids
+msgid "Capture Origins"
+msgstr "Orígenes de captura"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__capture_zone_id
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move_line__capture_zone_id
+msgid "Capture Zone"
+msgstr "Zona de captura"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_move_line__capture_zone_id
+msgid "Capture Zone this line was received from."
+msgstr "Zona de captura de la que se recibió esta línea."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_lot__capture_origin_ids
+msgid "Capture Zone(s) and date(s) this lot's stock came from."
+msgstr "Zona(s) de captura y fecha(s) de origen del stock de este lote."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_lot_toxin_pending_list
+msgid ""
+"Confirm this lot's capture zone has been reopened and this lot may be "
+"released?"
+msgstr ""
+"¿Confirmas que la zona de captura de este lote ha reabierto y que este lote "
+"puede liberarse?"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move__display_name
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move__id
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_external_label
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_production_lot_form_toxin_zone
+msgid "INTECMAR Status"
+msgstr "Estado de INTECMAR"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__lot_id
+msgid "Lot"
+msgstr "Lote"
+
+#. module: stock_lot_quarantine_capture_zone
+#. odoo-python
+#: code:addons/stock_lot_quarantine_capture_zone/models/stock_move.py:0
+msgid ""
+"Lot %(lot)s is blocked due to a capture zone closure (toxins) and cannot "
+"leave the quarantine area until manually released."
+msgstr ""
+"El lote %(lot)s está bloqueado por cierre de zona de captura (toxinas) y "
+"no puede salir del área de cuarentena hasta que se libere manualmente."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model,name:stock_lot_quarantine_capture_zone.model_shellfish_lot_capture_origin
+msgid "Lot Capture Origin (capture zone + type + date)"
+msgstr "Origen de captura del lote (zona + tipo + fecha)"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model,name:stock_lot_quarantine_capture_zone.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Lote/serie"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.actions.act_window,help:stock_lot_quarantine_capture_zone.action_stock_lot_toxin_pending
+msgid "No lots currently blocked by a capture zone closure."
+msgstr ""
+"No hay lotes bloqueados actualmente por el cierre de una zona de captura."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields.selection,name:stock_lot_quarantine_capture_zone.selection__stock_lot__toxin_block_state__not_applicable
+msgid "Not Applicable / Exempt"
+msgstr "No aplicable / Exento"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move_line__product_intecmar_categ_ids
+msgid "Product Intecmar Categ"
+msgstr "Categoría INTECMAR del producto"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model,name:stock_lot_quarantine_capture_zone.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de producto (línea de movimiento de stock)"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_move_line__product_subject_to_zone_control
+msgid "Product Subject To Zone Control"
+msgstr "Producto sujeto a control de zona"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__product_type_id
+msgid "Product Type"
+msgstr "Tipo de producto"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__is_ready_for_sale
+msgid "Ready for Sale"
+msgstr "Listo para la venta"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_lot_toxin_pending_list
+msgid "Release"
+msgstr "Liberar"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields.selection,name:stock_lot_quarantine_capture_zone.selection__stock_lot__toxin_block_state__released
+msgid "Released"
+msgstr "Liberado"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_external_label
+msgid ""
+"State name exactly as published by INTECMAR (e.g. 'Aberta'), or a custom "
+"name for manually-created states."
+msgstr ""
+"Nombre del estado tal como lo publica INTECMAR (p. ej. 'Aberta'), o un "
+"nombre propio para estados creados manualmente."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_id
+msgid "Status period in force for this capture zone, type and date."
+msgstr "Periodo de estado en vigor para esta zona de captura, tipo y fecha."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model,name:stock_lot_quarantine_capture_zone.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_move_line__product_subject_to_zone_control
+msgid "Technical field controlling capture_zone_id's visibility."
+msgstr "Campo técnico que controla la visibilidad de harvest_zone_id."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_move_line__product_intecmar_categ_ids
+msgid "Technical field feeding capture_zone_id's domain."
+msgstr "Campo técnico que alimenta el dominio de harvest_zone_id."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__status_blocks_extraction
+msgid ""
+"Technical: mirrors the linked state's blocking flag, for fast filtering. Not"
+" editable here -- change it on the state itself."
+msgstr ""
+"Técnico: refleja la marca de bloqueo del estado vinculado, para filtrar "
+"rápido. No editable aquí, cámbialo en el propio estado."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_lot__toxin_block_state
+msgid "This lot's own toxin block status."
+msgstr "Estado propio de bloqueo por toxinas de este lote."
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.actions.act_window,name:stock_lot_quarantine_capture_zone.action_stock_lot_toxin_pending
+#: model:ir.ui.menu,name:stock_lot_quarantine_capture_zone.menu_stock_lot_toxin_pending
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_lot_toxin_pending_list
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_lot_toxin_pending_search
+msgid "Toxin Block - Pending Review"
+msgstr "Bloqueo por Toxinas - Pendiente de Revisión"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__toxin_block_reason
+msgid "Toxin Block Reason"
+msgstr "Motivo del bloqueo por toxinas"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_stock_lot__toxin_block_state
+msgid "Toxin Block Status"
+msgstr "Estado de bloqueo por toxinas"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.ui.menu,name:stock_lot_quarantine_capture_zone.menu_toxin_control_root
+msgid "Toxin Control"
+msgstr "Control de Toxinas"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_production_lot_form_toxin_zone
+msgid "Toxin Zone Control"
+msgstr "Control de Zona de Toxinas"
+
+#. module: stock_lot_quarantine_capture_zone
+#: model:ir.model.fields,help:stock_lot_quarantine_capture_zone.field_stock_lot__is_ready_for_sale
+msgid "True when neither the purification hold nor the toxin block is active."
+msgstr ""
+"Verdadero cuando ni la retención de purificación ni el bloqueo por toxinas "
+"están activos."

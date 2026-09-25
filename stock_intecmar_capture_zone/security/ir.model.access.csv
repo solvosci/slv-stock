@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_intecmar_capture_zone_status_history_user,intecmar.capture.zone.status.history.user,model_intecmar_capture_zone_status_history,stock.group_stock_user,1,0,0,0
+access_intecmar_capture_zone_status_history_manager,intecmar.capture.zone.status.history.manager,model_intecmar_capture_zone_status_history,stock.group_stock_manager,1,1,1,1
+access_intecmar_capture_zone_user,intecmar.capture.zone.user,model_intecmar_capture_zone,stock.group_stock_user,1,0,0,0
+access_intecmar_capture_zone_manager,intecmar.capture.zone.manager,model_intecmar_capture_zone,stock.group_stock_manager,1,1,1,1
+access_intecmar_capture_product_type_user,intecmar.capture.product.type.user,model_intecmar_capture_product_type,stock.group_stock_user,1,0,0,0
+access_intecmar_capture_product_type_manager,intecmar.capture.product.type.manager,model_intecmar_capture_product_type,stock.group_stock_manager,1,1,1,1
+access_intecmar_capture_zone_state_mapping_user,intecmar.capture.zone.state.mapping.user,model_intecmar_capture_zone_state_mapping,stock.group_stock_user,1,0,0,0
+access_intecmar_capture_zone_state_mapping_manager,intecmar.capture.zone.state.mapping.manager,model_intecmar_capture_zone_state_mapping,stock.group_stock_manager,1,1,1,1

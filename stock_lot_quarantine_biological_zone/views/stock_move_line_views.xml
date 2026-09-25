@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_move_line_detailed_operation_tree_biological_zone" model="ir.ui.view">
+        <field name="name">stock.move.line.detailed.operation.tree.biological.zone</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_capture_zone.view_stock_move_line_detailed_operation_tree_toxin_zone"/>
+        <field name="arch" type="xml">
+            <field name="capture_zone_id" position="after">
+                <field name="valid_biological_zone_ids" column_invisible="1"/>
+                <field name="biological_zone_id" optional="show"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"
+                    domain="[('id', 'in', valid_biological_zone_ids)]"
+                    options="{'no_create': True, 'no_create_edit': True}"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_move_operations_biological_zone" model="ir.ui.view">
+        <field name="name">stock.move.operations.biological.zone</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_capture_zone.view_stock_move_operations_toxin_zone"/>
+        <field name="arch" type="xml">
+            <field name="capture_zone_id" position="after">
+                <field name="valid_biological_zone_ids" column_invisible="1"/>
+                <field name="biological_zone_id" optional="show"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"
+                    domain="[('id', 'in', valid_biological_zone_ids)]"
+                    options="{'no_create': True, 'no_create_edit': True}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

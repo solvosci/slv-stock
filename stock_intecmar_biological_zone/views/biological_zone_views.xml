@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_biological_zone_list" model="ir.ui.view">
+        <field name="name">intecmar.biological.zone.list</field>
+        <field name="model">intecmar.biological.zone</field>
+        <field name="arch" type="xml">
+            <list string="Biological Zones">
+                <field name="code" readonly="1"/>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_biological_zone_form" model="ir.ui.view">
+        <field name="name">intecmar.biological.zone.form</field>
+        <field name="model">intecmar.biological.zone</field>
+        <field name="arch" type="xml">
+            <form string="Biological Zone">
+                <sheet>
+                    <group>
+                        <field name="code" readonly="1"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page string="Lines" name="lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="capture_zone_id"/>
+                                    <field name="product_type_id"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_biological_zone" model="ir.actions.act_window">
+        <field name="name">Biological Zones</field>
+        <field name="res_model">intecmar.biological.zone</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>
