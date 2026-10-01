@@ -9,7 +9,7 @@
                 <page
                     name="signature"
                     string="Signature"
-                    attrs="{'invisible': ['|',('state', 'not in', 'done'),('picking_type_code', '!=', 'outgoing')]}"
+                    attrs="{'invisible': ['|',('state', 'not in', 'done'),('picking_type_code', 'not in', ['outgoing', 'internal'])]}"
                 >
                     <group>
                         <field
