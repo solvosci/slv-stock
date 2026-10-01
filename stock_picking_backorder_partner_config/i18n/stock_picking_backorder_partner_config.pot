@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_backorder_partner_config
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 07:48+0000\n"
+"PO-Revision-Date: 2025-09-30 07:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_delivery__always
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_reception__always
+msgid "Always create"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_delivery__ask
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_reception__ask
+msgid "Ask"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model,name:stock_picking_backorder_partner_config.model_stock_backorder_confirmation
+msgid "Backorder Confirmation"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_delivery__by_default
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_reception__by_default
+msgid "By default"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model,name:stock_picking_backorder_partner_config.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_delivery__never
+#: model:ir.model.fields.selection,name:stock_picking_backorder_partner_config.selection__res_partner__create_partial_reception__never
+msgid "Never create"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields,field_description:stock_picking_backorder_partner_config.field_res_partner__create_partial_delivery
+#: model:ir.model.fields,field_description:stock_picking_backorder_partner_config.field_res_users__create_partial_delivery
+msgid "Policy for the creation of partial delivery"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields,field_description:stock_picking_backorder_partner_config.field_res_partner__create_partial_reception
+#: model:ir.model.fields,field_description:stock_picking_backorder_partner_config.field_res_users__create_partial_reception
+msgid "Policy for the creation of partial receptions"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model,name:stock_picking_backorder_partner_config.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: stock_picking_backorder_partner_config
+#: model:ir.model.fields,help:stock_picking_backorder_partner_config.field_res_partner__create_partial_delivery
+#: model:ir.model.fields,help:stock_picking_backorder_partner_config.field_res_partner__create_partial_reception
+#: model:ir.model.fields,help:stock_picking_backorder_partner_config.field_res_users__create_partial_delivery
+#: model:ir.model.fields,help:stock_picking_backorder_partner_config.field_res_users__create_partial_reception
+msgid ""
+"When validating a transfer:\n"
+" * By default: it is used as indicated in the type of operation\n"
+" * Ask: users are asked to choose if they want to make a backorder for remaining products\n"
+" * Always create: a backorder is automatically created for the remaining products\n"
+" * Never create: remaining products are cancelled"
+msgstr ""
