@@ -1,0 +1,22 @@
+<odoo>
+
+    <record id="action_stock_lot_at_date_wizard" model="ir.actions.server">
+        <field name="name">Lots at Date</field>
+        <field name="model_id" ref="stock.model_stock_lot" />
+        <field name="binding_model_id" ref="stock.model_stock_lot" />
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.open_stock_lot_available_at_date_wizard()
+        </field>
+    </record>
+
+    <menuitem
+        id="stock_lot_at_date_wizard_menu"
+        name="Lots at Date"
+        action="action_stock_lot_at_date_wizard"
+        groups="stock.group_production_lot"
+        parent="stock.menu_warehouse_report"
+        sequence="105" />
+
+</odoo>
