@@ -1,0 +1,148 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_state_to_process
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-29 12:52+0000\n"
+"PO-Revision-Date: 2025-01-29 12:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,help:stock_picking_state_to_process.field_stock_picking__state
+msgid ""
+" * Draft: The transfer is not confirmed yet. Reservation doesn't apply.\n"
+" * Waiting another operation: This transfer is waiting for another operation before being ready.\n"
+" * Waiting: The transfer is waiting for the availability of some products.\n"
+"(a) The shipping policy is \"As soon as possible\": no product could be reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": not all the products could be reserved.\n"
+" * Ready: The transfer is ready to be processed.\n"
+"(a) The shipping policy is \"As soon as possible\": at least one product has been reserved.\n"
+"(b) The shipping policy is \"When all products are ready\": all product have been reserved.\n"
+" * Done: The transfer has been processed.\n"
+" * Cancelled: The transfer has been cancelled."
+msgstr ""
+"* Borrador: El traslado no ha sido confirmado. No se realizan reservas.\n"
+" * A procesar (pdte. de stock): El traslado espera otra operación antes de estar preparado.\n"
+" * En espera: El traslado está esperando disponibilidad de algunos productos.\n"
+"(a) La política de envío es \"Lo antes posible\" ningún producto pudo ser reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": no todos los productos pueden reservarse.\n"
+" * A procesar: El traslado está listo para ser procesado.\n"
+"(a) La política de envío es \"Lo antes posible\": por lo menos un producto se ha reservado.\n"
+"(b) La política de envío es \"Cuando todos los productos estén listos\": todos los productos han sido reservados.\n"
+" * Hecho: el traslado ha sido procesado.\n"
+" * Cancelado: el traslado ha sido cancelado."
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__cancel
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,field_description:stock_picking_state_to_process.field_stock_picking_type__count_picking_to_process
+msgid "Count Picking To Process"
+msgstr "Contar traslados a procesar"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,field_description:stock_picking_state_to_process.field_stock_picking_type__count_picking_very_late
+msgid "Count Picking Very Late"
+msgstr "Contar traslados muy tarde"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,field_description:stock_picking_state_to_process.field_stock_picking_type__days_very_late
+msgid "Days Very Late"
+msgstr "Días muy tarde"
+
+#. module: stock_picking_state_to_process
+#: model_terms:ir.ui.view,arch_db:stock_picking_state_to_process.view_picking_type_form
+msgid "Days to mark as late"
+msgstr "Días para marcar como tarde"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: stock_picking_state_to_process
+#: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_to_process
+#: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_very_late
+msgid "No transfer found. Let's create one!"
+msgstr "No se encontraron traslados. ¡Creemos uno!"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,help:stock_picking_state_to_process.field_stock_picking_type__days_very_late
+msgid "Number of days to mark as very late"
+msgstr "Número de días para marcar como muy tarde"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model,name:stock_picking_state_to_process.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Tipo de albarán"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__assigned
+msgid "Ready"
+msgstr "A procesar"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,field_description:stock_picking_state_to_process.field_stock_picking__scheduled_date_very_late
+msgid "Scheduled Date Very Late"
+msgstr "Fecha programada muy tarde"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields,field_description:stock_picking_state_to_process.field_stock_picking__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: stock_picking_state_to_process
+#: model:ir.actions.act_window,name:stock_picking_state_to_process.action_picking_tree_to_process
+msgid "To Process"
+msgstr "A procesar"
+
+#. module: stock_picking_state_to_process
+#: model_terms:ir.ui.view,arch_db:stock_picking_state_to_process.stock_picking_type_kanban
+msgid "To Process Extended"
+msgstr "A procesar ampliado"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model,name:stock_picking_state_to_process.model_stock_picking
+msgid "Transfer"
+msgstr "Traslado"
+
+#. module: stock_picking_state_to_process
+#: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_to_process
+#: model_terms:ir.actions.act_window,help:stock_picking_state_to_process.action_picking_tree_very_late
+msgid "Transfers allow you to move products from one location to another."
+msgstr "Los traslados le permiten mover productos de una ubicación a otra."
+
+#. module: stock_picking_state_to_process
+#: model_terms:ir.ui.view,arch_db:stock_picking_state_to_process.stock_picking_type_kanban
+msgid "Very Late"
+msgstr "Muy tarde"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__confirmed
+msgid "Waiting"
+msgstr "A procesar (pdte. de stock)"
+
+#. module: stock_picking_state_to_process
+#: model:ir.model.fields.selection,name:stock_picking_state_to_process.selection__stock_picking__state__waiting
+msgid "Waiting Another Operation"
+msgstr "En espera de otra operación"
+
+#. module: stock_picking_state_to_process
+#: model:ir.actions.act_window,name:stock_picking_state_to_process.action_picking_tree_very_late
+msgid "very late"
+msgstr "Muy tarde"
