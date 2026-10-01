@@ -1,0 +1,256 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_picking_batch_delivery_carrier_adr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-10 08:48+0000\n"
+"PO-Revision-Date: 2025-06-10 08:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.actions.report,print_report_name:stock_picking_batch_delivery_carrier_adr.action_consignment_note_report_pdf
+msgid ""
+"\n"
+"            'Consignment Note %s' % (object.create_date.strftime('%d-%m-%Y'))\n"
+"        "
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid ""
+"<strong>\n"
+"                                A.D.R. CONSIGNEMENT NOTE\n"
+"                            </strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid ""
+"<strong>\n"
+"                                TRANSPORT WHICH DOES NOT EXCEED THE LIMITS ESTABLISHED IN 1.1.3.6.<br/>\n"
+"                                WE DECLARE THAT THE GOODS ARE ADMITTED FOR ROAD TRANSPORT ACCORDING TO ADR REGULATIONS AND THAT THEIR CONDITION, PACKAGING, LABELING COMPLY WITH ADR PRESCRIPTIONS.\n"
+"                            </strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.address_block
+msgid "<strong>Address:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.address_block
+msgid "<strong>Country:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "<strong>Date:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.address_block
+msgid "<strong>Name:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.address_block
+msgid "<strong>Province:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "<strong>Reference Nº:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.address_block
+msgid "<strong>Town City:</strong>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "<u>THE CONSIGNOR</u>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "<u>THE LOADER</u>"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "ADR Pack Nº."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#. odoo-python
+#: code:addons/stock_picking_batch_delivery_carrier_adr/models/stock_picking.py:0
+#, python-format
+msgid ""
+"ADR packages quantity must be lower or equal to total packages quantity."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#. odoo-python
+#: code:addons/stock_picking_batch_delivery_carrier_adr/models/stock_picking.py:0
+#, python-format
+msgid "ADR packages weight must be lower or equal to total packages weight."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking__adr_package_qty
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking_batch__adr_package_qty
+msgid "Adr Package Qty"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking__adr_packages_weight
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking_batch__adr_packages_weight
+msgid "Adr Packages Weight"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model,name:stock_picking_batch_delivery_carrier_adr.model_stock_picking_batch
+msgid "Batch Transfer"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Class"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Cod."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Consignee"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_form
+msgid "Consignment Note"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.actions.report,name:stock_picking_batch_delivery_carrier_adr.action_consignment_note_report_pdf
+msgid "Consignment Note Report PDF"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Delivery note"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Group"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_move__is_dangerous
+msgid "Is Dangerous"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "KG"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "OBSERVATIONS / REMARKS:"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Pack Desc."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Pack Nº"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_form
+msgid "Package Info"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_move__package_qty
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking__package_qty
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking_batch__package_qty
+msgid "Package Qty"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_move__packages_weight
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking__packages_weight
+#: model:ir.model.fields,field_description:stock_picking_batch_delivery_carrier_adr.field_stock_picking_batch__packages_weight
+msgid "Packages Weight"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Sender"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model,name:stock_picking_batch_delivery_carrier_adr.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "TOTAL"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#. odoo-python
+#: code:addons/stock_picking_batch_delivery_carrier_adr/models/stock_picking_batch.py:0
+#, python-format
+msgid ""
+"The selected delivery method is missing an associated carrier (partner). "
+"Please configure the carrier in the delivery method."
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model.fields,help:stock_picking_batch_delivery_carrier_adr.field_stock_move__is_dangerous
+msgid "This product belongs to a dangerous class"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Town City"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model:ir.model,name:stock_picking_batch_delivery_carrier_adr.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "Transporter"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "UN Description"
+msgstr ""
+
+#. module: stock_picking_batch_delivery_carrier_adr
+#: model_terms:ir.ui.view,arch_db:stock_picking_batch_delivery_carrier_adr.stock_picking_batch_template
+msgid "UN Nº"
+msgstr ""

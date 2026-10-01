@@ -1,0 +1,34 @@
+<odoo>
+    <record id="stock_picking_batch_form" model="ir.ui.view">
+        <field name="name">stock.picking.batch.form (in stock_picking_batch_delivery_carrier_adr)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='scheduled_date']/.." position="after">
+                <group name="package_info" string="Package Info">
+                    <field name="package_qty"/>
+                    <field name="packages_weight"/>
+                    <field name="adr_package_qty"/>
+                    <field name="adr_packages_weight"/>
+                </group>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button string="Consignment Note" name="action_consignment_note_report_pdf" type="object"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stock_picking_batch_tree" model="ir.ui.view">
+        <field name="name">stock.picking.batch.tree (in stock_picking_batch_delivery_carrier_adr)</field>
+        <field name="model">stock.picking.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='carrier_id']" position="after">
+                <field name="package_qty" optional="show"/>
+                <field name="packages_weight" optional="show"/>
+                <field name="adr_package_qty" optional="hide"/>
+                <field name="adr_packages_weight" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
