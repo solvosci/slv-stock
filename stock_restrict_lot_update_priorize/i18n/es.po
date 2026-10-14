@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_restrict_lot_update_priorize
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-29 08:13+0000\n"
+"PO-Revision-Date: 2025-08-29 10:16+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. module: stock_restrict_lot_update_priorize
+#: model:ir.model.fields,help:stock_restrict_lot_update_priorize.field_stock_move__restict_lot_priorized
+msgid ""
+"\n"
+"        When restict lot is filled and this check selected,\n"
+"        the lot will be reserved even if there are existing reservations,\n"
+"        stealing them, if needed and possible\n"
+"        "
+msgstr ""
+"\n"
+"        Cuando el lote restringido está cubierto y este check seleccionado,\n"
+"        se reservará dicho lote incluso si ya hay reservas previas en otros documentos,\n"
+"        robándoselo a estos, si resulta necesario y posible\n"
+"        "
+
+#. module: stock_restrict_lot_update_priorize
+#: model:ir.model.fields,field_description:stock_restrict_lot_update_priorize.field_stock_move__restict_lot_priorized
+msgid "Force lot reservation"
+msgstr "Forzar reserva del lote"
+
+#. module: stock_restrict_lot_update_priorize
+#: model_terms:ir.ui.view,arch_db:stock_restrict_lot_update_priorize.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock_restrict_lot_update_priorize.view_stock_move_operations
+msgid "If checked, system will try to steal this lot even if it's already reserved"
+msgstr "Si está marcado, el sistema tratará de robar este lote incluso si está ya reservado en otra parte"
+
+#. module: stock_restrict_lot_update_priorize
+#: model_terms:ir.ui.view,arch_db:stock_restrict_lot_update_priorize.view_picking_form
+#: model_terms:ir.ui.view,arch_db:stock_restrict_lot_update_priorize.view_stock_move_operations
+msgid "Priorize lot"
+msgstr "Priorizar lote"
+
+#. module: stock_restrict_lot_update_priorize
+#: model:ir.model,name:stock_restrict_lot_update_priorize.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_stock_move_operations" model="ir.ui.view">
+        <field
+            name="name"
+        >stock.move.operations.form (in stock_restrict_lot_update_priorize)</field>
+        <field name="model">stock.move</field>
+        <field
+            name="inherit_id"
+            ref="stock_restrict_lot_update.view_stock_move_operations"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//group/group/field[@name='restrict_lot_id']" position="after">
+                <field
+                    name="restict_lot_priorized"
+                    groups="stock.group_production_lot"
+                    attrs="{
+                        'readonly': ['|', ('restrict_lot_id', '=', False), ('state', 'in', ['done', 'cancel'])],
+                        'invisible': [('has_tracking', '=', 'none')],
+                    }"
+                    widget="boolean_toggle"
+                    string="Priorize lot"
+                    help="If checked, system will try to steal this lot even if it's already reserved"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

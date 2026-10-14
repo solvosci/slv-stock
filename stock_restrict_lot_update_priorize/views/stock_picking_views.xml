@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field
+            name="name"
+        >stock.picking.form (in stock_restrict_lot_update_priorize)</field>
+        <field name="model">stock.picking</field>
+        <field
+            name="inherit_id"
+            ref="stock_restrict_lot_update.view_picking_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='move_ids_without_package']/tree/field[@name='restrict_lot_id']"
+                position="after"
+            >
+                <field
+                    name="restict_lot_priorized"
+                    groups="stock.group_production_lot"
+                    attrs="{
+                        'readonly': ['|', '|', '|', ('change_restrict_lot', '=', False), ('state', 'in', ['done', 'cancel']), ('is_locked', '=', True), ('restrict_lot_id', '=', False)],
+                        'column_invisible': [('parent.has_tracking', '=', False)],
+                        'invisible': [('has_tracking', '=', 'none')],
+                    }"
+                    widget="boolean_toggle"
+                    optional="show"
+                    string="Priorize lot"                    
+                    help="If checked, system will try to steal this lot even if it's already reserved"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='move_ids_without_package']/form//field[@name='restrict_lot_id']"
+                position="after"
+            >
+                <field
+                    name="restict_lot_priorized"
+                    groups="stock.group_production_lot"
+                    attrs="{
+                        'readonly': ['|', '|', '|', ('change_restrict_lot', '=', False), ('state', 'in', ['done', 'cancel']), ('is_locked', '=', True), ('restrict_lot_id', '=', False)],
+                        'invisible': [('has_tracking', '=', 'none')],
+                    }"
+                    widget="boolean_toggle"
+                    string="Priorize lot"
+                    help="If checked, system will try to steal this lot even if it's already reserved"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
