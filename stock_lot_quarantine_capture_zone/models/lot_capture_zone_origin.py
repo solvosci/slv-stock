@@ -38,6 +38,12 @@ class LotCaptureZoneOrigin(models.Model):
         readonly=True,
     )
 
+    def write(self, vals):
+        res = super().write(vals)
+        if "capture_zone_id" in vals or "product_type_id" in vals:
+            self.mapped("lot_id")._evaluate_toxin_block()
+        return res
+
     @api.depends("capture_zone_id", "product_type_id", "capture_date")
     def _compute_status_id(self):
         if not self:

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sanitary_guide_user,sanitary.guide user,model_sanitary_guide,stock_lot_quarantine.group_purification_user,1,1,1,0
+access_sanitary_guide_manager,sanitary.guide manager,model_sanitary_guide,stock_lot_quarantine.group_purification_manager,1,1,1,1
+access_sanitary_guide_line_user,sanitary.guide.line user,model_sanitary_guide_line,stock_lot_quarantine.group_purification_user,1,1,1,1
+access_sanitary_guide_lookup_wizard,sanitary.guide.lookup.wizard user,model_sanitary_guide_lookup_wizard,stock_lot_quarantine.group_purification_user,1,1,1,1
