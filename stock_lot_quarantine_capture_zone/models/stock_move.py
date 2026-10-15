@@ -59,7 +59,7 @@ class StockMove(models.Model):
         return res
 
     def _process_incoming_toxin_zone_control(self):
-        new_origin_vals = []
+        raw_vals = []
         blocked_lots = self.env["stock.lot"]
         move_lines_by_lot = {}
 
@@ -77,7 +77,7 @@ class StockMove(models.Model):
                     )
                     continue
 
-                new_origin_vals += [
+                raw_vals += [
                     self._prepare_capture_origin_vals(
                         move_line, product_type, capture_date
                     )
@@ -86,8 +86,25 @@ class StockMove(models.Model):
                 blocked_lots |= move_line.lot_id
                 move_lines_by_lot.setdefault(move_line.lot_id.id, []).append(move_line)
 
-        if new_origin_vals:
-            self.env["lot.capture.zone.origin"].sudo().create(new_origin_vals)
+        if raw_vals:
+            # Two move lines for the same lot (e.g. a split line) can
+            # produce the exact same (lot, zone, type, date) origin twice
+            # -- dedup both within this batch and against what the lot
+            # already has, instead of creating redundant rows.
+            Origin = self.env["lot.capture.zone.origin"].sudo()
+            seen_keys = {
+                (o.lot_id.id, o.capture_zone_id.id, o.product_type_id.id, o.capture_date)
+                for o in Origin.search([("lot_id", "in", blocked_lots.ids)])
+            }
+            new_origin_vals = []
+            for vals in raw_vals:
+                key = (vals["lot_id"], vals["capture_zone_id"], vals["product_type_id"], vals["capture_date"])
+                if key in seen_keys:
+                    continue
+                seen_keys.add(key)
+                new_origin_vals.append(vals)
+            if new_origin_vals:
+                Origin.create(new_origin_vals)
         blocked_lots._evaluate_toxin_block()
 
         # Same reservation-race risk as the plain purification block: in a

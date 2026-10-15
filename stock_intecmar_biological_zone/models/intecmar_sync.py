@@ -45,9 +45,6 @@ class ShellfishIntecmarSync(models.AbstractModel):
                 by_code[code] = Classification.create(
                     {"code": code, "name": name}
                 )
-
-        gone = Classification.search([("code", "not in", list(names_by_code))])
-        gone.unlink()
         return by_code
 
     def _sync_biological_zone_lines(self, entries, zones_by_code):
@@ -92,14 +89,12 @@ class ShellfishIntecmarSync(models.AbstractModel):
             ): line
             for line in self.env["intecmar.biological.zone.line"].search([])
         }
-        seen_keys = set()
 
         for line in raw_lines:
             biological_id = zones_by_code[line["code"]].id
             capture_zone_id = capture_zones_by_code[line["capture_zone_code"]].id
             type_id = types_by_code[line["type_code"]].id
             key = (biological_id, capture_zone_id, type_id)
-            seen_keys.add(key)
             vals = {
                 "biological_zone_id": biological_id,
                 "capture_zone_id": capture_zone_id,
@@ -111,9 +106,3 @@ class ShellfishIntecmarSync(models.AbstractModel):
                 record.write(vals)
             else:
                 existing_by_key[key] = self.env["intecmar.biological.zone.line"].create(vals)
-
-        gone_keys = set(existing_by_key) - seen_keys
-        if gone_keys:
-            self.env["intecmar.biological.zone.line"].browse([
-                existing_by_key[key].id for key in gone_keys
-            ]).unlink()
