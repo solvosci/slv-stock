@@ -1,0 +1,439 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_intecmar_capture_zone
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-02 12:52+0000\n"
+"PO-Revision-Date: 2026-09-02 12:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__report_type__resolution
+msgid "Administrative Resolution"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__status_ids
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_form
+msgid "Administrative Status History"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__source__automatic
+msgid "Automatic (scraper)"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__blocks_extraction
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__blocks_extraction
+msgid "Blocks Extraction"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__report_reference
+msgid "Bulletin/resolution number or identifier."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_product_type_form
+msgid "Capture Product Type"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_intecmar_capture_product_type
+msgid "Capture Product Type (INTECMAR)"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.actions.act_window,name:stock_intecmar_capture_zone.action_capture_product_type
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_product_type_list
+msgid "Capture Product Types"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__capture_zone_id
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_form
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_search
+msgid "Capture Zone"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_intecmar_capture_zone
+msgid "Capture Zone (INTECMAR)"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_intecmar_capture_zone_status_history
+msgid "Capture Zone Administrative Status (history)"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.actions.act_window,name:stock_intecmar_capture_zone.action_capture_zone_status_history
+msgid "Capture Zone Status History"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone__code
+msgid "Capture Zone code as published by INTECMAR."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone__name
+msgid "Capture Zone name as published by INTECMAR."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.actions.act_window,name:stock_intecmar_capture_zone.action_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__zone_count
+#: model:ir.ui.menu,name:stock_intecmar_capture_zone.menu_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_product_type_form
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_list
+msgid "Capture Zones"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_product_type__zone_count
+msgid "Capture Zones associated with this product type."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_search
+msgid "Closed"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__code
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__code
+msgid "Code"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__create_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__create_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__create_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__create_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__create_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__create_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_sync__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_product_template__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_company__display_name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.res_config_settings_view_form_toxin_zone
+msgid "Endpoint the INTECMAR sync downloads"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_res_config_settings__toxin_zone_intecmar_url
+msgid "Endpoint the sync downloads from."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_sync__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_product_template__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_company__id
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__report_type__intecmar_bulletin
+msgid "INTECMAR Bulletin"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_intecmar_sync
+msgid "INTECMAR Bulletin Sync"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_product_product__intecmar_categ
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_product_template__intecmar_categ
+msgid "INTECMAR Product Types"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.actions.act_window,name:stock_intecmar_capture_zone.action_capture_zone_state_mapping
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_state_mapping_list
+msgid "INTECMAR State Mapping"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_intecmar_capture_zone_state_mapping
+msgid "INTECMAR State Wording Mapping"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_company__toxin_zone_intecmar_url
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_config_settings__toxin_zone_intecmar_url
+msgid "INTECMAR Zone Status API URL"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_product_product__intecmar_categ
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_product_template__intecmar_categ
+msgid "INTECMAR product/cultivation categories this product belongs to."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__date_from
+msgid "In force from"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__date_to
+msgid "In force until"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_res_company__toxin_zone_last_update_date
+msgid "Informational only, from the last successful sync."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__report_type__lab_analysis
+msgid "Lab Analysis"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_res_company__toxin_zone_last_update_date
+msgid "Last Synced Dataset Timestamp"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__write_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__write_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__write_uid
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__write_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__write_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__write_date
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__date_to
+msgid "Leave empty if this period is still active."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__source__manual
+msgid "Manual"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__report_type__manual
+msgid "Manual Entry"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_product_type__name
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone__name
+msgid "Name"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.actions.act_window,help:stock_intecmar_capture_zone.action_capture_zone_state_mapping
+msgid ""
+"No INTECMAR wording mapped yet. New wording is registered\n"
+"                automatically the first time the sync encounters it."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__notes
+msgid "Notes"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_search
+msgid "Open"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields.selection,name:stock_intecmar_capture_zone.selection__intecmar_capture_zone_status_history__report_type__other
+msgid "Other"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model,name:stock_intecmar_capture_zone.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__product_type_id
+msgid "Product Type"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.ui.menu,name:stock_intecmar_capture_zone.menu_capture_product_type
+msgid "Product Types"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_product_type__code
+msgid "Product type code as published by INTECMAR."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__report_reference
+msgid "Reference"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.res_config_settings_view_form_toxin_zone
+msgid "Shellfish Toxin Zone Control"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__source
+msgid "Source"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__report_type
+msgid "Source Document Type"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__external_label
+msgid ""
+"State name exactly as published by INTECMAR (e.g. 'Aberta'), or a custom "
+"name for manually-created states."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.ui.menu,name:stock_intecmar_capture_zone.menu_capture_zone_state_mapping
+msgid "States"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__state_id
+msgid "Status"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__external_label
+msgid "Status Name"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,field_description:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__attachment_ids
+msgid "Supporting Documents"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.actions.server,name:stock_intecmar_capture_zone.ir_cron_sync_intecmar_zone_status_ir_actions_server
+msgid "Sync INTECMAR toxin zone bulletins"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__blocks_extraction
+msgid ""
+"Technical: mirrors the linked state's blocking flag, for fast filtering. Not"
+" editable here -- change it on the state itself."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__state_id
+msgid ""
+"The INTECMAR state in force for this period. Whether it blocks extraction is"
+" configured on the state itself."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.constraint,message:stock_intecmar_capture_zone.constraint_intecmar_capture_zone_state_mapping_external_label_unique
+msgid "This INTECMAR wording is already mapped."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.constraint,message:stock_intecmar_capture_zone.constraint_intecmar_capture_zone_code_unique
+msgid "This capture zone code is already registered."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.constraint,message:stock_intecmar_capture_zone.constraint_intecmar_capture_product_type_code_unique
+msgid "This product type code is already registered."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.ui.menu,name:stock_intecmar_capture_zone.menu_toxin_control_config_root
+msgid "Toxin Control"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_status_history__source
+msgid "Whether this record was entered manually or by the INTECMAR sync."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.model.fields,help:stock_intecmar_capture_zone.field_intecmar_capture_zone_state_mapping__blocks_extraction
+msgid ""
+"Whether this state means the capture zone/type is closed to extraction. New "
+"states start blocking until reviewed."
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model:ir.ui.menu,name:stock_intecmar_capture_zone.menu_capture_zone_status_history
+msgid "Zone History"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_list
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_search
+msgid "Zone Status History"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.view_capture_zone_status_history_form
+msgid "Zone Status Record"
+msgstr ""
+
+#. module: stock_intecmar_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_intecmar_capture_zone.res_config_settings_view_form_toxin_zone
+msgid ""
+"https://www.intecmar.gal/Api/EstadoZonasProducion/EstadoZonasBiotoxinas"
+msgstr ""

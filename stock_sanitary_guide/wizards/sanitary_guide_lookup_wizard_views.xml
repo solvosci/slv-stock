@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sanitary_guide_lookup_wizard_form" model="ir.ui.view">
+        <field name="name">sanitary.guide.lookup.wizard.form</field>
+        <field name="model">sanitary.guide.lookup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Look up Sanitary Guide">
+                <field name="move_line_id" invisible="1"/>
+                <group>
+                    <field name="guide_number" placeholder="e.g. 2026O000037113"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
