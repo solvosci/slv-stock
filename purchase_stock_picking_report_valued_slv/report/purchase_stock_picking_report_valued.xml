@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="valued_report_picking_purchase" inherit_id="stock.report_delivery_document">
+        <xpath expr="//thead/tr/th[@name=&apos;th_sm_product&apos;]" position="before">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <th name="th_sm_code"><strong>Code</strong></th>
+            </t>
+        </xpath>
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]/thead/tr"
+               position="inside">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <t t-if="o.state != 'done'">
+                    <th class="text-right"><strong>Qty Reserved</strong></th>
+                </t>
+                <th class="text-right"><strong>Unit Price</strong></th>
+                <th class="text-right" groups="product.group_discount_per_so_line">
+                    <strong>Discount</strong>
+                </th>
+                <th class="text-right"><strong>Subtotal</strong></th>
+            </t>
+        </xpath>
+        <xpath expr="//tbody/tr[@t-foreach='lines']/td" position="before">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <td>
+                    <span t-field="move_line.product_id.default_code"/>
+                </td>
+            </t>
+        </xpath>
+        <xpath expr="//span[@t-field='move.product_id']" position="before">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <span t-field="move_line.origin"/>
+            </t>
+        </xpath>
+        <xpath expr="//span[@t-field='move_line.qty_done']/.." position="after">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <t t-if="move_line.picking_id.state != 'done'">
+                    <td class="text-right">
+                        <span t-field="move_line.product_uom_qty"/>
+                        <span t-field="move_line.product_uom_id"/></td>
+                </t>
+                <td class="text-right"><span
+                        t-field="move_line.purchase_price_unit" /></td>
+                <td class="text-right" groups="product.group_discount_per_so_line">
+                    <span t-field="move_line.move_id.purchase_line_id.discount" />
+                </td>
+                <td class="text-right">
+                    <span t-field="move_line.purchase_price_subtotal" /></td>
+            </t>
+        </xpath>
+        <xpath expr="//table[@t-if=&quot;o.move_line_ids and o.state==&apos;done&apos;&quot;]" position="after">
+            <t t-if="o.purchase_id and o.move_line_ids">
+                <table class="table table-sm mt32">
+                    <thead>
+                        <tr>
+                            <th class="text-right"><strong>Net</strong></th>
+                            <th class="text-right"><strong>Total</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-right">
+                                <span t-field="o.purchase_amount_untaxed"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="o.purchase_amount_total"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </xpath>
+    </template>
+</odoo>
