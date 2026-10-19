@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_stock_barcodes_read_picking_form" model="ir.ui.view">
+        <field name="model">wiz.stock.barcodes.read.picking</field>
+        <field
+            name="inherit_id"
+            ref="stock_barcodes.view_stock_barcodes_read_picking_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='move_line_ids']//kanban/field[@name='qty_picked']"
+                position="after"
+            >
+                <field name="quantity" />
+            </xpath>
+            <xpath
+                expr="//field[@name='move_line_ids']//span[@t-esc='record.qty_picked.raw_value']"
+                position="replace"
+            />
+            <xpath
+                expr="//field[@name='move_line_ids']//field[@name='product_id'][hasclass('h2')]"
+                position="after"
+            >
+                <div class="h4 pt-2">
+                    <field name="location_id" />
+                    <i class="fa fa-long-arrow-right mx-2" title="Destination Location" />
+                    <field name="location_dest_id" />
+                </div>
+                <div
+                    class="d-flex justify-content-start align-items-center indent h4 pt-2"
+                >
+                    <span t-esc="record.qty_picked.raw_value" />
+                    &#32;/&#32;
+                    <span t-esc="record.quantity.raw_value" />
+                    <span
+                        t-if="record.product_uom_id"
+                        class="ms-1"
+                        t-esc="record.product_uom_id.value"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
