@@ -1,0 +1,11 @@
+<odoo>
+
+    <data noupdate="0">
+        <record id="group_sale_stock_picking_preparer" model="res.groups">
+            <field name="name">Stock: Sales Picking Preparer</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+    </data>
+
+</odoo>
