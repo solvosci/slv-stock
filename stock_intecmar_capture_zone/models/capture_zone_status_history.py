@@ -1,6 +1,8 @@
 # Copyright 2026 Solvos Consultoría Informática, S.L. (<https://www.solvos.es>)
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
+from datetime import timedelta
+
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -82,10 +84,44 @@ class CaptureZoneStatusHistory(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         records = super().create(vals_list)
-        records._sweep_affected_lots()
+        records._get_affected_lots().filtered(
+            lambda lot: lot.toxin_block_state != "released"
+        )._evaluate_toxin_block()
         return records
 
-    def _sweep_affected_lots(self):
+    def write(self, vals):
+        if {"date_from", "date_to", "state_id"} & vals.keys():
+            affected_before = self._get_affected_lots()
+            res = super().write(vals)
+            (affected_before | self._get_affected_lots()).filtered(
+                lambda lot: lot.toxin_block_state != "released"
+            )._evaluate_toxin_block()
+            return res
+        return super().write(vals)
+
+    def unlink(self):
+        pairs = {(s.capture_zone_id.id, s.product_type_id.id) for s in self}
+        affected_lots = self._get_affected_lots()
+        res = super().unlink()
+        for zone_id, type_id in pairs:
+            remaining = self.search([
+                ("capture_zone_id", "=", zone_id),
+                ("product_type_id", "=", type_id),
+            ], order="date_from asc")
+            for index, record in enumerate(remaining):
+                is_last = index == len(remaining) - 1
+                expected_date_to = (
+                    False if is_last
+                    else remaining[index + 1].date_from - timedelta(days=1)
+                )
+                if record.date_to != expected_date_to:
+                    record.date_to = expected_date_to
+        affected_lots.filtered(
+            lambda lot: lot.toxin_block_state != "released"
+        )._evaluate_toxin_block()
+        return res
+
+    def _get_affected_lots(self):
         affected_lots = self.env["stock.lot"]
         for status in self:
             domain = [
@@ -98,9 +134,7 @@ class CaptureZoneStatusHistory(models.Model):
             affected_lots |= self.env["lot.capture.zone.origin"].search(
                 domain
             ).mapped("lot_id")
-        affected_lots.filtered(
-            lambda lot: lot.toxin_block_state != "released"
-        )._evaluate_toxin_block()
+        return affected_lots
 
     @api.constrains("capture_zone_id", "product_type_id", "date_from", "date_to")
     def _check_no_overlap(self):

@@ -87,6 +87,20 @@
         </field>
     </record>
 
+    <record id="view_production_lot_tree_purification" model="ir.ui.view">
+        <field name="name">stock.production.lot.list.purification</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="purification_state" optional="show" widget="badge"
+                    decoration-warning="purification_state == 'blocked'"
+                    decoration-success="purification_state == 'released'"
+                    decoration-muted="purification_state == 'not_applicable'"/>
+            </field>
+        </field>
+    </record>
+
     <record id="view_production_lot_form_purification" model="ir.ui.view">
         <field name="name">stock.production.lot.form.purification</field>
         <field name="model">stock.lot</field>
@@ -117,7 +131,7 @@
             (0, 0, {'view_mode': 'list', 'view_id': ref('view_stock_lot_purification_list')}),
             ]"/>
         <field name="domain">[('product_id.purifiable', '=', True)]</field>
-        <field name="context">{'search_default_filter_blocked': 1}</field>
+        <field name="context">{}</field>
         <field name="search_view_id" ref="view_stock_lot_purification_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

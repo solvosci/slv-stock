@@ -11,7 +11,15 @@
                     <setting id="toxin_zone_intecmar_url_setting"
                         help="Endpoint the INTECMAR sync downloads">
                         <field name="toxin_zone_intecmar_url" placeholder="https://www.intecmar.gal/Api/EstadoZonasProducion/EstadoZonasBiotoxinas"/>
-                        <field name="toxin_zone_last_update_date" readonly="1" groups="base.group_no_one"/>
+                    </setting>
+                    <setting id="toxin_zone_last_update_setting"
+                        string="Last Update" groups="base.group_no_one">
+                        <div class="content-group">
+                            <div class="row">
+                                <label string="Last Update" for="toxin_zone_last_update_date" class="col-lg-4 o_light_label"/>
+                                <field name="toxin_zone_last_update_date" readonly="1"/>
+                            </div>
+                        </div>
                     </setting>
                 </block>
             </xpath>

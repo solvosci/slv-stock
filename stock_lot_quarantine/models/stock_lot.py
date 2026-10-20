@@ -137,11 +137,18 @@ class StockLot(models.Model):
                 "picking_id": picking.id,
                 "location_id": source_location.id,
                 "location_dest_id": dest_location.id,
+                "move_line_ids": [(0, 0, {
+                    "product_id": self.product_id.id,
+                    "product_uom_id": self.product_id.uom_id.id,
+                    "lot_id": self.id,
+                    "quantity": quantity,
+                    "location_id": source_location.id,
+                    "location_dest_id": dest_location.id,
+                })],
             }
         )
         picking.action_confirm()
-        picking.action_assign()
-        picking.move_line_ids.write({"lot_id": self.id, "quantity": quantity})
+        picking.move_ids.picked = True
         picking.button_validate()
         return picking
 
@@ -163,6 +170,9 @@ class StockLot(models.Model):
 
     def _send_stock_to_quarantine(self):
         self.ensure_one()
+        if self.env.context.get("_quarantine_intake_in_progress"):
+            return
+        self = self.with_context(_quarantine_intake_in_progress=True)
         for quant in self.env["stock.quant"].search(
             [
                 ("lot_id", "=", self.id),

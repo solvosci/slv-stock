@@ -83,7 +83,7 @@ class SanitaryGuide(models.Model):
     lot_origin_ids = fields.One2many(
         "lot.capture.zone.origin", "sanitary_guide_id", string="Linked Lot Origins"
     )
-    lot_count = fields.Integer(string="Lots", compute="_compute_lot_count")
+    lot_count = fields.Integer(string="Lots", compute="_compute_lot_count", store=True)
     lots_to_review_count = fields.Integer(
         string="Lots to Review", compute="_compute_lot_count", store=True,
         help="Lots whose own zone(s) no longer match this guide's "
