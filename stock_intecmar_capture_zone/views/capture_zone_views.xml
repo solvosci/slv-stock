@@ -27,7 +27,8 @@
                             <field name="status_ids" context="{'default_zone_id': id}">
                                 <list editable="bottom" default_order="date_from desc">
                                     <field name="product_type_id"/>
-                                    <field name="state_id" widget="badge"
+                                    <field name="state_id"
+                                        decoration-bf="1"
                                         decoration-danger="blocks_extraction"
                                         decoration-success="not blocks_extraction"/>
                                     <field name="date_from"/>

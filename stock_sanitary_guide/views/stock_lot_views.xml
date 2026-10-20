@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <field name="sanitary_state" position="after">
                 <field name="sanitary_guide_id" readonly="1"/>
-                <field name="needs_review" optional="hide" invisible="not sanitary_guide_id"/>
+                <field name="needs_review" invisible="not sanitary_guide_id"/>
             </field>
         </field>
     </record>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-15 07:38+0000\n"
-"PO-Revision-Date: 2026-10-15 07:38+0000\n"
+"POT-Creation-Date: 2026-11-17 08:45+0000\n"
+"PO-Revision-Date: 2026-11-17 08:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,11 +56,6 @@ msgid "'estado', e.g. 'Confirmado'."
 msgstr ""
 
 #. module: stock_sanitary_guide
-#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issue_datetime
-msgid "'fecha_emision'."
-msgstr ""
-
-#. module: stock_sanitary_guide
 #: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__capture_date
 msgid "'fecha_Recoleccion'."
 msgstr ""
@@ -68,6 +63,11 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__registration_datetime
 msgid "'fecha_Registro'."
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issue_datetime
+msgid "'fecha_emision'."
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -125,6 +125,7 @@ msgstr ""
 
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__biological_zone_id
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Biological Zone"
 msgstr ""
 
@@ -145,6 +146,7 @@ msgstr ""
 
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__capture_zone_id
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Capture Zone"
 msgstr ""
 
@@ -248,28 +250,18 @@ msgid "Document"
 msgstr ""
 
 #. module: stock_sanitary_guide
-#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__guide_number
-msgid "Document number, e.g. 2026R000086454."
-msgstr ""
-
-#. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__document_state
 msgid "Document State"
 msgstr ""
 
 #. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__guide_number
+msgid "Document number, e.g. 2026R000086454."
+msgstr ""
+
+#. module: stock_sanitary_guide
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
 msgid "Download PDF"
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
-msgid "e.g. 2026O000037113"
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
-msgid "e.g. 2026R000086454"
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -288,9 +280,25 @@ msgid "Find/Create"
 msgstr ""
 
 #. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_stock_move_operations_sanitary_guide
+msgid "Guide"
+msgstr ""
+
+#. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__guide_number
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__guide_number
 msgid "Guide Number"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__pdf_attachment_id
+msgid "Guide PDF as last returned by the API."
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.report_picking_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.stock_report_delivery_has_serial_move_line_sanitary_guide
+msgid "Guide:"
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -308,20 +316,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
 msgid "HTTP Auth Credentials"
 msgstr ""
-
-#. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
-msgid ""
-"HTTP Basic Auth credentials required by the gateway for any call to go "
-"through"
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
-msgid ""
-"https://www.pescadegalicia.gal/webservicespescadegalicia/ws/v1/destinosService?wsdl"
-msgstr ""
-
 
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_intecmar_capture_zone_status_history__id
@@ -344,6 +338,7 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_name
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Issuing Entity"
 msgstr ""
 
@@ -399,6 +394,7 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__lot_count
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_list
 msgid "Lots"
 msgstr ""
 
@@ -433,6 +429,7 @@ msgstr ""
 
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_lot_capture_zone_origin__needs_review
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Needs Review"
 msgstr ""
 
@@ -444,6 +441,11 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Open"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__pdf_attachment_id
+msgid "PDF"
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -483,6 +485,7 @@ msgstr ""
 
 #. module: stock_sanitary_guide
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Recipient"
 msgstr ""
 
@@ -523,16 +526,6 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model:ir.model,name:stock_sanitary_guide.model_sanitary_guide
 msgid "Sanitary Guide (Documento de orixe)"
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model:ir.model.fields,help:stock_sanitary_guide.field_lot_capture_zone_origin__sanitary_guide_id
-msgid "Sanitary guide (Documento de orixe) this capture came in with."
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model:ir.model.fields,help:stock_sanitary_guide.field_stock_move_line__sanitary_guide_id
-msgid "Sanitary guide (Documento de orixe) this line's lot came in with."
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -589,12 +582,24 @@ msgstr ""
 #: model:ir.actions.act_window,name:stock_sanitary_guide.action_sanitary_guide
 #: model:ir.ui.menu,name:stock_sanitary_guide.menu_sanitary_guide_root
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_list
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Sanitary Guides"
 msgstr ""
 
 #. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__sanitary_qualification
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
 msgid "Sanitary Qualification"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_lot_capture_zone_origin__sanitary_guide_id
+msgid "Sanitary guide (Documento de orixe) this capture came in with."
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_stock_move_line__sanitary_guide_id
+msgid "Sanitary guide (Documento de orixe) this line's lot came in with."
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -626,13 +631,6 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model:ir.actions.server,name:stock_sanitary_guide.ir_cron_sync_zone_catalog_ir_actions_server
 msgid "Sync Xunta zone catalog (capture + biological zones)"
-msgstr ""
-
-#. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
-msgid ""
-"The capture/biological zone has no history yet for this product's type. "
-"Confirming will create a new entry. Continue?"
 msgstr ""
 
 #. module: stock_sanitary_guide
@@ -668,6 +666,13 @@ msgid "The Sanitary Guide service returned an error: %s"
 msgstr ""
 
 #. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid ""
+"The capture/biological zone has no history yet for this product's type. "
+"Confirming will create a new entry. Continue?"
+msgstr ""
+
+#. module: stock_sanitary_guide
 #. odoo-python
 #: code:addons/stock_sanitary_guide/models/sanitary_guide.py:0
 msgid "The service did not return a PDF for this guide."
@@ -680,6 +685,7 @@ msgstr ""
 
 #. module: stock_sanitary_guide
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_list
 msgid "To Review"
 msgstr ""
 
@@ -709,12 +715,6 @@ msgid "User"
 msgstr ""
 
 #. module: stock_sanitary_guide
-#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
-msgid ""
-"User sent inside each request, identifying who is querying the document"
-msgstr ""
-
-#. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__version_number
 msgid "Version"
 msgstr ""
@@ -727,4 +727,20 @@ msgstr ""
 #. module: stock_sanitary_guide
 #: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
 msgid "Zones"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid "e.g. 2026O000037113"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "e.g. 2026R000086454"
+msgstr ""
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid ""
+"https://www.pescadegalicia.gal/webservicespescadegalicia/ws/v1/destinosService?wsdl"
 msgstr ""

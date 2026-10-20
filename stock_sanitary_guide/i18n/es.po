@@ -291,10 +291,26 @@ msgid "Find/Create"
 msgstr "Buscar/Crear"
 
 #. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_stock_move_operations_sanitary_guide
+msgid "Guide"
+msgstr "Guía"
+
+#. module: stock_sanitary_guide
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__guide_number
 #: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__guide_number
 msgid "Guide Number"
 msgstr "Número de Guía"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__pdf_attachment_id
+msgid "Guide PDF as last returned by the API."
+msgstr "PDF de la guía tal como lo devolvió la API por última vez."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.report_picking_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.stock_report_delivery_has_serial_move_line_sanitary_guide
+msgid "Guide:"
+msgstr "Guía:"
 
 #. module: stock_sanitary_guide
 #: model:ir.ui.menu,name:stock_sanitary_guide.menu_sanitary_guide

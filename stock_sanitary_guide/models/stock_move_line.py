@@ -27,3 +27,9 @@ class StockMoveLine(models.Model):
                 "default_guide_number": self.sanitary_guide_id.guide_number,
             },
         }
+
+    def _get_sanitary_guide_numbers(self):
+        self.ensure_one()
+        line = self.sudo()
+        guides = line.sanitary_guide_id or line.lot_id.capture_origin_ids.sanitary_guide_id
+        return guides.mapped("guide_number")

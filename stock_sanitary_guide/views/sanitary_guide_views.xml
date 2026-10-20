@@ -116,6 +116,13 @@
                             <field name="version_number"/>
                             <field name="production_method"/>
                             <field name="is_registered"/>
+                            <label for="pdf_attachment_id"/>
+                            <div>
+                                <button name="action_download_pdf" type="object"
+                                    class="btn btn-link p-0" invisible="not pdf_attachment_id">
+                                    <field name="pdf_attachment_id" options="{'no_open': True}"/>
+                                </button>
+                            </div>
                         </group>
                         <group string="Zones">
                             <field name="capture_zone_id"/>

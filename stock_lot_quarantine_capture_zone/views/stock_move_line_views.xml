@@ -24,7 +24,7 @@
             <field name="lot_id" position="after">
                 <field name="product_subject_to_zone_control" column_invisible="1"/>
                 <field name="product_intecmar_categ_ids" column_invisible="1"/>
-                <field name="capture_zone_id" optional="show"
+                <field name="capture_zone_id" string="Catch Zone" optional="show"
                     invisible="not product_subject_to_zone_control or picking_code != 'incoming'"
                     domain="[('status_ids.product_type_id', 'in', product_intecmar_categ_ids)]"/>
             </field>

@@ -9,7 +9,7 @@ class SanitaryGuide(models.Model):
     _name = "sanitary.guide"
     _description = "Sanitary Guide (Documento de orixe)"
     _rec_name = "guide_number"
-    _order = "issue_datetime desc, id desc"
+    _order = "issue_datetime desc nulls last, id desc"
 
     guide_number = fields.Char(
         string="Guide Number",
@@ -76,6 +76,12 @@ class SanitaryGuide(models.Model):
         help="Set when the last attempt to query this guide from the API "
             "failed.",
     )
+    pdf_attachment_id = fields.Many2one(
+        "ir.attachment",
+        string="PDF",
+        readonly=True,
+        help="Guide PDF as last returned by the API.",
+    )
     line_ids = fields.One2many("sanitary.guide.line", "guide_id", string="Captures")
     move_line_ids = fields.One2many(
         "stock.move.line", "sanitary_guide_id", string="Receipt Lines"
@@ -83,7 +89,7 @@ class SanitaryGuide(models.Model):
     lot_origin_ids = fields.One2many(
         "lot.capture.zone.origin", "sanitary_guide_id", string="Linked Lot Origins"
     )
-    lot_count = fields.Integer(string="Lots", compute="_compute_lot_count")
+    lot_count = fields.Integer(string="Lots", compute="_compute_lot_count", store=True)
     lots_to_review_count = fields.Integer(
         string="Lots to Review", compute="_compute_lot_count", store=True,
         help="Lots whose own zone(s) no longer match this guide's "
@@ -185,10 +191,11 @@ class SanitaryGuide(models.Model):
     def _fetch_from_api(self):
         self.ensure_one()
         try:
-            vals, _pdf_base64 = self.env["sanitary.guide.sync"]._fetch_guide(self.guide_number)
+            vals, pdf_base64 = self.env["sanitary.guide.sync"]._fetch_guide(self.guide_number)
         except UserError as exc:
             self.last_fetch_error = str(exc)
             raise
+        version_changed = vals.get("version_number") != self.version_number
         vals["last_fetch_error"] = False
         vals["line_ids"] = [(5, 0, 0)] + vals.get("line_ids", [])
         vals["capture_zone_id"] = self._match_zone_code(
@@ -200,6 +207,31 @@ class SanitaryGuide(models.Model):
         vals["issuer_partner_id"] = self._match_partner_vat(vals.get("issuer_vat"))
         vals["recipient_partner_id"] = self._match_partner_vat(vals.get("api_recipient_vat"))
         self.write(vals)
+        if version_changed or not self._get_stored_pdf():
+            self._store_pdf(pdf_base64)
+
+    def _store_pdf(self, pdf_base64):
+        self.ensure_one()
+        new_attachment = self.env["ir.attachment"]
+        if pdf_base64:
+            new_attachment = new_attachment.create({
+                "name": "%s.pdf" % self.guide_number,
+                "type": "binary",
+                "datas": pdf_base64,
+                "res_model": self._name,
+                "res_id": self.id,
+                "mimetype": "application/pdf",
+            })
+        old_attachment = self.pdf_attachment_id
+        self.pdf_attachment_id = new_attachment
+        old_attachment.unlink()
+
+    def _get_stored_pdf(self):
+        self.ensure_one()
+        attachment = self.pdf_attachment_id
+        if attachment.name != "%s.pdf" % self.guide_number:
+            return self.env["ir.attachment"]
+        return attachment
 
     def action_refetch(self):
         for guide in self:
@@ -207,19 +239,15 @@ class SanitaryGuide(models.Model):
 
     def action_download_pdf(self):
         self.ensure_one()
-        _vals, pdf_base64 = self.env["sanitary.guide.sync"]._fetch_guide(self.guide_number)
-        if not pdf_base64:
+        attachment = self._get_stored_pdf()
+        if not attachment:
+            _vals, pdf_base64 = self.env["sanitary.guide.sync"]._fetch_guide(self.guide_number)
+            self._store_pdf(pdf_base64)
+            attachment = self.pdf_attachment_id
+        if not attachment:
             raise UserError(self.env._(
                 "The service did not return a PDF for this guide."
             ))
-        attachment = self.env["ir.attachment"].create({
-            "name": "%s.pdf" % self.guide_number,
-            "type": "binary",
-            "datas": pdf_base64,
-            "res_model": self._name,
-            "res_id": self.id,
-            "mimetype": "application/pdf",
-        })
         return {
             "type": "ir.actions.act_url",
             "url": "/web/content/%s?download=true" % attachment.id,

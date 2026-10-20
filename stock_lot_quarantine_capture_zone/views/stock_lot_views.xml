@@ -85,7 +85,7 @@
                     decoration-warning="toxin_block_state == 'blocked'"
                     decoration-success="toxin_block_state == 'released'"
                     decoration-muted="toxin_block_state == 'not_applicable'"/>
-                <field name="is_ready_for_sale" widget="boolean_toggle" readonly="1"/>
+                <field name="is_ready_for_sale" readonly="1"/>
             </field>
         </field>
     </record>

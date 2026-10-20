@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-31 07:29+0000\n"
-"PO-Revision-Date: 2026-08-31 07:29+0000\n"
+"POT-Creation-Date: 2026-11-17 07:58+0000\n"
+"PO-Revision-Date: 2026-11-17 07:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -138,6 +138,7 @@ msgstr ""
 
 #. module: stock_lot_quarantine
 #: model:ir.model,name:stock_lot_quarantine.model_stock_lot
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_move_operations_purification
 msgid "Lot/Serial"
 msgstr ""
 
@@ -257,6 +258,11 @@ msgid "Purification: release lots whose quarantine has ended"
 msgstr ""
 
 #. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_move_operations_purification
+msgid "Purified?"
+msgstr ""
+
+#. module: stock_lot_quarantine
 #: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_location_search_purification
 msgid "Quarantine"
 msgstr ""
@@ -310,7 +316,7 @@ msgstr ""
 #: model:ir.model.fields,help:stock_lot_quarantine.field_stock_warehouse__quarantine_location_id
 msgid ""
 "Root of the quarantine subtree for this warehouse. Must be excluded from "
-"delivery routes and removal strategy."
+"delivery routes."
 msgstr ""
 
 #. module: stock_lot_quarantine
