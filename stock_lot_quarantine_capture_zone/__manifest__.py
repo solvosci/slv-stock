@@ -4,6 +4,7 @@
     "name": "Stock Lot Quarantine Capture Zone",
     "version": "19.0.1.0.0",
     "category": "Inventory/Inventory",
+    "website": "https://github.com/solvosci/slv-stock",
     "description": "Blocks lots captured from administratively closed "
                 "(toxin) production zones, with manual, reviewed release.",
     "author": "Solvos",

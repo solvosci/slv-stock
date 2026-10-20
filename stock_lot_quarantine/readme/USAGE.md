@@ -6,11 +6,11 @@
     Products*, check *Purifiable*, set *Purification Hours*, and make
     sure it is tracked *By Lots*.
 3.  Go to *Inventory \> Configuration \> Operation Types* and check
-    *Allows Blocked Lots (Purification)* on any operation type that
-    should be able to move a blocked lot out of quarantine (Receipts,
-    Manufacturing, an internal transfer step of a multi-step
-    route...). Leave it unchecked on Delivery Orders and anything
-    else that should never carry one.
+    *Allows Blocked Lots (Purification)* on any operation type whose
+    real final destination (the last step of a multi-step route, or
+    the only step of a single-step one) should be able to receive a
+    blocked lot anyway, such as Manufacturing. Leave it unchecked on
+    Delivery Orders and anything else that should never carry one.
 4.  Validate a receipt as usual, checking or leaving unchecked
     *Received Already Purified?* on each line.
 5.  Go to *Inventory \> Purification Tracking* to see the state and

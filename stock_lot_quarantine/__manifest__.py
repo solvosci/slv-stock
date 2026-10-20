@@ -4,6 +4,7 @@
     "name": "Stock Lot Quarantine",
     "version": "19.0.1.0.0",
     "category": "Inventory/Inventory",
+    "website": "https://github.com/solvosci/slv-stock",
     "summary": "Per-lot purification hold for purifiable products, held in a "
                 "quarantine bin until released. Which operations may move a "
                 "blocked lot is configurable.",

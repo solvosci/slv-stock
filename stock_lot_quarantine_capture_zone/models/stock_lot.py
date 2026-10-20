@@ -43,6 +43,25 @@ class StockLot(models.Model):
             toxin_ok = lot.toxin_block_state in ("released", "not_applicable")
             lot.is_ready_for_sale = purification_ok and toxin_ok
 
+    def write(self, vals):
+        new_state = vals.get("toxin_block_state")
+        leaving_quarantine = self.env["stock.lot"]
+        newly_blocked = self.env["stock.lot"]
+        if new_state in ("released", "not_applicable"):
+            leaving_quarantine = self.filtered(
+                lambda lot: lot.toxin_block_state == "blocked"
+            )
+        elif new_state == "blocked":
+            newly_blocked = self.filtered(
+                lambda lot: lot.toxin_block_state != "blocked"
+            )
+        res = super().write(vals)
+        for lot in leaving_quarantine:
+            lot._try_release_from_quarantine()
+        for lot in newly_blocked:
+            lot._send_stock_to_quarantine()
+        return res
+
     def _evaluate_toxin_block(self):
         self.mapped("capture_origin_ids").sudo()._compute_status_id()
         for lot in self:
@@ -73,21 +92,19 @@ class StockLot(models.Model):
             "toxin_block_state": "blocked",
             "toxin_block_reason": reason,
         })
-        self._send_stock_to_quarantine()
 
     def _mark_toxin_exempt(self):
         self.ensure_one()
         self.write({"toxin_block_state": "not_applicable"})
-        self._try_release_from_quarantine()
 
     def action_manual_release_toxin_block(self):
         if not self.env.user.has_group("stock_lot_quarantine.group_purification_manager"):
             raise AccessError(
                 "Only Purification managers can release a toxin block."
             )
-        for lot in self.filtered(lambda l: l.toxin_block_state == "blocked"):
-            lot.write({"toxin_block_state": "released"})
-            lot._try_release_from_quarantine()
+        self.filtered(
+            lambda l: l.toxin_block_state == "blocked"
+        ).write({"toxin_block_state": "released"})
 
     def _release_stock_from_quarantine(self):
         for lot in self:
