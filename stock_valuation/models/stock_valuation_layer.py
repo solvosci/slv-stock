@@ -161,9 +161,12 @@ class StockValuationLayer(models.Model):
                         # TODO this should be return always a value,
                         #  but False is possible!!!
                         # vals["history_average_price_id"] = orig_move.get_phap_id()
-                        vals["history_average_price_id"] = (
-                            move_id.origin_returned_move_id.stock_valuation_layer_ids.history_average_price_id.id
-                        )
+                        # PHAP assigned is only forced if we're stringly linked with origin return move date
+                        #  (in other words, if no custom return date is set)
+                        if not move_id.picking_id.has_val_cust_ret_date:
+                            vals["history_average_price_id"] = (
+                                move_id.origin_returned_move_id.stock_valuation_layer_ids.history_average_price_id.id
+                            )
 
                 elif move_id.picking_type_id.code == 'internal':
                     vals["value"] = vals.get("unit_cost") * vals.get("quantity")

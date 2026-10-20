@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form (in stock_valuation)</field>
+        <field name="model">stock.picking</field>
+        <field
+            name="inherit_id"
+            ref="stock.view_picking_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_done']" position="after">
+                <field name="has_val_cust_ret_date_enabled" invisible="1" />
+                <field name="has_val_cust_ret_date_visible" invisible="1" />
+                <field
+                    name="has_val_cust_ret_date"
+                    string="Set Cust. Ret. Date"
+                    attrs="{
+                        'readonly': [('has_val_cust_ret_date_enabled', '=', False)],
+                        'invisible': [('has_val_cust_ret_date_visible', '=', False)],
+                    }"                    
+                    help="
+                        When enabled, for valuation purposes a custom return
+                        date can be set; otherwise, original incoming date will be used
+                    "
+                />
+                <field
+                    name="val_cust_ret_date"
+                    string="Return Date"
+                    attrs="{
+                        'required': [('has_val_cust_ret_date', '=', True)],
+                        'readonly': [('state', 'in', ['done', 'cancel'])],
+                        'invisible': [('has_val_cust_ret_date', '=', False)],
+                    }"                    
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

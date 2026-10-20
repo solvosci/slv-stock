@@ -7,7 +7,7 @@
     """,
     "author": "Solvos",
     "license": "LGPL-3",
-    "version": "13.0.3.4.1",
+    "version": "13.0.3.5.0",
     "category": "stock",
     "website": "https://github.com/solvosci/slv-stock",
     "depends": [
@@ -24,6 +24,7 @@
         "views/product_history_average_price_views.xml",
         "views/product_average_price_views.xml",
         "views/product_template_views.xml",
+        "views/stock_picking_views.xml",
         "views/stock_quant_views.xml",
         "views/res_config_settings_views.xml",
         "wizards/phap_price_edit_views.xml",
