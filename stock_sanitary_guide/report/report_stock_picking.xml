@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="stock_report_delivery_has_serial_move_line_sanitary_guide"
+        inherit_id="stock.stock_report_delivery_has_serial_move_line">
+        <xpath expr="//t[@name='move_line_lot']/td" position="inside">
+            <t t-foreach="move_line._get_sanitary_guide_numbers()" t-as="guide_number">
+                <br/><span class="text-muted">Guide: <t t-out="guide_number"/></span>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="report_picking_sanitary_guide" inherit_id="stock.report_picking">
+        <xpath expr="//span[@t-out='line.lot_id.name']" position="after">
+            <t t-foreach="line._get_sanitary_guide_numbers()" t-as="guide_number">
+                <br/><span style="margin-left: 50px;" class="text-muted">Guide: <t t-out="guide_number"/></span>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

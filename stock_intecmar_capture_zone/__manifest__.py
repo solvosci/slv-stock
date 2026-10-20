@@ -4,6 +4,7 @@
     "name": "Stock INTECMAR Capture Zone",
     "version": "19.0.1.0.0",
     "category": "Inventory/Inventory",
+    "website": "https://github.com/solvosci/slv-stock",
     "description": "Models INTECMAR capture zones, product "
                 "types and their administrative status history, with "
                 "automatic sync against the official 'EstadoZonasBiotoxinas' "

@@ -152,6 +152,7 @@ msgstr ""
 
 #. module: stock_lot_quarantine
 #: model:ir.model,name:stock_lot_quarantine.model_stock_lot
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_move_operations_purification
 msgid "Lot/Serial"
 msgstr "Lote/serie"
 
@@ -275,6 +276,11 @@ msgstr "Ubicación de Depuración"
 #: model:ir.actions.server,name:stock_lot_quarantine.ir_cron_release_purified_lots_ir_actions_server
 msgid "Purification: release lots whose quarantine has ended"
 msgstr "Depuración: liberar lotes cuya cuarentena ha terminado"
+
+#. module: stock_lot_quarantine
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_stock_move_operations_purification
+msgid "Purified?"
+msgstr "¿Depurado?"
 
 #. module: stock_lot_quarantine
 #: model_terms:ir.ui.view,arch_db:stock_lot_quarantine.view_location_search_purification

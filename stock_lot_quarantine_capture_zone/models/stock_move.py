@@ -12,6 +12,8 @@ class StockMove(models.Model):
         touches_quarantine = False
         redirected_lots = self.env["stock.lot"]
         for move in self:
+            if move.location_final_id and move.location_final_id != move.location_dest_id:
+                continue
             for line in move.move_line_ids.filtered(
                 lambda l: l.lot_id and l.quantity > 0
             ):
@@ -54,14 +56,12 @@ class StockMove(models.Model):
         if incoming_moves:
             incoming_moves._process_incoming_toxin_zone_control()
         if redirected_lots:
-            redirected_lots._compute_single_location()
-            redirected_lots.flush_recordset(["location_id"])
+            redirected_lots.invalidate_recordset(["location_id"])
         return res
 
     def _process_incoming_toxin_zone_control(self):
         raw_vals = []
         blocked_lots = self.env["stock.lot"]
-        move_lines_by_lot = {}
 
         for move in self:
             capture_date = move.date.date() if move.date else fields.Date.today()
@@ -84,13 +84,8 @@ class StockMove(models.Model):
                     for product_type in move_line.product_id.intecmar_categ
                 ]
                 blocked_lots |= move_line.lot_id
-                move_lines_by_lot.setdefault(move_line.lot_id.id, []).append(move_line)
 
         if raw_vals:
-            # Two move lines for the same lot (e.g. a split line) can
-            # produce the exact same (lot, zone, type, date) origin twice
-            # -- dedup both within this batch and against what the lot
-            # already has, instead of creating redundant rows.
             Origin = self.env["lot.capture.zone.origin"].sudo()
             seen_keys = {
                 (o.lot_id.id, o.capture_zone_id.id, o.product_type_id.id, o.capture_date)
@@ -106,14 +101,6 @@ class StockMove(models.Model):
             if new_origin_vals:
                 Origin.create(new_origin_vals)
         blocked_lots._evaluate_toxin_block()
-
-        # Same reservation-race risk as the plain purification block: in a
-        # multi-step warehouse, the next leg of the route already reserved
-        # this quant by now, so redirect it instead of leaving the lot
-        # stranded outside quarantine with nothing free left to move.
-        for lot in blocked_lots.filtered(lambda l: l.toxin_block_state == "blocked"):
-            for move_line in move_lines_by_lot.get(lot.id, []):
-                move_line.move_id._redirect_chained_move_to_quarantine(move_line)
 
     def _prepare_capture_origin_vals(self, move_line, product_type, capture_date):
         return {

@@ -19,6 +19,7 @@
         "wizards/sanitary_guide_lookup_wizard_views.xml",
         "views/stock_move_line_views.xml",
         "views/stock_lot_views.xml",
+        "report/report_stock_picking.xml",
     ],
     "installable": True,
     "application": False,

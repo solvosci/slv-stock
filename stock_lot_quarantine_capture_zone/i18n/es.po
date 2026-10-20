@@ -62,6 +62,11 @@ msgid "Capture Zone(s) and date(s) this lot's stock came from."
 msgstr "Zona(s) de captura y fecha(s) de origen del stock de este lote."
 
 #. module: stock_lot_quarantine_capture_zone
+#: model_terms:ir.ui.view,arch_db:stock_lot_quarantine_capture_zone.view_stock_move_operations_toxin_zone
+msgid "Catch Zone"
+msgstr "Zona captura"
+
+#. module: stock_lot_quarantine_capture_zone
 #: model:ir.model.fields,field_description:stock_lot_quarantine_capture_zone.field_shellfish_lot_capture_origin__company_id
 msgid "Company"
 msgstr "Compañía"

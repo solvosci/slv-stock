@@ -9,8 +9,9 @@
     *Biological Zone* on the line from the guide's own data.
 3.  Go to *Inventory \> Products \> Sanitary Guides \> Guides* to see
     every guide looked up so far. *Query API* refetches a guide's
-    data; *View PDF* downloads the official document on demand
-    without storing it.
+    data and stores its PDF; *Download PDF* downloads the stored
+    PDF, fetching it from the webservice first if none is stored
+    yet.
 4.  A guide's *Lots* and *To Review* buttons open the lots linked to
     it; *To Review* only lists the ones whose own zone no longer
     matches the guide's current data.
