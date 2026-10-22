@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_capture_zone_status_history_list" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.status.history.list</field>
+        <field name="model">intecmar.capture.zone.status.history</field>
+        <field name="arch" type="xml">
+            <list string="Zone Status History" editable="top" default_order="date_from desc">
+                <field name="capture_zone_id" column_invisible="context.get('default_zone_id')"/>
+                <field name="product_type_id"/>
+                <field name="state_id"
+                    decoration-bf="1"
+                    decoration-danger="blocks_extraction"
+                    decoration-success="not blocks_extraction"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="report_type"/>
+                <field name="report_reference"/>
+                <field name="source"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_capture_zone_status_history_form" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.status.history.form</field>
+        <field name="model">intecmar.capture.zone.status.history</field>
+        <field name="arch" type="xml">
+            <form string="Zone Status Record">
+                <sheet>
+                    <group>
+                        <field name="capture_zone_id"/>
+                        <field name="product_type_id"/>
+                        <field name="state_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="report_type"/>
+                        <field name="report_reference"/>
+                        <field name="source" readonly="1"/>
+                        <field name="attachment_ids" widget="many2many_binary"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_capture_zone_status_history_search" model="ir.ui.view">
+        <field name="name">intecmar.capture.zone.status.history.search</field>
+        <field name="model">intecmar.capture.zone.status.history</field>
+        <field name="arch" type="xml">
+            <search string="Zone Status History">
+                <field name="capture_zone_id"/>
+                <field name="product_type_id"/>
+                <filter string="Open" name="filter_open"
+                    domain="[('blocks_extraction', '=', False)]"/>
+                <filter string="Closed" name="filter_closed"
+                    domain="[('blocks_extraction', '=', True)]"/>
+                <separator/>
+                <filter string="Capture Zone" name="group_zone" context="{'group_by': 'capture_zone_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_capture_zone_status_history" model="ir.actions.act_window">
+        <field name="name">Capture Zone Status History</field>
+        <field name="res_model">intecmar.capture.zone.status.history</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_capture_zone_status_history_search"/>
+        <field name="context">{'search_default_group_zone': 1}</field>
+    </record>
+
+
+</odoo>

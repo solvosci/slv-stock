@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sanitary_guide_list" model="ir.ui.view">
+        <field name="name">sanitary.guide.list</field>
+        <field name="model">sanitary.guide</field>
+        <field name="arch" type="xml">
+            <list string="Sanitary Guides">
+                <field name="guide_number"/>
+                <field name="issue_datetime"/>
+                <field name="issuer_name"/>
+                <field name="api_recipient_name"/>
+                <field name="capture_zone_id"/>
+                <field name="biological_zone_id"/>
+                <field name="sanitary_qualification"/>
+                <field name="biotoxin_zone_status" string="Status"/>
+                <field name="lot_count" string="Lots" optional="show"/>
+                <field name="lots_to_review_count" string="To Review" optional="show"/>
+                <field name="last_fetch_error" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sanitary_guide_search" model="ir.ui.view">
+        <field name="name">sanitary.guide.search</field>
+        <field name="model">sanitary.guide</field>
+        <field name="arch" type="xml">
+            <search string="Sanitary Guides">
+                <field name="guide_number"/>
+                <field name="issuer_name"/>
+                <field name="api_recipient_name"/>
+                <field name="capture_zone_id"/>
+                <field name="biological_zone_id"/>
+                <filter string="Today" name="filter_today"
+                    domain="[('issue_datetime', '>=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0))),
+                              ('issue_datetime', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23, 59, 59)))]"/>
+                <filter string="Needs Review" name="filter_needs_review"
+                    domain="[('lots_to_review_count', '>', 0)]"/>
+                <filter string="Open" name="filter_open"
+                    domain="[('biotoxin_zone_status', '=ilike', 'Aberta')]"/>
+                <filter string="Closed" name="filter_closed"
+                    domain="[('biotoxin_zone_status', '=ilike', 'Pechada')]"/>
+                <separator/>
+                <filter string="Recipient" name="groupby_recipient" context="{'group_by': 'api_recipient_name'}"/>
+                <filter string="Issuing Entity" name="groupby_issuer" context="{'group_by': 'issuer_name'}"/>
+                <filter string="Capture Zone" name="groupby_capture_zone" context="{'group_by': 'capture_zone_id'}"/>
+                <filter string="Biological Zone" name="groupby_biological_zone" context="{'group_by': 'biological_zone_id'}"/>
+                <filter string="Sanitary Qualification" name="groupby_sanitary_qualification" context="{'group_by': 'sanitary_qualification'}"/>
+                <filter string="Status" name="groupby_status" context="{'group_by': 'biotoxin_zone_status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_sanitary_guide_form" model="ir.ui.view">
+        <field name="name">sanitary.guide.form</field>
+        <field name="model">sanitary.guide</field>
+        <field name="arch" type="xml">
+            <form string="Sanitary Guide">
+                <header>
+                    <button name="action_refetch" type="object"
+                        string="Query API" class="btn-primary"/>
+                    <button name="action_download_pdf" type="object"
+                        string="Download PDF"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_lots"
+                            class="oe_stat_button" icon="fa-flask">
+                            <field name="lot_count" widget="statinfo" string="Lots"/>
+                        </button>
+                        <button type="object" name="action_view_lots_to_review"
+                            class="oe_stat_button text-warning"
+                            icon="fa-exclamation-triangle">
+                            <field name="lots_to_review_count" widget="statinfo" string="To Review"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="guide_number"/>
+                        <h1><field name="guide_number" placeholder="e.g. 2026R000086454"/></h1>
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                        invisible="not last_fetch_error">
+                        <field name="last_fetch_error"/>
+                    </div>
+                    <group>
+                        <group string="Recipient">
+                            <field name="api_recipient_vat"/>
+                            <field name="api_recipient_name"/>
+                            <field name="api_destination_type"/>
+                            <label for="recipient_partner_id"/>
+                            <div class="o_row">
+                                <field name="recipient_partner_id" class="flex-grow-0" style="width:auto!important"/>
+                                <button name="action_find_or_create_recipient" type="object"
+                                    string="Find/Create" class="btn-secondary flex-grow-0" style="width:auto!important"
+                                    groups="base.group_partner_manager"/>
+                            </div>
+                        </group>
+                        <group string="Issuing Entity">
+                            <field name="issuer_name"/>
+                            <field name="issuer_vat"/>
+                            <field name="issuer_address"/>
+                            <field name="issuer_phone"/>
+                            <label for="issuer_partner_id"/>
+                            <div class="o_row">
+                                <field name="issuer_partner_id" class="flex-grow-0" style="width:auto!important"/>
+                                <button name="action_find_or_create_issuer" type="object"
+                                    string="Find/Create" class="btn-secondary flex-grow-0" style="width:auto!important"
+                                    groups="base.group_partner_manager"/>
+                            </div>
+                        </group>
+                        <group string="Document">
+                            <field name="document_state"/>
+                            <field name="issue_datetime"/>
+                            <field name="capture_date"/>
+                            <field name="registration_datetime"/>
+                            <field name="version_number"/>
+                            <field name="production_method"/>
+                            <field name="is_registered"/>
+                        </group>
+                        <group string="Zones">
+                            <field name="capture_zone_id"/>
+                            <field name="capture_zone_raw_name"/>
+                            <field name="biotoxin_zone_status"/>
+                            <field name="biological_zone_id"/>
+                            <field name="biological_zone_raw_name"/>
+                            <field name="sanitary_qualification"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Captures" name="captures">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="fao_code"/>
+                                    <field name="common_name"/>
+                                    <field name="scientific_name"/>
+                                    <field name="quantity_kg"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Receipts" name="receipts">
+                            <field name="move_line_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sanitary_guide" model="ir.actions.act_window">
+        <field name="name">Sanitary Guides</field>
+        <field name="res_model">sanitary.guide</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_sanitary_guide_root"
+        name="Sanitary Guides"
+        parent="stock.menu_stock_inventory_control"
+        sequence="130"/>
+
+    <menuitem id="menu_sanitary_guide"
+        name="Guides"
+        parent="menu_sanitary_guide_root"
+        action="action_sanitary_guide"
+        sequence="10"/>
+
+</odoo>

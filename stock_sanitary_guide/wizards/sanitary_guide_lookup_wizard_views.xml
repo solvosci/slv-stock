@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sanitary_guide_lookup_wizard_form" model="ir.ui.view">
+        <field name="name">sanitary.guide.lookup.wizard.form</field>
+        <field name="model">sanitary.guide.lookup.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Look up Sanitary Guide">
+                <field name="move_line_id" invisible="1"/>
+                <field name="new_zone_history_warning" invisible="1"/>
+                <group>
+                    <field name="guide_number" placeholder="e.g. 2026O000037113"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                        invisible="new_zone_history_warning"/>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                        invisible="not new_zone_history_warning"
+                        confirm="The capture/biological zone has no history yet for this product's type. Confirming will create a new entry. Continue?"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

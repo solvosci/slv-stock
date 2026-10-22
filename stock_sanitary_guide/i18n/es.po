@@ -1,0 +1,758 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* stock_sanitary_guide
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 07:38+0000\n"
+"PO-Revision-Date: 2026-10-15 07:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__api_recipient_vat
+msgid "'cliente_nif'."
+msgstr "'cliente_nif'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__api_recipient_name
+msgid "'cliente_nombre'."
+msgstr "'cliente_nombre'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__api_destination_type
+msgid "'destino_tipo'."
+msgstr "'destino_tipo'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issuer_vat
+msgid "'emisor_cif'."
+msgstr "'emisor_cif'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issuer_address
+msgid "'emisor_direccion'."
+msgstr "'emisor_direccion'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issuer_name
+msgid "'emisor_nombre'."
+msgstr "'emisor_nombre'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issuer_phone
+msgid "'emisor_tfno'."
+msgstr "'emisor_tfno'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__document_state
+msgid "'estado', e.g. 'Confirmado'."
+msgstr "'estado', p. ej. 'Confirmado'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issue_datetime
+msgid "'fecha_emision'."
+msgstr "'fecha_emision'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__capture_date
+msgid "'fecha_Recoleccion'."
+msgstr "'fecha_Recoleccion'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__registration_datetime
+msgid "'fecha_Registro'."
+msgstr "'fecha_Registro'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_intecmar_capture_zone_status_history__source
+msgid ""
+"'guide' marks an entry with no real INTECMAR tracking behind it "
+"(bootstrapped from the Xunta zone catalog, or resolved/updated from a "
+"sanitary guide)"
+msgstr ""
+"El valor 'guide' marca una entrada sin seguimiento real de INTECMAR "
+"detrás (creada desde el catálogo de zonas de la Xunta, o resuelta/"
+"actualizada desde una guía sanitaria)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__version_number
+msgid "'intversion'."
+msgstr "'intversion'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__production_method
+msgid "'metodo_produccion'."
+msgstr "'metodo_produccion'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__is_registered
+msgid "'registrado' == 'SI'."
+msgstr "'registrado' == 'SI'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__biotoxin_zone_status
+msgid "'zona_biotoxina_estado'."
+msgstr "'zona_biotoxina_estado'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__capture_zone_raw_name
+msgid "'zona_biotoxina_nombre'."
+msgstr "'zona_biotoxina_nombre'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__sanitary_qualification
+msgid "'zona_captura_calificacion'."
+msgstr "'zona_captura_calificacion'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__biological_zone_raw_name
+msgid "'zona_captura_nombre'."
+msgstr "'zona_captura_nombre'."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_partner_id
+msgid "Associated Issuer"
+msgstr "Emisor Asociado"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__recipient_partner_id
+msgid "Associated Recipient"
+msgstr "Destinatario Asociado"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__biological_zone_id
+msgid "Biological Zone"
+msgstr "Zona Biológica"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__biological_zone_raw_name
+msgid "Biological Zone (as returned)"
+msgstr "Zona Biológica (tal cual la devuelve)"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__capture_date
+msgid "Capture Date"
+msgstr "Fecha de Captura"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__capture_zone_id
+msgid "Capture Zone"
+msgstr "Zona de Captura"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__capture_zone_raw_name
+msgid "Capture Zone (as returned)"
+msgstr "Zona de Captura (tal cual la devuelve)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_intecmar_capture_zone_status_history
+msgid "Capture Zone Administrative Status (history)"
+msgstr "Estado administrativo de la zona de captura (histórico)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__biotoxin_zone_status
+msgid "Capture Zone Status (as returned)"
+msgstr "Estado de la Zona de Captura (tal cual lo devuelve)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__line_ids
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Captures"
+msgstr "Capturas"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
+msgid "Closed"
+msgstr "Cerrada"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__common_name
+msgid "Common Name"
+msgstr "Nombre Común"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__issuer_partner_id
+msgid "Contact whose VAT matches this guide's issuer VAT."
+msgstr "Contacto cuyo NIF coincide con el NIF del emisor de esta guía."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__recipient_partner_id
+msgid "Contact whose VAT matches this guide's recipient VAT."
+msgstr "Contacto cuyo NIF coincide con el NIF del destinatario de esta guía."
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid "Could not reach the Sanitary Guide service."
+msgstr "No se ha podido contactar con el servicio de Guía Sanitaria."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__create_uid
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__create_uid
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: stock_sanitary_guide
+#: model:res.partner.category,name:stock_sanitary_guide.res_partner_tag_created_from_guide
+msgid "Created from Guide"
+msgstr "Creado desde Guía"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__create_date
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__create_date
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__api_destination_type
+msgid "Destination Type"
+msgstr "Tipo de Destino"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_intecmar_capture_zone_status_history__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_lot_capture_zone_origin__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_sync__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_stock_move__display_name
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_stock_move_line__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Document"
+msgstr "Documento"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__guide_number
+msgid "Document number, e.g. 2026R000086454."
+msgstr "Número de documento, p. ej. 2026R000086454."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__document_state
+msgid "Document State"
+msgstr "Estado del Documento"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Download PDF"
+msgstr "Descargar PDF"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid "e.g. 2026O000037113"
+msgstr "p. ej. 2026O000037113"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "e.g. 2026R000086454"
+msgstr "p. ej. 2026R000086454"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__fao_code
+msgid "FAO Code"
+msgstr "Código FAO"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide_line__fao_code
+msgid "FAO species code, e.g. OYG."
+msgstr "Código FAO de la especie, p. ej. OYG."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Find/Create"
+msgstr "Buscar/Crear"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__guide_number
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__guide_number
+msgid "Guide Number"
+msgstr "Número de Guía"
+
+#. module: stock_sanitary_guide
+#: model:ir.ui.menu,name:stock_sanitary_guide.menu_sanitary_guide
+msgid "Guides"
+msgstr "Guías"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_stock_move_line_detailed_operation_tree_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_stock_move_operations_sanitary_guide
+msgid "Guía"
+msgstr "Guía"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid "HTTP Auth Credentials"
+msgstr "Credenciales de Auth HTTP"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid ""
+"HTTP Basic Auth credentials required by the gateway for any call to go "
+"through"
+msgstr ""
+"Credenciales HTTP Basic Auth que exige la pasarela para que cualquier "
+"llamada pueda completarse"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid ""
+"https://www.pescadegalicia.gal/webservicespescadegalicia/ws/v1/destinosService?wsdl"
+msgstr ""
+"https://www.pescadegalicia.gal/webservicespescadegalicia/ws/v1/destinosService?wsdl"
+
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_intecmar_capture_zone_status_history__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_lot_capture_zone_origin__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_sync__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_stock_move__id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_stock_move_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issue_datetime
+msgid "Issue Date and Time"
+msgstr "Fecha y Hora de Emisión"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_name
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Issuing Entity"
+msgstr "Entidad Emisora"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_address
+msgid "Issuing Entity Address"
+msgstr "Dirección de la Entidad Emisora"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_phone
+msgid "Issuing Entity Phone"
+msgstr "Teléfono de la Entidad Emisora"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__issuer_vat
+msgid "Issuing Entity VAT"
+msgstr "CIF de la Entidad Emisora"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__last_fetch_error
+msgid "Last Query Error"
+msgstr "Último Error de Consulta"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__write_uid
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__write_uid
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__write_date
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__write_date
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__lot_origin_ids
+msgid "Linked Lot Origins"
+msgstr "Orígenes de Lote Vinculados"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid "Look up Sanitary Guide"
+msgstr "Buscar Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_lot_capture_zone_origin
+msgid "Lot Capture Origin (capture zone + type + date)"
+msgstr "Origen de captura del lote (zona + tipo + fecha)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__lot_count
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Lots"
+msgstr "Lotes"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__lots_to_review_count
+msgid "Lots to Review"
+msgstr "Lotes por Revisar"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__lots_to_review_count
+msgid "Lots whose own zone(s) no longer match this guide's current data."
+msgstr ""
+"Lotes cuya(s) propia(s) zona(s) ya no coincide(n) con los datos actuales "
+"de esta guía."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__biological_zone_id
+msgid ""
+"Matched from biological_zone_raw_name's code. Left empty if no exact match "
+"is found."
+msgstr ""
+"Se obtiene del código de biological_zone_raw_name. Queda vacío si no se "
+"encuentra una coincidencia exacta."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__capture_zone_id
+msgid ""
+"Matched from capture_zone_raw_name's code. Left empty if no exact match is "
+"found."
+msgstr ""
+"Se obtiene del código de capture_zone_raw_name. Queda vacío si no se "
+"encuentra una coincidencia exacta."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__move_line_id
+msgid "Move Line"
+msgstr "Línea de Movimiento"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_lot_capture_zone_origin__needs_review
+msgid "Needs Review"
+msgstr "Necesita Revisión"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_lookup_wizard__new_zone_history_warning
+msgid "New Zone History Warning"
+msgstr "Aviso de Historial de Zona Nuevo"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
+msgid "Open"
+msgstr "Abierta"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "Movimientos de producto (línea de movimiento de stock)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__production_method
+msgid "Production Method"
+msgstr "Método de Producción"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__quantity_kg
+msgid "Quantity (kg)"
+msgstr "Cantidad (kg)"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Query API"
+msgstr "Consultar API"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__move_line_ids
+msgid "Receipt Lines"
+msgstr "Líneas de Recepción"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Receipts"
+msgstr "Recepciones"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Recipient"
+msgstr "Destinatario"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__api_recipient_name
+msgid "Recipient Name"
+msgstr "Nombre del Destinatario"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__api_recipient_vat
+msgid "Recipient VAT"
+msgstr "NIF del Destinatario"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__is_registered
+msgid "Registered"
+msgstr "Registrado"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__registration_datetime
+msgid "Registration Date and Time"
+msgstr "Fecha y Hora de Registro"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid "Request Body Credentials"
+msgstr "Credenciales del Cuerpo de la Petición"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_lot_capture_zone_origin__sanitary_guide_id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__guide_id
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_stock_move_line__sanitary_guide_id
+#: model:ir.model.fields.selection,name:stock_sanitary_guide.selection__intecmar_capture_zone_status_history__source__guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Sanitary Guide"
+msgstr "Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_sanitary_guide
+msgid "Sanitary Guide (Documento de orixe)"
+msgstr "Guía Sanitaria (Documento de orixe)"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_lot_capture_zone_origin__sanitary_guide_id
+msgid "Sanitary guide (Documento de orixe) this capture came in with."
+msgstr "Guía sanitaria (Documento de orixe) con la que entró esta captura."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_stock_move_line__sanitary_guide_id
+msgid "Sanitary guide (Documento de orixe) this line's lot came in with."
+msgstr ""
+"Guía sanitaria (Documento de orixe) con la que entró el lote de esta "
+"línea."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid "Sanitary Guide (Pesca de Galicia)"
+msgstr "Guía Sanitaria (Pesca de Galicia)"
+
+#. module: stock_sanitary_guide
+#: model:res.groups,name:stock_sanitary_guide.group_api_credentials_manager
+msgid "Sanitary Guide API Credentials Manager"
+msgstr "Gestor de Credenciales de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_auth_password
+msgid "Sanitary Guide API HTTP Auth Password"
+msgstr "Contraseña HTTP Auth de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_auth_user
+msgid "Sanitary Guide API HTTP Auth User"
+msgstr "Usuario HTTP Auth de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_password
+msgid "Sanitary Guide API Password"
+msgstr "Contraseña de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_url
+msgid "Sanitary Guide API URL"
+msgstr "URL de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_user
+msgid "Sanitary Guide API User"
+msgstr "Usuario de la API de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_sanitary_guide_line
+msgid "Sanitary Guide Capture Line"
+msgstr "Línea de Captura de la Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_sanitary_guide_lookup_wizard
+msgid "Sanitary Guide Lookup"
+msgstr "Búsqueda de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_sanitary_guide_sync
+msgid "Sanitary Guide Query"
+msgstr "Consulta de Guía Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.actions.act_window,name:stock_sanitary_guide.action_sanitary_guide
+#: model:ir.ui.menu,name:stock_sanitary_guide.menu_sanitary_guide_root
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_list
+msgid "Sanitary Guides"
+msgstr "Guías Sanitarias"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__sanitary_qualification
+msgid "Sanitary Qualification"
+msgstr "Calificación Sanitaria"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide_line__scientific_name
+msgid "Scientific Name"
+msgstr "Nombre Científico"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_sanitary_guide__last_fetch_error
+msgid "Set when the last attempt to query this guide from the API failed."
+msgstr ""
+"Se establece cuando el falla el último intento de consultar esta guía en la API."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_intecmar_capture_zone_status_history__source
+msgid "Source"
+msgstr "Origen"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_list
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: stock_sanitary_guide
+#: model:ir.model,name:stock_sanitary_guide.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de stock"
+
+#. module: stock_sanitary_guide
+#: model:ir.actions.server,name:stock_sanitary_guide.ir_cron_sync_zone_catalog_ir_actions_server
+msgid "Sync Xunta zone catalog (capture + biological zones)"
+msgstr "Sincronizar catálogo de zonas de la Xunta (zonas de captura + biológicas)"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_lookup_wizard_form
+msgid ""
+"The capture/biological zone has no history yet for this product's type. "
+"Confirming will create a new entry. Continue?"
+msgstr ""
+"La zona de captura/biológica todavía no tiene historial para el tipo de "
+"este producto. Al confirmar se creará una entrada nueva. ¿Continuar?"
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid "The Sanitary Guide API is not configured."
+msgstr "La API de Guía Sanitaria no está configurada."
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid ""
+"The Sanitary Guide API is not configured. Set the URL and both sets of "
+"credentials in Settings > Inventory > Sanitary Guide (Pesca de Galicia)."
+msgstr ""
+"La API de Guía Sanitaria no está configurada. Configure la URL y ambos "
+"pares de credenciales en Ajustes > Inventario > Guía Sanitaria (Pesca de "
+"Galicia)."
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid "The Sanitary Guide service rejected the request."
+msgstr "El servicio de Guía Sanitaria rechazó la solicitud."
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid "The Sanitary Guide service returned an empty response for document %s."
+msgstr ""
+"El servicio de Guía Sanitaria devolvió una respuesta vacía para el "
+"documento %s."
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid "The Sanitary Guide service returned an error: %s"
+msgstr "El servicio de Guía Sanitaria devolvió un error: %s"
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide.py:0
+msgid "The service did not return a PDF for this guide."
+msgstr "El servicio no devolvió ningún PDF para esta guía."
+
+#. module: stock_sanitary_guide
+#: model:ir.model.constraint,message:stock_sanitary_guide.constraint_sanitary_guide_guide_number_unique
+msgid "This sanitary guide number is already registered."
+msgstr "Este número de guía sanitaria ya está registrado."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "To Review"
+msgstr "Por Revisar"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_lot_capture_zone_origin__needs_review
+msgid ""
+"True when this origin's own zone(s) no longer match its sanitary guide's "
+"current data"
+msgstr ""
+"Verdadero cuando la(s) propia(s) zona(s) de este origen ya no "
+"coincide(n) con los datos actuales de su guía sanitaria"
+
+#. module: stock_sanitary_guide
+#. odoo-python
+#: code:addons/stock_sanitary_guide/models/sanitary_guide_sync.py:0
+msgid ""
+"Unexpected response from the Sanitary Guide service (got '%s', expected "
+"'documento')."
+msgstr ""
+"Respuesta inesperada del servicio de Guía Sanitaria (se obtuvo '%s', se "
+"esperaba 'documento')."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid "User"
+msgstr "Usuario"
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.res_config_settings_view_form_sanitary_guide
+msgid ""
+"User sent inside each request, identifying who is querying the document"
+msgstr ""
+"Usuario enviado dentro de cada solicitud, que identifica quién consulta "
+"el documento"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,field_description:stock_sanitary_guide.field_sanitary_guide__version_number
+msgid "Version"
+msgstr "Versión"
+
+#. module: stock_sanitary_guide
+#: model:ir.model.fields,help:stock_sanitary_guide.field_res_config_settings__sanitary_guide_api_url
+msgid "WSDL endpoint of the Xunta de Galicia destinosService."
+msgstr "Endpoint WSDL del destinosService de la Xunta de Galicia."
+
+#. module: stock_sanitary_guide
+#: model_terms:ir.ui.view,arch_db:stock_sanitary_guide.view_sanitary_guide_form
+msgid "Zones"
+msgstr "Zonas"

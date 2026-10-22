@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="capture_zone_state_undetermined" model="intecmar.capture.zone.state.mapping">
+        <field name="external_label">Indeterminate</field>
+        <field name="blocks_extraction" eval="True"/>
+    </record>
+
+</odoo>
