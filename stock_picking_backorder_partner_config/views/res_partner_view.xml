@@ -1,0 +1,17 @@
+<odoo>
+
+    <record id="view_partner_stock_form" model="ir.ui.view">
+        <field name="name">res.partner.stock.property.form.inherit (stock_picking_backorder_partner_config)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="stock.view_partner_stock_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='inventory']" position="after">
+                <group name="res_partner_backorder_config" colspan="2">
+                    <field name="create_partial_reception" required="1"/>
+                    <field name="create_partial_delivery" required="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
