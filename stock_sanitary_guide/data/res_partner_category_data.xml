@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_tag_created_from_guide" model="res.partner.category">
+        <field name="name">Created from Guide</field>
+    </record>
+
+</odoo>

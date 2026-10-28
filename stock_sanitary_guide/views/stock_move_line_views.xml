@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_stock_move_line_detailed_operation_tree_sanitary_guide" model="ir.ui.view">
+        <field name="name">stock.move.line.detailed.operation.tree.sanitary.guide</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_biological_zone.view_stock_move_line_detailed_operation_tree_biological_zone"/>
+        <field name="arch" type="xml">
+            <field name="biological_zone_id" position="after">
+                <field name="sanitary_guide_id" readonly="1" optional="show"/>
+                <button name="action_open_sanitary_guide_wizard" type="object"
+                    icon="fa-search" string="Guía"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_move_operations_sanitary_guide" model="ir.ui.view">
+        <field name="name">stock.move.operations.sanitary.guide</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_biological_zone.view_stock_move_operations_biological_zone"/>
+        <field name="arch" type="xml">
+            <field name="biological_zone_id" position="after">
+                <field name="sanitary_guide_id" readonly="1" optional="show"/>
+                <button name="action_open_sanitary_guide_wizard" type="object"
+                    icon="fa-search" string="Guía"
+                    invisible="not product_subject_to_zone_control or picking_code != 'incoming'"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

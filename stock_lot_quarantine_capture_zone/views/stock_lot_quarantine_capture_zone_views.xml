@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_toxin_control_root"
+        name="Toxin Control"
+        parent="stock.menu_stock_inventory_control"
+        sequence="120"/>
+
+    <menuitem id="menu_stock_lot_toxin_pending"
+        name="Toxin Block - Pending Review"
+        parent="menu_toxin_control_root"
+        action="action_stock_lot_toxin_pending"
+        sequence="10"/>
+
+</odoo>
