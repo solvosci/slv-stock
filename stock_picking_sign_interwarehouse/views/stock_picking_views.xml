@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_picking_form_sign_interwarehouse" model="ir.ui.view">
+        <field name="name">stock.picking.form (sign_interwarehouse)</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="picking_type_code" position="after">
+                <field name="is_interwarehouse" invisible="1"/>
+            </field>
+
+            <xpath expr="//widget[@name='signature'][@highlight='1']" position="attributes">
+                <!-- Old: invisible="not id or picking_type_code != 'outgoing' or state != 'done'" -->
+                <attribute name="invisible">not id or (picking_type_code != 'outgoing' and not is_interwarehouse) or state != 'done'</attribute>
+            </xpath>
+
+            <xpath expr="//widget[@name='signature'][not(@highlight)]" position="attributes">
+                <!-- Old: invisible="not id or picking_type_code != 'outgoing' or state == 'done'" -->
+                <attribute name="invisible">not id or (picking_type_code != 'outgoing' and not is_interwarehouse) or state == 'done'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
