@@ -1,0 +1,16 @@
+<odoo>
+    <record id="stock_picking_to_batch_form" model="ir.ui.view">
+        <field name="name">stock.picking.to.batch.form (in stock_picking_batch_delivery_carrier)</field>
+        <field name="model">stock.picking.to.batch</field>
+        <field name="inherit_id" ref="stock_picking_batch.stock_picking_to_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='batch_id']" position="attributes">
+                <attribute name="context">{'show_carrier_in_batch_display': True}</attribute>
+            </xpath>
+            <!-- TO DO: Filter batch_id by carrier_id -->
+            <!-- <xpath expr="//field[@name='batch_id']" position="attributes">
+                <attribute name="domain">[('carrier_id', '=', carrier_id)]</attribute>
+            </xpath> -->
+        </field>
+    </record>
+</odoo>
