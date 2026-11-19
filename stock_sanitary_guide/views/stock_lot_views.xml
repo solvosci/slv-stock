@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_production_lot_form_sanitary_guide" model="ir.ui.view">
+        <field name="name">stock.production.lot.form.sanitary.guide</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_biological_zone.view_production_lot_form_biological_zone"/>
+        <field name="arch" type="xml">
+            <field name="sanitary_state" position="after">
+                <field name="sanitary_guide_id" readonly="1"/>
+                <field name="needs_review" invisible="not sanitary_guide_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

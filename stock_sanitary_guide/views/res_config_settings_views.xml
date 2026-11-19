@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_sanitary_guide" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.sanitary.guide</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='stock']" position="inside">
+                <block title="Sanitary Guide (Pesca de Galicia)" name="sanitary_guide_setting_container">
+                    <setting id="sanitary_guide_api_setting">
+                        <field name="sanitary_guide_api_url" placeholder="https://www.pescadegalicia.gal/webservicespescadegalicia/ws/v1/destinosService?wsdl"/>
+                    </setting>
+                    <setting id="sanitary_guide_api_auth_setting"
+                        string="HTTP Auth Credentials"
+                        groups="stock_sanitary_guide.group_api_credentials_manager">
+                        <div class="content-group">
+                            <div class="row">
+                                <label string="User" for="sanitary_guide_api_auth_user" class="col-lg-4 o_light_label"/>
+                                <field name="sanitary_guide_api_auth_user"/>
+                            </div>
+                            <div class="row">
+                                <label string="Password" for="sanitary_guide_api_auth_password" class="col-lg-4 o_light_label"/>
+                                <field name="sanitary_guide_api_auth_password" password="True"/>
+                            </div>
+                        </div>
+                    </setting>
+                    <setting id="sanitary_guide_api_body_setting"
+                        string="Request Body Credentials"
+                        groups="stock_lot_quarantine.group_purification_manager">
+                        <div class="content-group">
+                            <div class="row">
+                                <label string="User" for="sanitary_guide_api_user" class="col-lg-4 o_light_label"/>
+                                <field name="sanitary_guide_api_user"/>
+                            </div>
+                            <div class="row">
+                                <label string="Password" for="sanitary_guide_api_password" class="col-lg-4 o_light_label"/>
+                                <field name="sanitary_guide_api_password" password="True"/>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

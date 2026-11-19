@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_sync_zone_catalog" model="ir.cron">
+        <field name="name">Sync Xunta zone catalog (capture + biological zones)</field>
+        <field name="model_id" ref="model_sanitary_guide_sync"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_sync_zone_catalog()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

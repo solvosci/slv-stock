@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_toxin_control_config_root"
+        name="Toxin Control"
+        parent="stock.menu_stock_config_settings"
+        sequence="20"/>
+
+    <menuitem id="menu_capture_zone"
+        name="Capture Zones"
+        parent="menu_toxin_control_config_root"
+        action="action_capture_zone"
+        sequence="10"/>
+
+    <menuitem id="menu_capture_product_type"
+        name="Product Types"
+        parent="menu_toxin_control_config_root"
+        action="action_capture_product_type"
+        sequence="20"/>
+
+    <menuitem id="menu_capture_zone_state_mapping"
+        name="States"
+        parent="menu_toxin_control_config_root"
+        action="action_capture_zone_state_mapping"
+        sequence="25"/>
+
+    <menuitem id="menu_capture_zone_status_history"
+        name="Zone History"
+        parent="menu_toxin_control_config_root"
+        action="action_capture_zone_status_history"
+        sequence="30"/>
+
+</odoo>

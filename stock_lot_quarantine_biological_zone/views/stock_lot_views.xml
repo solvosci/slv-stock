@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_production_lot_form_biological_zone" model="ir.ui.view">
+        <field name="name">stock.production.lot.form.biological.zone</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock_lot_quarantine_capture_zone.view_production_lot_form_toxin_zone"/>
+        <field name="arch" type="xml">
+            <field name="status_external_label" position="after">
+                <field name="biological_zone_id"/>
+                <field name="sanitary_state" string="Sanitary Classification"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

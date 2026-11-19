@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_purification_root"
+        name="Purification"
+        parent="stock.menu_stock_inventory_control"
+        sequence="110"/>
+
+    <menuitem id="menu_stock_lot_purification"
+        name="Purification Tracking"
+        parent="menu_purification_root"
+        action="action_stock_lot_purification"
+        sequence="10"/>
+
+</odoo>
